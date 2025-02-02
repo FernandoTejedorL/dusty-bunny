@@ -9,3 +9,4 @@ export const COLORS = {
 	card: '#F4F1FF',
 	white: '#FFFFFF'
 };
+
