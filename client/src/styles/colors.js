@@ -7,7 +7,5 @@ export const COLORS = {
 	turquoise: '#AEF8ED',
 	container: '#D9D2EF',
 	card: '#F4F1FF',
-	white: '#FFFFFF',
-    black: '#000000'
+	white: '#FFFFFF'
 };
-
