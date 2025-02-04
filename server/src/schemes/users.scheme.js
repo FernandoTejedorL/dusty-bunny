@@ -8,6 +8,7 @@ const UserSceheme = mongoose.Schema(
     email: String,
     favs: String,
     orders: String,
+    vendor: Boolean,
   },
   { collection: 'users' }
 );
