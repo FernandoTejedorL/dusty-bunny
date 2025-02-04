@@ -1,16 +1,138 @@
-const path = require('path');
-const fs = require('fs');
-const pathFile = path.resolve(__dirname, '../../data/fluffs.json');
+const ProductModel = require('../models/product.model');
 const fluffsController = {};
 
-fluffsController.getAllFluffs = (req, res) => {
-  fs.readFile(pathFile, (error, data) => {
-    if (error) {
-      return res.status(500).json({ error: 'Error reading file' });
+fluffsController.getAllProducts = async (req, res) => {
+  try {
+    const allFluffs = await ProductModel.find();
+    return res.status(200).json(allFluffs);
+  } catch (error) {
+    return res.status(500).json({ error: 'Error reading database' + error });
+  }
+};
+
+fluffsController.getProductsById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const product = await ProductModel.findById(id);
+    if (!product) {
+      return res.status(404).json({ error: 'Fluff not found' });
     }
-    const jsonData = JSON.parse(data);
-    return res.status(200).json(jsonData);
-  });
+    return res.status(200).json(product);
+  } catch (error) {
+    return res.status(500).json({ error: 'Error reading database' + error });
+  }
+};
+
+fluffsController.getProductsBySize = async (req, res) => {
+  const { size } = req.params;
+  try {
+    const product = await ProductModel.find({ size: { $eq: size } });
+    if (!product) {
+      return res.status(200).json([]);
+    }
+    return res.status(200).json(product);
+  } catch (error) {
+    return res.status(500).json({ error: 'Error reading database' + error });
+  }
+};
+
+fluffsController.getProductsByDiet = async (req, res) => {
+  const { diet } = req.params;
+  try {
+    const product = await ProductModel.find({ diet: { $eq: diet } });
+    if (!product) {
+      return res.status(200).json([]);
+    }
+    return res.status(200).json(product);
+  } catch (error) {
+    return res.status(500).json({ error: 'Error reading database' + error });
+  }
+};
+
+fluffsController.getProductsByCategory = async (req, res) => {
+  const { category } = req.params;
+  try {
+    const product = await ProductModel.find({ category: { $eq: category } });
+    if (!product) {
+      return res.status(200).json([]);
+    }
+    return res.status(200).json(product);
+  } catch (error) {
+    return res.status(500).json({ error: 'Error reading database' + error });
+  }
+};
+
+fluffsController.getProductsByVendor = async (req, res) => {
+  const { vendor } = req.params;
+  try {
+    const product = await ProductModel.find({ vendor: { $eq: vendor } });
+    if (!product) {
+      return res.status(200).json([]);
+    }
+    return res.status(200).json(product);
+  } catch (error) {
+    return res.status(500).json({ error: 'Error reading database' + error });
+  }
+};
+
+fluffsController.getProductsByPrice = async (req, res) => {
+  const { start, end } = req.params;
+  try {
+    const product = await ProductModel.find({
+      price: { $gte: start, $lte: end },
+    });
+    if (!product) {
+      return res.status(200).json([]);
+    }
+    return res.status(200).json(product);
+  } catch (error) {
+    return res.status(500).json({ error: 'Error reading database' + error });
+  }
+};
+
+fluffsController.createProduct = async (req, res) => {
+  const productInfo = req.body;
+  const newProduct = new ProductModel({ ...productInfo });
+  try {
+    await newProduct.save();
+    const allProducts = await ProductModel.find();
+    return res.status(200).json(allProducts);
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ error: 'Error reading/writing database' + error });
+  }
+};
+
+fluffsController.updateProduct = async (req, res) => {
+  const { id } = req.params;
+  const newInfo = req.body;
+  try {
+    const productToUpdate = await ProductModel.findById(id);
+    if (!productToUpdate) {
+      return res.status(404).json({ error: 'Fluff not found' });
+    }
+    await ProductModel.updateOne({ _id: id }, { $set: { ...newInfo } });
+    const allProducts = await ProductModel.find();
+    return res.status(200).json(allProducts);
+  } catch (error) {
+    return res.status(500).json({ error: 'Error writing database' + error });
+  }
+};
+
+fluffsController.deleteProduct = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const productToDelete = ProductModel.findById(id);
+    if (!productToDelete) {
+      return res.status(404).json({ error: 'Fluff not found' });
+    }
+    await ProductModel.deleteOne({ _id: id });
+    const allProducts = await ProductModel.find();
+    return res.status(200).json(allProducts);
+  } catch (error) {
+    return res.status(500).json({ error: 'Error writing database' + error });
+  }
 };
 
 module.exports = fluffsController;

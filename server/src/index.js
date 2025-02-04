@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
-const port = 3000;
 const cors = require('cors');
+const mongoose = require('mongoose');
 const fluffsRoutes = require('./routes/fluffs.routes');
+require('dotenv').config();
 
 const corsOptions = {
   origin: '*', // Orígenes permitidos (cuando esté en un dominio real, lo cambiaremos por ese dominio)
@@ -14,6 +15,16 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/api/fluffs', fluffsRoutes);
 
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+const startServer = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URL);
+    console.log('Database Connected');
+  } catch (error) {
+    console.log('Connection Error', error);
+  }
+  app.listen(process.env.PORT, () => {
+    console.log(`Server is running on port ${process.env.PORT}`);
+  });
+};
+
+startServer();
