@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import './normalize.css';
+import { FONT_FAMILY } from './fonts';
 export const GlobalStyles = createGlobalStyle`
     *,
     *::after,
@@ -25,7 +26,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body{
-        font-family: sans-serif;
+        font-family: ${FONT_FAMILY.grandstander};
         margin: 0;
     }
 

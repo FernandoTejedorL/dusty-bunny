@@ -1,7 +1,7 @@
 export const FONT_FAMILY = {
-	chewy: 'font-family: "Chewy", serif;',
-	pacifico: 'font-family: "Pacifico", serif;',
-	grandstander: 'font-family: "Grandstander", serif;'
+	chewy: '"Chewy", serif;',
+	pacifico: '"Pacifico", serif;',
+	grandstander: '"Grandstander", serif;'
 };
 
 export const FONT_WEIGHT = {
