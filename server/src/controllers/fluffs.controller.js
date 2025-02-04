@@ -1,9 +1,9 @@
 const path = require('path');
 const fs = require('fs');
-const pathFile = path.resolve(__dirname, '../../data/users.json');
-const usersController = {};
+const pathFile = path.resolve(__dirname, '../../data/fluffs.json');
+const fluffsController = {};
 
-usersController.getAllUsers = (req, res) => {
+fluffsController.getAllFluffs = (req, res) => {
   fs.readFile(pathFile, (error, data) => {
     if (error) {
       return res.status(500).json({ error: 'Error reading file' });
@@ -13,4 +13,4 @@ usersController.getAllUsers = (req, res) => {
   });
 };
 
-module.exports = usersController;
+module.exports = fluffsController;

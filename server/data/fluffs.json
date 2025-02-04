@@ -1,0 +1,92 @@
+[
+  {
+    "image": "/assets/images/products/animals/cat.jpg",
+    "name": "Cat Fluff",
+    "size": "M",
+    "diet": "Carnivore",
+    "category": "Animals",
+    "price": 19.99,
+    "description": "Purr-fectly fluffy and always ready to nap on your keyboard."
+  },
+  {
+    "image": "/assets/images/products/animals/dog.jpg",
+    "name": "Dog Fluff",
+    "size": "L",
+    "diet": "Omnivore",
+    "category": "Animals",
+    "price": 22.49,
+    "description": "Loyal, playful, and sheds everywhere. Just like a real dog!"
+  },
+  {
+    "image": "/assets/images/products/animals/lizard.jpg",
+    "name": "Lizard Fluff",
+    "size": "S",
+    "diet": "Carnivore",
+    "category": "Animals",
+    "price": 14.99,
+    "description": "Rare and exotic, this fluff enjoys basking under the sun lamp."
+  },
+  {
+    "image": "/assets/images/products/animals/fish.jpg",
+    "name": "Fish Fluff",
+    "size": "S",
+    "diet": "Omnivore",
+    "category": "Animals",
+    "price": 12.99,
+    "description": "Silent, elegant, and never needs water. A low-maintenance companion!"
+  },
+  {
+    "image": "/assets/images/products/animals/lion.jpg",
+    "name": "Lion Fluff",
+    "size": "XL",
+    "diet": "Carnivore",
+    "category": "Animals",
+    "price": 32.99,
+    "description": "The king of the jungle, now available in ultra-soft form."
+  },
+  {
+    "image": "/assets/images/products/animals/goat.jpg",
+    "name": "Goat Fluff",
+    "size": "M",
+    "diet": "Herbivore",
+    "category": "Animals",
+    "price": 18.49,
+    "description": "Baaaah-utifully fluffy and loves chewing on imaginary tin cans."
+  },
+  {
+    "image": "/assets/images/products/animals/hen.jpg",
+    "name": "Hen Fluff",
+    "size": "S",
+    "diet": "Omnivore",
+    "category": "Animals",
+    "price": 15.99,
+    "description": "Cluck-tastic! It won’t lay eggs, but it’s still adorable."
+  },
+  {
+    "image": "/assets/images/products/animals/elephant.jpg",
+    "name": "Elephant Fluff",
+    "size": "XL",
+    "diet": "Herbivore",
+    "category": "Animals",
+    "price": 36.99,
+    "description": "Massive yet soft, with an excellent memory for cuddles."
+  },
+  {
+    "image": "/assets/images/products/special/unicorn.jpg",
+    "name": "Unicorn Fluff",
+    "size": "M",
+    "diet": "Herbivore",
+    "category": "Special",
+    "price": 29.99,
+    "description": "Magical, sparkly, and sheds rainbows. A must-have!"
+  },
+  {
+    "image": "/assets/images/products/special/spider.jpg",
+    "name": "Spider Fluff",
+    "size": "S",
+    "diet": "Carnivore",
+    "category": "Special",
+    "price": 17.49,
+    "description": "Eight-legged but still cuddly. No webs included!"
+  }
+]
