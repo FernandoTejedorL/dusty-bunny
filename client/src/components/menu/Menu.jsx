@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
+import { StyledUl } from './menu.styles';
 
 const Menu = () => {
 	return (
 		<div>
 			<nav>
-				<ul>
+				<StyledUl>
 					<NavLink to={'/'}>Home</NavLink>
 					<NavLink to={'/register'}>Register</NavLink>
 					<NavLink to={'/login'}>Login</NavLink>
@@ -16,7 +17,7 @@ const Menu = () => {
 					<NavLink to={'/vendor'}>Vendor Page</NavLink>
 					<NavLink to={'/sales'}>Sales</NavLink>
 					<NavLink to={'/seller'}>My Shop</NavLink>
-				</ul>
+				</StyledUl>
 			</nav>
 		</div>
 	);
