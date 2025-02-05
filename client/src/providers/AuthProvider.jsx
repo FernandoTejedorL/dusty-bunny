@@ -7,6 +7,7 @@ const AuthProvider = ({ children }) => {
 	const [loading, setLoading] = useState(true);
 	const [permission, setPermission] = useState(false);
 	console.log(user);
+	console.log(permission);
 	useEffect(() => {
 		const unsubscribeAuth = auth.onAuthStateChanged(user => {
 			if (user) {
