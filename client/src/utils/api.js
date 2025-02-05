@@ -28,4 +28,10 @@ const createData = async (newUser, setMailOk) => {
 	}
 };
 
-export { getAllData, createData };
+const findData = async id => {
+	const response = await fetch(URL + API_URL + id);
+	const user = await response.json();
+	return user;
+};
+
+export { getAllData, createData, findData };
