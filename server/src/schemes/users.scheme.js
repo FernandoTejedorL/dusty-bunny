@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const UserSceheme = mongoose.Schema(
   {
+    _id: String,
     name: String,
     surname: String,
     address: String,

@@ -54,14 +54,20 @@ const registerUser = async (event, navigate) => {
 	const email = event.target.email.value;
 	const password = event.target.password.value;
 	try {
+		const firebaseUser = await createUserWithEmailAndPassword(
+			auth,
+			email,
+			password
+		);
+		console.log(firebaseUser.user.uid);
 		const newUser = {
+			_id: firebaseUser.user.uid,
 			name: event.target.name.value,
 			surname: event.target.surname.value,
 			address: event.target.address.value,
 			email: event.target.email.value,
 			vendor: event.target.profile.value
 		};
-		await createUserWithEmailAndPassword(auth, email, password);
 		await createData(newUser);
 		console.log('User Registered');
 		event.target.reset();
