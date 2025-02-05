@@ -12,6 +12,9 @@ import Shop from '../pages/shop/Shop';
 import UserPage from '../pages/userPage/UserPage';
 import VendorPage from '../pages/vendorPage/VendorPage';
 import VendorShop from '../pages/vendorShop/VendorShop';
+import ProtectedRoute from './ProtectedRoutes';
+import ProtectedVendorRoute from './ProtectedVendorRoutes';
+import ProtectedUserRoute from './ProtectedUserRoutes';
 
 const Router = () => {
 	return (
@@ -22,13 +25,19 @@ const Router = () => {
 				<Route path='register' element={<Register />} />
 				<Route path='login' element={<Login />} />
 				<Route path='shop' element={<Shop />} />
-				<Route path='product' element={<Product />} />
-				<Route path='user' element={<UserPage />} />
-				<Route path='orders' element={<Orders />} />
-				<Route path='cart' element={<CartPage />} />
-				<Route path='vendor' element={<VendorPage />} />
-				<Route path='sales' element={<SalesPage />} />
-				<Route path='seller' element={<VendorShop />} />
+				<Route element={<ProtectedRoute />}>
+					<Route element={<ProtectedVendorRoute />}>
+						<Route path='vendor' element={<VendorPage />} />
+						<Route path='sales' element={<SalesPage />} />
+						<Route path='seller' element={<VendorShop />} />
+					</Route>
+					<Route element={<ProtectedUserRoute />}>
+						<Route path='user' element={<UserPage />} />
+						<Route path='orders' element={<Orders />} />
+						<Route path='cart' element={<CartPage />} />
+					</Route>
+					<Route path='product' element={<Product />} />
+				</Route>
 			</Route>
 		</Routes>
 	);
