@@ -1,22 +1,19 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../config/firebase.config';
-import { createData, findData } from '../../utils/api';
+import { createData } from '../../utils/api';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { AuthContext } from '../../contexts/Auth.context';
 import { StyledRegisterForm } from './register.styles';
+import { useAuth } from '../../hooks/useAuth';
 
 const Register = () => {
 	const navigate = useNavigate();
-	const { user, loading, setPermission } = useContext(AuthContext);
+	const { user, loading } = useAuth();
 	console.log(user);
 	if (loading) return <h2>Loading...</h2>;
 	return (
 		<div>
 			<h2>REGISTER</h2>
-			<StyledRegisterForm
-				onSubmit={event => registerUser(event, navigate, setPermission)}
-			>
+			<StyledRegisterForm onSubmit={event => registerUser(event, navigate)}>
 				<div>
 					<label htmlFor='name'>Name</label>
 					<input type='text' name='name' placeholder='Name' />
@@ -51,7 +48,7 @@ const Register = () => {
 	);
 };
 
-const registerUser = async (event, navigate, setPermission) => {
+const registerUser = async (event, navigate) => {
 	event.preventDefault();
 	const email = event.target.email.value;
 	const password = event.target.password.value;
@@ -72,8 +69,6 @@ const registerUser = async (event, navigate, setPermission) => {
 		};
 		await createData(newUser);
 		console.log('User Registered');
-		const permissions = await findData(firebaseUser.user.uid);
-		setPermission(permissions.vendor);
 		event.target.reset();
 		navigate('/');
 	} catch (error) {

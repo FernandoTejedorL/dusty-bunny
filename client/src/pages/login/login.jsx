@@ -1,12 +1,11 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../config/firebase.config';
 import { useNavigate } from 'react-router-dom';
-import { useContext } from 'react';
-import { AuthContext } from '../../contexts/Auth.context';
+import { useAuth } from '../../hooks/useAuth';
 
 const Login = () => {
 	const navigate = useNavigate();
-	const { user, loading } = useContext(AuthContext);
+	const { user, loading } = useAuth();
 	console.log(user);
 	if (loading) return <h2>Loading...</h2>;
 	return (

@@ -1,10 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import { StyledUl } from './menu.styles';
-import { useContext } from 'react';
-import { AuthContext } from '../../contexts/Auth.context';
+import { useAuth } from '../../hooks/useAuth';
 
 const Menu = () => {
-	const { user, permission } = useContext(AuthContext);
+	const { user, loading } = useAuth();
+	console.log(user?.vendor);
+	if (loading) return <h2>LOADING...</h2>;
 	return (
 		<div>
 			<nav>
@@ -18,14 +19,16 @@ const Menu = () => {
 						</>
 					)}
 					{user && <NavLink to={'/product'}>Product</NavLink>}
-					{!permission && user && (
+
+					{user && !user?.vendor && (
 						<>
 							<NavLink to={'/user'}>User Page</NavLink>
 							<NavLink to={'/orders'}>My Orders</NavLink>
 							<NavLink to={'/cart'}>Cart</NavLink>
 						</>
 					)}
-					{permission && (
+
+					{user && user?.vendor && (
 						<>
 							<NavLink to={'/vendor'}>Vendor Page</NavLink>
 							<NavLink to={'/sales'}>Sales</NavLink>

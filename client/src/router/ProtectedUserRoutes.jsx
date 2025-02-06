@@ -1,11 +1,10 @@
-import { useContext } from 'react';
-import { AuthContext } from '../contexts/Auth.context';
 import { Navigate, Outlet } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 
 const ProtectedUserRoute = () => {
-	const { permission } = useContext(AuthContext);
+	const { user } = useAuth();
 
-	if (permission) return <Navigate to='/' replace />;
+	if (user?.vendor) return <Navigate to='/' replace />;
 
 	return <Outlet />;
 };
