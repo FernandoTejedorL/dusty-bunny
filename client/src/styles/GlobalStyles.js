@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import './normalize.css';
 import { FONT_FAMILY } from './fonts';
+import { COLORS } from './colors';
 export const GlobalStyles = createGlobalStyle`
     *,
     *::after,
@@ -28,6 +29,7 @@ export const GlobalStyles = createGlobalStyle`
     body{
         font-family: ${FONT_FAMILY.grandstander};
         margin: 0;
+        color: ${COLORS.dark}
     }
 
 `;

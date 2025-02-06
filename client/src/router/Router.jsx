@@ -14,6 +14,7 @@ import VendorPage from '../pages/vendorPage/VendorPage';
 import VendorShop from '../pages/vendorShop/VendorShop';
 import ProtectedVendorRoute from './ProtectedVendorRoutes';
 import ProtectedUserRoute from './ProtectedUserRoutes';
+import ProtectedRoute from './ProtectedRoutes';
 
 const Router = () => {
 	return (
@@ -35,7 +36,9 @@ const Router = () => {
 					<Route path='orders' element={<Orders />} />
 					<Route path='cart' element={<CartPage />} />
 				</Route>
-				<Route path='product' element={<Product />} />
+				<Route element={<ProtectedRoute />}>
+					<Route path='product' element={<Product />} />
+				</Route>
 			</Route>
 		</Routes>
 	);

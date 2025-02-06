@@ -1,44 +1,63 @@
-import { NavLink } from 'react-router-dom';
-import { StyledUl } from './menu.styles';
+import {
+	StyledButton,
+	StyledButtonsContainer,
+	StyledLogOutButton,
+	StyledMenu,
+	StyledNavLink,
+	StyledUl
+} from './menu.styles';
 import { useAuth } from '../../hooks/useAuth';
+import { Link } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../config/firebase.config';
 
-const Menu = () => {
+const Menu = ({ menuOpen, setMenuOpen }) => {
 	const { user, loading } = useAuth();
 	console.log(user?.vendor);
 	if (loading) return <h2>LOADING...</h2>;
 	return (
-		<div>
+		<StyledMenu $showMenu={menuOpen} onClick={() => setMenuOpen(false)}>
 			<nav>
 				<StyledUl>
-					<NavLink to={'/'}>Home</NavLink>
-					<NavLink to={'/shop'}>Shop</NavLink>
+					<StyledNavLink to={'/'}>Home</StyledNavLink>
+					<StyledNavLink to={'/shop'}>Shop</StyledNavLink>
 					{!user && (
-						<>
-							<NavLink to={'/login'}>Login</NavLink>
-							<NavLink to={'/register'}>Register</NavLink>
-						</>
+						<StyledButtonsContainer>
+							<Link to={'/login'}>
+								<StyledButton>Sign In</StyledButton>
+							</Link>
+							<Link to={'/register'}>
+								<StyledButton>Register</StyledButton>
+							</Link>
+						</StyledButtonsContainer>
 					)}
-					{user && <NavLink to={'/product'}>Product</NavLink>}
 
 					{user && !user?.vendor && (
 						<>
-							<NavLink to={'/user'}>User Page</NavLink>
-							<NavLink to={'/orders'}>My Orders</NavLink>
-							<NavLink to={'/cart'}>Cart</NavLink>
+							<StyledNavLink to={'/user'}>User Page</StyledNavLink>
+							<StyledNavLink to={'/orders'}>My Orders</StyledNavLink>
+							<StyledNavLink to={'/cart'}>Cart</StyledNavLink>
 						</>
 					)}
 
 					{user && user?.vendor && (
 						<>
-							<NavLink to={'/vendor'}>Vendor Page</NavLink>
-							<NavLink to={'/sales'}>Sales</NavLink>
-							<NavLink to={'/seller'}>My Shop</NavLink>
+							<StyledNavLink to={'/vendor'}>Vendor Page</StyledNavLink>
+							<StyledNavLink to={'/sales'}>Sales</StyledNavLink>
+							<StyledNavLink to={'/seller'}>My Shop</StyledNavLink>
 						</>
+					)}
+					{user && (
+						<StyledLogOutButton onClick={logout}>Log Out</StyledLogOutButton>
 					)}
 				</StyledUl>
 			</nav>
-		</div>
+		</StyledMenu>
 	);
+};
+
+const logout = async () => {
+	await signOut(auth);
 };
 
 export default Menu;
