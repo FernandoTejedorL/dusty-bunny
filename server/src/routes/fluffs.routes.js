@@ -12,5 +12,7 @@ fluffsRoutes.get('/price/:start/:end', fluffsController.getProductsByPrice);
 fluffsRoutes.post('/', fluffsController.createProduct);
 fluffsRoutes.patch('/:id', fluffsController.updateProduct);
 fluffsRoutes.delete('/:id', fluffsController.deleteProduct);
+fluffsRoutes.post('/many', fluffsController.createManyProducts);
+fluffsRoutes.delete('/many/:price', fluffsController.deleteManyProducts);
 
 module.exports = fluffsRoutes;

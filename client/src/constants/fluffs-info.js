@@ -6,7 +6,10 @@ export const FLUFFS_INFO = [
 		diet: 'Carnivore',
 		category: 'Animals',
 		price: 19.99,
-		description: 'Purr-fectly fluffy and always ready to nap on your keyboard.'
+		description: 'Purr-fectly fluffy and always ready to nap on your keyboard.',
+		fav: 0,
+		ordered: 0,
+		vendor: ''
 	},
 	{
 		image: '/assets/images/products/animals/dog.jpg',
@@ -15,7 +18,10 @@ export const FLUFFS_INFO = [
 		diet: 'Omnivore',
 		category: 'Animals',
 		price: 22.49,
-		description: 'Loyal, playful, and sheds everywhere. Just like a real dog!'
+		description: 'Loyal, playful, and sheds everywhere. Just like a real dog!',
+		fav: 0,
+		ordered: 0,
+		vendor: ''
 	},
 	{
 		image: '/assets/images/products/animals/lizard.jpg',
@@ -25,7 +31,10 @@ export const FLUFFS_INFO = [
 		category: 'Animals',
 		price: 14.99,
 		description:
-			'Rare and exotic, this fluff enjoys basking under the sun lamp.'
+			'Rare and exotic, this fluff enjoys basking under the sun lamp.',
+		fav: 0,
+		ordered: 0,
+		vendor: ''
 	},
 	{
 		image: '/assets/images/products/animals/fish.jpg',
@@ -35,7 +44,10 @@ export const FLUFFS_INFO = [
 		category: 'Animals',
 		price: 12.99,
 		description:
-			'Silent, elegant, and never needs water. A low-maintenance companion!'
+			'Silent, elegant, and never needs water. A low-maintenance companion!',
+		fav: 0,
+		ordered: 0,
+		vendor: ''
 	},
 	{
 		image: '/assets/images/products/animals/lion.jpg',
@@ -44,7 +56,10 @@ export const FLUFFS_INFO = [
 		diet: 'Carnivore',
 		category: 'Animals',
 		price: 32.99,
-		description: 'The king of the jungle, now available in ultra-soft form.'
+		description: 'The king of the jungle, now available in ultra-soft form.',
+		fav: 0,
+		ordered: 0,
+		vendor: ''
 	},
 	{
 		image: '/assets/images/products/animals/goat.jpg',
@@ -54,7 +69,10 @@ export const FLUFFS_INFO = [
 		category: 'Animals',
 		price: 18.49,
 		description:
-			'Baaaah-utifully fluffy and loves chewing on imaginary tin cans.'
+			'Baaaah-utifully fluffy and loves chewing on imaginary tin cans.',
+		fav: 0,
+		ordered: 0,
+		vendor: ''
 	},
 	{
 		image: '/assets/images/products/animals/hen.jpg',
@@ -63,7 +81,10 @@ export const FLUFFS_INFO = [
 		diet: 'Omnivore',
 		category: 'Animals',
 		price: 15.99,
-		description: 'Cluck-tastic! It won’t lay eggs, but it’s still adorable.'
+		description: 'Cluck-tastic! It won’t lay eggs, but it’s still adorable.',
+		fav: 0,
+		ordered: 0,
+		vendor: ''
 	},
 	{
 		image: '/assets/images/products/animals/elephant.jpg',

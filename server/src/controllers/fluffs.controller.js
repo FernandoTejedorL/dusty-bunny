@@ -104,6 +104,17 @@ fluffsController.createProduct = async (req, res) => {
   }
 };
 
+fluffsController.createManyProducts = async (req, res) => {
+  const productInfo = req.body;
+  try {
+    await ProductModel.insertMany(productInfo);
+    const allProducts = await ProductModel.find();
+    return res.status(200).json(allProducts);
+  } catch (error) {
+    return res.status(500).json({ error: 'Error writing database' + error });
+  }
+};
+
 fluffsController.updateProduct = async (req, res) => {
   const { id } = req.params;
   const newInfo = req.body;
@@ -128,6 +139,21 @@ fluffsController.deleteProduct = async (req, res) => {
       return res.status(404).json({ error: 'Fluff not found' });
     }
     await ProductModel.deleteOne({ _id: id });
+    const allProducts = await ProductModel.find();
+    return res.status(200).json(allProducts);
+  } catch (error) {
+    return res.status(500).json({ error: 'Error writing database' + error });
+  }
+};
+
+fluffsController.deleteManyProducts = async (req, res) => {
+  const { price } = req.params;
+  try {
+    const toDelete = ProductModel.find({ price: { $lt: price } });
+    if (!toDelete) {
+      return res.status(404).json({ error: 'Fluffs not found' });
+    }
+    await ProductModel.deleteMany({ price: { $lt: price } });
     const allProducts = await ProductModel.find();
     return res.status(200).json(allProducts);
   } catch (error) {
