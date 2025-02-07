@@ -26,5 +26,6 @@ const StyledBrand = styled.h1`
 const StyledIcon = styled.img`
 	width: 40px;
 	height: 40px;
+	cursor: pointer;
 `;
 export { StyledHeader, StyledLogo, StyledBrand, StyledIcon };

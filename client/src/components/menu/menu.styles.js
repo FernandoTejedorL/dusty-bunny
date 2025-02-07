@@ -8,7 +8,8 @@ const StyledMenu = styled.div`
 	top: 88px;
 	left: 0;
 	width: 100%;
-	background-image: url(/assets/images/common/menu-bg.jpg);
+	background-color: ${COLORS.lightViolet};
+	//background-image: url(/assets/images/common/bg-light.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	translate: ${({ $showMenu }) => ($showMenu ? '0' : '+100%')};
@@ -32,7 +33,7 @@ const StyledNavLink = styled(NavLink)`
 	border-bottom: 1px solid ${COLORS.dark};
 
 	&.active {
-		color: ${COLORS.lightViolet};
+		color: ${COLORS.white};
 		-webkit-text-stroke: 1px ${COLORS.white};
 	}
 
@@ -79,13 +80,14 @@ const StyledLogOutButton = styled.button`
 	width: 180px;
 	height: 34px;
 	border: 1px solid ${COLORS.dark};
-	background-color: ${COLORS.lightViolet};
+	background-color: ${COLORS.white};
 	border-radius: 0.5rem;
 	color: ${COLORS.dark};
 	font-weight: ${FONT_WEIGHT.bold};
 	letter-spacing: 0;
 	padding: 1.5625rem;
 	margin: 1.5625rem;
+	cursor: pointer;
 
 	@media (hover: hover) {
 		&:hover {
