@@ -8,5 +8,6 @@ const StyledSlide = styled(SwiperSlide)`
 	height: 100px;
 	width: 100px;
 	background-color: aliceblue;
+	margin-inline: auto;
 `;
 export { StyledSlide };

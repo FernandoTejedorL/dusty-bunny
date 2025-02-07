@@ -9,6 +9,7 @@ const StyledCarousel = styled.div`
 
 const StyledSwiper = styled(Swiper)`
 	width: 350px;
+	align-items: center;
 `;
 
 const NavigationButton = styled.button`

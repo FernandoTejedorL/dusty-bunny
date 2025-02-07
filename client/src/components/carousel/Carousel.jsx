@@ -1,9 +1,6 @@
 import { Navigation } from 'swiper/modules';
 import { SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
 import { useEffect, useRef, useState } from 'react';
-import { getAllProducts } from '../../utils/api';
 import ProductCard from '../productCard/ProductCard';
 import {
 	NavigationButton,
@@ -11,16 +8,16 @@ import {
 	StyledChevron,
 	StyledSwiper
 } from './carousel.styles';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { useAuth } from '../../hooks/useAuth';
 
 const Carousel = () => {
-	const [products, setProducs] = useState([]);
+	const { products } = useAuth();
 	const [slidesPerView, setSlidesPerView] = useState(getSlidesPerView());
 	const prevRef = useRef(null);
 	const nextRef = useRef(null);
 	const [swiperInstance, setSwiperInstance] = useState(null);
-	useEffect(() => {
-		fetchProducts(setProducs);
-	}, []);
 
 	useEffect(() => {
 		if (
@@ -60,6 +57,7 @@ const Carousel = () => {
 				slidesPerView={slidesPerView}
 				onSwiper={setSwiperInstance}
 				onSlideChange={() => console.log('slide change')}
+				centeredSlides={true}
 			>
 				{products.map(item => (
 					<SwiperSlide key={item._id}>
@@ -82,11 +80,6 @@ const getSlidesPerView = () => {
 	if (width < 768) return 1;
 	if (width < 1024) return 2;
 	if (width >= 1024) return 3;
-};
-
-const fetchProducts = async setProducs => {
-	const data = await getAllProducts();
-	setProducs(data);
 };
 
 export default Carousel;
