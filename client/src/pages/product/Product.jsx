@@ -1,8 +1,10 @@
+import WorkInProgress from '../../components/workInProgress/WorkInProgress';
+
 const Product = () => {
 	return (
 		<div>
 			<h2>Products Page</h2>
-			<img src='/assets/images/common/working.jpg' alt='' />
+			<WorkInProgress />
 		</div>
 	);
 };

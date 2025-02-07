@@ -2,6 +2,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../config/firebase.config';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import WorkInProgress from '../../components/workInProgress/WorkInProgress';
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -11,6 +12,7 @@ const Login = () => {
 	return (
 		<div>
 			<h2>LOGIN PAGE</h2>
+			<WorkInProgress />
 			<form onSubmit={event => loginUser(event, navigate)}>
 				<label htmlFor='email'>Email</label>
 				<input type='email' name='email' id='email' placeholder='email' />

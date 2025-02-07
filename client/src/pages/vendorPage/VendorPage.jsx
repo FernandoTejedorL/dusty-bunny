@@ -1,8 +1,10 @@
+import WorkInProgress from '../../components/workInProgress/WorkInProgress';
+
 const VendorPage = () => {
 	return (
 		<div>
 			<h2>Vendor Page</h2>
-			<img src='/assets/images/common/working.jpg' alt='' />
+			<WorkInProgress />
 		</div>
 	);
 };

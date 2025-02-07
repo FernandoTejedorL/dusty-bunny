@@ -1,3 +1,4 @@
+import WorkInProgress from '../../components/workInProgress/WorkInProgress';
 import { useAuth } from '../../hooks/useAuth';
 
 const UserPage = () => {
@@ -8,7 +9,7 @@ const UserPage = () => {
 	return (
 		<div>
 			<h2>{user?.name}</h2>
-			<img src='/assets/images/common/working.jpg' alt='' />
+			<WorkInProgress />
 		</div>
 	);
 };

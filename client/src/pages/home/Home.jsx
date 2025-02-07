@@ -1,9 +1,11 @@
+import WorkInProgress from '../../components/workInProgress/WorkInProgress';
+
 const Home = () => {
 	return (
 		<div>
 			<h2>HOME</h2>
 
-			<img src='/assets/images/common/working.jpg' alt='' />
+			<WorkInProgress />
 		</div>
 	);
 };

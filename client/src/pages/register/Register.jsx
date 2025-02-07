@@ -4,6 +4,7 @@ import { createData } from '../../utils/api';
 import { useNavigate } from 'react-router-dom';
 import { StyledRegisterForm } from './register.styles';
 import { useAuth } from '../../hooks/useAuth';
+import WorkInProgress from '../../components/workInProgress/WorkInProgress';
 
 const Register = () => {
 	const navigate = useNavigate();
@@ -13,6 +14,7 @@ const Register = () => {
 	return (
 		<div>
 			<h2>REGISTER</h2>
+			<WorkInProgress />
 			<StyledRegisterForm onSubmit={event => registerUser(event, navigate)}>
 				<div>
 					<label htmlFor='name'>Name</label>
