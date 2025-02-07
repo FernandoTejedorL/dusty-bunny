@@ -1,8 +1,15 @@
 const URL = 'http://localhost:3000';
 const API_URL = '/api/users/';
+const API_PRODUCTS_URL = '/api/fluffs/';
 
 const getAllData = async () => {
 	const response = await fetch(URL + API_URL);
+	const data = await response.json();
+	return data;
+};
+
+const getAllProducts = async () => {
+	const response = await fetch(URL + API_PRODUCTS_URL);
 	const data = await response.json();
 	return data;
 };
@@ -34,4 +41,4 @@ const findData = async id => {
 	return user;
 };
 
-export { getAllData, createData, findData };
+export { getAllData, getAllProducts, createData, findData };
