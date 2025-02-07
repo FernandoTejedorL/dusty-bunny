@@ -10,6 +10,10 @@ const StyledHeader = styled.header`
 	width: 100%;
 	padding: 1.0625rem;
 	border-bottom: 1px solid ${COLORS.dark};
+
+	@media screen and (width>=1024px) {
+		padding-inline: 2rem;
+	}
 `;
 
 const StyledLogo = styled.img`
@@ -21,11 +25,20 @@ const StyledBrand = styled.h1`
 	font-family: ${FONT_FAMILY.chewy};
 	font-size: ${FONT_SIZE.xl};
 	margin: 0;
+
+	@media screen and (width>=1024px) {
+		white-space: nowrap;
+		margin-inline: 2rem;
+	}
 `;
 
 const StyledIcon = styled.img`
 	width: 40px;
 	height: 40px;
 	cursor: pointer;
+
+	@media screen and (width>=1024px) {
+		display: none;
+	}
 `;
 export { StyledHeader, StyledLogo, StyledBrand, StyledIcon };

@@ -9,19 +9,35 @@ const StyledMenu = styled.div`
 	left: 0;
 	width: 100%;
 	background-color: ${COLORS.lightViolet};
-	//background-image: url(/assets/images/common/bg-light.jpg);
-	background-repeat: no-repeat;
-	background-size: cover;
 	translate: ${({ $showMenu }) => ($showMenu ? '0' : '+100%')};
 	transition: translate 0.3s;
 	border-bottom: 5px solid ${COLORS.dark};
 	border-radius: 0 0 8px 8px;
+
+	@media screen and (width>=1024px) {
+		position: relative;
+		background-color: transparent;
+		translate: 0;
+		top: 0;
+		border-bottom: none;
+		max-width: 100%;
+	}
 `;
 
 const StyledUl = styled.ul`
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
+
+	@media screen and (width>=1024px) {
+		flex-direction: row;
+		align-items: center;
+		gap: 2rem;
+		text-align: center;
+		margin-left: auto;
+		width: 100%;
+		justify-content: flex-end;
+	}
 `;
 
 const StyledNavLink = styled(NavLink)`
@@ -34,19 +50,35 @@ const StyledNavLink = styled(NavLink)`
 
 	&.active {
 		color: ${COLORS.white};
-		-webkit-text-stroke: 1px ${COLORS.white};
+	}
+
+	@media screen and (width>=1024px) {
+		padding: 0;
+		border-bottom: none;
+		letter-spacing: 0;
+		font-size: ${FONT_SIZE.s};
+
+		&.active {
+			color: ${COLORS.deepViolet};
+		}
 	}
 
 	@media (hover: hover) {
 		&:hover {
 			color: ${COLORS.white};
 		}
+
+		@media screen and (width>=1024px) {
+			&:hover {
+				color: ${COLORS.deepViolet};
+			}
+		}
 	}
 `;
 
 const StyledButtonsContainer = styled.div`
 	display: flex;
-	width: 100%;
+	max-width: 100%;
 	padding: 1.5625rem;
 	gap: 1.5625rem;
 `;
@@ -57,12 +89,13 @@ const StyledButton = styled.button`
 	align-items: center;
 	height: 34px;
 	border: 1px solid ${COLORS.dark};
-	background-color: ${COLORS.lightViolet};
+	background-color: ${COLORS.white};
 	border-radius: 0.5rem;
 	color: ${COLORS.dark};
 	font-weight: ${FONT_WEIGHT.bold};
 	letter-spacing: 0;
 	padding: 1.5625rem;
+	cursor: pointer;
 
 	@media (hover: hover) {
 		&:hover {
@@ -77,7 +110,7 @@ const StyledLogOutButton = styled.button`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 180px;
+	max-width: 180px;
 	height: 34px;
 	border: 1px solid ${COLORS.dark};
 	background-color: ${COLORS.white};
@@ -96,6 +129,10 @@ const StyledLogOutButton = styled.button`
 			border: 1px solid ${COLORS.white};
 		}
 	}
+
+	/* @media screen and (width>=1024px) {
+		margin-left: auto;
+	} */
 `;
 
 export {

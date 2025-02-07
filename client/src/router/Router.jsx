@@ -15,6 +15,8 @@ import VendorShop from '../pages/vendorShop/VendorShop';
 import ProtectedVendorRoute from './ProtectedVendorRoutes';
 import ProtectedUserRoute from './ProtectedUserRoutes';
 import ProtectedRoute from './ProtectedRoutes';
+import AboutUs from '../pages/aboutUs/AboutUs';
+import Contact from '../pages/contact/Contact';
 
 const Router = () => {
 	return (
@@ -25,7 +27,8 @@ const Router = () => {
 				<Route path='register' element={<Register />} />
 				<Route path='login' element={<Login />} />
 				<Route path='shop' element={<Shop />} />
-
+				<Route path='about' element={<AboutUs />} />
+				<Route path='contact' element={<Contact />} />
 				<Route element={<ProtectedVendorRoute />}>
 					<Route path='vendor' element={<VendorPage />} />
 					<Route path='sales' element={<SalesPage />} />

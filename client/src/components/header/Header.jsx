@@ -13,6 +13,7 @@ const Header = () => {
 		<StyledHeader>
 			<StyledLogo src='/assets/images/common/logo.png' alt='' />
 			<StyledBrand>Dusty Bunny</StyledBrand>
+
 			{!menuOpen && (
 				<StyledIcon
 					onClick={() => setMenuOpen(true)}
