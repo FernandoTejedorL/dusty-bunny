@@ -1,5 +1,5 @@
 import { Navigation } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { useEffect, useRef, useState } from 'react';
@@ -14,11 +14,37 @@ import {
 
 const Carousel = () => {
 	const [products, setProducs] = useState([]);
+	const [slidesPerView, setSlidesPerView] = useState(getSlidesPerView());
 	const prevRef = useRef(null);
 	const nextRef = useRef(null);
+	const [swiperInstance, setSwiperInstance] = useState(null);
 	useEffect(() => {
 		fetchProducts(setProducs);
 	}, []);
+
+	useEffect(() => {
+		if (
+			swiperInstance &&
+			swiperInstance.navigation &&
+			prevRef.current &&
+			nextRef.current
+		) {
+			swiperInstance.params.navigation.prevEl = prevRef.current;
+			swiperInstance.params.navigation.nextEl = nextRef.current;
+			swiperInstance.navigation.init();
+			swiperInstance.navigation.update();
+		}
+	}, [swiperInstance, prevRef.current, nextRef.current]);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setSlidesPerView(getSlidesPerView());
+		};
+
+		window.addEventListener('resize', handleResize);
+		return () => window.removeEventListener('resize', handleResize);
+	}, []);
+
 	console.log(products);
 	return (
 		<StyledCarousel>
@@ -31,19 +57,9 @@ const Carousel = () => {
 			<StyledSwiper
 				modules={[Navigation]}
 				spaceBetween={10}
-				slidesPerView={3}
-				navigation={{
-					prevEl: prevRef.current,
-					nextEl: nextRef.current
-				}}
-				onBeforeInit={swiper => {
-					swiper.params.navigation.prevEl = prevRef.current;
-					swiper.params.navigation.nextEl = nextRef.current;
-					swiper.navigation.init();
-					swiper.navigation.update();
-				}}
+				slidesPerView={slidesPerView}
+				onSwiper={setSwiperInstance}
 				onSlideChange={() => console.log('slide change')}
-				onSwiper={swiper => console.log(swiper)}
 			>
 				{products.map(item => (
 					<SwiperSlide key={item._id}>
@@ -59,6 +75,13 @@ const Carousel = () => {
 			</NavigationButton>
 		</StyledCarousel>
 	);
+};
+
+const getSlidesPerView = () => {
+	const width = window.innerWidth;
+	if (width < 768) return 1;
+	if (width < 1024) return 2;
+	if (width >= 1024) return 3;
 };
 
 const fetchProducts = async setProducs => {

@@ -4,7 +4,7 @@ import { Swiper } from 'swiper/react';
 const StyledCarousel = styled.div`
 	display: flex;
 	align-items: center;
-	gap: 0.5rem;
+	gap: 1rem;
 `;
 
 const StyledSwiper = styled(Swiper)`
