@@ -1,17 +1,13 @@
 import { useState } from 'react';
 import Menu from '../menu/Menu';
-import {
-	StyledBrand,
-	StyledHeader,
-	StyledIcon,
-	StyledLogo
-} from './header.styles';
+import { StyledBrand, StyledHeader, StyledIcon } from './header.styles';
+import Logo from '../logo/Logo';
 
 const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
 	return (
 		<StyledHeader>
-			<StyledLogo src='/assets/images/common/logo.png' alt='' />
+			<Logo />
 			<StyledBrand>Dusty Bunny</StyledBrand>
 
 			{!menuOpen && (

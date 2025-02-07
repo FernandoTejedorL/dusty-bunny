@@ -16,11 +16,6 @@ const StyledHeader = styled.header`
 	}
 `;
 
-const StyledLogo = styled.img`
-	width: 4.375rem;
-	height: 3.3125rem;
-`;
-
 const StyledBrand = styled.h1`
 	font-family: ${FONT_FAMILY.chewy};
 	font-size: ${FONT_SIZE.xl};
@@ -41,4 +36,4 @@ const StyledIcon = styled.img`
 		display: none;
 	}
 `;
-export { StyledHeader, StyledLogo, StyledBrand, StyledIcon };
+export { StyledHeader, StyledBrand, StyledIcon };
