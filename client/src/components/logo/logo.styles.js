@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledLogo = styled.img`
-	width: 4.375rem;
+	width: 70px;
 	height: 3.3125rem;
 `;
 

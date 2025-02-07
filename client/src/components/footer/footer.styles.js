@@ -4,15 +4,19 @@ import { FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
 import { Link } from 'react-router-dom';
 
 const StyledFooter = styled.footer`
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	border-top: 1px solid ${COLORS.dark};
 	padding: 1rem;
 	margin-top: 1rem;
+`;
 
+const StyledFooterToBig = styled.div`
 	@media screen and (width>=1024px) {
-		flex-direction: row;
+		display: flex;
+		align-items: center;
 	}
 `;
 
@@ -23,6 +27,7 @@ const StyledFooterTop = styled.div`
 
 	@media screen and (width>=1024px) {
 		flex-direction: column;
+		gap: 1rem;
 	}
 `;
 
@@ -36,6 +41,11 @@ const StyledFooterBot = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+
+	@media screen and (width>=1024px) {
+		width: 100%;
+		align-items: flex-end;
+	}
 `;
 
 const StyledLink = styled(Link)`
@@ -55,10 +65,15 @@ const StyledCopy = styled.p`
 	font-style: italic;
 	font-size: 0.8rem;
 	text-align: center;
+
+	@media screen and (width>=1024px) {
+		white-space: nowrap;
+	}
 `;
 
 export {
 	StyledFooter,
+	StyledFooterToBig,
 	StyledFooterTop,
 	StyledSocial,
 	StyledFooterBot,

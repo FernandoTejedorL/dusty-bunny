@@ -8,12 +8,18 @@ const StyledHeader = styled.header`
 	justify-content: space-between;
 	align-items: center;
 	width: 100%;
-	padding: 1.0625rem;
+	padding: 1rem;
 	border-bottom: 1px solid ${COLORS.dark};
 
 	@media screen and (width>=1024px) {
-		padding-inline: 2rem;
+		padding-inline: 1rem;
 	}
+`;
+
+const StyledBranding = styled.div`
+	display: flex;
+	align-items: center;
+	gap: 1rem;
 `;
 
 const StyledBrand = styled.h1`
@@ -23,7 +29,7 @@ const StyledBrand = styled.h1`
 
 	@media screen and (width>=1024px) {
 		white-space: nowrap;
-		margin-inline: 2rem;
+		margin-inline: 0rem;
 	}
 `;
 
@@ -36,4 +42,4 @@ const StyledIcon = styled.img`
 		display: none;
 	}
 `;
-export { StyledHeader, StyledBrand, StyledIcon };
+export { StyledHeader, StyledBranding, StyledBrand, StyledIcon };

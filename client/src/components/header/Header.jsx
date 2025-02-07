@@ -1,14 +1,21 @@
 import { useState } from 'react';
 import Menu from '../menu/Menu';
-import { StyledBrand, StyledHeader, StyledIcon } from './header.styles';
+import {
+	StyledBrand,
+	StyledBranding,
+	StyledHeader,
+	StyledIcon
+} from './header.styles';
 import Logo from '../logo/Logo';
 
 const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
 	return (
 		<StyledHeader>
-			<Logo />
-			<StyledBrand>Dusty Bunny</StyledBrand>
+			<StyledBranding>
+				<Logo />
+				<StyledBrand>Dusty Bunny</StyledBrand>
+			</StyledBranding>
 
 			{!menuOpen && (
 				<StyledIcon

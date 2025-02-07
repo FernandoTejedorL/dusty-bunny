@@ -20,7 +20,7 @@ const StyledMenu = styled.div`
 		translate: 0;
 		top: 0;
 		border-bottom: none;
-		max-width: 100%;
+		max-width: 70%;
 	}
 `;
 
