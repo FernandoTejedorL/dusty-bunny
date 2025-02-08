@@ -5,7 +5,7 @@ import { FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
 
 const StyledMenu = styled.div`
 	position: fixed;
-	top: 88px;
+	top: 86px;
 	left: 0;
 	width: 100%;
 	background-color: ${COLORS.lightViolet};
@@ -13,6 +13,7 @@ const StyledMenu = styled.div`
 	transition: translate 0.3s;
 	border-bottom: 5px solid ${COLORS.dark};
 	border-radius: 0 0 8px 8px;
+	z-index: 10;
 
 	@media screen and (width>=1024px) {
 		position: relative;

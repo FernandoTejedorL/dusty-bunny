@@ -16,15 +16,17 @@ const Home = () => {
 			</div>
 			<div>
 				<h4>Our community speaks...</h4>
-				{OPINIONS.map(item => (
-					<CommentCard
-						key={item.id}
-						name={item.name}
-						comment={item.comment}
-						type={item.type}
-						image={item.image}
-					/>
-				))}
+				<div>
+					{OPINIONS.map(item => (
+						<CommentCard
+							key={item.id}
+							name={item.name}
+							comment={item.comment}
+							type={item.type}
+							image={item.image}
+						/>
+					))}
+				</div>
 			</div>
 		</>
 	);

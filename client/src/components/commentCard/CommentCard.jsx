@@ -1,15 +1,25 @@
+import {
+	StyledCard,
+	StyledComment,
+	StyledName,
+	StyledNameAndRole,
+	StyledProfile,
+	StyledProfilePic,
+	StyledRole
+} from './commentCard.styles';
+
 const CommentCard = ({ comment, image, name, type }) => {
 	return (
-		<div>
-			<span>{comment}</span>
-			<div>
-				<img src={image} alt='profile-pic' />
-				<div>
-					<span>{name}</span>
-					<span>{type}</span>
-				</div>
-			</div>
-		</div>
+		<StyledCard>
+			<StyledComment>{comment}</StyledComment>
+			<StyledProfile>
+				<StyledProfilePic src={image} alt='profile-pic' />
+				<StyledNameAndRole>
+					<StyledName>{name}</StyledName>
+					<StyledRole>{type}</StyledRole>
+				</StyledNameAndRole>
+			</StyledProfile>
+		</StyledCard>
 	);
 };
 
