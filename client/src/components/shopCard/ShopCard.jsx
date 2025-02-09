@@ -1,14 +1,21 @@
+import {
+	StyledCardButton,
+	StyledNameAndPrice,
+	StyledProductPic,
+	StyledShopCard
+} from './shopCard.styles';
+
 const ShopCard = ({ item }) => {
 	return (
-		<div>
-			<img src={item.image} alt='fluff-pic' />
-			<div>
+		<StyledShopCard>
+			<StyledProductPic src={item.image} alt='fluff-pic' />
+			<StyledNameAndPrice>
 				<span>{item.name}</span>
-				<span>{item.price}</span>
-				<button>Add to Cart</button>
-				<button>More info</button>
-			</div>
-		</div>
+				<span>{item.price}€</span>
+			</StyledNameAndPrice>
+			<StyledCardButton>Add to Cart</StyledCardButton>
+			<StyledCardButton>More info</StyledCardButton>
+		</StyledShopCard>
 	);
 };
 

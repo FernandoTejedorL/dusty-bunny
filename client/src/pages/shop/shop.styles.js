@@ -23,9 +23,10 @@ const StyledAllComp = styled.div`
 	gap: 1rem;
 `;
 
-const StiledAllFilters = styled.div`
+const StyledAllFilters = styled.div`
 	display: flex;
 	flex-direction: column;
+	width: 50%;
 	border-radius: 0.5rem;
 	border: 1px solid ${COLORS.dark};
 `;
@@ -35,6 +36,8 @@ const StyledFiltersTile = styled.div`
 	align-items: center;
 	justify-content: center;
 	gap: 1rem;
+	padding: 1rem;
+	cursor: pointer;
 `;
 
 const StyledChevron = styled.img`
@@ -43,11 +46,27 @@ const StyledChevron = styled.img`
 	rotate: ${({ $filtersOpen }) => ($filtersOpen ? '180deg' : '0deg')};
 `;
 
+const StyledFilters = styled.div`
+	display: ${({ $filtersOpen }) => ($filtersOpen ? 'flex' : 'none')};
+	flex-direction: column;
+	gap: 1rem;
+	padding: 1rem;
+`;
+
+const StyledShop = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.5rem;
+`;
+
 export {
 	StyledMain,
 	StyledHeader,
 	StyledAllComp,
-	StiledAllFilters,
+	StyledAllFilters,
 	StyledFiltersTile,
-	StyledChevron
+	StyledChevron,
+	StyledFilters,
+	StyledShop
 };

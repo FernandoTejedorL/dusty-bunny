@@ -2,12 +2,14 @@ import { useState } from 'react';
 import FilterGroup from '../../components/filterGroup/FilterGroup';
 import { FILTERS } from '../../constants/filters';
 import {
-	StiledAllFilters,
+	StyledAllFilters,
 	StyledAllComp,
 	StyledChevron,
 	StyledFiltersTile,
 	StyledHeader,
-	StyledMain
+	StyledMain,
+	StyledFilters,
+	StyledShop
 } from './shop.styles';
 import { useAuth } from '../../hooks/useAuth';
 import ShopCard from '../../components/shopCard/ShopCard';
@@ -24,42 +26,42 @@ const Shop = () => {
 	return (
 		<StyledMain>
 			<StyledHeader>Shop</StyledHeader>
-			<StyledAllComp>
-				<StiledAllFilters>
-					<StyledFiltersTile onClick={() => SetFiltersOpen(!filtersOpen)}>
-						<span>Filters</span>
-						<StyledChevron
-							$filtersOpen={filtersOpen}
-							src='/assets/images/common/chevron-dwn.png'
-							alt=''
-						/>
-					</StyledFiltersTile>
+			<StyledAllFilters>
+				<StyledFiltersTile onClick={() => SetFiltersOpen(!filtersOpen)}>
+					<span>Filters</span>
+					<StyledChevron
+						$filtersOpen={filtersOpen}
+						src='/assets/images/common/chevron-dwn.png'
+						alt=''
+					/>
+				</StyledFiltersTile>
 
+				<StyledFilters $filtersOpen={filtersOpen}>
+					{FILTERS.map(item => (
+						<FilterGroup key={item.id} filter={item} />
+					))}
 					<div>
-						{FILTERS.map(item => (
-							<FilterGroup key={item.id} filter={item} />
-						))}
+						<input
+							onMouseUp={() => RangeValue(setMaxPrice)}
+							type='range'
+							name='price'
+							id='price'
+							min={0}
+							max={100}
+						/>
 						<div>
-							<input
-								onMouseUp={() => RangeValue(setMaxPrice)}
-								type='range'
-								name='price'
-								id='price'
-								min={0}
-								max={100}
-							/>
-							<div>
-								<span>Precio máximo</span>
-								<span>{maxPrice}€</span>
-							</div>
+							<span>Precio máximo</span>
+							<span>{maxPrice}€</span>
 						</div>
 					</div>
-				</StiledAllFilters>
-				<div>
+				</StyledFilters>
+			</StyledAllFilters>
+			<StyledAllComp>
+				<StyledShop>
 					{products.map(item => (
 						<ShopCard key={item._id} item={item} />
 					))}
-				</div>
+				</StyledShop>
 				<div>
 					<span>Cart</span>
 					<button>Go to cart</button>
