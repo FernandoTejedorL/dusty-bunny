@@ -76,10 +76,10 @@ fluffsController.getProductsByVendor = async (req, res) => {
 };
 
 fluffsController.getProductsByPrice = async (req, res) => {
-  const { start, end } = req.params;
+  const { end } = req.params;
   try {
     const product = await ProductModel.find({
-      price: { $gte: start, $lte: end },
+      price: { $lte: end },
     });
     if (!product) {
       return res.status(200).json([]);
