@@ -18,7 +18,7 @@ const Home = () => {
 			<StyledBanner>
 				<h3>The original fluff trading site</h3>
 				<StyledBrand>Dusty Bunny</StyledBrand>
-				<h3>We never have enough dust bunnies</h3>
+				<h3>We never have enough dust bunnies...</h3>
 			</StyledBanner>
 			<StyledCarouselContainer>
 				<StyledHookStart>Have a look at out little wonders!</StyledHookStart>

@@ -24,6 +24,7 @@ const StyledCardImage = styled.img`
 	height: 6.25rem;
 	width: 6.25rem;
 	border-radius: 1rem;
+	box-shadow: 0px 4px 4px;
 `;
 
 const StyledPrice = styled.span`
