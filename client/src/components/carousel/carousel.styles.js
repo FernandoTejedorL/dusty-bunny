@@ -5,11 +5,20 @@ const StyledCarousel = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 1rem;
+	width: 90%;
 `;
 
 const StyledSwiper = styled(Swiper)`
-	width: 350px;
+	width: 240px;
 	align-items: center;
+
+	@media screen and (width>=768px) {
+		width: 550px;
+	}
+
+	@media screen and (width>=1024px) {
+		width: 850px;
+	}
 `;
 
 const NavigationButton = styled.button`

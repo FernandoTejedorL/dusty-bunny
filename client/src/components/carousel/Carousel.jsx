@@ -57,11 +57,15 @@ const Carousel = () => {
 				slidesPerView={slidesPerView}
 				onSwiper={setSwiperInstance}
 				onSlideChange={() => console.log('slide change')}
-				centeredSlides={true}
+				//centeredSlides={true}
 			>
 				{products.map(item => (
 					<SwiperSlide key={item._id}>
-						<ProductCard name={item.image} />
+						<ProductCard
+							image={item.image}
+							name={item.name}
+							price={item.price}
+						/>
 					</SwiperSlide>
 				))}
 			</StyledSwiper>

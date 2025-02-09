@@ -1,22 +1,32 @@
 import Carousel from '../../components/carousel/Carousel';
 import CommentCard from '../../components/commentCard/CommentCard';
 import { OPINIONS } from '../../constants/opinions-info';
+import {
+	StyledBanner,
+	StyledBrand,
+	StyledCarouselContainer,
+	StyledHookEnd,
+	StyledHookStart,
+	StyledMain,
+	StyledOpinions,
+	StyledOpinionsContainer
+} from './home.styles';
 
 const Home = () => {
 	return (
-		<>
-			<div>
+		<StyledMain>
+			<StyledBanner>
 				<h3>The original fluff trading site</h3>
-				<h2>Dusty Bunny</h2>
+				<StyledBrand>Dusty Bunny</StyledBrand>
 				<h3>We never have enough dust bunnies</h3>
-			</div>
-			<div>
-				<h4>Have a look at out little wonders...</h4>
+			</StyledBanner>
+			<StyledCarouselContainer>
+				<StyledHookStart>Have a look at out little wonders!</StyledHookStart>
 				<Carousel />
-			</div>
-			<div>
-				<h4>Our community speaks...</h4>
-				<div>
+			</StyledCarouselContainer>
+			<StyledOpinions>
+				<StyledHookEnd>Our community speaks!</StyledHookEnd>
+				<StyledOpinionsContainer>
 					{OPINIONS.map(item => (
 						<CommentCard
 							key={item.id}
@@ -26,9 +36,9 @@ const Home = () => {
 							image={item.image}
 						/>
 					))}
-				</div>
-			</div>
-		</>
+				</StyledOpinionsContainer>
+			</StyledOpinions>
+		</StyledMain>
 	);
 };
 

@@ -6,9 +6,15 @@ const StyledCard = styled.div`
 	flex-direction: column;
 	gap: 1.5rem;
 	padding: 1.5rem;
-	width: 325px;
-	box-shadow: 0px 4px 4px;
+	width: 80%;
+	box-shadow: 0px 4px 4px 4px;
 	border-radius: 0.5rem;
+
+	@media screen and (width>=1024px) {
+		width: 400px;
+		height: 200px;
+		justify-content: space-around;
+	}
 `;
 
 const StyledComment = styled.span`
