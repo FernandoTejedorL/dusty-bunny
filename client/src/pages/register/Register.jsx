@@ -4,6 +4,7 @@ import { createData } from '../../utils/api';
 import { useNavigate } from 'react-router-dom';
 import {
 	StyledButton,
+	StyledCheckbox,
 	StyledContainer,
 	StyledHeader,
 	StyledImg,
@@ -50,7 +51,7 @@ const Register = () => {
 					<StyledRadiosContainer>
 						<StyledRadioPack>
 							<label htmlFor='userProfile'>User</label>
-							<input
+							<StyledCheckbox
 								type='radio'
 								name='profile'
 								value={false}
@@ -59,7 +60,7 @@ const Register = () => {
 						</StyledRadioPack>
 						<StyledRadioPack>
 							<label htmlFor='vendorProfile'>Vendor</label>
-							<input
+							<StyledCheckbox
 								type='radio'
 								name='profile'
 								value={true}

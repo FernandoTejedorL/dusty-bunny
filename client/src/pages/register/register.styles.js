@@ -73,6 +73,32 @@ const StyledRadioPack = styled.div`
 	gap: 1rem;
 `;
 
+const StyledCheckbox = styled.input`
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	accent-color: ${COLORS.lightViolet};
+	width: 1.5rem;
+	height: 1.5rem;
+	border: 0.0625rem solid ${COLORS.dark};
+	border-radius: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	&:checked {
+		background-color: ${COLORS.deepViolet};
+		border: 1px solid ${COLORS.dark};
+	}
+	&:checked::after {
+		content: '🐰';
+		position: absolute;
+		top: 0.2rem;
+		color: ${COLORS.white};
+	}
+`;
+
 const StyledButton = styled.input`
 	display: flex;
 	align-items: center;
@@ -103,5 +129,6 @@ export {
 	StyledInput,
 	StyledRadiosContainer,
 	StyledRadioPack,
+	StyledCheckbox,
 	StyledButton
 };
