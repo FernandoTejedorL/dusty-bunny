@@ -20,7 +20,6 @@ const StyledContainer = styled.div`
 	@media screen and (width>=768px) {
 		width: 80%;
 		flex-direction: row;
-		align-items: flex-start;
 	}
 `;
 
@@ -38,7 +37,7 @@ const StyledImg = styled.img`
 	box-shadow: 0 4px 10px 4px;
 `;
 
-const StyledRegisterForm = styled.form`
+const StyledForm = styled.form`
 	display: flex;
 	flex-direction: column;
 	gap: 1.5rem;
@@ -58,19 +57,6 @@ const StyledInput = styled.input`
 	border-radius: 0.5rem;
 	border: 1px solid ${COLORS.dark};
 	padding-inline: 0.5rem;
-`;
-
-const StyledRadiosContainer = styled.div`
-	display: flex;
-	width: 100%;
-	justify-content: space-between;
-`;
-
-const StyledRadioPack = styled.div`
-	display: flex;
-	align-items: center;
-	width: 100%;
-	gap: 1rem;
 `;
 
 const StyledButton = styled.input`
@@ -98,10 +84,8 @@ export {
 	StyledContainer,
 	StyledHeader,
 	StyledImg,
-	StyledRegisterForm,
+	StyledForm,
 	StyledInputAndTag,
 	StyledInput,
-	StyledRadiosContainer,
-	StyledRadioPack,
 	StyledButton
 };

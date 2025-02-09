@@ -2,9 +2,19 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../config/firebase.config';
 import { createData } from '../../utils/api';
 import { useNavigate } from 'react-router-dom';
-import { StyledRegisterForm } from './register.styles';
+import {
+	StyledButton,
+	StyledContainer,
+	StyledHeader,
+	StyledImg,
+	StyledInput,
+	StyledInputAndTag,
+	StyledMain,
+	StyledRadioPack,
+	StyledRadiosContainer,
+	StyledRegisterForm
+} from './register.styles';
 import { useAuth } from '../../hooks/useAuth';
-import WorkInProgress from '../../components/workInProgress/WorkInProgress';
 
 const Register = () => {
 	const navigate = useNavigate();
@@ -12,41 +22,55 @@ const Register = () => {
 	console.log(user);
 	if (loading) return <h2>Loading...</h2>;
 	return (
-		<div>
-			<h2>REGISTER</h2>
-			<WorkInProgress />
-			<StyledRegisterForm onSubmit={event => registerUser(event, navigate)}>
-				<div>
-					<label htmlFor='name'>Name</label>
-					<input type='text' name='name' placeholder='Name' />
-				</div>
-				<div>
-					<label htmlFor='surname'>Surname</label>
-					<input type='text' name='surname' placeholder='Surname' />
-				</div>
-				<div>
-					<label htmlFor='address'>Address</label>
-					<input type='text' name='address' placeholder='Address' />
-				</div>
-				<div>
-					<label htmlFor='email'>Email</label>
-					<input type='email' name='email' placeholder='Email' />
-				</div>
-				<div>
-					<label htmlFor='pass'>Password</label>
-					<input type='text' name='password' placeholder='Password' />
-				</div>
-				<div>
-					<label htmlFor='userProfile'>User</label>
-					<input type='radio' name='profile' value={false} id='userProfile' />
-				</div>
-				<div>
-					<label htmlFor='vendorProfile'>Admin</label>
-					<input type='radio' name='profile' value={true} id='vendorProfile' />
-				</div>
-				<input type='submit' value='Register' />
-			</StyledRegisterForm>
-		</div>
+		<StyledMain>
+			<StyledHeader>REGISTER</StyledHeader>
+			<StyledContainer>
+				<StyledImg src='/assets/images/common/register.jpg' alt='' />
+				<StyledRegisterForm onSubmit={event => registerUser(event, navigate)}>
+					<StyledInputAndTag>
+						<label htmlFor='name'>Name:</label>
+						<StyledInput type='text' name='name' placeholder='Name' />
+					</StyledInputAndTag>
+					<StyledInputAndTag>
+						<label htmlFor='surname'>Surname:</label>
+						<StyledInput type='text' name='surname' placeholder='Surname' />
+					</StyledInputAndTag>
+					<StyledInputAndTag>
+						<label htmlFor='address'>Address:</label>
+						<StyledInput type='text' name='address' placeholder='Address' />
+					</StyledInputAndTag>
+					<StyledInputAndTag>
+						<label htmlFor='email'>Email:</label>
+						<StyledInput type='email' name='email' placeholder='Email' />
+					</StyledInputAndTag>
+					<StyledInputAndTag>
+						<label htmlFor='pass'>Password:</label>
+						<StyledInput type='text' name='password' placeholder='Password' />
+					</StyledInputAndTag>
+					<StyledRadiosContainer>
+						<StyledRadioPack>
+							<label htmlFor='userProfile'>User</label>
+							<input
+								type='radio'
+								name='profile'
+								value={false}
+								id='userProfile'
+							/>
+						</StyledRadioPack>
+						<StyledRadioPack>
+							<label htmlFor='vendorProfile'>Vendor</label>
+							<input
+								type='radio'
+								name='profile'
+								value={true}
+								id='vendorProfile'
+							/>
+						</StyledRadioPack>
+					</StyledRadiosContainer>
+					<StyledButton type='submit' value='Register' />
+				</StyledRegisterForm>
+			</StyledContainer>
+		</StyledMain>
 	);
 };
 

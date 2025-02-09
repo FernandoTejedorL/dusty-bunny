@@ -2,7 +2,16 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../config/firebase.config';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import WorkInProgress from '../../components/workInProgress/WorkInProgress';
+import {
+	StyledButton,
+	StyledContainer,
+	StyledForm,
+	StyledHeader,
+	StyledImg,
+	StyledInput,
+	StyledInputAndTag,
+	StyledMain
+} from './login.styles';
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -10,22 +19,33 @@ const Login = () => {
 	console.log(user);
 	if (loading) return <h2>Loading...</h2>;
 	return (
-		<div>
-			<h2>LOGIN PAGE</h2>
-			<WorkInProgress />
-			<form onSubmit={event => loginUser(event, navigate)}>
-				<label htmlFor='email'>Email</label>
-				<input type='email' name='email' id='email' placeholder='email' />
-				<label htmlFor='password'>Password</label>
-				<input
-					type='text'
-					name='password'
-					placeholder='password'
-					id='password'
-				/>
-				<input type='submit' value='login' />
-			</form>
-		</div>
+		<StyledMain>
+			<StyledHeader>Sign In</StyledHeader>
+			<StyledContainer>
+				<StyledImg src='/assets/images/common/login.png' alt='' />
+				<StyledForm onSubmit={event => loginUser(event, navigate)}>
+					<StyledInputAndTag>
+						<label htmlFor='email'>Email:</label>
+						<StyledInput
+							type='email'
+							name='email'
+							id='email'
+							placeholder='email'
+						/>
+					</StyledInputAndTag>
+					<StyledInputAndTag>
+						<label htmlFor='password'>Password:</label>
+						<StyledInput
+							type='text'
+							name='password'
+							placeholder='password'
+							id='password'
+						/>
+					</StyledInputAndTag>
+					<StyledButton type='submit' value='Sign In' />
+				</StyledForm>
+			</StyledContainer>
+		</StyledMain>
 	);
 };
 

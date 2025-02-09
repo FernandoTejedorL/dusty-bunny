@@ -37,6 +37,7 @@ const StyledBrand = styled.h2`
 const StyledHookStart = styled.span`
 	font-size: ${FONT_SIZE.m};
 	align-self: flex-start;
+	margin-left: 1rem;
 `;
 
 const StyledHookEnd = styled.span`
@@ -49,7 +50,7 @@ const StyledCarouselContainer = styled.div`
 	flex-direction: column;
 	align-items: center;
 	gap: 39px;
-	padding: 39px;
+	padding-block: 39px;
 `;
 
 const StyledOpinions = styled.div`

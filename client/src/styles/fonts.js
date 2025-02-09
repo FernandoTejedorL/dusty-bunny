@@ -10,6 +10,7 @@ export const FONT_WEIGHT = {
 };
 
 export const FONT_SIZE = {
+	header: '3rem',
 	xl: '2.25rem',
 	l: '2rem',
 	m: '1.5rem',

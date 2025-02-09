@@ -10,7 +10,6 @@ const StyledFooter = styled.footer`
 	width: 100%;
 	border-top: 1px solid ${COLORS.dark};
 	padding: 1rem;
-	margin-top: 1rem;
 `;
 
 const StyledFooterToBig = styled.div`
