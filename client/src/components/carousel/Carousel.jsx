@@ -10,10 +10,10 @@ import {
 } from './carousel.styles';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import { useAuth } from '../../hooks/useAuth';
+import { useProducts } from '../../hooks/useProducts';
 
 const Carousel = () => {
-	const { products } = useAuth();
+	const { products } = useProducts();
 	const [slidesPerView, setSlidesPerView] = useState(getSlidesPerView());
 	const prevRef = useRef(null);
 	const nextRef = useRef(null);

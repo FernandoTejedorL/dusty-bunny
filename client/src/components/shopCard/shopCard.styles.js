@@ -15,6 +15,10 @@ const StyledShopCard = styled.div`
 	background-color: ${COLORS.card};
 	border-radius: 1rem;
 	box-shadow: 0 4px 4px;
+
+	@media screen and (width>=1024px) {
+		width: 200px;
+	}
 `;
 
 const StyledProductPic = styled.img`
@@ -39,6 +43,10 @@ const StyledCardButton = styled.button`
 	border-radius: 0.5rem;
 	padding: 0.5rem;
 	cursor: pointer;
+
+	@media screen and (width>=1024px) {
+		width: 80%;
+	}
 
 	@media (hover: hover) {
 		&:hover {

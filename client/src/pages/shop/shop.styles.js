@@ -19,9 +19,14 @@ const StyledHeader = styled.h2`
 
 const StyledAllComp = styled.div`
 	display: flex;
-	flex-direction: column-reverse;
+	flex-direction: column;
 	align-items: center;
 	gap: 1rem;
+
+	@media screen and (width>=1024px) {
+		flex-direction: row-reverse;
+		align-items: flex-start;
+	}
 `;
 
 const StyledAllFilters = styled.div`
@@ -54,11 +59,58 @@ const StyledFilters = styled.div`
 	padding: 1rem;
 `;
 
+const StyledCart = styled.div`
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	border-radius: 0.5rem;
+	border: 1px solid ${COLORS.dark};
+	margin-top: 2rem;
+
+	@media screen and (width>=1024px) {
+		width: 20%;
+		margin-right: 2rem;
+	}
+
+	@media screen and (width>=1440px) {
+		width: 20%;
+	}
+`;
+
+const StyledCartContainer = styled.div`
+	display: ${({ $cartOpen }) => ($cartOpen ? 'flex' : 'none')};
+	flex-direction: column;
+	gap: 1rem;
+	align-items: center;
+
+	@media screen and (width>=1024px) {
+		display: flex;
+	}
+`;
+
 const StyledShop = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 1.5rem;
+	padding: 2rem;
+	margin: 2rem;
+	border: 1px solid ${COLORS.dark};
+	border-radius: 1rem;
+
+	@media screen and (width>=768px) {
+		gap: 3rem;
+	}
+
+	@media screen and (width>=1024px) {
+		width: 80%;
+		gap: 1.5rem;
+	}
+
+	@media screen and (width>=1440px) {
+		width: 80%;
+	}
 `;
 
 export {
@@ -69,5 +121,7 @@ export {
 	StyledFiltersTile,
 	StyledChevron,
 	StyledFilters,
+	StyledCart,
+	StyledCartContainer,
 	StyledShop
 };

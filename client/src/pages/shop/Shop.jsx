@@ -9,18 +9,21 @@ import {
 	StyledHeader,
 	StyledMain,
 	StyledFilters,
-	StyledShop
+	StyledShop,
+	StyledCart,
+	StyledCartContainer
 } from './shop.styles';
-import { useAuth } from '../../hooks/useAuth';
 import ShopCard from '../../components/shopCard/ShopCard';
 import { useCart } from '../../hooks/useCart';
 import ProductCard from '../../components/productCard/ProductCard';
+import { useProducts } from '../../hooks/useProducts';
 
 const Shop = () => {
 	const [maxPrice, setMaxPrice] = useState(100);
 	const [filtersOpen, SetFiltersOpen] = useState(false);
+	const [cartOpen, setCartOpen] = useState(false);
 	console.log(filtersOpen);
-	const { products } = useAuth();
+	const { products } = useProducts();
 	const { cart } = useCart();
 	console.log(cart);
 	return (
@@ -58,23 +61,32 @@ const Shop = () => {
 				</StyledFilters>
 			</StyledAllFilters>
 			<StyledAllComp>
+				<StyledCart>
+					<StyledFiltersTile onClick={() => setCartOpen(!cartOpen)}>
+						<span>Cart</span>
+						<StyledChevron
+							$filtersOpen={cartOpen}
+							src='/assets/images/common/chevron-dwn.png'
+							alt=''
+						/>
+					</StyledFiltersTile>
+					<StyledCartContainer $cartOpen={cartOpen}>
+						<button>Go to cart</button>
+						{cart.map(item => (
+							<ProductCard
+								key={item.id}
+								image={item.image}
+								name={item.name}
+								price={item.price}
+							/>
+						))}
+					</StyledCartContainer>
+				</StyledCart>
 				<StyledShop>
 					{products.map(item => (
 						<ShopCard key={item._id} item={item} />
 					))}
 				</StyledShop>
-				<div>
-					<span>Cart</span>
-					<button>Go to cart</button>
-					{cart.map(item => (
-						<ProductCard
-							key={item.id}
-							image={item.image}
-							name={item.name}
-							price={item.price}
-						/>
-					))}
-				</div>
 			</StyledAllComp>
 		</StyledMain>
 	);

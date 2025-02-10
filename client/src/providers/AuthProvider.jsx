@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { AuthContext } from '../contexts/Auth.context';
 import { auth } from '../config/firebase.config';
-import { findData, getAllProducts } from '../utils/api';
+import { findData } from '../utils/api';
 
 const AuthProvider = ({ children }) => {
 	const [user, setUser] = useState(null);
 	const [loading, setLoading] = useState(true);
-	const [products, setProducts] = useState([]);
 	console.log(user);
 
 	useEffect(() => {
@@ -25,20 +24,11 @@ const AuthProvider = ({ children }) => {
 		};
 	}, []);
 
-	useEffect(() => {
-		fetchProducts(setProducts);
-	}, []);
-
 	return (
-		<AuthContext.Provider value={{ user, loading, products }}>
+		<AuthContext.Provider value={{ user, loading }}>
 			{children}
 		</AuthContext.Provider>
 	);
-};
-
-const fetchProducts = async setProducs => {
-	const data = await getAllProducts();
-	setProducs(data);
 };
 
 export default AuthProvider;
