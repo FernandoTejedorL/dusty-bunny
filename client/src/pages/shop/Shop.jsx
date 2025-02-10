@@ -27,12 +27,12 @@ const Shop = () => {
 	const { cart } = useCart();
 	const [filteredProducts, setFilteredProducts] = useState([]);
 	const [selectedFilters, setSelectedFilters] = useState([]);
+	console.log(selectedFilters);
 
 	useEffect(() => {
 		setFilteredProducts(products);
 	}, [products]);
 
-	console.log(cart);
 	return (
 		<StyledMain>
 			<StyledHeader>Shop</StyledHeader>
@@ -48,7 +48,11 @@ const Shop = () => {
 
 				<StyledFilters $filtersOpen={filtersOpen}>
 					{FILTERS.map(item => (
-						<FilterGroup key={item.id} filter={item} />
+						<FilterGroup
+							setSelectedFilters={setSelectedFilters}
+							key={item.id}
+							item={item}
+						/>
 					))}
 					<div>
 						<input
@@ -107,22 +111,6 @@ const RangeValue = setMaxPrice => {
 	setMaxPrice(value);
 };
 
-const applyFilters = (filters, filteredProducts, setFilteredProducts) => {
-	let fluffs = filteredProducts;
-
-	if (filters.length > 0) {
-		fluffs = fluffs.filter(item => filters.includes(item.category));
-	}
-	setFilteredProducts(fluffs);
-};
-
-const filterGames = filter => {
-	const newFilters = selectedFilters.includes(filter)
-		? selectedFilters.filter(item => item !== filter) // Quitar filtro del array de filtro por platafora
-		: [...selectedFilters, filter]; // Agregar filtro al array de filtro por plataforma
-
-	setSelectedFilters(newFilters);
-	applyFilters(newFilters, searchText);
-};
+const setNewFilters = () => {};
 
 export default Shop;

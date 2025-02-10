@@ -1,12 +1,16 @@
 import { v4 } from 'uuid';
 import EachFilter from '../eachFilter/EachFilter';
 
-const FilterGroup = ({ filter }) => {
+const FilterGroup = ({ item, setSelectedFilters }) => {
 	return (
 		<div>
-			<span>{filter.type}</span>
-			{filter.values.map(value => (
-				<EachFilter key={v4()} value={value} />
+			<span>{item.type}</span>
+			{item.values.map(value => (
+				<EachFilter
+					setSelectedFilters={setSelectedFilters}
+					key={v4()}
+					value={value}
+				/>
 			))}
 		</div>
 	);
