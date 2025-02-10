@@ -6,7 +6,7 @@ const StyledMain = styled.main`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 1rem;
+	gap: 2rem;
 	margin-top: 2rem;
 `;
 
@@ -33,7 +33,7 @@ const StyledAllFilters = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 50%;
-	border-radius: 0.5rem;
+	border-radius: 1rem;
 	border: 1px solid ${COLORS.dark};
 `;
 
@@ -64,7 +64,7 @@ const StyledCart = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 50%;
-	border-radius: 0.5rem;
+	border-radius: 1rem;
 	border: 1px solid ${COLORS.dark};
 	margin-top: 2rem;
 
@@ -76,6 +76,13 @@ const StyledCart = styled.div`
 	@media screen and (width>=1440px) {
 		width: 20%;
 	}
+`;
+
+const StyledEmptyImg = styled.img`
+	height: 80%;
+	width: 80%;
+	border-radius: 1rem;
+	margin-bottom: 2rem;
 `;
 
 const StyledCartContainer = styled.div`
@@ -122,6 +129,7 @@ export {
 	StyledChevron,
 	StyledFilters,
 	StyledCart,
+	StyledEmptyImg,
 	StyledCartContainer,
 	StyledShop
 };

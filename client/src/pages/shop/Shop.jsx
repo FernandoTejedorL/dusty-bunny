@@ -11,7 +11,8 @@ import {
 	StyledFilters,
 	StyledShop,
 	StyledCart,
-	StyledCartContainer
+	StyledCartContainer,
+	StyledEmptyImg
 } from './shop.styles';
 import ShopCard from '../../components/shopCard/ShopCard';
 import { useCart } from '../../hooks/useCart';
@@ -71,7 +72,10 @@ const Shop = () => {
 						/>
 					</StyledFiltersTile>
 					<StyledCartContainer $cartOpen={cartOpen}>
-						<button>Go to cart</button>
+						{cart.length === 0 && (
+							<StyledEmptyImg src='/assets/images/common/empty.jpg' alt='' />
+						)}
+						{cart.length !== 0 && <button>Go to cart</button>}
 						{cart.map(item => (
 							<ProductCard
 								key={item.id}
