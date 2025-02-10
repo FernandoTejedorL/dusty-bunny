@@ -49,6 +49,8 @@ const Shop = () => {
 				<StyledFilters $filtersOpen={filtersOpen}>
 					{FILTERS.map(item => (
 						<FilterGroup
+							filtersSet={filtersSet}
+							selectedFilters={selectedFilters}
 							setSelectedFilters={setSelectedFilters}
 							key={item.id}
 							item={item}
@@ -111,6 +113,12 @@ const RangeValue = setMaxPrice => {
 	setMaxPrice(value);
 };
 
-const setNewFilters = () => {};
+const filtersSet = (value, selectedFilters, setSelectedFilters) => {
+	const newFilters = selectedFilters.includes(value)
+		? selectedFilters.filter(item => item !== value)
+		: [...selectedFilters, value];
+
+	setSelectedFilters(newFilters);
+};
 
 export default Shop;
