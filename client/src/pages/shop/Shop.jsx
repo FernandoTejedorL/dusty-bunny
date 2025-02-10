@@ -27,23 +27,26 @@ const Shop = () => {
 	const { cart, setCart } = useCart();
 	const [filteredProducts, setFilteredProducts] = useState([]);
 	const [selectedFilters, setSelectedFilters] = useState({
-		Category: [],
-		Size: [],
-		Diet: []
+		category: [],
+		size: [],
+		diet: []
 	});
-	console.log(selectedFilters);
-
+	console.log(selectedFilters.category);
 	useEffect(() => {
 		setFilteredProducts(products);
 	}, [products]);
 
 	useEffect(() => {
 		setSelectedFilters({
-			Category: [],
-			Size: [],
-			Diet: []
+			category: [],
+			size: [],
+			diet: []
 		});
 	}, []);
+
+	useEffect(() => {
+		productsToShow(products, selectedFilters, setFilteredProducts);
+	}, [products, selectedFilters]);
 
 	return (
 		<StyledMain>
@@ -143,6 +146,26 @@ const filtersSet = (value, type, setSelectedFilters) => {
 			[type]: updatedTypeFilters
 		};
 	});
+};
+
+const productsToShow = (
+	filteredProducts,
+	selectedFilters,
+	setFilteredProducts
+) => {
+	let newInfo = filteredProducts;
+	if (selectedFilters.category.length > 0) {
+		newInfo = newInfo.filter(item =>
+			item.category.includes(selectedFilters.category)
+		);
+	}
+	if (selectedFilters.category.length > 0) {
+		newInfo = newInfo.filter(item => item.size.includes(selectedFilters.size));
+	}
+	if (selectedFilters.category.length > 0) {
+		newInfo = newInfo.filter(item => item.diet.includes(selectedFilters.diet));
+	}
+	setFilteredProducts(newInfo);
 };
 
 const filterByPrice = (products, event, setFilteredProducts) => {
