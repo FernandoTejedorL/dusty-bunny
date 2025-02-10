@@ -64,19 +64,23 @@ const Shop = () => {
 							filtersSet={filtersSet}
 							selectedFilters={selectedFilters}
 							setSelectedFilters={setSelectedFilters}
+							filteredProducts={filteredProducts}
 							key={item.id}
 							item={item}
 						/>
 					))}
 					<div>
 						<input
-							onMouseUp={() => RangeValue(setMaxPrice)}
+							onMouseUp={event => {
+								RangeValue(setMaxPrice);
+								filterByPrice(products, event, setFilteredProducts);
+							}}
 							type='range'
 							name='price'
 							id='price'
 							min={0}
-							max={100}
-							defaultValue={100}
+							max={37}
+							defaultValue={37}
 						/>
 						<div>
 							<span>Precio máximo</span>
@@ -128,14 +132,6 @@ const RangeValue = setMaxPrice => {
 	setMaxPrice(value);
 };
 
-// const filtersSet = (value, selectedFilters, setSelectedFilters, type) => {
-// 	const newFilters = selectedFilters.includes(value)
-// 		? selectedFilters.filter(item => item !== value)
-// 		: [...selectedFilters, value];
-
-// 	setSelectedFilters(newFilters);
-// };
-
 const filtersSet = (value, type, setSelectedFilters) => {
 	setSelectedFilters(prevFilters => {
 		const updatedTypeFilters = prevFilters[type].includes(value)
@@ -147,6 +143,11 @@ const filtersSet = (value, type, setSelectedFilters) => {
 			[type]: updatedTypeFilters
 		};
 	});
+};
+
+const filterByPrice = (products, event, setFilteredProducts) => {
+	const newProducts = products.filter(item => item.price < event.target.value);
+	setFilteredProducts(newProducts);
 };
 
 export default Shop;
