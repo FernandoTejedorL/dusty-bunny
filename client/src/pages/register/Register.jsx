@@ -19,8 +19,7 @@ import { useAuth } from '../../hooks/useAuth';
 
 const Register = () => {
 	const navigate = useNavigate();
-	const { user, loading } = useAuth();
-	console.log(user);
+	const { loading } = useAuth();
 	if (loading) return <h2>Loading...</h2>;
 	return (
 		<StyledMain>

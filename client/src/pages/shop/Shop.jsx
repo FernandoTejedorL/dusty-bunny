@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import FilterGroup from '../../components/filterGroup/FilterGroup';
 import { FILTERS } from '../../constants/filters';
 import {
@@ -23,9 +23,15 @@ const Shop = () => {
 	const [maxPrice, setMaxPrice] = useState(100);
 	const [filtersOpen, SetFiltersOpen] = useState(false);
 	const [cartOpen, setCartOpen] = useState(false);
-	console.log(filtersOpen);
 	const { products } = useProducts();
 	const { cart } = useCart();
+	const [filteredProducts, setFilteredProducts] = useState([]);
+	const [selectedFilters, setSelectedFilters] = useState([]);
+
+	useEffect(() => {
+		setFilteredProducts(products);
+	}, [products]);
+
 	console.log(cart);
 	return (
 		<StyledMain>
@@ -78,7 +84,7 @@ const Shop = () => {
 						{cart.length !== 0 && <button>Go to cart</button>}
 						{cart.map(item => (
 							<ProductCard
-								key={item.id}
+								key={item._id}
 								image={item.image}
 								name={item.name}
 								price={item.price}
@@ -87,7 +93,7 @@ const Shop = () => {
 					</StyledCartContainer>
 				</StyledCart>
 				<StyledShop>
-					{products.map(item => (
+					{filteredProducts.map(item => (
 						<ShopCard key={item._id} item={item} />
 					))}
 				</StyledShop>
@@ -99,6 +105,24 @@ const Shop = () => {
 const RangeValue = setMaxPrice => {
 	const value = event.target.value;
 	setMaxPrice(value);
+};
+
+const applyFilters = (filters, filteredProducts, setFilteredProducts) => {
+	let fluffs = filteredProducts;
+
+	if (filters.length > 0) {
+		fluffs = fluffs.filter(item => filters.includes(item.category));
+	}
+	setFilteredProducts(fluffs);
+};
+
+const filterGames = filter => {
+	const newFilters = selectedFilters.includes(filter)
+		? selectedFilters.filter(item => item !== filter) // Quitar filtro del array de filtro por platafora
+		: [...selectedFilters, filter]; // Agregar filtro al array de filtro por plataforma
+
+	setSelectedFilters(newFilters);
+	applyFilters(newFilters, searchText);
 };
 
 export default Shop;

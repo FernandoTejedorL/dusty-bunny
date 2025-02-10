@@ -13,7 +13,6 @@ import { auth } from '../../config/firebase.config';
 
 const Menu = ({ menuOpen, setMenuOpen }) => {
 	const { user, loading } = useAuth();
-	console.log(user?.vendor);
 	if (loading) return <h2>LOADING...</h2>;
 	return (
 		<StyledMenu $showMenu={menuOpen} onClick={() => setMenuOpen(false)}>

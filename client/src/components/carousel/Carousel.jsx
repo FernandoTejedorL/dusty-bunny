@@ -42,7 +42,6 @@ const Carousel = () => {
 		return () => window.removeEventListener('resize', handleResize);
 	}, []);
 
-	console.log(products);
 	return (
 		<StyledCarousel>
 			<NavigationButton ref={prevRef} $position='left'>
@@ -58,7 +57,6 @@ const Carousel = () => {
 				slidesPerView={slidesPerView}
 				navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
 				onSwiper={setSwiperInstance}
-				onSlideChange={() => console.log('slide change')}
 				//centeredSlides={true}
 			>
 				{products.map(item => (

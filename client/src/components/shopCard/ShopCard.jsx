@@ -1,3 +1,4 @@
+import { useCart } from '../../hooks/useCart';
 import {
 	StyledCardButton,
 	StyledNameAndPrice,
@@ -6,6 +7,8 @@ import {
 } from './shopCard.styles';
 
 const ShopCard = ({ item }) => {
+	const { addToCart } = useCart();
+
 	return (
 		<StyledShopCard>
 			<StyledProductPic src={item.image} alt='fluff-pic' />
@@ -13,7 +16,9 @@ const ShopCard = ({ item }) => {
 				<span>{item.name}</span>
 				<span>{item.price}€</span>
 			</StyledNameAndPrice>
-			<StyledCardButton>Add to Cart</StyledCardButton>
+			<StyledCardButton onClick={() => addToCart(item)}>
+				Add to Cart
+			</StyledCardButton>
 			<StyledCardButton>More info</StyledCardButton>
 		</StyledShopCard>
 	);

@@ -112,7 +112,7 @@ const StyledShop = styled.div`
 
 	@media screen and (width>=1024px) {
 		width: 80%;
-		gap: 1.5rem;
+		gap: 1rem;
 	}
 
 	@media screen and (width>=1440px) {

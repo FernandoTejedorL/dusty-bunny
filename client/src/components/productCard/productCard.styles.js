@@ -8,11 +8,12 @@ const StyledSlide = styled(SwiperSlide)`
 	flex-direction: column;
 	align-items: center;
 	justify-content: space-between;
+	gap: 1rem;
 	font-size: ${FONT_SIZE.m};
 	text-align: center;
 	padding: 1.5rem;
 	height: 15.625rem;
-	width: 12.6875rem;
+	width: 90%;
 	background-color: ${COLORS.card};
 	border-radius: 1rem;
 	margin-inline: auto;
@@ -21,8 +22,8 @@ const StyledSlide = styled(SwiperSlide)`
 `;
 
 const StyledCardImage = styled.img`
-	height: 6.25rem;
-	width: 6.25rem;
+	height: 90px;
+	width: 90px;
 	border-radius: 1rem;
 	box-shadow: 0px 4px 4px;
 `;
