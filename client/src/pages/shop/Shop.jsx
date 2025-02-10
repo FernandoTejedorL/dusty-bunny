@@ -24,14 +24,26 @@ const Shop = () => {
 	const [filtersOpen, SetFiltersOpen] = useState(false);
 	const [cartOpen, setCartOpen] = useState(false);
 	const { products } = useProducts();
-	const { cart } = useCart();
+	const { cart, setCart } = useCart();
 	const [filteredProducts, setFilteredProducts] = useState([]);
-	const [selectedFilters, setSelectedFilters] = useState([]);
+	const [selectedFilters, setSelectedFilters] = useState({
+		Category: [],
+		Size: [],
+		Diet: []
+	});
 	console.log(selectedFilters);
 
 	useEffect(() => {
 		setFilteredProducts(products);
 	}, [products]);
+
+	useEffect(() => {
+		setSelectedFilters({
+			Category: [],
+			Size: [],
+			Diet: []
+		});
+	}, []);
 
 	return (
 		<StyledMain>
@@ -88,6 +100,9 @@ const Shop = () => {
 							<StyledEmptyImg src='/assets/images/common/empty.jpg' alt='' />
 						)}
 						{cart.length !== 0 && <button>Go to cart</button>}
+						{cart.length !== 0 && (
+							<button onClick={() => setCart([])}>Vaciar</button>
+						)}
 						{cart.map(item => (
 							<ProductCard
 								key={item._id}
@@ -113,12 +128,25 @@ const RangeValue = setMaxPrice => {
 	setMaxPrice(value);
 };
 
-const filtersSet = (value, selectedFilters, setSelectedFilters) => {
-	const newFilters = selectedFilters.includes(value)
-		? selectedFilters.filter(item => item !== value)
-		: [...selectedFilters, value];
+// const filtersSet = (value, selectedFilters, setSelectedFilters, type) => {
+// 	const newFilters = selectedFilters.includes(value)
+// 		? selectedFilters.filter(item => item !== value)
+// 		: [...selectedFilters, value];
 
-	setSelectedFilters(newFilters);
+// 	setSelectedFilters(newFilters);
+// };
+
+const filtersSet = (value, type, setSelectedFilters) => {
+	setSelectedFilters(prevFilters => {
+		const updatedTypeFilters = prevFilters[type].includes(value)
+			? prevFilters[type].filter(item => item !== value)
+			: [...prevFilters[type], value];
+
+		return {
+			...prevFilters,
+			[type]: updatedTypeFilters
+		};
+	});
 };
 
 export default Shop;
