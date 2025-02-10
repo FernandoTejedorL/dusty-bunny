@@ -14,6 +14,8 @@ const StyledMenu = styled.div`
 	border-bottom: 5px solid ${COLORS.dark};
 	border-radius: 0 0 8px 8px;
 	z-index: 10;
+	max-height: 80vh;
+	overflow-y: auto;
 
 	@media screen and (width>=1024px) {
 		position: relative;

@@ -48,6 +48,7 @@ const Shop = () => {
 							id='price'
 							min={0}
 							max={100}
+							defaultValue={100}
 						/>
 						<div>
 							<span>Precio máximo</span>

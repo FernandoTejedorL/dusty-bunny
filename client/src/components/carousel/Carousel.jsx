@@ -53,8 +53,10 @@ const Carousel = () => {
 			</NavigationButton>
 			<StyledSwiper
 				modules={[Navigation]}
+				loop={true}
 				spaceBetween={10}
 				slidesPerView={slidesPerView}
+				navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
 				onSwiper={setSwiperInstance}
 				onSlideChange={() => console.log('slide change')}
 				//centeredSlides={true}
@@ -83,7 +85,8 @@ const getSlidesPerView = () => {
 	const width = window.innerWidth;
 	if (width < 768) return 1;
 	if (width < 1024) return 2;
-	if (width >= 1024) return 3;
+	if (width < 1440) return 3;
+	if (width >= 1440) return 4;
 };
 
 export default Carousel;

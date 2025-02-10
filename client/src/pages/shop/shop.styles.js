@@ -7,6 +7,7 @@ const StyledMain = styled.main`
 	flex-direction: column;
 	align-items: center;
 	gap: 1rem;
+	margin-top: 2rem;
 `;
 
 const StyledHeader = styled.h2`
@@ -18,7 +19,7 @@ const StyledHeader = styled.h2`
 
 const StyledAllComp = styled.div`
 	display: flex;
-	flex-direction: column;
+	flex-direction: column-reverse;
 	align-items: center;
 	gap: 1rem;
 `;

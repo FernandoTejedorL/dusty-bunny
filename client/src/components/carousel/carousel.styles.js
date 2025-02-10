@@ -19,6 +19,10 @@ const StyledSwiper = styled(Swiper)`
 	@media screen and (width>=1024px) {
 		width: 850px;
 	}
+
+	@media screen and (width>=1440px) {
+		width: 1200px;
+	}
 `;
 
 const NavigationButton = styled.button`

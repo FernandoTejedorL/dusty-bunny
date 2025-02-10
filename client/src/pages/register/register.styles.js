@@ -88,7 +88,7 @@ const StyledCheckbox = styled.input`
 	appearance: none;
 
 	&:checked {
-		background-color: ${COLORS.deepViolet};
+		background-color: ${COLORS.white};
 		border: 1px solid ${COLORS.dark};
 	}
 	&:checked::after {
