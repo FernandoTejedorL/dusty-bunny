@@ -35,6 +35,11 @@ const CartProvider = ({ children }) => {
 		setCart(cart.filter(item => item.id !== product.id));
 	};
 
+	const quantityToCard = (item, cart) => {
+		const product = cart.find(product => product._id === item._id);
+		return product ? product.quantity : 0;
+	};
+
 	return (
 		<CartContext.Provider
 			value={{
@@ -43,7 +48,8 @@ const CartProvider = ({ children }) => {
 				addToCart,
 				incrementQuantity,
 				decrementQuantity,
-				deleteFromCart
+				deleteFromCart,
+				quantityToCard
 			}}
 		>
 			{children}
