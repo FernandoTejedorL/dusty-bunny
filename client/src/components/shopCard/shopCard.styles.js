@@ -57,9 +57,29 @@ const StyledCardButton = styled.button`
 	}
 `;
 
+const StyledQuantityEditors = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 70%;
+`;
+
+const StyledQuantityButtons = styled.button`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: ${COLORS.lightViolet};
+	border: 1px solid ${COLORS.dark};
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	cursor: pointer;
+`;
+
 export {
 	StyledShopCard,
 	StyledProductPic,
 	StyledNameAndPrice,
-	StyledCardButton
+	StyledCardButton,
+	StyledQuantityEditors,
+	StyledQuantityButtons
 };

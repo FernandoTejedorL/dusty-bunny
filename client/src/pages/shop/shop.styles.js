@@ -47,6 +47,18 @@ const StyledFiltersTile = styled.div`
 	cursor: pointer;
 `;
 
+const StyledCartCounter = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: ${COLORS.white};
+	background-color: ${COLORS.dark};
+	padding: 0.5rem;
+	border-radius: 50%;
+	height: 1.5rem;
+	width: 1.5rem;
+`;
+
 const StyledChevron = styled.img`
 	width: 25px;
 	height: 10px;
@@ -144,6 +156,7 @@ export {
 	StyledAllComp,
 	StyledAllFilters,
 	StyledFiltersTile,
+	StyledCartCounter,
 	StyledChevron,
 	StyledFilters,
 	StyledCart,

@@ -10,6 +10,7 @@ import {
 	StyledAllFilters,
 	StyledCart,
 	StyledCartContainer,
+	StyledCartCounter,
 	StyledChevron,
 	StyledEmptyImage,
 	StyledEmptyImg,
@@ -85,6 +86,7 @@ const Shop = () => {
 			<StyledAllComp>
 				<StyledCart>
 					<StyledFiltersTile onClick={() => setCartOpen(!cartOpen)}>
+						<StyledCartCounter>{cart.length}</StyledCartCounter>
 						<span>Cart</span>
 						<StyledChevron
 							$filtersOpen={cartOpen}

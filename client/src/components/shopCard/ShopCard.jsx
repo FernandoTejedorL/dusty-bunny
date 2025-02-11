@@ -3,15 +3,17 @@ import {
 	StyledCardButton,
 	StyledNameAndPrice,
 	StyledProductPic,
+	StyledQuantityButtons,
+	StyledQuantityEditors,
 	StyledShopCard
 } from './shopCard.styles';
 
 const ShopCard = ({ item }) => {
 	const {
 		cart,
-		addToCart,
 		incrementQuantity,
 		decrementQuantity,
+		addToCart,
 		quantityToCard
 	} = useCart();
 
@@ -33,29 +35,24 @@ const ShopCard = ({ item }) => {
 				</StyledCardButton>
 			)}
 			{isInCart && (
-				<>
-					<button onClick={() => decrementQuantity(item)}>
+				<StyledQuantityEditors>
+					<StyledQuantityButtons onClick={() => decrementQuantity(item)}>
 						{quantity === 1 && (
 							<img src='/assets/images/common/delete.svg' alt='delete' />
 						)}
 						{quantity !== 1 && (
 							<img src='/assets/images/common/remove.svg' alt='reduce' />
 						)}
-					</button>
+					</StyledQuantityButtons>
 					<span>{quantity}</span>
-					<button onClick={() => incrementQuantity(item)}>
+					<StyledQuantityButtons onClick={() => incrementQuantity(item)}>
 						<img src='/assets/images/common/add.svg' alt='increment' />
-					</button>
-				</>
+					</StyledQuantityButtons>
+				</StyledQuantityEditors>
 			)}
 			<StyledCardButton>More info</StyledCardButton>
 		</StyledShopCard>
 	);
 };
-
-// const quantityToCard = (item, cart) => {
-// 	const product = cart.find(product => product._id === item._id);
-// 	return product ? product.quantity : 0;
-// };
 
 export default ShopCard;
