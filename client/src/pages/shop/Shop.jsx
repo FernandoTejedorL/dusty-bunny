@@ -163,14 +163,20 @@ const productsToShow = (
 	let newInfo = products;
 	if (selectedFilters.category.length > 0) {
 		newInfo = newInfo.filter(item =>
-			item.category.includes(selectedFilters.category)
+			selectedFilters.category.some(selected =>
+				item.category.includes(selected)
+			)
 		);
 	}
 	if (selectedFilters.size.length > 0) {
-		newInfo = newInfo.filter(item => item.size.includes(selectedFilters.size));
+		newInfo = newInfo.filter(item =>
+			selectedFilters.size.some(selected => item.size.includes(selected))
+		);
 	}
 	if (selectedFilters.diet.length > 0) {
-		newInfo = newInfo.filter(item => item.diet.includes(selectedFilters.diet));
+		newInfo = newInfo.filter(item =>
+			selectedFilters.diet.some(selected => item.diet.includes(selected))
+		);
 	}
 
 	newInfo = newInfo.filter(item => item.price <= maxPrice);
