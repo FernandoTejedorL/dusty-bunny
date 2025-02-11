@@ -7,7 +7,7 @@ import {
 } from './shopCard.styles';
 
 const ShopCard = ({ item }) => {
-	const { addToCart } = useCart();
+	const { addToCart, incrementQuantity, decrementQuantity } = useCart();
 
 	return (
 		<StyledShopCard>
@@ -19,6 +19,8 @@ const ShopCard = ({ item }) => {
 			<StyledCardButton onClick={() => addToCart(item)}>
 				Add to Cart
 			</StyledCardButton>
+			<button onClick={() => decrementQuantity(item)}>-</button>
+			<button onClick={() => incrementQuantity(item)}>+</button>
 			<StyledCardButton>More info</StyledCardButton>
 		</StyledShopCard>
 	);
