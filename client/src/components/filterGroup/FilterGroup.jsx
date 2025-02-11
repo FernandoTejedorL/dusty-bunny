@@ -1,4 +1,3 @@
-import { v4 } from 'uuid';
 import EachFilter from '../eachFilter/EachFilter';
 
 const FilterGroup = ({
@@ -15,7 +14,7 @@ const FilterGroup = ({
 					filtersSet={filtersSet}
 					setSelectedFilters={setSelectedFilters}
 					filteredProducts={filteredProducts}
-					key={v4()}
+					key={item.id}
 					value={value}
 					type={item.type}
 				/>

@@ -22,33 +22,41 @@ import ProductCard from '../../components/productCard/ProductCard';
 import { useProducts } from '../../hooks/useProducts';
 
 const Shop = () => {
-	const [maxPrice, setMaxPrice] = useState(37);
+	// const [maxPrice, setMaxPrice] = useState(37);
 	const [filtersOpen, SetFiltersOpen] = useState(false);
 	const [cartOpen, setCartOpen] = useState(false);
 	const { products } = useProducts();
 	const { cart, setCart } = useCart();
-	const [filteredProducts, setFilteredProducts] = useState([]);
-	const [selectedFilters, setSelectedFilters] = useState({
+	// const [filteredProducts, setFilteredProducts] = useState([]);
+	// const [selectedFilters, setSelectedFilters] = useState({
+	// 	category: [],
+	// 	size: [],
+	// 	diet: []
+	// });
+
+	const [filters, setFilters] = useState({
 		category: [],
 		size: [],
-		diet: []
+		price: 0
 	});
 
-	useEffect(() => {
-		setFilteredProducts(products);
-	}, [products]);
+	const filteredProducts = filterProducts(products, filters);
 
-	useEffect(() => {
-		setSelectedFilters({
-			category: [],
-			size: [],
-			diet: []
-		});
-	}, []);
+	// useEffect(() => {
+	// 	setFilteredProducts(products);
+	// }, [products]);
 
-	useEffect(() => {
-		productsToShow(products, selectedFilters, maxPrice, setFilteredProducts);
-	}, [products, selectedFilters, maxPrice]);
+	// useEffect(() => {
+	// 	setSelectedFilters({
+	// 		category: [],
+	// 		size: [],
+	// 		diet: []
+	// 	});
+	// }, []);
+
+	// useEffect(() => {
+	// 	productsToShow(products, selectedFilters, maxPrice, setFilteredProducts);
+	// }, [products, selectedFilters, maxPrice]);
 
 	return (
 		<StyledMain>
@@ -141,6 +149,7 @@ const Shop = () => {
 	);
 };
 
+//toRemove
 const filtersSet = (value, type, setSelectedFilters) => {
 	setSelectedFilters(prevFilters => {
 		const updatedTypeFilters = prevFilters[type].includes(value)
@@ -154,34 +163,46 @@ const filtersSet = (value, type, setSelectedFilters) => {
 	});
 };
 
-const productsToShow = (
-	products,
-	selectedFilters,
-	maxPrice,
-	setFilteredProducts
-) => {
+const filterProducts = (products, filters) => {
 	let newInfo = products;
-	if (selectedFilters.category.length > 0) {
+	if (filters.category.length > 0) {
 		newInfo = newInfo.filter(item =>
-			selectedFilters.category.some(selected =>
-				item.category.includes(selected)
-			)
+			filters.category.some(selected => item.category.includes(selected))
 		);
 	}
-	if (selectedFilters.size.length > 0) {
+	if (filters.size.length > 0) {
 		newInfo = newInfo.filter(item =>
-			selectedFilters.size.some(selected => item.size.includes(selected))
+			filters.size.some(selected => item.size.includes(selected))
 		);
 	}
-	if (selectedFilters.diet.length > 0) {
+	if (filters.diet.length > 0) {
 		newInfo = newInfo.filter(item =>
-			selectedFilters.diet.some(selected => item.diet.includes(selected))
+			filters.diet.some(selected => item.diet.includes(selected))
 		);
 	}
 
-	newInfo = newInfo.filter(item => item.price <= maxPrice);
+	newInfo = newInfo.filter(item => item.price <= filters.price);
 
-	setFilteredProducts(newInfo);
+	return newInfo;
 };
+
+//toadd
+
+const manageFilters = (event, filters, setFilters) => {
+	const newFilters = { ...filters };
+	const { name, checked, value } = event.target;
+	setFilters({
+		...newFilters,
+		[name]: checked
+			? [...filters[name], value]
+			: [...filters[name].filter(item => item !== value)]
+	});
+};
+
+const [filters, setFilters] = useState({
+	category: [],
+	size: [],
+	price: 0
+});
 
 export default Shop;
