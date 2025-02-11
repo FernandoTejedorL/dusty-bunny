@@ -1,62 +1,40 @@
-import { useEffect, useState } from 'react';
-import FilterGroup from '../../components/filterGroup/FilterGroup';
+import { useState } from 'react';
+import FilterShop from '../../components/filterShop/FilterShop';
+import ProductCard from '../../components/productCard/ProductCard';
+import ShopCard from '../../components/shopCard/ShopCard';
 import { FILTERS } from '../../constants/filters';
+import { useCart } from '../../hooks/useCart';
+import { useProducts } from '../../hooks/useProducts';
 import {
-	StyledAllFilters,
 	StyledAllComp,
+	StyledAllFilters,
+	StyledCart,
+	StyledCartContainer,
 	StyledChevron,
+	StyledEmptyImage,
+	StyledEmptyImg,
+	StyledEmptyShop,
+	StyledFilters,
 	StyledFiltersTile,
 	StyledHeader,
 	StyledMain,
-	StyledFilters,
-	StyledShop,
-	StyledCart,
-	StyledCartContainer,
-	StyledEmptyImg,
-	StyledEmptyShop,
-	StyledEmptyImage
+	StyledShop
 } from './shop.styles';
-import ShopCard from '../../components/shopCard/ShopCard';
-import { useCart } from '../../hooks/useCart';
-import ProductCard from '../../components/productCard/ProductCard';
-import { useProducts } from '../../hooks/useProducts';
 
 const Shop = () => {
-	// const [maxPrice, setMaxPrice] = useState(37);
 	const [filtersOpen, SetFiltersOpen] = useState(false);
 	const [cartOpen, setCartOpen] = useState(false);
 	const { products } = useProducts();
 	const { cart, setCart } = useCart();
-	// const [filteredProducts, setFilteredProducts] = useState([]);
-	// const [selectedFilters, setSelectedFilters] = useState({
-	// 	category: [],
-	// 	size: [],
-	// 	diet: []
-	// });
 
 	const [filters, setFilters] = useState({
 		category: [],
 		size: [],
-		price: 0
+		diet: [],
+		price: 37
 	});
 
 	const filteredProducts = filterProducts(products, filters);
-
-	// useEffect(() => {
-	// 	setFilteredProducts(products);
-	// }, [products]);
-
-	// useEffect(() => {
-	// 	setSelectedFilters({
-	// 		category: [],
-	// 		size: [],
-	// 		diet: []
-	// 	});
-	// }, []);
-
-	// useEffect(() => {
-	// 	productsToShow(products, selectedFilters, maxPrice, setFilteredProducts);
-	// }, [products, selectedFilters, maxPrice]);
 
 	return (
 		<StyledMain>
@@ -73,18 +51,23 @@ const Shop = () => {
 
 				<StyledFilters $filtersOpen={filtersOpen}>
 					{FILTERS.map(item => (
-						<FilterGroup
-							filtersSet={filtersSet}
-							selectedFilters={selectedFilters}
-							setSelectedFilters={setSelectedFilters}
-							filteredProducts={filteredProducts}
-							key={item.id}
-							item={item}
-						/>
+						<div key={item.id}>
+							<span>{item.name}</span>
+							{item.values.map(value => (
+								<FilterShop
+									key={value}
+									value={value}
+									item={item}
+									action={event => manageFilters(event, filters, setFilters)}
+								/>
+							))}
+						</div>
 					))}
 					<div>
 						<input
-							onMouseUp={event => setMaxPrice(event.target.value)}
+							onChange={event =>
+								setFilters({ ...filters, price: event.target.value })
+							}
 							type='range'
 							name='price'
 							id='price'
@@ -94,7 +77,7 @@ const Shop = () => {
 						/>
 						<div>
 							<span>Precio máximo</span>
-							<span>{maxPrice}€</span>
+							<span>{filters.price}€</span>
 						</div>
 					</div>
 				</StyledFilters>
@@ -149,21 +132,8 @@ const Shop = () => {
 	);
 };
 
-//toRemove
-const filtersSet = (value, type, setSelectedFilters) => {
-	setSelectedFilters(prevFilters => {
-		const updatedTypeFilters = prevFilters[type].includes(value)
-			? prevFilters[type].filter(item => item !== value)
-			: [...prevFilters[type], value];
-
-		return {
-			...prevFilters,
-			[type]: updatedTypeFilters
-		};
-	});
-};
-
 const filterProducts = (products, filters) => {
+	// if no filtros return products
 	let newInfo = products;
 	if (filters.category.length > 0) {
 		newInfo = newInfo.filter(item =>
@@ -186,8 +156,6 @@ const filterProducts = (products, filters) => {
 	return newInfo;
 };
 
-//toadd
-
 const manageFilters = (event, filters, setFilters) => {
 	const newFilters = { ...filters };
 	const { name, checked, value } = event.target;
@@ -198,11 +166,5 @@ const manageFilters = (event, filters, setFilters) => {
 			: [...filters[name].filter(item => item !== value)]
 	});
 };
-
-const [filters, setFilters] = useState({
-	category: [],
-	size: [],
-	price: 0
-});
 
 export default Shop;
