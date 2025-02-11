@@ -22,6 +22,7 @@ const StyledAllComp = styled.div`
 	flex-direction: column;
 	align-items: center;
 	gap: 1rem;
+	width: 100%;
 
 	@media screen and (width>=1024px) {
 		flex-direction: row-reverse;
@@ -120,6 +121,23 @@ const StyledShop = styled.div`
 	}
 `;
 
+const StyledEmptyShop = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+	width: 90%;
+	height: 90%;
+	font-family: ${FONT_FAMILY.pacifico};
+	font-size: ${FONT_SIZE.m};
+	line-height: 160%;
+	text-align: center;
+`;
+
+const StyledEmptyImage = styled.img`
+	border-radius: 1rem;
+`;
+
 export {
 	StyledMain,
 	StyledHeader,
@@ -131,5 +149,7 @@ export {
 	StyledCart,
 	StyledEmptyImg,
 	StyledCartContainer,
-	StyledShop
+	StyledShop,
+	StyledEmptyShop,
+	StyledEmptyImage
 };

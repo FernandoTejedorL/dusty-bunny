@@ -12,7 +12,9 @@ import {
 	StyledShop,
 	StyledCart,
 	StyledCartContainer,
-	StyledEmptyImg
+	StyledEmptyImg,
+	StyledEmptyShop,
+	StyledEmptyImage
 } from './shop.styles';
 import ShopCard from '../../components/shopCard/ShopCard';
 import { useCart } from '../../hooks/useCart';
@@ -20,7 +22,7 @@ import ProductCard from '../../components/productCard/ProductCard';
 import { useProducts } from '../../hooks/useProducts';
 
 const Shop = () => {
-	const [maxPrice, setMaxPrice] = useState(100);
+	const [maxPrice, setMaxPrice] = useState(37);
 	const [filtersOpen, SetFiltersOpen] = useState(false);
 	const [cartOpen, setCartOpen] = useState(false);
 	const { products } = useProducts();
@@ -31,7 +33,7 @@ const Shop = () => {
 		size: [],
 		diet: []
 	});
-	console.log(selectedFilters.category);
+
 	useEffect(() => {
 		setFilteredProducts(products);
 	}, [products]);
@@ -45,8 +47,8 @@ const Shop = () => {
 	}, []);
 
 	useEffect(() => {
-		productsToShow(products, selectedFilters, setFilteredProducts);
-	}, [products, selectedFilters]);
+		productsToShow(products, selectedFilters, maxPrice, setFilteredProducts);
+	}, [products, selectedFilters, maxPrice]);
 
 	return (
 		<StyledMain>
@@ -74,10 +76,7 @@ const Shop = () => {
 					))}
 					<div>
 						<input
-							onMouseUp={event => {
-								RangeValue(setMaxPrice);
-								filterByPrice(products, event, setFilteredProducts);
-							}}
+							onMouseUp={event => setMaxPrice(event.target.value)}
 							type='range'
 							name='price'
 							id='price'
@@ -121,6 +120,18 @@ const Shop = () => {
 					</StyledCartContainer>
 				</StyledCart>
 				<StyledShop>
+					{filteredProducts.length === 0 && (
+						<StyledEmptyShop>
+							<StyledEmptyImage
+								src='/assets/images/common/notfound.jpg'
+								alt='not-found'
+							/>
+							<p>
+								Oh no! It looks like the perfect fluff is playing hide and seek.
+								Try adjusting your filters...
+							</p>
+						</StyledEmptyShop>
+					)}
 					{filteredProducts.map(item => (
 						<ShopCard key={item._id} item={item} />
 					))}
@@ -128,11 +139,6 @@ const Shop = () => {
 			</StyledAllComp>
 		</StyledMain>
 	);
-};
-
-const RangeValue = setMaxPrice => {
-	const value = event.target.value;
-	setMaxPrice(value);
 };
 
 const filtersSet = (value, type, setSelectedFilters) => {
@@ -149,28 +155,27 @@ const filtersSet = (value, type, setSelectedFilters) => {
 };
 
 const productsToShow = (
-	filteredProducts,
+	products,
 	selectedFilters,
+	maxPrice,
 	setFilteredProducts
 ) => {
-	let newInfo = filteredProducts;
+	let newInfo = products;
 	if (selectedFilters.category.length > 0) {
 		newInfo = newInfo.filter(item =>
 			item.category.includes(selectedFilters.category)
 		);
 	}
-	if (selectedFilters.category.length > 0) {
+	if (selectedFilters.size.length > 0) {
 		newInfo = newInfo.filter(item => item.size.includes(selectedFilters.size));
 	}
-	if (selectedFilters.category.length > 0) {
+	if (selectedFilters.diet.length > 0) {
 		newInfo = newInfo.filter(item => item.diet.includes(selectedFilters.diet));
 	}
-	setFilteredProducts(newInfo);
-};
 
-const filterByPrice = (products, event, setFilteredProducts) => {
-	const newProducts = products.filter(item => item.price < event.target.value);
-	setFilteredProducts(newProducts);
+	newInfo = newInfo.filter(item => item.price <= maxPrice);
+
+	setFilteredProducts(newInfo);
 };
 
 export default Shop;

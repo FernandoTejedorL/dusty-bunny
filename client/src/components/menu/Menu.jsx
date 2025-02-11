@@ -47,7 +47,9 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
 						</>
 					)}
 					{user && (
-						<StyledLogOutButton onClick={logout}>Log Out</StyledLogOutButton>
+						<Link to={'/'}>
+							<StyledLogOutButton onClick={logout}>Log Out</StyledLogOutButton>
+						</Link>
 					)}
 				</StyledUl>
 			</nav>

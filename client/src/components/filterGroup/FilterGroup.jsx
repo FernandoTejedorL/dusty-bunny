@@ -9,7 +9,7 @@ const FilterGroup = ({
 }) => {
 	return (
 		<div>
-			<span>{item.type}</span>
+			<span>{item.name}</span>
 			{item.values.map(value => (
 				<EachFilter
 					filtersSet={filtersSet}
