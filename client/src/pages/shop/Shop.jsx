@@ -9,6 +9,7 @@ import {
 	StyledAllComp,
 	StyledAllFilters,
 	StyledCart,
+	StyledCartButton,
 	StyledCartContainer,
 	StyledCartCounter,
 	StyledChevron,
@@ -98,9 +99,13 @@ const Shop = () => {
 						{cart.length === 0 && (
 							<StyledEmptyImg src='/assets/images/common/empty.jpg' alt='' />
 						)}
-						{cart.length !== 0 && <button>Go to cart</button>}
 						{cart.length !== 0 && (
-							<button onClick={() => setCart([])}>Vaciar</button>
+							<StyledCartButton>Go to cart</StyledCartButton>
+						)}
+						{cart.length !== 0 && (
+							<StyledCartButton onClick={() => setCart([])}>
+								Vaciar
+							</StyledCartButton>
 						)}
 						{cart.map(item => (
 							<ProductCard

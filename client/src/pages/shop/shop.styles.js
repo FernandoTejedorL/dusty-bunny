@@ -91,6 +91,30 @@ const StyledCart = styled.div`
 	}
 `;
 
+const StyledCartButton = styled.button`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 70%;
+	background-color: ${COLORS.lightViolet};
+	border: 1px solid ${COLORS.dark};
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	cursor: pointer;
+
+	@media screen and (width>=1024px) {
+		width: 80%;
+	}
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: ${COLORS.deepViolet};
+			border: 1px solid ${COLORS.white};
+			color: ${COLORS.white};
+		}
+	}
+`;
+
 const StyledEmptyImg = styled.img`
 	height: 80%;
 	width: 80%;
@@ -161,6 +185,7 @@ export {
 	StyledFilters,
 	StyledCart,
 	StyledEmptyImg,
+	StyledCartButton,
 	StyledCartContainer,
 	StyledShop,
 	StyledEmptyShop,

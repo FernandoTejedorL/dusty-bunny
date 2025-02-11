@@ -20,7 +20,6 @@ const ShopCard = ({ item }) => {
 	const isInCart = cart.some(product => product._id === item._id);
 
 	const quantity = quantityToCard(item, cart);
-	console.log(quantity);
 
 	return (
 		<StyledShopCard>
