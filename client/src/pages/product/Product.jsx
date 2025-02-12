@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { findProduct, updateFavById } from '../../utils/api';
+import { findData, findProduct, updateFavById } from '../../utils/api';
 import { Link, useParams } from 'react-router-dom';
 import { useCart } from '../../hooks/useCart';
 import {
@@ -22,7 +22,7 @@ const Product = () => {
 		fetchProductById(setProduct, id);
 	}, [id]);
 
-	console.log(product._id);
+	checkFav(userId, product, setFav);
 
 	return (
 		<StyledMain>
@@ -34,8 +34,8 @@ const Product = () => {
 						{!fav && (
 							<StyledFavIcon
 								onClick={() => {
-									setFav(true);
 									favProduct(userId, product);
+									setFav(true);
 								}}
 								src='/assets/images/common/nofav.svg'
 								alt=''
@@ -44,8 +44,8 @@ const Product = () => {
 						{fav && (
 							<StyledFavIcon
 								onClick={() => {
+									favProduct(userId, product, setFav, fav);
 									setFav(false);
-									favProduct(userId, product);
 								}}
 								src='/assets/images/common/fav.svg'
 								alt=''
@@ -94,6 +94,15 @@ const fetchProductById = async (setProduct, _id) => {
 const favProduct = async (userId, product) => {
 	const newFavs = product._id;
 	await updateFavById(userId, newFavs);
+};
+
+const checkFav = async (userId, product, setFav) => {
+	const user = await findData(userId);
+	if (user.favs.includes(product._id)) {
+		setFav(true);
+	} else {
+		setFav(false);
+	}
 };
 
 export default Product;

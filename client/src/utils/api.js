@@ -47,21 +47,6 @@ const findProduct = async id => {
 	return product;
 };
 
-// const updateFavById = async (userId, newFavs) => {
-// 	try {
-// 		const response = await fetch(URL + API_URL + userId, {
-// 			method: 'PATCH',
-// 			body: JSON.stringify({ favs: newFavs }),
-// 			headers: { 'Content-Type': 'application/json' }
-// 		});
-
-// 		const data = await response.json();
-// 		return data;
-// 	} catch (error) {
-// 		console.log(error);
-// 	}
-// };
-
 const updateFavById = async (userId, newFavs) => {
 	try {
 		const userResponse = await fetch(URL + API_URL + userId);
