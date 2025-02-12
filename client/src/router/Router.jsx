@@ -40,7 +40,7 @@ const Router = () => {
 					<Route path='cart' element={<CartPage />} />
 				</Route>
 				<Route element={<ProtectedRoute />}>
-					<Route path='product' element={<Product />} />
+					<Route path='product/:id' element={<Product />} />
 				</Route>
 			</Route>
 		</Routes>

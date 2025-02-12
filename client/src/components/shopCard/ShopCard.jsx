@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useCart } from '../../hooks/useCart';
 import {
 	StyledCardButton,
@@ -49,7 +50,9 @@ const ShopCard = ({ item }) => {
 					</StyledQuantityButtons>
 				</StyledQuantityEditors>
 			)}
-			<StyledCardButton>More info</StyledCardButton>
+			<Link to={`/product/${item._id}`}>
+				<StyledCardButton>More info</StyledCardButton>
+			</Link>
 		</StyledShopCard>
 	);
 };

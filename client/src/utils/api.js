@@ -41,4 +41,32 @@ const findData = async id => {
 	return user;
 };
 
-export { getAllData, getAllProducts, createData, findData };
+const findProduct = async id => {
+	const response = await fetch(URL + API_PRODUCTS_URL + id);
+	const product = await response.json();
+	return product;
+};
+
+const updateFavById = async (userId, newFavs) => {
+	try {
+		const response = await fetch(URL + API_URL + userId, {
+			method: 'PATCH',
+			body: JSON.stringify({ favs: newFavs }),
+			headers: { 'Content-Type': 'application/json' }
+		});
+
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+export {
+	getAllData,
+	getAllProducts,
+	createData,
+	findData,
+	findProduct,
+	updateFavById
+};

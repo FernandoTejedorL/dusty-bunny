@@ -1,12 +1,96 @@
-import WorkInProgress from '../../components/workInProgress/WorkInProgress';
+import { useEffect, useState } from 'react';
+import { findProduct, updateFavById } from '../../utils/api';
+import { Link, useParams } from 'react-router-dom';
+import { useCart } from '../../hooks/useCart';
+import {
+	StyledFavIcon,
+	StyledImage,
+	StyledImagesContainer,
+	StyledMain,
+	StyledName
+} from './product.styles';
+import { useAuth } from '../../hooks/useAuth';
 
 const Product = () => {
+	const { id } = useParams();
+	const [product, setProduct] = useState({});
+	const [fav, setFav] = useState(false);
+	const { addToCart } = useCart();
+	const { user } = useAuth();
+	const userId = user._id;
+	useEffect(() => {
+		fetchProductById(setProduct, id);
+	}, [id]);
+
+	console.log(product._id);
+
 	return (
-		<div>
-			<h2>Products Page</h2>
-			<WorkInProgress />
-		</div>
+		<StyledMain>
+			<StyledName>{product.name}</StyledName>
+			<div>
+				<div>
+					<StyledImagesContainer>
+						<StyledImage src={product.image} alt='' />
+						{!fav && (
+							<StyledFavIcon
+								onClick={() => {
+									setFav(true);
+									favProduct(userId, product);
+								}}
+								src='/assets/images/common/nofav.svg'
+								alt=''
+							/>
+						)}
+						{fav && (
+							<StyledFavIcon
+								onClick={() => setFav(false)}
+								src='/assets/images/common/fav.svg'
+								alt=''
+							/>
+						)}
+					</StyledImagesContainer>
+					<div>
+						<button onClick={() => addToCart(product)}>Add To Cart</button>
+						<Link to={'/shop'}>
+							<button>Back to Shop</button>
+						</Link>
+					</div>
+				</div>
+				<div>
+					<div>
+						<span>Category:</span>
+						<span>{product.category}</span>
+					</div>
+					<div>
+						<span>Size:</span>
+						<span>{product.size}</span>
+					</div>
+					<div>
+						<span>Diet:</span>
+						<span>{product.diet}</span>
+					</div>
+					<div>
+						<span>Price:</span>
+						<span>{product.price}€</span>
+					</div>
+					<div>
+						<span>Description:</span>
+						<span>{product.description}</span>
+					</div>
+				</div>
+			</div>
+		</StyledMain>
 	);
+};
+
+const fetchProductById = async (setProduct, _id) => {
+	const data = await findProduct(_id);
+	setProduct(data);
+};
+
+const favProduct = async (userId, product) => {
+	const newFavs = product._id;
+	await updateFavById(userId, newFavs);
 };
 
 export default Product;
