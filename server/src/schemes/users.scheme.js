@@ -7,7 +7,7 @@ const UserSceheme = mongoose.Schema(
     surname: String,
     address: String,
     email: String,
-    favs: String,
+    favs: Array,
     orders: String,
     vendor: Boolean,
   },

@@ -43,7 +43,10 @@ const Product = () => {
 						)}
 						{fav && (
 							<StyledFavIcon
-								onClick={() => setFav(false)}
+								onClick={() => {
+									setFav(false);
+									favProduct(userId, product);
+								}}
 								src='/assets/images/common/fav.svg'
 								alt=''
 							/>

@@ -23,6 +23,8 @@ const AuthProvider = ({ children }) => {
 		};
 	}, []);
 
+	console.log(user);
+
 	return (
 		<AuthContext.Provider value={{ user, loading }}>
 			{children}

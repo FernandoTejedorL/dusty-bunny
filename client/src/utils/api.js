@@ -47,14 +47,39 @@ const findProduct = async id => {
 	return product;
 };
 
+// const updateFavById = async (userId, newFavs) => {
+// 	try {
+// 		const response = await fetch(URL + API_URL + userId, {
+// 			method: 'PATCH',
+// 			body: JSON.stringify({ favs: newFavs }),
+// 			headers: { 'Content-Type': 'application/json' }
+// 		});
+
+// 		const data = await response.json();
+// 		return data;
+// 	} catch (error) {
+// 		console.log(error);
+// 	}
+// };
+
 const updateFavById = async (userId, newFavs) => {
 	try {
+		const userResponse = await fetch(URL + API_URL + userId);
+		const userdata = await userResponse.json();
+		let updatedFavs = userdata.favs;
+		if (updatedFavs.includes(newFavs)) {
+			updatedFavs = updatedFavs.filter(fav => fav !== newFavs);
+			console.log(updatedFavs);
+		} else {
+			updatedFavs.push(newFavs);
+		}
 		const response = await fetch(URL + API_URL + userId, {
 			method: 'PATCH',
-			body: JSON.stringify({ favs: newFavs }),
+			body: JSON.stringify({ favs: updatedFavs }),
 			headers: { 'Content-Type': 'application/json' }
 		});
 
+		console.log(updatedFavs);
 		const data = await response.json();
 		return data;
 	} catch (error) {
