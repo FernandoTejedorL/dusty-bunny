@@ -8,6 +8,7 @@ import {
 	StyledQuantityEditors,
 	StyledShopCard
 } from './shopCard.styles';
+import { useAuth } from '../../hooks/useAuth';
 
 const ShopCard = ({ item }) => {
 	const {
@@ -17,6 +18,7 @@ const ShopCard = ({ item }) => {
 		addToCart,
 		quantityToCard
 	} = useCart();
+	const { user } = useAuth();
 
 	const isInCart = cart.some(product => product._id === item._id);
 
@@ -29,30 +31,34 @@ const ShopCard = ({ item }) => {
 				<span>{item.name}</span>
 				<span>{item.price}€</span>
 			</StyledNameAndPrice>
-			{!isInCart && (
-				<StyledCardButton onClick={() => addToCart(item)}>
-					Add to Cart
-				</StyledCardButton>
+			{user && (
+				<>
+					{!isInCart && (
+						<StyledCardButton onClick={() => addToCart(item)}>
+							Add to Cart
+						</StyledCardButton>
+					)}
+					{isInCart && (
+						<StyledQuantityEditors>
+							<StyledQuantityButtons onClick={() => decrementQuantity(item)}>
+								{quantity === 1 && (
+									<img src='/assets/images/common/delete.svg' alt='delete' />
+								)}
+								{quantity !== 1 && (
+									<img src='/assets/images/common/remove.svg' alt='reduce' />
+								)}
+							</StyledQuantityButtons>
+							<span>{quantity}</span>
+							<StyledQuantityButtons onClick={() => incrementQuantity(item)}>
+								<img src='/assets/images/common/add.svg' alt='increment' />
+							</StyledQuantityButtons>
+						</StyledQuantityEditors>
+					)}
+					<Link to={`/product/${item._id}`}>
+						<StyledCardButton>More info</StyledCardButton>
+					</Link>
+				</>
 			)}
-			{isInCart && (
-				<StyledQuantityEditors>
-					<StyledQuantityButtons onClick={() => decrementQuantity(item)}>
-						{quantity === 1 && (
-							<img src='/assets/images/common/delete.svg' alt='delete' />
-						)}
-						{quantity !== 1 && (
-							<img src='/assets/images/common/remove.svg' alt='reduce' />
-						)}
-					</StyledQuantityButtons>
-					<span>{quantity}</span>
-					<StyledQuantityButtons onClick={() => incrementQuantity(item)}>
-						<img src='/assets/images/common/add.svg' alt='increment' />
-					</StyledQuantityButtons>
-				</StyledQuantityEditors>
-			)}
-			<Link to={`/product/${item._id}`}>
-				<StyledCardButton>More info</StyledCardButton>
-			</Link>
 		</StyledShopCard>
 	);
 };

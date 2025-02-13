@@ -22,12 +22,14 @@ import {
 	StyledMain,
 	StyledShop
 } from './shop.styles';
+import { useAuth } from '../../hooks/useAuth';
 
 const Shop = () => {
 	const [filtersOpen, SetFiltersOpen] = useState(false);
 	const [cartOpen, setCartOpen] = useState(false);
 	const { products } = useProducts();
 	const { cart, setCart } = useCart();
+	const { user } = useAuth();
 
 	const [filters, setFilters] = useState({
 		category: [],
@@ -85,38 +87,40 @@ const Shop = () => {
 				</StyledFilters>
 			</StyledAllFilters>
 			<StyledAllComp>
-				<StyledCart>
-					<StyledFiltersTile onClick={() => setCartOpen(!cartOpen)}>
-						<StyledCartCounter>{cart.length}</StyledCartCounter>
-						<span>Cart</span>
-						<StyledChevron
-							$filtersOpen={cartOpen}
-							src='/assets/images/common/chevron-dwn.png'
-							alt=''
-						/>
-					</StyledFiltersTile>
-					<StyledCartContainer $cartOpen={cartOpen}>
-						{cart.length === 0 && (
-							<StyledEmptyImg src='/assets/images/common/empty.jpg' alt='' />
-						)}
-						{cart.length !== 0 && (
-							<StyledCartButton>Go to cart</StyledCartButton>
-						)}
-						{cart.length !== 0 && (
-							<StyledCartButton onClick={() => setCart([])}>
-								Vaciar
-							</StyledCartButton>
-						)}
-						{cart.map(item => (
-							<ProductCard
-								key={item._id}
-								image={item.image}
-								name={item.name}
-								price={item.price}
+				{user && (
+					<StyledCart>
+						<StyledFiltersTile onClick={() => setCartOpen(!cartOpen)}>
+							<StyledCartCounter>{cart.length}</StyledCartCounter>
+							<span>Cart</span>
+							<StyledChevron
+								$filtersOpen={cartOpen}
+								src='/assets/images/common/chevron-dwn.png'
+								alt=''
 							/>
-						))}
-					</StyledCartContainer>
-				</StyledCart>
+						</StyledFiltersTile>
+						<StyledCartContainer $cartOpen={cartOpen}>
+							{cart.length === 0 && (
+								<StyledEmptyImg src='/assets/images/common/empty.jpg' alt='' />
+							)}
+							{cart.length !== 0 && (
+								<StyledCartButton>Go to cart</StyledCartButton>
+							)}
+							{cart.length !== 0 && (
+								<StyledCartButton onClick={() => setCart([])}>
+									Vaciar
+								</StyledCartButton>
+							)}
+							{cart.map(item => (
+								<ProductCard
+									key={item._id}
+									image={item.image}
+									name={item.name}
+									price={item.price}
+								/>
+							))}
+						</StyledCartContainer>
+					</StyledCart>
+				)}
 				<StyledShop>
 					{filteredProducts.length === 0 && (
 						<StyledEmptyShop>

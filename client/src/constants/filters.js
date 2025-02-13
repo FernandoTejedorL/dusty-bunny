@@ -5,7 +5,14 @@ export const FILTERS = [
 		id: v4(),
 		name: 'Category',
 		type: 'category',
-		values: ['Animals', 'Special', 'Jobs', 'Personalities', 'Realistic']
+		values: [
+			'Animals',
+			'Special',
+			'Jobs',
+			'Personalities',
+			'Realistic',
+			'Hobbies'
+		]
 	},
 	{
 		id: v4(),
