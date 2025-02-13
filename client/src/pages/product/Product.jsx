@@ -16,13 +16,14 @@ const Product = () => {
 	const [product, setProduct] = useState({});
 	const [fav, setFav] = useState(false);
 	const { addToCart } = useCart();
-	const { user } = useAuth();
+	const { user, setUser } = useAuth();
 	const userId = user._id;
 	useEffect(() => {
 		fetchProductById(setProduct, id);
 	}, [id]);
 
-	checkFav(userId, product, setFav);
+	checkFav(userId, product);
+	console.log(user);
 
 	return (
 		<StyledMain>
@@ -34,8 +35,7 @@ const Product = () => {
 						{!fav && (
 							<StyledFavIcon
 								onClick={() => {
-									favProduct(userId, product);
-									setFav(true);
+									favProduct(userId, product, setUser);
 								}}
 								src='/assets/images/common/nofav.svg'
 								alt=''
@@ -44,8 +44,7 @@ const Product = () => {
 						{fav && (
 							<StyledFavIcon
 								onClick={() => {
-									favProduct(userId, product, setFav, fav);
-									setFav(false);
+									favProduct(userId, product, setUser);
 								}}
 								src='/assets/images/common/fav.svg'
 								alt=''
@@ -91,9 +90,10 @@ const fetchProductById = async (setProduct, _id) => {
 	setProduct(data);
 };
 
-const favProduct = async (userId, product) => {
+const favProduct = async (userId, product, setUser) => {
 	const newFavs = product._id;
-	await updateFavById(userId, newFavs);
+	const userUpdated = await updateFavById(userId, newFavs);
+	setUser(userUpdated);
 };
 
 const checkFav = async (userId, product, setFav) => {
