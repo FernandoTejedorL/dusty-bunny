@@ -7,9 +7,9 @@ import {
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 
-const ProductCard = ({ image, name, price }) => {
+const ProductCard = ({ id, image, name, price }) => {
 	const { user } = useAuth();
-	const direction = user ? '/shop' : '/redirect';
+	const direction = user ? `/product/${id}` : '/redirect';
 	return (
 		<Link to={direction}>
 			<StyledSlide>

@@ -57,7 +57,10 @@ const Product = () => {
 					<div>
 						<button onClick={() => addToCart(product)}>Add To Cart</button>
 						<Link to={'/shop'}>
-							<button>Back to Shop</button>
+							<button>Go to Shop</button>
+						</Link>
+						<Link to={`/user/${user._id}`}>
+							<button>Go to User Page</button>
 						</Link>
 					</div>
 				</div>
