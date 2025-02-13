@@ -57,6 +57,26 @@ const StyledCardButton = styled.button`
 	}
 `;
 
+const StyledMoreInfo = styled.button`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	background-color: ${COLORS.white};
+	border: 1px solid ${COLORS.dark};
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	cursor: pointer;
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: ${COLORS.lightViolet};
+			border: 1px solid ${COLORS.white};
+			color: ${COLORS.white};
+		}
+	}
+`;
+
 const StyledQuantityEditors = styled.div`
 	display: flex;
 	justify-content: space-between;
@@ -81,5 +101,6 @@ export {
 	StyledNameAndPrice,
 	StyledCardButton,
 	StyledQuantityEditors,
-	StyledQuantityButtons
+	StyledQuantityButtons,
+	StyledMoreInfo
 };

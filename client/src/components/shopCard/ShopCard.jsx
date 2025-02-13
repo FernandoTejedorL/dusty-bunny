@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../../hooks/useCart';
 import {
 	StyledCardButton,
+	StyledMoreInfo,
 	StyledNameAndPrice,
 	StyledProductPic,
 	StyledQuantityButtons,
@@ -55,7 +56,7 @@ const ShopCard = ({ item }) => {
 						</StyledQuantityEditors>
 					)}
 					<Link to={`/product/${item._id}`}>
-						<StyledCardButton>More info</StyledCardButton>
+						<StyledMoreInfo>More info</StyledMoreInfo>
 					</Link>
 				</>
 			)}
