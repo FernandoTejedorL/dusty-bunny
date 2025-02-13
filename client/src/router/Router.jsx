@@ -35,7 +35,7 @@ const Router = () => {
 					<Route path='seller' element={<VendorShop />} />
 				</Route>
 				<Route element={<ProtectedUserRoute />}>
-					<Route path='user' element={<UserPage />} />
+					<Route path='user/:id' element={<UserPage />} />
 					<Route path='orders' element={<Orders />} />
 					<Route path='cart' element={<CartPage />} />
 				</Route>

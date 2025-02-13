@@ -33,7 +33,7 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
 
 					{user && !user?.vendor && (
 						<>
-							<StyledNavLink to={'/user'}>User Page</StyledNavLink>
+							<StyledNavLink to={`/user/${user._id}`}>User Page</StyledNavLink>
 							<StyledNavLink to={'/orders'}>My Orders</StyledNavLink>
 							<StyledNavLink to={'/cart'}>Cart</StyledNavLink>
 						</>

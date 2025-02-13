@@ -73,11 +73,26 @@ const updateFavById = async (userId, newFavs) => {
 	}
 };
 
+const updateDataById = async (id, newUser) => {
+	try {
+		const response = await fetch(URL + API_URL + id, {
+			method: 'PATCH',
+			body: JSON.stringify(newUser),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 export {
 	getAllData,
 	getAllProducts,
 	createData,
 	findData,
 	findProduct,
-	updateFavById
+	updateFavById,
+	updateDataById
 };

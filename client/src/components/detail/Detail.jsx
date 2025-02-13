@@ -1,4 +1,4 @@
-const ProducDetail = ({ name, info }) => {
+const Detail = ({ name, info }) => {
 	return (
 		<div>
 			<span>{name}: </span>
@@ -7,4 +7,4 @@ const ProducDetail = ({ name, info }) => {
 	);
 };
 
-export default ProducDetail;
+export default Detail;
