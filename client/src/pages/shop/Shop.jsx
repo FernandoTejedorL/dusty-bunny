@@ -28,7 +28,7 @@ const Shop = () => {
 	const [filtersOpen, SetFiltersOpen] = useState(false);
 	const [cartOpen, setCartOpen] = useState(false);
 	const { products } = useProducts();
-	const { cart, setCart } = useCart();
+	const { cart } = useCart();
 	const { user } = useAuth();
 
 	const [filters, setFilters] = useState({
