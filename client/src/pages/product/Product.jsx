@@ -10,6 +10,7 @@ import {
 	StyledName
 } from './product.styles';
 import { useAuth } from '../../hooks/useAuth';
+import ProductInfo from '../../components/productInfo/ProductInfo';
 
 const Product = () => {
 	const { id } = useParams();
@@ -61,26 +62,7 @@ const Product = () => {
 					</div>
 				</div>
 				<div>
-					<div>
-						<span>Category:</span>
-						<span>{product.category}</span>
-					</div>
-					<div>
-						<span>Size:</span>
-						<span>{product.size}</span>
-					</div>
-					<div>
-						<span>Diet:</span>
-						<span>{product.diet}</span>
-					</div>
-					<div>
-						<span>Price:</span>
-						<span>{product.price}€</span>
-					</div>
-					<div>
-						<span>Description:</span>
-						<span>{product.description}</span>
-					</div>
+					<ProductInfo product={product} />
 				</div>
 			</div>
 		</StyledMain>
