@@ -11,8 +11,6 @@ const CartProvider = ({ children }) => {
 		localStorage.setItem('cart', JSON.stringify(cart));
 	}, [cart]);
 
-	console.log(cart);
-
 	const incrementQuantity = item => {
 		setCart(
 			cart.map(product =>

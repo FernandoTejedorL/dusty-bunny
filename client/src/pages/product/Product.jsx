@@ -25,8 +25,6 @@ const Product = () => {
 	}, [id]);
 
 	checkFav(userId, product, setFav);
-	console.log(user);
-	console.log('PRODUCT ', product._id);
 
 	return (
 		<StyledMain>

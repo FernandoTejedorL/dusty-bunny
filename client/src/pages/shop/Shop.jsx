@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import FilterShop from '../../components/filterShop/FilterShop';
-import ProductCard from '../../components/productCard/ProductCard';
 import ShopCard from '../../components/shopCard/ShopCard';
 import { FILTERS } from '../../constants/filters';
 import { useCart } from '../../hooks/useCart';
@@ -23,6 +22,7 @@ import {
 	StyledShop
 } from './shop.styles';
 import { useAuth } from '../../hooks/useAuth';
+import CartCard from '../../components/cartCard/CartCard';
 
 const Shop = () => {
 	const [filtersOpen, SetFiltersOpen] = useState(false);
@@ -105,24 +105,18 @@ const Shop = () => {
 							{cart.length !== 0 && (
 								<StyledCartButton>Go to cart</StyledCartButton>
 							)}
-							{cart.length !== 0 && (
-								<StyledCartButton onClick={() => setCart([])}>
-									Vaciar
-								</StyledCartButton>
-							)}
 							{cart.map(item => (
-								<ProductCard
+								<CartCard
 									key={item._id}
 									id={item._id}
 									image={item.image}
 									name={item.name}
-									price={item.price}
 								/>
 							))}
 						</StyledCartContainer>
 					</StyledCart>
 				)}
-				<StyledShop>
+				<StyledShop $user={user}>
 					{filteredProducts.length === 0 && (
 						<StyledEmptyShop>
 							<StyledEmptyImage

@@ -148,12 +148,8 @@ const StyledShop = styled.div`
 	}
 
 	@media screen and (width>=1024px) {
-		width: 80%;
+		width: ${({ $user }) => ($user ? '80%' : '100%')};
 		gap: 1rem;
-	}
-
-	@media screen and (width>=1440px) {
-		width: 80%;
 	}
 `;
 

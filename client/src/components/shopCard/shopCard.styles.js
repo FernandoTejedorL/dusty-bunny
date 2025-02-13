@@ -17,7 +17,9 @@ const StyledShopCard = styled.div`
 	box-shadow: 0 4px 4px;
 
 	@media screen and (width>=1024px) {
+		justify-content: space-between;
 		width: 200px;
+		height: ${({ $user }) => ($user ? '370px' : '240px')};
 	}
 `;
 
@@ -31,6 +33,7 @@ const StyledNameAndPrice = styled.div`
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
+	text-align: left;
 `;
 
 const StyledCardButton = styled.button`

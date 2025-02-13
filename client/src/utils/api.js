@@ -51,11 +51,9 @@ const updateFavById = async (userId, newFavs) => {
 	try {
 		const userResponse = await fetch(URL + API_URL + userId);
 		const userdata = await userResponse.json();
-		console.log('FAVS ' + userdata.favs);
 		let updatedFavs = userdata.favs;
 		if (updatedFavs.includes(newFavs)) {
 			updatedFavs = updatedFavs.filter(fav => fav !== newFavs);
-			console.log(updatedFavs);
 		} else {
 			updatedFavs.push(newFavs);
 		}
@@ -65,7 +63,6 @@ const updateFavById = async (userId, newFavs) => {
 			headers: { 'Content-Type': 'application/json' }
 		});
 
-		console.log(updatedFavs);
 		const data = await response.json();
 		return data;
 	} catch (error) {
