@@ -1,6 +1,7 @@
 import Carousel from '../../components/carousel/Carousel';
 import CommentCard from '../../components/commentCard/CommentCard';
 import { OPINIONS } from '../../constants/opinions-info';
+import { useProducts } from '../../hooks/useProducts';
 import {
 	StyledBanner,
 	StyledBrand,
@@ -13,6 +14,7 @@ import {
 } from './home.styles';
 
 const Home = () => {
+	const { products } = useProducts();
 	return (
 		<StyledMain>
 			<StyledBanner>
@@ -22,7 +24,7 @@ const Home = () => {
 			</StyledBanner>
 			<StyledCarouselContainer>
 				<StyledHookStart>Have a look at out little wonders!</StyledHookStart>
-				<Carousel />
+				<Carousel products={products} />
 			</StyledCarouselContainer>
 			<StyledOpinions>
 				<StyledHookEnd>Our community speaks!</StyledHookEnd>

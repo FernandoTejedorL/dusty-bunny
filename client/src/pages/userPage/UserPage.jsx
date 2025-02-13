@@ -2,14 +2,18 @@ import { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { updateDataById } from '../../utils/api';
 import { useParams } from 'react-router-dom';
+import { useProducts } from '../../hooks/useProducts';
+import Carousel from '../../components/carousel/Carousel';
 
 const UserPage = () => {
 	const { user, setUser, loading } = useAuth();
+	const { products } = useProducts();
 	const [edit, setEdit] = useState(false);
 	const { id } = useParams();
 	if (loading) return <h2>Loading...</h2>;
 
-	console.log(user.favs);
+	const favourites = user.favs;
+	const favouritesToShow = productsToCarousel(favourites, products);
 	return (
 		<div>
 			<h2>Your Profile</h2>
@@ -67,6 +71,9 @@ const UserPage = () => {
 				</form>
 				{!edit && <button onClick={() => setEdit(true)}>Edit Profile</button>}
 			</div>
+			<div>
+				<Carousel products={favouritesToShow} />
+			</div>
 		</div>
 	);
 };
@@ -81,6 +88,13 @@ const updateUser = async (id, event, setUser, setEdit) => {
 	const data = await updateDataById(id, newUser);
 	setUser(data);
 	setEdit(false);
+};
+
+const productsToCarousel = (favourites, products) => {
+	const favouritesOfUser = products.filter(product =>
+		favourites.includes(product._id)
+	);
+	return favouritesOfUser;
 };
 
 export default UserPage;
