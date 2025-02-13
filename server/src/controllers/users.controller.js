@@ -45,8 +45,8 @@ usersController.editUser = async (req, res) => {
       return res.status(404).json({ error: 'User not found' });
     }
     await UserModel.updateOne({ _id: id }, { $set: { ...newInfo } });
-    const allUsers = await UserModel.find();
-    return res.status(200).json(allUsers);
+    const user = await UserModel.findById(id);
+    return res.status(200).json(user);
   } catch (error) {
     return res.status(500).json({ error: 'Error writing database' + error });
   }

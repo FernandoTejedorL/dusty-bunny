@@ -5,7 +5,7 @@ import { FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
 
 const StyledMenu = styled.div`
 	position: fixed;
-	top: 86px;
+	top: 76px;
 	left: 0;
 	width: 100%;
 	background-color: ${COLORS.lightViolet};

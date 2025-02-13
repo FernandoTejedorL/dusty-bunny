@@ -51,6 +51,7 @@ const updateFavById = async (userId, newFavs) => {
 	try {
 		const userResponse = await fetch(URL + API_URL + userId);
 		const userdata = await userResponse.json();
+		console.log('FAVS ' + userdata.favs);
 		let updatedFavs = userdata.favs;
 		if (updatedFavs.includes(newFavs)) {
 			updatedFavs = updatedFavs.filter(fav => fav !== newFavs);

@@ -18,12 +18,14 @@ const Product = () => {
 	const { addToCart } = useCart();
 	const { user, setUser } = useAuth();
 	const userId = user._id;
+
 	useEffect(() => {
 		fetchProductById(setProduct, id);
 	}, [id]);
 
-	checkFav(userId, product);
+	checkFav(userId, product, setFav);
 	console.log(user);
+	console.log('PRODUCT ', product._id);
 
 	return (
 		<StyledMain>
