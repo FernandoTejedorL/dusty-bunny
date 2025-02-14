@@ -16,6 +16,7 @@ import {
 	StyledRegisterForm
 } from './register.styles';
 import { useAuth } from '../../hooks/useAuth';
+import AvatarGrid from '../../components/avatarGrid/AvatarGrid';
 
 const Register = () => {
 	const navigate = useNavigate();
@@ -27,6 +28,7 @@ const Register = () => {
 			<StyledContainer>
 				<StyledImg src='/assets/images/common/register.jpg' alt='' />
 				<StyledRegisterForm onSubmit={event => registerUser(event, navigate)}>
+					<AvatarGrid />
 					<StyledInputAndTag>
 						<label htmlFor='name'>Name:</label>
 						<StyledInput type='text' name='name' placeholder='Name' />
@@ -87,6 +89,7 @@ const registerUser = async (event, navigate) => {
 		console.log(firebaseUser.user.uid);
 		const newUser = {
 			_id: firebaseUser.user.uid,
+			avatar: event.target.avatar.value,
 			name: event.target.name.value,
 			surname: event.target.surname.value,
 			address: event.target.address.value,

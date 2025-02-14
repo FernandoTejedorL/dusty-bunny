@@ -19,7 +19,7 @@ const UserPage = () => {
 			<h2>Your Profile</h2>
 			<div>
 				<div>
-					<img src='/assets/images/common/userpic.jpg' alt='user-pic' />
+					<img src={user.avatar} alt='user-pic' />
 				</div>
 				<form onSubmit={event => updateUser(id, event, setUser, setEdit)}>
 					<div>

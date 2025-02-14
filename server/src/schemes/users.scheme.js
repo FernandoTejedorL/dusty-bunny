@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const UserSceheme = mongoose.Schema(
   {
     _id: String,
+    avatar: String,
     name: String,
     surname: String,
     address: String,
