@@ -2,18 +2,12 @@ import { useState } from 'react';
 import FilterShop from '../../components/filterShop/FilterShop';
 import ShopCard from '../../components/shopCard/ShopCard';
 import { FILTERS } from '../../constants/filters';
-import { useCart } from '../../hooks/useCart';
 import { useProducts } from '../../hooks/useProducts';
 import {
 	StyledAllComp,
 	StyledAllFilters,
-	StyledCart,
-	StyledCartButton,
-	StyledCartContainer,
-	StyledCartCounter,
 	StyledChevron,
 	StyledEmptyImage,
-	StyledEmptyImg,
 	StyledEmptyShop,
 	StyledFilters,
 	StyledFiltersTile,
@@ -22,13 +16,11 @@ import {
 	StyledShop
 } from './shop.styles';
 import { useAuth } from '../../hooks/useAuth';
-import CartCard from '../../components/cartCard/CartCard';
+import SideCart from '../../components/sideCart/SideCart';
 
 const Shop = () => {
 	const [filtersOpen, SetFiltersOpen] = useState(false);
-	const [cartOpen, setCartOpen] = useState(false);
 	const { products } = useProducts();
-	const { cart } = useCart();
 	const { user } = useAuth();
 
 	const [filters, setFilters] = useState({
@@ -87,35 +79,7 @@ const Shop = () => {
 				</StyledFilters>
 			</StyledAllFilters>
 			<StyledAllComp>
-				{user && (
-					<StyledCart>
-						<StyledFiltersTile onClick={() => setCartOpen(!cartOpen)}>
-							<StyledCartCounter>{cart.length}</StyledCartCounter>
-							<span>Cart</span>
-							<StyledChevron
-								$filtersOpen={cartOpen}
-								src='/assets/images/common/chevron-dwn.png'
-								alt=''
-							/>
-						</StyledFiltersTile>
-						<StyledCartContainer $cartOpen={cartOpen}>
-							{cart.length === 0 && (
-								<StyledEmptyImg src='/assets/images/common/empty.jpg' alt='' />
-							)}
-							{cart.length !== 0 && (
-								<StyledCartButton>Go to cart</StyledCartButton>
-							)}
-							{cart.map(item => (
-								<CartCard
-									key={item._id}
-									id={item._id}
-									image={item.image}
-									name={item.name}
-								/>
-							))}
-						</StyledCartContainer>
-					</StyledCart>
-				)}
+				{user && <SideCart buttonText={'Go to Cart'} />}
 				<StyledShop $user={user}>
 					{filteredProducts.length === 0 && (
 						<StyledEmptyShop>
