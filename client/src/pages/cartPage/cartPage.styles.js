@@ -18,6 +18,10 @@ const StyledHeader = styled.h2`
 	text-align: center;
 `;
 
+const StyledPrice = styled.h3`
+	font-size: ${FONT_SIZE.l};
+`;
+
 const StyledAllComp = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -32,10 +36,23 @@ const StyledAllComp = styled.div`
 `;
 
 const StyledCartShop = styled.div`
-	width: 100%;
 	display: flex;
-	flex-direction: column;
-	align-items: center;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1.5rem;
+	padding: 2rem;
+	margin: ${({ $empty }) => ($empty ? '0' : '2rem')};
+	border: ${({ $empty }) => ($empty ? 'none' : `1px solid ${COLORS.dark}`)};
+	border-radius: 1rem;
+
+	@media screen and (width>=768px) {
+		gap: 3rem;
+	}
+
+	@media screen and (width>=1024px) {
+		width: 80%;
+		gap: 1rem;
+	}
 `;
 
 const StyledEmptyBig = styled.div`
@@ -74,12 +91,25 @@ const StyledGoTo = styled(Link)`
 	}
 `;
 
+const StyledComment = styled.h3`
+	font-family: ${FONT_FAMILY.pacifico};
+	font-size: ${FONT_SIZE.m};
+	letter-spacing: 1px;
+	line-height: 130%;
+
+	@media screen and (width>=1024px) {
+		font-size: ${FONT_SIZE.l};
+	}
+`;
+
 export {
 	StyledMain,
 	StyledHeader,
+	StyledPrice,
 	StyledAllComp,
 	StyledCartShop,
 	StyledEmptyBig,
 	StyledJulio,
-	StyledGoTo
+	StyledGoTo,
+	StyledComment
 };

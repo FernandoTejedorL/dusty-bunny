@@ -14,7 +14,7 @@ const CartCard = ({ id, image, name }) => {
 			<StyledCartImage src={image} alt='image' />
 			<StyledCartElementInfo>
 				<span>{name}</span>
-				<span>{finalPrice}€</span>
+				<span>{finalPrice.toFixed(2)}€</span>
 			</StyledCartElementInfo>
 		</StyledCartCard>
 	);

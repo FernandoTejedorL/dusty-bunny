@@ -85,6 +85,10 @@ const StyledQuantityEditors = styled.div`
 	justify-content: space-between;
 	align-items: center;
 	width: 70%;
+
+	@media screen and (width>=1024) {
+		width: 100%;
+	}
 `;
 
 const StyledQuantityButtons = styled.button`

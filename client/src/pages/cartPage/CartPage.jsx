@@ -4,11 +4,13 @@ import { useCart } from '../../hooks/useCart';
 import {
 	StyledAllComp,
 	StyledCartShop,
+	StyledComment,
 	StyledEmptyBig,
 	StyledGoTo,
 	StyledHeader,
 	StyledJulio,
-	StyledMain
+	StyledMain,
+	StyledPrice
 } from './cartPage.styles';
 
 const CartPage = () => {
@@ -16,14 +18,18 @@ const CartPage = () => {
 	return (
 		<StyledMain>
 			<StyledHeader>Cart</StyledHeader>
-			{cart.length !== 0 && <h3>{totalPrice.toFixed(2)}€</h3>}
+			{cart.length !== 0 && (
+				<StyledPrice>Total: {totalPrice.toFixed(2)}€</StyledPrice>
+			)}
 			<StyledAllComp>
 				<SideCart buttonText={'CheckOut'} />
-				<StyledCartShop>
+				<StyledCartShop $empty={cart.length === 0}>
 					{cart.length === 0 && (
 						<StyledEmptyBig>
 							<StyledJulio src='/assets/images/common/youknowit.jpg' alt='' />
-							<p>You want to buy some fluff... and you know it!</p>
+							<StyledComment>
+								You want to buy some fluff... and you know it!
+							</StyledComment>
 							<StyledGoTo to={'/shop'}>Go to shop</StyledGoTo>
 						</StyledEmptyBig>
 					)}
@@ -31,7 +37,7 @@ const CartPage = () => {
 						<ShopCard
 							key={item._id}
 							item={item}
-							text={'Remove from cart'}
+							text={'Throw away'}
 							action={() => deleteFromCart(item)}
 						/>
 					))}
