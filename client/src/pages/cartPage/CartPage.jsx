@@ -1,23 +1,31 @@
-import { Link } from 'react-router-dom';
 import ShopCard from '../../components/shopCard/ShopCard';
 import SideCart from '../../components/sideCart/SideCart';
 import { useCart } from '../../hooks/useCart';
-import { StyledHeader, StyledMain } from './cartPage.styles';
+import {
+	StyledAllComp,
+	StyledCartShop,
+	StyledEmptyBig,
+	StyledGoTo,
+	StyledHeader,
+	StyledJulio,
+	StyledMain
+} from './cartPage.styles';
 
 const CartPage = () => {
-	const { cart, deleteFromCart } = useCart();
+	const { cart, deleteFromCart, totalPrice } = useCart();
 	return (
 		<StyledMain>
 			<StyledHeader>Cart</StyledHeader>
-			<div>
+			{cart.length !== 0 && <h3>{totalPrice.toFixed(2)}€</h3>}
+			<StyledAllComp>
 				<SideCart buttonText={'CheckOut'} />
-				<div>
+				<StyledCartShop>
 					{cart.length === 0 && (
-						<div>
-							<img src='/assets/images/common/youknowit.jpg' alt='' />
+						<StyledEmptyBig>
+							<StyledJulio src='/assets/images/common/youknowit.jpg' alt='' />
 							<p>You want to buy some fluff... and you know it!</p>
-							<Link to={'/shop'}>Go to shop</Link>
-						</div>
+							<StyledGoTo to={'/shop'}>Go to shop</StyledGoTo>
+						</StyledEmptyBig>
 					)}
 					{cart.map(item => (
 						<ShopCard
@@ -27,8 +35,8 @@ const CartPage = () => {
 							action={() => deleteFromCart(item)}
 						/>
 					))}
-				</div>
-			</div>
+				</StyledCartShop>
+			</StyledAllComp>
 		</StyledMain>
 	);
 };
