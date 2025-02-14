@@ -119,6 +119,11 @@ const StyledButton = styled.input`
 	}
 `;
 
+const StyledRequired = styled.span`
+	color: red;
+	font-size: 0.8rem;
+`;
+
 export {
 	StyledMain,
 	StyledContainer,
@@ -130,5 +135,6 @@ export {
 	StyledRadiosContainer,
 	StyledRadioPack,
 	StyledCheckbox,
-	StyledButton
+	StyledButton,
+	StyledRequired
 };

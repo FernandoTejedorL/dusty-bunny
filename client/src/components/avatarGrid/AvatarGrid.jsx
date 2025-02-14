@@ -2,10 +2,11 @@ import { AVATARS_INFO } from '../../constants/avatars-info';
 import {
 	StyledAvatar,
 	StyledAvatarComponent,
-	StyledAvatarGrid
+	StyledAvatarGrid,
+	StyledRequired
 } from './AvatarGrid.Styles';
 
-const AvatarGrid = () => {
+const AvatarGrid = ({ register, error }) => {
 	return (
 		<StyledAvatarComponent>
 			<h3>Select an avatar!</h3>
@@ -15,12 +16,13 @@ const AvatarGrid = () => {
 						$image={item.image}
 						key={item.image}
 						type='radio'
-						name='avatar'
 						id={item.image}
 						value={item.image}
+						{...register('avatar', { required: '*Please select an avatar' })}
 					/>
 				))}
 			</StyledAvatarGrid>
+			{error && <StyledRequired>{error.message}</StyledRequired>}
 		</StyledAvatarComponent>
 	);
 };

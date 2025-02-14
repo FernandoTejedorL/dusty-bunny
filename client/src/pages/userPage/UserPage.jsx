@@ -11,8 +11,8 @@ const UserPage = () => {
 	const [edit, setEdit] = useState(false);
 	const { id } = useParams();
 	if (loading) return <h2>Loading...</h2>;
+	const favourites = user.favs || [];
 
-	const favourites = user.favs;
 	const favouritesToShow = productsToCarousel(favourites, products);
 	return (
 		<div>

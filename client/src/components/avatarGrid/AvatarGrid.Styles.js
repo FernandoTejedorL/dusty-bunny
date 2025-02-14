@@ -34,4 +34,14 @@ const StyledAvatar = styled.input`
 	}
 `;
 
-export { StyledAvatarComponent, StyledAvatarGrid, StyledAvatar };
+const StyledRequired = styled.span`
+	color: red;
+	font-size: 0.8rem;
+`;
+
+export {
+	StyledAvatarComponent,
+	StyledAvatarGrid,
+	StyledAvatar,
+	StyledRequired
+};
