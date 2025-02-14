@@ -10,10 +10,12 @@ const UserPage = () => {
 	const { products } = useProducts();
 	const [edit, setEdit] = useState(false);
 	const { id } = useParams();
-	if (loading) return <h2>Loading...</h2>;
-	const favourites = user.favs || [];
 
+	if (loading) return <h2>Loading...</h2>;
+
+	const favourites = user.favs || [];
 	const favouritesToShow = productsToCarousel(favourites, products);
+
 	return (
 		<div>
 			<h2>Your Profile</h2>
