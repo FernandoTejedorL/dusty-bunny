@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useCart } from '../../hooks/useCart';
 import {
 	StyledCardButton,
@@ -20,15 +20,16 @@ const ShopCard = ({ item }) => {
 		quantityToCard
 	} = useCart();
 	const { user } = useAuth();
-	const navigate = useNavigate();
 
 	const isInCart = cart.some(product => product._id === item._id);
 	const quantity = quantityToCard(item, cart);
 	const where = user ? '' : '/redirect';
 
 	return (
-		<StyledShopCard $user={user} onClick={() => navigate(where)}>
-			<StyledProductPic src={item.image} alt='fluff-pic' />
+		<StyledShopCard $user={user}>
+			<Link to={where}>
+				<StyledProductPic src={item.image} alt='fluff-pic' />
+			</Link>
 			<StyledNameAndPrice>
 				<span>{item.name}</span>
 				<span>{item.price}€</span>

@@ -30,7 +30,7 @@ const Carousel = ({ products }) => {
 			swiperInstance.navigation.init();
 			swiperInstance.navigation.update();
 		}
-	}, [swiperInstance, prevRef.current, nextRef.current]);
+	}, [swiperInstance, prevRef, nextRef]);
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -56,7 +56,6 @@ const Carousel = ({ products }) => {
 				slidesPerView={slidesPerView}
 				navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
 				onSwiper={setSwiperInstance}
-				//centeredSlides={true}
 			>
 				{products.map(item => (
 					<SwiperSlide key={item._id}>
