@@ -11,7 +11,7 @@ import {
 	StyledEmptyImg
 } from './sideCart.styles';
 
-const SideCart = ({ buttonText }) => {
+const SideCart = ({ buttonText, action }) => {
 	const { cart } = useCart();
 	const [cartOpen, setCartOpen] = useState(false);
 	return (
@@ -29,7 +29,9 @@ const SideCart = ({ buttonText }) => {
 				{cart.length === 0 && (
 					<StyledEmptyImg src='/assets/images/common/empty.jpg' alt='' />
 				)}
-				{cart.length !== 0 && <StyledCartButton>{buttonText}</StyledCartButton>}
+				{cart.length !== 0 && (
+					<StyledCartButton onClick={action}>{buttonText}</StyledCartButton>
+				)}
 
 				{cart.map(item => (
 					<CartCard

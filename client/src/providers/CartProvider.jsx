@@ -47,6 +47,8 @@ const CartProvider = ({ children }) => {
 		return product ? product.quantity : 0;
 	};
 
+	console.log(cart);
+
 	return (
 		<CartContext.Provider
 			value={{

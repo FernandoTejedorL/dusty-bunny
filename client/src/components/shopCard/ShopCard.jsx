@@ -11,7 +11,7 @@ import {
 } from './shopCard.styles';
 import { useAuth } from '../../hooks/useAuth';
 
-const ShopCard = ({ item }) => {
+const ShopCard = ({ item, text, action }) => {
 	const {
 		cart,
 		incrementQuantity,
@@ -57,9 +57,8 @@ const ShopCard = ({ item }) => {
 							</StyledQuantityButtons>
 						</StyledQuantityEditors>
 					)}
-					<Link to={`/product/${item._id}`}>
-						<StyledMoreInfo>More info</StyledMoreInfo>
-					</Link>
+
+					<StyledMoreInfo onClick={action}>{text}</StyledMoreInfo>
 				</>
 			)}
 		</StyledShopCard>

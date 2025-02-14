@@ -17,11 +17,13 @@ import {
 } from './shop.styles';
 import { useAuth } from '../../hooks/useAuth';
 import SideCart from '../../components/sideCart/SideCart';
+import { useNavigate } from 'react-router-dom';
 
 const Shop = () => {
 	const [filtersOpen, SetFiltersOpen] = useState(false);
 	const { products } = useProducts();
 	const { user } = useAuth();
+	const navigate = useNavigate();
 
 	const [filters, setFilters] = useState({
 		category: [],
@@ -79,7 +81,12 @@ const Shop = () => {
 				</StyledFilters>
 			</StyledAllFilters>
 			<StyledAllComp>
-				{user && <SideCart buttonText={'Go to Cart'} />}
+				{user && (
+					<SideCart
+						buttonText={'Go to Cart'}
+						action={() => navigate('/cart')}
+					/>
+				)}
 				<StyledShop $user={user}>
 					{filteredProducts.length === 0 && (
 						<StyledEmptyShop>
@@ -94,7 +101,12 @@ const Shop = () => {
 						</StyledEmptyShop>
 					)}
 					{filteredProducts.map(item => (
-						<ShopCard key={item._id} item={item} />
+						<ShopCard
+							key={item._id}
+							item={item}
+							text={'More Info'}
+							action={() => navigate(`/product/${item._id}`)}
+						/>
 					))}
 				</StyledShop>
 			</StyledAllComp>
