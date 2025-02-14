@@ -102,6 +102,12 @@ const StyledQuantityButtons = styled.button`
 	cursor: pointer;
 `;
 
+const StyledQuantity = styled.span`
+	@media screen and (width>=1024px) {
+		margin-inline: 1rem;
+	}
+`;
+
 export {
 	StyledShopCard,
 	StyledProductPic,
@@ -109,5 +115,6 @@ export {
 	StyledCardButton,
 	StyledQuantityEditors,
 	StyledQuantityButtons,
+	StyledQuantity,
 	StyledMoreInfo
 };

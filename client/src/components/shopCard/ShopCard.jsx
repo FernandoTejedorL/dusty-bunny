@@ -5,6 +5,7 @@ import {
 	StyledMoreInfo,
 	StyledNameAndPrice,
 	StyledProductPic,
+	StyledQuantity,
 	StyledQuantityButtons,
 	StyledQuantityEditors,
 	StyledShopCard
@@ -51,7 +52,7 @@ const ShopCard = ({ item, text, action }) => {
 									<img src='/assets/images/common/remove.svg' alt='reduce' />
 								)}
 							</StyledQuantityButtons>
-							<span>{quantity}</span>
+							<StyledQuantity>{quantity}</StyledQuantity>
 							<StyledQuantityButtons onClick={() => incrementQuantity(item)}>
 								<img src='/assets/images/common/add.svg' alt='increment' />
 							</StyledQuantityButtons>

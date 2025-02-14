@@ -39,12 +39,20 @@ const StyledCartCounter = styled.div`
 	border-radius: 50%;
 	height: 1.5rem;
 	width: 1.5rem;
+
+	@media screen and (width>=1024px) {
+		display: none;
+	}
 `;
 
 const StyledChevron = styled.img`
 	width: 25px;
 	height: 10px;
 	rotate: ${({ $cartOpen }) => ($cartOpen ? '180deg' : '0deg')};
+
+	@media screen and (width>=1024px) {
+		display: none;
+	}
 `;
 
 const StyledCartContainer = styled.div`

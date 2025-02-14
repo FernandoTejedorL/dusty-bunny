@@ -37,7 +37,7 @@ const CartPage = () => {
 						<ShopCard
 							key={item._id}
 							item={item}
-							text={'Throw away'}
+							text={'Sweep it 🧹'}
 							action={() => deleteFromCart(item)}
 						/>
 					))}
