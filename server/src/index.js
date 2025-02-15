@@ -4,6 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const fluffsRoutes = require('./routes/fluffs.routes');
 const usersRoutes = require('./routes/users.routes');
+const ordersRoutes = require('./routes/orders.routes');
 require('dotenv').config();
 
 const corsOptions = {
@@ -16,6 +17,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use('/api/fluffs', fluffsRoutes);
 app.use('/api/users', usersRoutes);
+app.use('/api/orders', ordersRoutes);
 
 const startServer = async () => {
   try {

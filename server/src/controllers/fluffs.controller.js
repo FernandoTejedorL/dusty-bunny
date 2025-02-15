@@ -1,4 +1,5 @@
-const ProductModel = require('../models/product.model');
+const ProductModel = require('../models/Product.model');
+
 const fluffsController = {};
 
 fluffsController.getAllProducts = async (req, res) => {
