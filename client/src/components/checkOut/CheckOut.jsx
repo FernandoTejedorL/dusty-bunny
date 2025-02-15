@@ -29,7 +29,9 @@ const CheckOut = () => {
 						<CreditCard />
 					</div>
 				</div>
-				<button onClick={() => sendOrder(user, cart, setCart, navigate)}>
+				<button
+					onClick={() => sendOrder(user, cart, setCart, totalPrice, navigate)}
+				>
 					Confirm Order
 				</button>
 				<button>Back to cart</button>
@@ -38,10 +40,11 @@ const CheckOut = () => {
 	);
 };
 
-const sendOrder = async (user, cart, setCart, navigate) => {
+const sendOrder = async (user, cart, setCart, totalPrice, navigate) => {
 	try {
 		const newOrder = {
 			userId: user._id,
+			totalPrice: totalPrice,
 			orderContent: cart
 		};
 		await createOrder(newOrder);

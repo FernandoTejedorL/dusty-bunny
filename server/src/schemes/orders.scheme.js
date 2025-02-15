@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const OrderScheme = mongoose.Schema(
   {
     userId: String,
+    totalPrice: Number,
     orderContent: [
       {
         productId: String,
