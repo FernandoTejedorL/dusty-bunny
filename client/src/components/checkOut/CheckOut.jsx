@@ -1,8 +1,13 @@
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 import { useCart } from '../../hooks/useCart';
+import { createOrder } from '../../utils/api';
 import CreditCard from '../creditCard/CreditCard';
 
 const CheckOut = () => {
-	const { totalPrice } = useCart();
+	const { cart, setCart, totalPrice } = useCart();
+	const { user } = useAuth();
+	const navigate = useNavigate();
 	return (
 		<div>
 			<h2>Check Out</h2>
@@ -24,9 +29,28 @@ const CheckOut = () => {
 						<CreditCard />
 					</div>
 				</div>
+				<button onClick={() => sendOrder(user, cart, setCart, navigate)}>
+					Confirm Order
+				</button>
+				<button>Back to cart</button>
 			</div>
 		</div>
 	);
+};
+
+const sendOrder = async (user, cart, setCart, navigate) => {
+	try {
+		const newOrder = {
+			userId: user._id,
+			orderContent: cart
+		};
+		await createOrder(newOrder);
+		console.log('Order Registered');
+		setCart([]);
+		navigate('/shop');
+	} catch (error) {
+		console.log('Error registering order', error.code, error.message);
+	}
 };
 
 export default CheckOut;
