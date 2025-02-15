@@ -4,6 +4,19 @@ import { updateDataById } from '../../utils/api';
 import { useParams } from 'react-router-dom';
 import { useProducts } from '../../hooks/useProducts';
 import Carousel from '../../components/carousel/Carousel';
+import {
+	StyledAvatar,
+	StyledButton,
+	StyledConfirmCancel,
+	StyledEditButton,
+	StyledForm,
+	StyledHeader,
+	StyledInput,
+	StyledInputContainer,
+	StyledLabel,
+	StyledMain,
+	StyledUserContainer
+} from './userPage.styles';
 
 const UserPage = () => {
 	const { user, setUser, loading } = useAuth();
@@ -17,66 +30,70 @@ const UserPage = () => {
 	const favouritesToShow = productsToCarousel(favourites, products);
 
 	return (
-		<div>
-			<h2>Your Profile</h2>
-			<div>
-				<div>
-					<img src={user.avatar} alt='user-pic' />
-				</div>
-				<form onSubmit={event => updateUser(id, event, setUser, setEdit)}>
-					<div>
-						<label htmlFor='name'>Name:</label>
+		<StyledMain>
+			<StyledHeader>
+				{user.name} {user.surname}
+			</StyledHeader>
+			<StyledUserContainer>
+				<StyledAvatar src={user.avatar} alt='user-pic' />
+
+				<StyledForm onSubmit={event => updateUser(id, event, setUser, setEdit)}>
+					<StyledInputContainer>
+						<StyledLabel htmlFor='name'>Name:</StyledLabel>
 						{!edit && <span>{user.name}</span>}
 						{edit && (
-							<input
+							<StyledInput
 								type='text'
 								name='name'
 								id='name'
 								defaultValue={user.name}
 							/>
 						)}
-					</div>
-					<div>
-						<label htmlFor='surname'>Surname:</label>
+					</StyledInputContainer>
+					<StyledInputContainer>
+						<StyledLabel htmlFor='surname'>Surname:</StyledLabel>
 						{!edit && <span>{user.surname}</span>}
 						{edit && (
-							<input
+							<StyledInput
 								type='text'
 								name='surname'
 								id='surname'
 								defaultValue={user.surname}
 							/>
 						)}
-					</div>
-					<div>
-						<label htmlFor='address'>Address:</label>
+					</StyledInputContainer>
+					<StyledInputContainer>
+						<StyledLabel htmlFor='address'>Address:</StyledLabel>
 						{!edit && <span>{user.address}</span>}
 						{edit && (
-							<input
+							<StyledInput
 								type='text'
 								name='address'
 								id='address'
 								defaultValue={user.address}
 							/>
 						)}
-					</div>
+					</StyledInputContainer>
 					{edit && (
-						<>
-							<input type='submit' value='Confirm' />
-							<input
+						<StyledConfirmCancel>
+							<StyledButton type='submit' value='Confirm' />
+							<StyledButton
 								type='button'
 								value='Cancel'
 								onClick={() => setEdit(false)}
 							/>
-						</>
+						</StyledConfirmCancel>
 					)}
-				</form>
-				{!edit && <button onClick={() => setEdit(true)}>Edit Profile</button>}
-			</div>
-			<div>
-				<Carousel products={favouritesToShow} />
-			</div>
-		</div>
+					{!edit && (
+						<StyledEditButton onClick={() => setEdit(true)}>
+							Edit Profile
+						</StyledEditButton>
+					)}
+				</StyledForm>
+			</StyledUserContainer>
+
+			<Carousel products={favouritesToShow} />
+		</StyledMain>
 	);
 };
 

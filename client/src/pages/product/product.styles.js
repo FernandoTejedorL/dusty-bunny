@@ -16,6 +16,14 @@ const StyledName = styled.h2`
 	text-align: center;
 `;
 
+const StyledProductContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
+	margin-top: 2rem;
+`;
+
 const StyledImagesContainer = styled.div`
 	display: flex;
 	position: relative;
@@ -38,6 +46,7 @@ const StyledFavIcon = styled.img`
 export {
 	StyledMain,
 	StyledName,
+	StyledProductContainer,
 	StyledImagesContainer,
 	StyledImage,
 	StyledFavIcon

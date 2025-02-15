@@ -7,7 +7,8 @@ import {
 	StyledImage,
 	StyledImagesContainer,
 	StyledMain,
-	StyledName
+	StyledName,
+	StyledProductContainer
 } from './product.styles';
 import { useAuth } from '../../hooks/useAuth';
 import Info from '../../components/info/Info';
@@ -29,7 +30,7 @@ const Product = () => {
 	return (
 		<StyledMain>
 			<StyledName>{product.name}</StyledName>
-			<div>
+			<StyledProductContainer>
 				<div>
 					<StyledImagesContainer>
 						<StyledImage src={product.image} alt='' />
@@ -65,7 +66,7 @@ const Product = () => {
 				<div>
 					<Info product={product} />
 				</div>
-			</div>
+			</StyledProductContainer>
 		</StyledMain>
 	);
 };
