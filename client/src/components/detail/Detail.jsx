@@ -1,9 +1,11 @@
+import { StyledEachDetail } from './detail.styles';
+
 const Detail = ({ name, info }) => {
 	return (
-		<div>
+		<StyledEachDetail>
 			<span>{name}: </span>
 			<span>{info}</span>
-		</div>
+		</StyledEachDetail>
 	);
 };
 

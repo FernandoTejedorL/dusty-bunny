@@ -1,14 +1,15 @@
 import Detail from '../detail/Detail';
+import { StyledInfoContainer } from './info.styles';
 
-const names = ['Category', 'Size', 'Diet', 'Price', 'Description'];
+const names = ['Description', 'Category', 'Size', 'Diet', 'Price'];
 
 const Info = ({ product }) => {
 	return (
-		<div>
+		<StyledInfoContainer>
 			{names.map(name => (
 				<Detail key={name} name={name} info={product[name.toLowerCase()]} />
 			))}
-		</div>
+		</StyledInfoContainer>
 	);
 };
 
