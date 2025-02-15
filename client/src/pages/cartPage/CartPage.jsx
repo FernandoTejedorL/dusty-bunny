@@ -1,3 +1,4 @@
+import CheckOut from '../../components/checkOut/CheckOut';
 import ShopCard from '../../components/shopCard/ShopCard';
 import SideCart from '../../components/sideCart/SideCart';
 import { useCart } from '../../hooks/useCart';
@@ -43,6 +44,7 @@ const CartPage = () => {
 					))}
 				</StyledCartShop>
 			</StyledAllComp>
+			<CheckOut />
 		</StyledMain>
 	);
 };
