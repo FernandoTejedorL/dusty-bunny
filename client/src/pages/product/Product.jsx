@@ -1,11 +1,15 @@
 import { useEffect, useState } from 'react';
 import { findData, findProduct, updateFavById } from '../../utils/api';
-import { Link, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useCart } from '../../hooks/useCart';
 import {
+	StyledButton,
+	StyledButtonsContainer,
 	StyledFavIcon,
 	StyledImage,
+	StyledImageAndButtons,
 	StyledImagesContainer,
+	StyledInfoContainer,
 	StyledMain,
 	StyledName,
 	StyledProductContainer
@@ -17,13 +21,16 @@ const Product = () => {
 	const { id } = useParams();
 	const [product, setProduct] = useState({});
 	const [fav, setFav] = useState(false);
-	const { addToCart } = useCart();
+	const { cart, addToCart } = useCart();
 	const { user, setUser } = useAuth();
 	const userId = user._id;
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		fetchProductById(setProduct, id);
 	}, [id]);
+
+	const isInCart = cart.some(item => item._id === product._id);
 
 	checkFav(userId, product, setFav);
 
@@ -31,7 +38,7 @@ const Product = () => {
 		<StyledMain>
 			<StyledName>{product.name}</StyledName>
 			<StyledProductContainer>
-				<div>
+				<StyledImageAndButtons>
 					<StyledImagesContainer>
 						<StyledImage src={product.image} alt='' />
 						{!fav && (
@@ -53,19 +60,25 @@ const Product = () => {
 							/>
 						)}
 					</StyledImagesContainer>
-					<div>
-						<button onClick={() => addToCart(product)}>Add To Cart</button>
-						<Link to={'/shop'}>
-							<button>Go to Shop</button>
-						</Link>
-						<Link to={`/user/${user._id}`}>
-							<button>Go to User Page</button>
-						</Link>
-					</div>
-				</div>
-				<div>
+					<StyledButtonsContainer>
+						{!isInCart && (
+							<StyledButton onClick={() => addToCart(product)}>
+								Add To Cart
+							</StyledButton>
+						)}
+
+						<StyledButton onClick={() => navigate('/shop')}>
+							Go to Shop
+						</StyledButton>
+
+						<StyledButton onClick={() => navigate(`/user/${user._id}`)}>
+							Go to User Page
+						</StyledButton>
+					</StyledButtonsContainer>
+				</StyledImageAndButtons>
+				<StyledInfoContainer>
 					<Info product={product} />
-				</div>
+				</StyledInfoContainer>
 			</StyledProductContainer>
 		</StyledMain>
 	);
