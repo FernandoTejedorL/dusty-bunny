@@ -36,7 +36,7 @@ const Router = () => {
 				</Route>
 				<Route element={<ProtectedUserRoute />}>
 					<Route path='user/:id' element={<UserPage />} />
-					<Route path='orders' element={<Orders />} />
+					<Route path='orders/:id' element={<Orders />} />
 					<Route path='cart' element={<CartPage />} />
 				</Route>
 				<Route element={<ProtectedRoute />}>
