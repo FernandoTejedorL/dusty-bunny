@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { findUserOrders } from '../../utils/api';
 import { useEffect, useState } from 'react';
+import EachOrder from '../../components/eachOrder/eachOrder';
 
 const Orders = () => {
 	const { id } = useParams();
@@ -11,19 +12,21 @@ const Orders = () => {
 		ordersGot(userId, setOrders);
 	}, [userId]);
 
-	console.log(orders);
+	const ordersToMap = orders;
 
 	return (
 		<div>
 			<h2>Orders Page</h2>
 			<h3>{id}</h3>
+			{ordersToMap.map(item => (
+				<EachOrder key={item._id} item={item} />
+			))}
 		</div>
 	);
 };
 
 const ordersGot = async (userId, setOrders) => {
 	const orders = await findUserOrders(userId);
-	console.log(orders);
 	setOrders(orders);
 };
 
