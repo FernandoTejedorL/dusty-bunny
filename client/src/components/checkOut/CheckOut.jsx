@@ -4,42 +4,66 @@ import { useCart } from '../../hooks/useCart';
 import { createOrder } from '../../utils/api';
 import CreditCard from '../creditCard/CreditCard';
 import { createPortal } from 'react-dom';
+import {
+	StyledButton,
+	StyledButtonsContainer,
+	StyledCheckOut,
+	StyledCheckOutContent,
+	StyledCheckOutData,
+	StyledEachInfo,
+	StyledEachTotalInfo,
+	StyledHeader,
+	StyledInfoContainer
+} from './checkOut.Styles';
 
 const CheckOut = ({ setShowModal }) => {
 	const { cart, setCart, totalPrice } = useCart();
 	const { user } = useAuth();
 	const navigate = useNavigate();
 	return createPortal(
-		<div>
-			<h2>Check Out</h2>
-			<div>
-				<div>
-					<div>
-						<span>Net Price</span>
-						<span>{(totalPrice * 0.79).toFixed(2)}€</span>
-					</div>
-					<div>
-						<span>VAT (21%)</span>
-						<span>{(totalPrice * 0.21).toFixed(2)}€</span>
-					</div>
-					<div>
-						<span>Total</span>
-						<span>{totalPrice.toFixed(2)}€</span>
-					</div>
-					<div>
-						<CreditCard />
-					</div>
-				</div>
-				<button
-					onClick={() =>
-						sendOrder(user, cart, setCart, totalPrice, setShowModal, navigate)
-					}
-				>
-					Confirm Order
-				</button>
-				<button onClick={() => setShowModal(false)}>Back to cart</button>
-			</div>
-		</div>,
+		<StyledCheckOut>
+			<StyledCheckOutContent>
+				<StyledHeader>Check Out</StyledHeader>
+				<StyledCheckOutData>
+					<StyledInfoContainer>
+						<StyledEachInfo>
+							<span>Net Price</span>
+							<span>{(totalPrice * 0.79).toFixed(2)}€</span>
+						</StyledEachInfo>
+						<StyledEachInfo>
+							<span>VAT (21%)</span>
+							<span>{(totalPrice * 0.21).toFixed(2)}€</span>
+						</StyledEachInfo>
+						<StyledEachTotalInfo>
+							<span>Total</span>
+							<span>{totalPrice.toFixed(2)}€</span>
+						</StyledEachTotalInfo>
+						<div>
+							<CreditCard />
+						</div>
+					</StyledInfoContainer>
+					<StyledButtonsContainer>
+						<StyledButton
+							onClick={() =>
+								sendOrder(
+									user,
+									cart,
+									setCart,
+									totalPrice,
+									setShowModal,
+									navigate
+								)
+							}
+						>
+							Confirm Order
+						</StyledButton>
+						<StyledButton onClick={() => setShowModal(false)}>
+							Back to cart
+						</StyledButton>
+					</StyledButtonsContainer>
+				</StyledCheckOutData>
+			</StyledCheckOutContent>
+		</StyledCheckOut>,
 		document.getElementById('modal')
 	);
 };
@@ -49,8 +73,8 @@ const sendOrder = async (
 	cart,
 	setCart,
 	totalPrice,
-	navigate,
-	setShowModal
+	setShowModal,
+	navigate
 ) => {
 	try {
 		const newOrder = {
@@ -62,7 +86,7 @@ const sendOrder = async (
 		console.log('Order Registered');
 		setCart([]);
 		setShowModal(false);
-		navigate('/shop');
+		navigate('/');
 	} catch (error) {
 		console.log('Error registering order', error.code, error.message);
 	}
