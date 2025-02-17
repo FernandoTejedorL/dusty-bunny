@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { findUserOrders } from '../../utils/api';
 import { useEffect, useState } from 'react';
 import EachOrder from '../../components/eachOrder/eachOrder';
+import { StyledAllComp, StyledHeader, StyledMain } from './orders.styles';
 
 const Orders = () => {
 	const { id } = useParams();
@@ -15,13 +16,14 @@ const Orders = () => {
 	const ordersToMap = orders;
 
 	return (
-		<div>
-			<h2>Orders Page</h2>
-			<h3>{id}</h3>
-			{ordersToMap.map(item => (
-				<EachOrder key={item._id} item={item} />
-			))}
-		</div>
+		<StyledMain>
+			<StyledHeader>Orders Page</StyledHeader>
+			<StyledAllComp>
+				{ordersToMap.map(item => (
+					<EachOrder key={item._id} item={item} />
+				))}
+			</StyledAllComp>
+		</StyledMain>
 	);
 };
 

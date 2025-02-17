@@ -1,4 +1,9 @@
 import { useProducts } from '../../hooks/useProducts';
+import {
+	StyledContentImage,
+	StyledOrderContent,
+	StyledOrderCOntentInfo
+} from './orderContent.styles';
 
 const OrderContent = ({ content }) => {
 	const { products } = useProducts();
@@ -6,13 +11,13 @@ const OrderContent = ({ content }) => {
 	const finalProduct = findProduct(products, content);
 
 	return (
-		<div>
-			<span>Fluff</span>
-			<span>{finalProduct.name}</span>
-			<img src={finalProduct.image} alt='' />
-			<span>Quantity</span>
-			<span>{content.quantity}</span>
-		</div>
+		<StyledOrderContent>
+			<StyledContentImage src={finalProduct.image} alt='' />
+			<StyledOrderCOntentInfo>
+				<span>{finalProduct.name}</span>
+				<span>Quantity: {content.quantity}</span>
+			</StyledOrderCOntentInfo>
+		</StyledOrderContent>
 	);
 };
 

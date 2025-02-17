@@ -1,17 +1,35 @@
+import { useState } from 'react';
 import OrderContent from '../orderContent/OrderContent';
+import {
+	StyledEachInfo,
+	StyledEachOrder,
+	StyledEachTitle,
+	StyledOrderContentContainer
+} from './eachOrder.styles';
 
 const EachOrder = ({ item }) => {
-	console.log(item);
+	const [showContent, setShowContent] = useState(false);
 	return (
-		<div>
-			<span>Order Number</span>
-			<span>{item._id}</span>
-			<span>Total Price</span>
-			<span>{item.totalPrice}€</span>
-			{item.orderContent.map(item => (
-				<OrderContent key={item._id} content={item} />
-			))}
-		</div>
+		<StyledEachOrder
+			onClick={() => setShowContent(!showContent)}
+			$showContent={showContent}
+		>
+			<StyledEachInfo>
+				<StyledEachTitle>Order:</StyledEachTitle>
+				<span>{item._id}</span>
+			</StyledEachInfo>
+			<StyledEachInfo>
+				<StyledEachTitle>Total Price:</StyledEachTitle>
+				<span>{item.totalPrice}€</span>
+			</StyledEachInfo>
+			{showContent && (
+				<StyledOrderContentContainer>
+					{item.orderContent.map(item => (
+						<OrderContent key={item._id} content={item} />
+					))}
+				</StyledOrderContentContainer>
+			)}
+		</StyledEachOrder>
 	);
 };
 
