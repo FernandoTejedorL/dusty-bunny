@@ -2,7 +2,8 @@ import { useProducts } from '../../hooks/useProducts';
 import {
 	StyledContentImage,
 	StyledOrderContent,
-	StyledOrderCOntentInfo
+	StyledOrderCOntentInfo,
+	StyledOrderContentTag
 } from './orderContent.styles';
 
 const OrderContent = ({ content }) => {
@@ -14,7 +15,7 @@ const OrderContent = ({ content }) => {
 		<StyledOrderContent>
 			<StyledContentImage src={finalProduct.image} alt='' />
 			<StyledOrderCOntentInfo>
-				<span>{finalProduct.name}</span>
+				<StyledOrderContentTag>{finalProduct.name}</StyledOrderContentTag>
 				<span>Quantity: {content.quantity}</span>
 			</StyledOrderCOntentInfo>
 		</StyledOrderContent>

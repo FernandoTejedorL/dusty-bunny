@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { COLORS } from '../../styles/colors';
+import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
 
 const StyledOrderContent = styled.div`
 	display: flex;
@@ -27,4 +28,14 @@ const StyledOrderCOntentInfo = styled.div`
 	width: 100%;
 `;
 
-export { StyledOrderContent, StyledContentImage, StyledOrderCOntentInfo };
+const StyledOrderContentTag = styled.span`
+	font-family: ${FONT_FAMILY.chewy};
+	font-size: ${FONT_SIZE.m};
+`;
+
+export {
+	StyledOrderContent,
+	StyledContentImage,
+	StyledOrderCOntentInfo,
+	StyledOrderContentTag
+};
