@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import CheckOut from '../../components/checkOut/CheckOut';
 import ShopCard from '../../components/shopCard/ShopCard';
 import SideCart from '../../components/sideCart/SideCart';
@@ -16,6 +17,7 @@ import {
 
 const CartPage = () => {
 	const { cart, deleteFromCart, totalPrice } = useCart();
+	const [showModal, setShowModal] = useState(false);
 	return (
 		<StyledMain>
 			<StyledHeader>Cart</StyledHeader>
@@ -23,7 +25,7 @@ const CartPage = () => {
 				<StyledPrice>Total: {totalPrice.toFixed(2)}€</StyledPrice>
 			)}
 			<StyledAllComp>
-				<SideCart buttonText={'CheckOut'} />
+				<SideCart buttonText={'CheckOut'} action={() => setShowModal(true)} />
 				<StyledCartShop $empty={cart.length === 0}>
 					{cart.length === 0 && (
 						<StyledEmptyBig>
@@ -44,7 +46,7 @@ const CartPage = () => {
 					))}
 				</StyledCartShop>
 			</StyledAllComp>
-			<CheckOut />
+			{showModal && <CheckOut setShowModal={setShowModal} />}
 		</StyledMain>
 	);
 };

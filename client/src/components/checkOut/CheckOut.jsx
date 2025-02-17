@@ -3,12 +3,13 @@ import { useAuth } from '../../hooks/useAuth';
 import { useCart } from '../../hooks/useCart';
 import { createOrder } from '../../utils/api';
 import CreditCard from '../creditCard/CreditCard';
+import { createPortal } from 'react-dom';
 
-const CheckOut = () => {
+const CheckOut = ({ setShowModal }) => {
 	const { cart, setCart, totalPrice } = useCart();
 	const { user } = useAuth();
 	const navigate = useNavigate();
-	return (
+	return createPortal(
 		<div>
 			<h2>Check Out</h2>
 			<div>
@@ -30,17 +31,27 @@ const CheckOut = () => {
 					</div>
 				</div>
 				<button
-					onClick={() => sendOrder(user, cart, setCart, totalPrice, navigate)}
+					onClick={() =>
+						sendOrder(user, cart, setCart, totalPrice, setShowModal, navigate)
+					}
 				>
 					Confirm Order
 				</button>
-				<button>Back to cart</button>
+				<button onClick={() => setShowModal(false)}>Back to cart</button>
 			</div>
-		</div>
+		</div>,
+		document.getElementById('modal')
 	);
 };
 
-const sendOrder = async (user, cart, setCart, totalPrice, navigate) => {
+const sendOrder = async (
+	user,
+	cart,
+	setCart,
+	totalPrice,
+	navigate,
+	setShowModal
+) => {
 	try {
 		const newOrder = {
 			userId: user._id,
@@ -50,6 +61,7 @@ const sendOrder = async (user, cart, setCart, totalPrice, navigate) => {
 		await createOrder(newOrder);
 		console.log('Order Registered');
 		setCart([]);
+		setShowModal(false);
 		navigate('/shop');
 	} catch (error) {
 		console.log('Error registering order', error.code, error.message);
