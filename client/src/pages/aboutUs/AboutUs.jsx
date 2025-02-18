@@ -1,10 +1,9 @@
-import WorkInProgress from '../../components/workInProgress/WorkInProgress';
+import PageHeader from '../../components/pageHeader/PageHeader';
 
 const AboutUs = () => {
 	return (
 		<>
-			<h2>About Us</h2>
-			<WorkInProgress />
+			<PageHeader text={'About Us'} />
 		</>
 	);
 };

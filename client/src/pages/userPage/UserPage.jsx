@@ -10,13 +10,13 @@ import {
 	StyledConfirmCancel,
 	StyledEditButton,
 	StyledForm,
-	StyledHeader,
 	StyledInput,
 	StyledInputContainer,
 	StyledLabel,
 	StyledMain,
 	StyledUserContainer
 } from './userPage.styles';
+import PageHeader from '../../components/pageHeader/PageHeader';
 
 const UserPage = () => {
 	const { user, setUser, loading } = useAuth();
@@ -31,9 +31,7 @@ const UserPage = () => {
 
 	return (
 		<StyledMain>
-			<StyledHeader>
-				{user.name} {user.surname}
-			</StyledHeader>
+			<PageHeader text={user.name + ' ' + user.surname} />
 			<StyledUserContainer>
 				<StyledAvatar src={user.avatar} alt='user-pic' />
 

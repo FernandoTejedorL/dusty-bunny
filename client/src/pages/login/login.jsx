@@ -6,12 +6,12 @@ import {
 	StyledButton,
 	StyledContainer,
 	StyledForm,
-	StyledHeader,
 	StyledImg,
 	StyledInput,
 	StyledInputAndTag,
 	StyledMain
 } from './login.styles';
+import PageHeader from '../../components/pageHeader/PageHeader';
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -19,7 +19,7 @@ const Login = () => {
 	if (loading) return <h2>Loading...</h2>;
 	return (
 		<StyledMain>
-			<StyledHeader>Sign In</StyledHeader>
+			<PageHeader text={'Sign In'} />
 			<StyledContainer>
 				<StyledImg src='/assets/images/common/login.png' alt='' />
 				<StyledForm onSubmit={event => loginUser(event, navigate)}>

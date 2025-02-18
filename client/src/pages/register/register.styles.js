@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
 import { COLORS } from '../../styles/colors';
 
 const StyledMain = styled.main`
@@ -22,13 +21,6 @@ const StyledContainer = styled.div`
 		flex-direction: row;
 		align-items: flex-start;
 	}
-`;
-
-const StyledHeader = styled.h2`
-	font-family: ${FONT_FAMILY.chewy};
-	font-size: ${FONT_SIZE.header};
-	line-height: 120%;
-	text-align: center;
 `;
 
 const StyledImg = styled.img`
@@ -127,7 +119,6 @@ const StyledRequired = styled.span`
 export {
 	StyledMain,
 	StyledContainer,
-	StyledHeader,
 	StyledImg,
 	StyledRegisterForm,
 	StyledInputAndTag,

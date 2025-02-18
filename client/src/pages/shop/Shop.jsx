@@ -12,7 +12,6 @@ import {
 	StyledFilterEachContainer,
 	StyledFilters,
 	StyledFiltersTile,
-	StyledHeader,
 	StyledMain,
 	StyledRangeInput,
 	StyledRangeInputBar,
@@ -22,6 +21,7 @@ import {
 import { useAuth } from '../../hooks/useAuth';
 import SideCart from '../../components/sideCart/SideCart';
 import { useNavigate } from 'react-router-dom';
+import PageHeader from '../../components/pageHeader/PageHeader';
 
 const Shop = () => {
 	const [filtersOpen, SetFiltersOpen] = useState(false);
@@ -40,7 +40,7 @@ const Shop = () => {
 
 	return (
 		<StyledMain>
-			<StyledHeader>Shop</StyledHeader>
+			<PageHeader text={'Shop'} />
 			<StyledAllFilters>
 				<StyledFiltersTile onClick={() => SetFiltersOpen(!filtersOpen)}>
 					<span>Filters</span>

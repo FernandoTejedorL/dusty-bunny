@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
+import { FONT_WEIGHT } from '../../styles/fonts';
 import { COLORS } from '../../styles/colors';
 
 const StyledMain = styled.main`
@@ -10,19 +10,12 @@ const StyledMain = styled.main`
 	gap: 2rem;
 `;
 
-const StyledHeader = styled.h2`
-	font-family: ${FONT_FAMILY.chewy};
-	font-size: ${FONT_SIZE.header};
-	line-height: 120%;
-	text-align: center;
-`;
-
 const StyledUserContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	width: 100%;
-	padding: 2.4375rem;
+	padding: 0 2.4375rem;
 	gap: 2.4375rem;
 
 	@media screen and (width>=768px) {
@@ -115,7 +108,6 @@ const StyledEditButton = styled.button`
 
 export {
 	StyledMain,
-	StyledHeader,
 	StyledUserContainer,
 	StyledAvatar,
 	StyledForm,

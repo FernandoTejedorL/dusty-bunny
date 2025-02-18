@@ -2,7 +2,8 @@ import { useParams } from 'react-router-dom';
 import { findUserOrders } from '../../utils/api';
 import { useEffect, useState } from 'react';
 import EachOrder from '../../components/eachOrder/eachOrder';
-import { StyledAllComp, StyledHeader, StyledMain } from './orders.styles';
+import { StyledAllComp, StyledMain } from './orders.styles';
+import PageHeader from '../../components/pageHeader/PageHeader';
 
 const Orders = () => {
 	const { id } = useParams();
@@ -17,7 +18,7 @@ const Orders = () => {
 
 	return (
 		<StyledMain>
-			<StyledHeader>Orders Page</StyledHeader>
+			<PageHeader text={'My Orders'} />
 			<StyledAllComp>
 				{ordersToMap.map(item => (
 					<EachOrder key={item._id} item={item} />

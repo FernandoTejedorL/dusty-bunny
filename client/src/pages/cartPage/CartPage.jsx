@@ -9,18 +9,18 @@ import {
 	StyledComment,
 	StyledEmptyBig,
 	StyledGoTo,
-	StyledHeader,
 	StyledJulio,
 	StyledMain,
 	StyledPrice
 } from './cartPage.styles';
+import PageHeader from '../../components/pageHeader/PageHeader';
 
 const CartPage = () => {
 	const { cart, deleteFromCart, totalPrice } = useCart();
 	const [showModal, setShowModal] = useState(false);
 	return (
 		<StyledMain>
-			<StyledHeader>Cart</StyledHeader>
+			<PageHeader text={'Cart'} />
 			{cart.length !== 0 && (
 				<StyledPrice>Total: {totalPrice.toFixed(2)}€</StyledPrice>
 			)}

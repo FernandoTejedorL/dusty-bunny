@@ -11,11 +11,11 @@ import {
 	StyledImagesContainer,
 	StyledInfoContainer,
 	StyledMain,
-	StyledName,
 	StyledProductContainer
 } from './product.styles';
 import { useAuth } from '../../hooks/useAuth';
 import Info from '../../components/info/Info';
+import PageHeader from '../../components/pageHeader/PageHeader';
 
 const Product = () => {
 	const { id } = useParams();
@@ -36,7 +36,7 @@ const Product = () => {
 
 	return (
 		<StyledMain>
-			<StyledName>{product.name}</StyledName>
+			<PageHeader text={product.name} />
 			<StyledProductContainer>
 				<StyledImageAndButtons>
 					<StyledImagesContainer>

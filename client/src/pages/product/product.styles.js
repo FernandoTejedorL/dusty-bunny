@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
 import { COLORS } from '../../styles/colors';
 
 const StyledMain = styled.main`
@@ -7,14 +6,6 @@ const StyledMain = styled.main`
 	flex-direction: column;
 	align-items: center;
 	gap: 2rem;
-	margin-top: 2rem;
-`;
-
-const StyledName = styled.h2`
-	font-family: ${FONT_FAMILY.chewy};
-	font-size: ${FONT_SIZE.header};
-	line-height: 120%;
-	text-align: center;
 `;
 
 const StyledProductContainer = styled.div`
@@ -22,7 +13,6 @@ const StyledProductContainer = styled.div`
 	flex-direction: column;
 	align-items: center;
 	gap: 2rem;
-	margin-top: 2rem;
 
 	@media screen and (width>=1024px) {
 		flex-direction: row;
@@ -117,7 +107,6 @@ const StyledInfoContainer = styled.div`
 
 export {
 	StyledMain,
-	StyledName,
 	StyledProductContainer,
 	StyledImagesContainer,
 	StyledImage,

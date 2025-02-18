@@ -6,7 +6,6 @@ import {
 	StyledButton,
 	StyledCheckbox,
 	StyledContainer,
-	StyledHeader,
 	StyledImg,
 	StyledInput,
 	StyledInputAndTag,
@@ -19,6 +18,7 @@ import {
 import { useAuth } from '../../hooks/useAuth';
 import AvatarGrid from '../../components/avatarGrid/AvatarGrid';
 import { useForm } from 'react-hook-form';
+import PageHeader from '../../components/pageHeader/PageHeader';
 
 const Register = () => {
 	const {
@@ -32,7 +32,7 @@ const Register = () => {
 	if (loading) return <h2>Loading...</h2>;
 	return (
 		<StyledMain>
-			<StyledHeader>REGISTER</StyledHeader>
+			<PageHeader text={'Register'} />
 			<StyledContainer>
 				<StyledImg src='/assets/images/common/register.jpg' alt='' />
 				<StyledRegisterForm

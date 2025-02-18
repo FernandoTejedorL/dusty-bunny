@@ -8,14 +8,6 @@ const StyledMain = styled.main`
 	flex-direction: column;
 	align-items: center;
 	gap: 2rem;
-	margin-top: 2rem;
-`;
-
-const StyledHeader = styled.h2`
-	font-family: ${FONT_FAMILY.chewy};
-	font-size: ${FONT_SIZE.header};
-	line-height: 120%;
-	text-align: center;
 `;
 
 const StyledPrice = styled.h3`
@@ -105,7 +97,6 @@ const StyledComment = styled.h3`
 
 export {
 	StyledMain,
-	StyledHeader,
 	StyledPrice,
 	StyledAllComp,
 	StyledCartShop,
