@@ -9,19 +9,19 @@ const StyledCarousel = styled.div`
 `;
 
 const StyledSwiper = styled(Swiper)`
-	width: 240px;
+	width: 15rem;
 	align-items: center;
 
 	@media screen and (width>=768px) {
-		width: 550px;
+		width: 34.375rem;
 	}
 
 	@media screen and (width>=1024px) {
-		width: 850px;
+		width: 53.125rem;
 	}
 
 	@media screen and (width>=1440px) {
-		width: 1200px;
+		width: 75rem;
 	}
 `;
 
@@ -29,8 +29,8 @@ const NavigationButton = styled.button`
 	background: transparent;
 	border: none;
 	cursor: pointer;
-	width: 40px;
-	height: 100px;
+	width: 2.5rem;
+	height: 6.25rem;
 `;
 
 const StyledChevron = styled.img`

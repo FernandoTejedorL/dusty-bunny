@@ -35,7 +35,7 @@ const StyledImg = styled.img`
 	height: 13.75rem;
 	width: 13.75rem;
 	border-radius: 1rem;
-	box-shadow: 0 4px 10px 4px;
+	box-shadow: 0 0.25rem 0.625rem 0.25rem;
 `;
 
 const StyledRegisterForm = styled.form`
@@ -56,7 +56,7 @@ const StyledInput = styled.input`
 	align-items: center;
 	height: 2.5rem;
 	border-radius: 0.5rem;
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 	padding-inline: 0.5rem;
 `;
 
@@ -89,7 +89,7 @@ const StyledCheckbox = styled.input`
 
 	&:checked {
 		background-color: ${COLORS.white};
-		border: 1px solid ${COLORS.dark};
+		border: 0.0625rem solid ${COLORS.dark};
 	}
 	&:checked::after {
 		content: '🐰';

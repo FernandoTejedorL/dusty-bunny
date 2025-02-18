@@ -57,10 +57,10 @@ const StyledEachTotalInfo = styled.div`
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
-	border-top: 1px solid ${COLORS.dark};
+	border-top: 0.0625rem solid ${COLORS.dark};
 	font-weight: ${FONT_WEIGHT.bold};
 	font-size: ${FONT_SIZE.m};
-	padding-top: 1rem;
+	padding-top: 16px;
 `;
 
 const StyledButtonsContainer = styled.div`
@@ -84,7 +84,7 @@ const StyledButton = styled.button`
 	@media (hover: hover) {
 		&:hover {
 			background-color: ${COLORS.deepViolet};
-			border: 1px solid ${COLORS.white};
+			border: 0.0625rem solid ${COLORS.white};
 			color: ${COLORS.white};
 		}
 	}

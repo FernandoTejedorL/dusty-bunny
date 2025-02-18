@@ -33,10 +33,10 @@ const StyledUserContainer = styled.div`
 `;
 
 const StyledAvatar = styled.img`
-	width: 220px;
-	height: 220px;
+	width: 13.75rem;
+	height: 13.75rem;
 	border-radius: 1rem;
-	box-shadow: 0 0 10px 4px ${COLORS.deepViolet};
+	box-shadow: 0 0 0.625rem 0.25rem ${COLORS.deepViolet};
 `;
 
 const StyledForm = styled.form`
@@ -53,7 +53,7 @@ const StyledInputContainer = styled.div`
 	justify-content: space-between;
 	align-items: flex-start;
 	width: 100%;
-	height: 40px;
+	height: 2.5rem;
 `;
 
 const StyledLabel = styled.label`
@@ -79,7 +79,7 @@ const StyledButton = styled.input`
 	height: 2.5rem;
 	background-color: ${COLORS.lightViolet};
 	border-radius: 0.5rem;
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 	color: ${COLORS.dark};
 	padding-inline: 0.5rem;
 	cursor: pointer;
@@ -88,7 +88,7 @@ const StyledButton = styled.input`
 		&:hover {
 			background-color: ${COLORS.deepViolet};
 			color: ${COLORS.white};
-			border: 1px solid ${COLORS.white};
+			border: 0.0625rem solid ${COLORS.white};
 		}
 	}
 `;

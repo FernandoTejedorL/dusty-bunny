@@ -7,7 +7,7 @@ const StyledCart = styled.div`
 	flex-direction: column;
 	width: 50%;
 	border-radius: 1rem;
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 	margin-top: 2rem;
 
 	@media screen and (width>=1024px) {
@@ -46,8 +46,8 @@ const StyledCartCounter = styled.div`
 `;
 
 const StyledChevron = styled.img`
-	width: 25px;
-	height: 10px;
+	width: 1.5625rem;
+	height: 0.625rem;
 	rotate: ${({ $cartOpen }) => ($cartOpen ? '180deg' : '0deg')};
 
 	@media screen and (width>=1024px) {
@@ -79,7 +79,7 @@ const StyledCartButton = styled.button`
 	align-items: center;
 	width: 70%;
 	background-color: ${COLORS.lightViolet};
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 	border-radius: 0.5rem;
 	padding: 0.5rem;
 	cursor: pointer;

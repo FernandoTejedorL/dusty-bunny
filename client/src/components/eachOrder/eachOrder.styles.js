@@ -9,7 +9,7 @@ const StyledEachOrder = styled.div`
 	padding: 2rem;
 	margin: 2rem;
 	border-radius: 1rem;
-	border: 3px solid ${COLORS.dark};
+	border: 0.1875rem solid ${COLORS.dark};
 	background-color: ${COLORS.white};
 	width: 80%;
 	box-shadow: ${({ $showContent }) =>

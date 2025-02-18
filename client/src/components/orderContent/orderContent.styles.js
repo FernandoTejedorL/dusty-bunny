@@ -10,13 +10,13 @@ const StyledOrderContent = styled.div`
 	width: 100%;
 	height: 100%;
 	border-radius: 1rem;
-	box-shadow: 0 0 10px 4px ${COLORS.deepViolet};
+	box-shadow: 0 0 0.625rem 0.25rem ${COLORS.deepViolet};
 	cursor: pointer;
 `;
 
 const StyledContentImage = styled.img`
-	height: 100px;
-	width: 100px;
+	height: 6.25rem;
+	width: 6.25rem;
 	border-radius: 1rem;
 `;
 

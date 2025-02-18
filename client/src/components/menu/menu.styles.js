@@ -5,14 +5,14 @@ import { FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
 
 const StyledMenu = styled.div`
 	position: fixed;
-	top: 76px;
+	top: 4.75rem;
 	left: 0;
 	width: 100%;
 	background-color: ${COLORS.lightViolet};
 	translate: ${({ $showMenu }) => ($showMenu ? '0' : '+100%')};
 	transition: translate 0.3s;
-	border-bottom: 5px solid ${COLORS.dark};
-	border-radius: 0 0 8px 8px;
+	border-bottom: 0.3125rem solid ${COLORS.dark};
+	border-radius: 0 0 0.5rem 0.5rem;
 	z-index: 10;
 	max-height: 80vh;
 	overflow-y: auto;
@@ -49,7 +49,7 @@ const StyledNavLink = styled(NavLink)`
 	font-size: ${FONT_SIZE.m};
 	letter-spacing: 0.125rem;
 	padding: 1.5625rem;
-	border-bottom: 1px solid ${COLORS.dark};
+	border-bottom: 0.0625rem solid ${COLORS.dark};
 
 	&.active {
 		color: ${COLORS.white};
@@ -90,8 +90,8 @@ const StyledButton = styled.button`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 34px;
-	border: 1px solid ${COLORS.dark};
+	height: 2.125rem;
+	border: 0.0625rem solid ${COLORS.dark};
 	background-color: ${COLORS.white};
 	border-radius: 0.5rem;
 	color: ${COLORS.dark};
@@ -104,7 +104,7 @@ const StyledButton = styled.button`
 		&:hover {
 			color: ${COLORS.white};
 			background-color: ${COLORS.deepViolet};
-			border: 1px solid ${COLORS.white};
+			border: 0.0625rem solid ${COLORS.white};
 		}
 	}
 `;
@@ -113,9 +113,9 @@ const StyledLogOutButton = styled.button`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	max-width: 180px;
-	height: 34px;
-	border: 1px solid ${COLORS.dark};
+	max-width: 11.25rem;
+	height: 2.125rem;
+	border: 0.0625rem solid ${COLORS.dark};
 	background-color: ${COLORS.white};
 	border-radius: 0.5rem;
 	color: ${COLORS.dark};
@@ -129,13 +129,9 @@ const StyledLogOutButton = styled.button`
 		&:hover {
 			color: ${COLORS.white};
 			background-color: ${COLORS.deepViolet};
-			border: 1px solid ${COLORS.white};
+			border: 0.0625rem solid ${COLORS.white};
 		}
 	}
-
-	/* @media screen and (width>=1024px) {
-		margin-left: auto;
-	} */
 `;
 
 export {

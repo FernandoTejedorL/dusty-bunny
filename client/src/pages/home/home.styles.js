@@ -15,7 +15,7 @@ const StyledBanner = styled.div`
 	align-items: center;
 	width: 100%;
 	height: auto;
-	padding: 47px;
+	padding: 2.9375rem;
 	font-family: ${FONT_FAMILY.pacifico};
 	font-size: ${FONT_SIZE.m};
 	font-weight: ${FONT_WEIGHT.regular};
@@ -28,9 +28,9 @@ const StyledBanner = styled.div`
 
 const StyledBrand = styled.h2`
 	font-family: ${FONT_FAMILY.chewy};
-	font-size: 60px;
-	-webkit-text-stroke: 1px ${COLORS.white};
-	text-shadow: 0 4px 4px;
+	font-size: 3.75rem;
+	-webkit-text-stroke: 0.0625rem ${COLORS.white};
+	text-shadow: 0 0.25rem 0.25rem;
 	white-space: nowrap;
 `;
 
@@ -49,8 +49,8 @@ const StyledCarouselContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 39px;
-	padding-block: 39px;
+	gap: 2.4375rem;
+	padding-block: 2.4375rem;
 `;
 
 const StyledOpinions = styled.div`
@@ -58,15 +58,15 @@ const StyledOpinions = styled.div`
 	flex-direction: column;
 	align-items: center;
 	width: 90%;
-	gap: 39px;
+	gap: 2.4375rem;
 `;
 
 const StyledOpinionsContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 39px;
-	margin-bottom: 39px;
+	gap: 2.4375rem;
+	margin-bottom: 2.4375rem;
 
 	@media screen and (width>=1024px) {
 		flex-direction: row;

@@ -49,7 +49,7 @@ const StyledImageAndText = styled(Link)`
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
-	width: 220px;
+	width: 13.75rem;
 	cursor: pointer;
 `;
 
@@ -57,7 +57,7 @@ const StyledImgRedirect = styled.img`
 	height: 13.75rem;
 	width: 13.75rem;
 	border-radius: 1rem;
-	box-shadow: 0 4px 10px 4px;
+	box-shadow: 0 0.25rem 0.625rem 0.25rem;
 `;
 
 const StyledActionText = styled.span`
@@ -69,7 +69,7 @@ const StyledActionText = styled.span`
 	font-size: ${FONT_SIZE.header};
 	color: ${COLORS.white};
 	white-space: nowrap;
-	-webkit-text-stroke: 2px ${COLORS.dark};
+	-webkit-text-stroke: 0.125rem ${COLORS.dark};
 `;
 
 const StyledCheer = styled.p`

@@ -19,8 +19,8 @@ const StyledAvatar = styled.input`
 	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	width: 55px;
-	height: 55px;
+	width: 3.4375rem;
+	height: 3.4375rem;
 	background-image: url(${props => props.$image});
 	background-size: cover;
 	background-position: center;
@@ -29,7 +29,7 @@ const StyledAvatar = styled.input`
 	cursor: pointer;
 
 	&:checked {
-		box-shadow: 0 0 10px 4px ${COLORS.deepViolet};
+		box-shadow: 0 0 0.625rem 0.25rem ${COLORS.deepViolet};
 		border-color: #000;
 	}
 `;

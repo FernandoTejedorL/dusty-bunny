@@ -7,7 +7,7 @@ const StyledWIP = styled.div`
 	flex-direction: column;
 	align-items: center;
 	text-align: center;
-	-webkit-text-stroke: 1px ${COLORS.white};
+	-webkit-text-stroke: 0.0625rem ${COLORS.white};
 	width: 80%;
 	font-family: ${FONT_FAMILY.chewy};
 	font-weight: ${FONT_WEIGHT.bold};

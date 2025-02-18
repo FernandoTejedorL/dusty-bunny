@@ -7,12 +7,12 @@ const StyledCard = styled.div`
 	gap: 1.5rem;
 	padding: 1.5rem;
 	width: 80%;
-	box-shadow: 0px 4px 4px 4px;
+	box-shadow: 0px 0.25rem 0.25rem 0.25rem;
 	border-radius: 0.5rem;
 
 	@media screen and (width>=1024px) {
-		width: 400px;
-		height: 200px;
+		width: 25rem;
+		height: 12.5rem;
 		justify-content: space-around;
 	}
 `;

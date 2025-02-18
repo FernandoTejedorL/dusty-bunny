@@ -6,7 +6,7 @@ const StyledInfoContainer = styled.div`
 	flex-direction: column;
 	gap: 2rem;
 	padding: 1rem;
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 	border-radius: 1rem;
 `;
 

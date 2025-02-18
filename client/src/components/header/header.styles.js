@@ -9,7 +9,7 @@ const StyledHeader = styled.header`
 	align-items: center;
 	width: 100%;
 	padding: 1rem;
-	border-bottom: 1px solid ${COLORS.dark};
+	border-bottom: 0.0625rem solid ${COLORS.dark};
 
 	@media screen and (width>=1024px) {
 		padding-inline: 1rem;
@@ -34,8 +34,8 @@ const StyledBrand = styled.h1`
 `;
 
 const StyledIcon = styled.img`
-	width: 40px;
-	height: 40px;
+	width: 2.5rem;
+	height: 2.5rem;
 	cursor: pointer;
 
 	@media screen and (width>=1024px) {

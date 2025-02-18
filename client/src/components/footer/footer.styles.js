@@ -8,7 +8,7 @@ const StyledFooter = styled.footer`
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	border-top: 1px solid ${COLORS.dark};
+	border-top: 0.0625rem solid ${COLORS.dark};
 	padding: 1rem;
 	margin-top: auto;
 `;

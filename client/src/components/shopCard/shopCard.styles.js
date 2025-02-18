@@ -42,7 +42,7 @@ const StyledCardButton = styled.button`
 	align-items: center;
 	width: 70%;
 	background-color: ${COLORS.lightViolet};
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 	border-radius: 0.5rem;
 	padding: 0.5rem;
 	cursor: pointer;
@@ -54,7 +54,7 @@ const StyledCardButton = styled.button`
 	@media (hover: hover) {
 		&:hover {
 			background-color: ${COLORS.deepViolet};
-			border: 1px solid ${COLORS.white};
+			border: 0.0625rem solid ${COLORS.white};
 			color: ${COLORS.white};
 		}
 	}
@@ -66,7 +66,7 @@ const StyledMoreInfo = styled.button`
 	align-items: center;
 	width: 100%;
 	background-color: ${COLORS.white};
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 	border-radius: 0.5rem;
 	padding: 0.5rem;
 	cursor: pointer;
@@ -74,7 +74,7 @@ const StyledMoreInfo = styled.button`
 	@media (hover: hover) {
 		&:hover {
 			background-color: ${COLORS.lightViolet};
-			border: 1px solid ${COLORS.white};
+			border: 0.0625rem solid ${COLORS.white};
 			color: ${COLORS.white};
 		}
 	}
@@ -96,7 +96,7 @@ const StyledQuantityButtons = styled.button`
 	justify-content: center;
 	align-items: center;
 	background-color: ${COLORS.lightViolet};
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 	border-radius: 0.5rem;
 	padding: 0.5rem;
 	cursor: pointer;

@@ -42,7 +42,8 @@ const StyledCartShop = styled.div`
 	gap: 1.5rem;
 	padding: 2rem;
 	margin: ${({ $empty }) => ($empty ? '0' : '2rem')};
-	border: ${({ $empty }) => ($empty ? 'none' : `1px solid ${COLORS.dark}`)};
+	border: ${({ $empty }) =>
+		$empty ? 'none' : `0.0625rem solid ${COLORS.dark}`};
 	border-radius: 1rem;
 
 	@media screen and (width>=768px) {
@@ -67,8 +68,8 @@ const StyledEmptyBig = styled.div`
 `;
 
 const StyledJulio = styled.img`
-	height: 200px;
-	width: 200px;
+	height: 12.5rem;
+	width: 12.5rem;
 	border-radius: 1rem;
 `;
 
@@ -77,7 +78,7 @@ const StyledGoTo = styled(Link)`
 	justify-content: center;
 	align-items: center;
 	background-color: ${COLORS.lightViolet};
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 	border-radius: 0.5rem;
 	padding: 0.5rem;
 	cursor: pointer;
@@ -94,7 +95,7 @@ const StyledGoTo = styled(Link)`
 const StyledComment = styled.h3`
 	font-family: ${FONT_FAMILY.pacifico};
 	font-size: ${FONT_SIZE.m};
-	letter-spacing: 1px;
+	letter-spacing: 0.0625rem;
 	line-height: 130%;
 
 	@media screen and (width>=1024px) {

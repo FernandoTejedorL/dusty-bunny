@@ -35,7 +35,7 @@ const StyledAllFilters = styled.div`
 	flex-direction: column;
 	width: 50%;
 	border-radius: 1rem;
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 
 	@media screen and (width>=1024px) {
 		width: 80%;
@@ -52,8 +52,8 @@ const StyledFiltersTile = styled.div`
 `;
 
 const StyledChevron = styled.img`
-	width: 25px;
-	height: 10px;
+	width: 1.5625rem;
+	height: 0.625rem;
 	rotate: ${({ $filtersOpen }) => ($filtersOpen ? '180deg' : '0deg')};
 `;
 
@@ -92,17 +92,17 @@ const StyledRangeInputBar = styled.input`
 	appearance: none;
 	-webkit-appearance: none;
 	width: 100%;
-	height: 10px;
-	border-radius: 5px;
+	height: 0.625rem;
+	border-radius: 0.3125rem;
 	background-color: ${COLORS.lightViolet};
-	margin: 20px 0;
+	margin: 1.25rem 0;
 	cursor: pointer;
 
 	&::-webkit-slider-thumb {
 		-webkit-appearance: none;
 		appearance: none;
-		width: 30px;
-		height: 30px;
+		width: 1.875rem;
+		height: 1.875rem;
 		border-radius: 50%;
 		background-color: transparent;
 		background-image: url('/assets/images/common/bunny.png');
@@ -111,7 +111,7 @@ const StyledRangeInputBar = styled.input`
 		background-repeat: no-repeat;
 		cursor: pointer;
 		position: relative;
-		top: -3px;
+		top: -0.1875rem;
 	}
 `;
 
@@ -128,7 +128,7 @@ const StyledShop = styled.div`
 	gap: 1.5rem;
 	padding: 2rem;
 	margin: 2rem;
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 	border-radius: 1rem;
 
 	@media screen and (width>=768px) {

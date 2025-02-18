@@ -18,14 +18,14 @@ const StyledSlide = styled(SwiperSlide)`
 	border-radius: 1rem;
 	margin-inline: auto;
 	margin-block: 1rem;
-	box-shadow: 0 4px 4px;
+	box-shadow: 0 0.25rem 0.25rem;
 `;
 
 const StyledCardImage = styled.img`
-	height: 90px;
-	width: 90px;
+	height: 5.625rem;
+	width: 5.625rem;
 	border-radius: 1rem;
-	box-shadow: 0px 4px 4px;
+	box-shadow: 0 0.25rem 0.25rem;
 `;
 
 const StyledPrice = styled.span`

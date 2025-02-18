@@ -37,17 +37,17 @@ const StyledImagesContainer = styled.div`
 `;
 
 const StyledImage = styled.img`
-	height: 300px;
-	width: 300px;
+	height: 18.75rem;
+	width: 18.75rem;
 	border-radius: 1rem;
 `;
 
 const StyledFavIcon = styled.img`
 	position: absolute;
-	left: 20px;
-	top: 20px;
-	height: 48px;
-	width: 48px;
+	left: 1.25rem;
+	top: 1.25rem;
+	height: 3rem;
+	width: 3rem;
 	cursor: pointer;
 `;
 
@@ -97,7 +97,7 @@ const StyledButton = styled.button`
 		&:hover {
 			background-color: ${COLORS.deepViolet};
 			color: ${COLORS.white};
-			border: 1px solid ${COLORS.white};
+			border: 0.0625rem solid ${COLORS.white};
 		}
 	}
 

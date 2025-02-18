@@ -10,19 +10,19 @@ const StyledCartCard = styled.div`
 	padding: 1rem;
 	margin: 0.5rem;
 	width: 90%;
-	height: 90px;
+	height: 5.625rem;
 	border: 1px solid ${COLORS.dark};
 	border-radius: 1rem;
 `;
 
 const StyledCartImage = styled.img`
-	height: 70px;
-	width: 70px;
+	height: 4.375rem;
+	width: 4.375rem;
 	border-radius: 0.5rem;
 
 	@media screen and (width>=1024px) {
-		height: 50px;
-		width: 50px;
+		height: 3.125rem;
+		width: 3.125rem;
 	}
 `;
 
