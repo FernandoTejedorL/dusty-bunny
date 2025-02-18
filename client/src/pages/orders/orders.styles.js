@@ -22,8 +22,10 @@ const StyledAllComp = styled.div`
 	width: 100%;
 
 	@media screen and (width>=1024px) {
-		flex-direction: row-reverse;
-		align-items: flex-start;
+		display: grid;
+		grid-template-columns: repeat(2, 40%);
+		justify-content: center;
+		align-items: start;
 	}
 `;
 
