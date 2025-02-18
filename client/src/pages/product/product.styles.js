@@ -48,6 +48,7 @@ const StyledFavIcon = styled.img`
 	top: 20px;
 	height: 48px;
 	width: 48px;
+	cursor: pointer;
 `;
 
 const StyledImageAndButtons = styled.div`

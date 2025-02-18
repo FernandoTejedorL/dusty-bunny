@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
 
 const StyledEachDetail = styled.div`
 	display: flex;
@@ -6,4 +7,9 @@ const StyledEachDetail = styled.div`
 	gap: 0.5rem;
 `;
 
-export { StyledEachDetail };
+const StyledDetailTag = styled.span`
+	font-family: ${FONT_FAMILY.chewy};
+	font-size: ${FONT_SIZE.m};
+`;
+
+export { StyledEachDetail, StyledDetailTag };

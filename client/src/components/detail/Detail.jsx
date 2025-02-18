@@ -1,9 +1,9 @@
-import { StyledEachDetail } from './detail.styles';
+import { StyledDetailTag, StyledEachDetail } from './detail.styles';
 
 const Detail = ({ name, info }) => {
 	return (
 		<StyledEachDetail>
-			<span>{name}: </span>
+			<StyledDetailTag>{name}: </StyledDetailTag>
 			<span>{info}</span>
 		</StyledEachDetail>
 	);
