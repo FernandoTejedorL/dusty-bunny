@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useProducts } from '../../hooks/useProducts';
 import {
 	StyledContentImage,
@@ -8,11 +9,14 @@ import {
 
 const OrderContent = ({ content }) => {
 	const { products } = useProducts();
+	const navigate = useNavigate();
 
 	const finalProduct = findProduct(products, content);
 
 	return (
-		<StyledOrderContent>
+		<StyledOrderContent
+			onClick={() => navigate(`/product/${finalProduct._id}`)}
+		>
 			<StyledContentImage src={finalProduct.image} alt='' />
 			<StyledOrderCOntentInfo>
 				<StyledOrderContentTag>{finalProduct.name}</StyledOrderContentTag>

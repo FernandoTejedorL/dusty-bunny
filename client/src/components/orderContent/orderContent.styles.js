@@ -11,6 +11,7 @@ const StyledOrderContent = styled.div`
 	height: 100%;
 	border-radius: 1rem;
 	box-shadow: 0 0 10px 4px ${COLORS.deepViolet};
+	cursor: pointer;
 `;
 
 const StyledContentImage = styled.img`
