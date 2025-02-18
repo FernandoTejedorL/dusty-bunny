@@ -56,6 +56,7 @@ const StyledChevron = styled.img`
 const StyledFilters = styled.div`
 	display: ${({ $filtersOpen }) => ($filtersOpen ? 'flex' : 'none')};
 	flex-direction: column;
+	width: 100%;
 	gap: 1rem;
 	padding: 1rem;
 `;
