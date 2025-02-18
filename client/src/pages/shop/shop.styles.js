@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
+import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
 import { COLORS } from '../../styles/colors';
 
 const StyledMain = styled.main`
@@ -36,6 +36,10 @@ const StyledAllFilters = styled.div`
 	width: 50%;
 	border-radius: 1rem;
 	border: 1px solid ${COLORS.dark};
+
+	@media screen and (width>=1024px) {
+		width: 80%;
+	}
 `;
 
 const StyledFiltersTile = styled.div`
@@ -56,9 +60,65 @@ const StyledChevron = styled.img`
 const StyledFilters = styled.div`
 	display: ${({ $filtersOpen }) => ($filtersOpen ? 'flex' : 'none')};
 	flex-direction: column;
+	align-items: center;
 	width: 100%;
 	gap: 1rem;
 	padding: 1rem;
+
+	@media screen and (width>=1024px) {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+`;
+
+const StyledFilterEachContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	width: 100%;
+	gap: 1rem;
+	font-weight: ${FONT_WEIGHT.bold};
+	margin-top: 0.5rem;
+`;
+
+const StyledRangeInput = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	width: 100%;
+`;
+
+const StyledRangeInputBar = styled.input`
+	appearance: none;
+	-webkit-appearance: none;
+	width: 100%;
+	height: 10px;
+	border-radius: 5px;
+	background-color: ${COLORS.lightViolet};
+	margin: 20px 0;
+	cursor: pointer;
+
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background-color: transparent;
+		background-image: url('/assets/images/common/bunny.png');
+		background-size: cover;
+		background-position: right;
+		background-repeat: no-repeat;
+		cursor: pointer;
+		position: relative;
+		top: -3px;
+	}
+`;
+
+const StyledRangeText = styled.div`
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 `;
 
 const StyledShop = styled.div`
@@ -106,6 +166,10 @@ export {
 	StyledFiltersTile,
 	StyledChevron,
 	StyledFilters,
+	StyledFilterEachContainer,
+	StyledRangeInput,
+	StyledRangeInputBar,
+	StyledRangeText,
 	StyledShop,
 	StyledEmptyShop,
 	StyledEmptyImage

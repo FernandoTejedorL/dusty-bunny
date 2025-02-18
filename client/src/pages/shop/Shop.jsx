@@ -9,10 +9,14 @@ import {
 	StyledChevron,
 	StyledEmptyImage,
 	StyledEmptyShop,
+	StyledFilterEachContainer,
 	StyledFilters,
 	StyledFiltersTile,
 	StyledHeader,
 	StyledMain,
+	StyledRangeInput,
+	StyledRangeInputBar,
+	StyledRangeText,
 	StyledShop
 } from './shop.styles';
 import { useAuth } from '../../hooks/useAuth';
@@ -49,20 +53,22 @@ const Shop = () => {
 
 				<StyledFilters $filtersOpen={filtersOpen}>
 					{FILTERS.map(item => (
-						<div key={item.id}>
+						<StyledFilterEachContainer key={item.id}>
 							<span>{item.name}</span>
-							{item.values.map(value => (
-								<FilterShop
-									key={value}
-									value={value}
-									item={item}
-									action={event => manageFilters(event, filters, setFilters)}
-								/>
-							))}
-						</div>
+							<div>
+								{item.values.map(value => (
+									<FilterShop
+										key={value}
+										value={value}
+										item={item}
+										action={event => manageFilters(event, filters, setFilters)}
+									/>
+								))}
+							</div>
+						</StyledFilterEachContainer>
 					))}
-					<div>
-						<input
+					<StyledRangeInput>
+						<StyledRangeInputBar
 							onChange={event =>
 								setFilters({ ...filters, price: event.target.value })
 							}
@@ -73,11 +79,11 @@ const Shop = () => {
 							max={37}
 							defaultValue={37}
 						/>
-						<div>
-							<span>Precio máximo</span>
+						<StyledRangeText>
+							<span>Max price</span>
 							<span>{filters.price}€</span>
-						</div>
-					</div>
+						</StyledRangeText>
+					</StyledRangeInput>
 				</StyledFilters>
 			</StyledAllFilters>
 			<StyledAllComp>
