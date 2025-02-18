@@ -13,6 +13,7 @@ const StyledHeader = styled.h2`
 	font-size: ${FONT_SIZE.header};
 	line-height: 120%;
 	text-align: center;
+	margin-bottom: 1rem;
 `;
 
 const StyledAllComp = styled.div`
@@ -22,10 +23,10 @@ const StyledAllComp = styled.div`
 	width: 100%;
 
 	@media screen and (width>=1024px) {
-		display: grid;
-		grid-template-columns: repeat(2, 40%);
-		justify-content: center;
+		flex-direction: row;
 		align-items: start;
+		justify-content: center;
+		flex-wrap: wrap;
 	}
 `;
 
