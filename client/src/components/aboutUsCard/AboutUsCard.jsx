@@ -12,7 +12,7 @@ const AboutUsCard = ({ item }) => {
 			<StyledPersona>
 				<StyledImage src={item.image} alt='image' />
 				<StyledRole>{item.role}</StyledRole>
-				<span>"{item.catchphrase}"</span>
+				<span>&quot;{item.catchphrase}&quot;</span>
 			</StyledPersona>
 			<StyledCV>
 				<span>{item.name}</span>
