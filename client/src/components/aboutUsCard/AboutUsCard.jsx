@@ -15,7 +15,7 @@ const AboutUsCard = ({ item }) => {
 				<span>&quot;{item.catchphrase}&quot;</span>
 			</StyledPersona>
 			<StyledCV>
-				<span>{item.name}</span>
+				<StyledRole>{item.name}</StyledRole>
 				<span>{item.subrole}</span>
 				<p>{item.career}</p>
 			</StyledCV>
