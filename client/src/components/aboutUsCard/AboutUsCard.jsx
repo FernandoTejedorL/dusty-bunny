@@ -1,15 +1,24 @@
+import {
+	StyledCard,
+	StyledCV,
+	StyledImage,
+	StyledPersona
+} from './aboutUsCard.styles';
+
 const AboutUsCard = ({ item }) => {
 	return (
-		<div>
-			<img src={item.image} alt='image' />
-			<span>{item.role}</span>
-			<span>{item.catchphrase}</span>
-			<div>
+		<StyledCard>
+			<StyledPersona>
+				<StyledImage src={item.image} alt='image' />
+				<span>{item.role}</span>
+				<span>{item.catchphrase}</span>
+			</StyledPersona>
+			<StyledCV>
 				<span>{item.name}</span>
 				<span>{item.subrole}</span>
 				<p>{item.career}</p>
-			</div>
-		</div>
+			</StyledCV>
+		</StyledCard>
 	);
 };
 
