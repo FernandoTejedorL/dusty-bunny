@@ -32,7 +32,6 @@ const Footer = () => {
 					<div>
 						<StyledLink to='/contact'>Contact</StyledLink>
 						<StyledLink to='/about'>About Us</StyledLink>
-						<StyledLink to='/careers'>Careers</StyledLink>
 					</div>
 				</StyledFooterBot>
 			</StyledFooterToBig>
