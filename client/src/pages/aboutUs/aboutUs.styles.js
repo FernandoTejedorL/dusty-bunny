@@ -8,4 +8,11 @@ const StyledMain = styled.main`
 	gap: 2rem;
 `;
 
-export { StyledMain };
+const StyledCardsContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;
+`;
+
+export { StyledMain, StyledCardsContainer };

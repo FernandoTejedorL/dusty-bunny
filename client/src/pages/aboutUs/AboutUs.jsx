@@ -1,18 +1,18 @@
 import AboutUsCard from '../../components/aboutUsCard/AboutUsCard';
 import PageHeader from '../../components/pageHeader/PageHeader';
 import { STAFF_INFO } from '../../constants/staff-info';
-import { StyledMain } from './aboutUs.styles';
+import { StyledCardsContainer, StyledMain } from './aboutUs.styles';
 
 const AboutUs = () => {
 	return (
 		<>
 			<PageHeader text={'About Us'} />
 			<StyledMain>
-				<div>
+				<StyledCardsContainer>
 					{STAFF_INFO.map(item => (
 						<AboutUsCard key={item.id} item={item} />
 					))}
-				</div>
+				</StyledCardsContainer>
 			</StyledMain>
 		</>
 	);
