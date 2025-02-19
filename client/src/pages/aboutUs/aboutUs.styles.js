@@ -12,7 +12,7 @@ const StyledCardsContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 1rem;
+	gap: 2rem;
 `;
 
 export { StyledMain, StyledCardsContainer };

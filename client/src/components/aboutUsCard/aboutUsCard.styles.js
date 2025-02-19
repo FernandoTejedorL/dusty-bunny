@@ -1,8 +1,15 @@
 import styled from 'styled-components';
+import { COLORS } from '../../styles/colors';
 
 const StyledCard = styled.div`
 	display: flex;
 	width: 90%;
+	margin-block: 1rem;
+	align-items: center;
+	padding: 1rem;
+	gap: 1rem;
+	border-radius: 1rem;
+	border: 0.0625rem solid ${COLORS.dark};
 `;
 
 const StyledPersona = styled.div`
@@ -16,6 +23,7 @@ const StyledPersona = styled.div`
 const StyledCV = styled.div`
 	display: flex;
 	flex-direction: column;
+	gap: 1rem;
 `;
 
 const StyledImage = styled.img`
