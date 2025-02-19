@@ -2,7 +2,8 @@ import {
 	StyledCard,
 	StyledCV,
 	StyledImage,
-	StyledPersona
+	StyledPersona,
+	StyledRole
 } from './aboutUsCard.styles';
 
 const AboutUsCard = ({ item }) => {
@@ -10,8 +11,8 @@ const AboutUsCard = ({ item }) => {
 		<StyledCard>
 			<StyledPersona>
 				<StyledImage src={item.image} alt='image' />
-				<span>{item.role}</span>
-				<span>{item.catchphrase}</span>
+				<StyledRole>{item.role}</StyledRole>
+				<span>"{item.catchphrase}"</span>
 			</StyledPersona>
 			<StyledCV>
 				<span>{item.name}</span>

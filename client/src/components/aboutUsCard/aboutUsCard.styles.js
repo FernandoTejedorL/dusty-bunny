@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { COLORS } from '../../styles/colors';
+import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
 
 const StyledCard = styled.div`
 	display: flex;
@@ -15,9 +16,15 @@ const StyledCard = styled.div`
 const StyledPersona = styled.div`
 	display: flex;
 	flex-direction: column;
+	gap: 0.5rem;
 	width: 100%;
 	align-items: center;
 	text-align: center;
+`;
+
+const StyledRole = styled.span`
+	font-family: ${FONT_FAMILY.chewy};
+	font-size: ${FONT_SIZE.m};
 `;
 
 const StyledCV = styled.div`
@@ -31,4 +38,4 @@ const StyledImage = styled.img`
 	height: 6.25rem;
 	border-radius: 1rem;
 `;
-export { StyledCard, StyledPersona, StyledCV, StyledImage };
+export { StyledCard, StyledPersona, StyledRole, StyledCV, StyledImage };
