@@ -11,6 +11,6 @@ export const ABOUT_INFO = [
 	},
 	{
 		id: v4(),
-		text: 'At our core, we believe in fun, creativity, and a touch of absurdity. We cherish the idea that joy can be found in the most unexpected places—like the tiny lint balls hidden in pockets or the dust clusters dancing in the sunlight. Whether you´re here to browse, buy, or sell, you’re part of something special: a community that embraces the fluffier side of life. So go ahead—find your perfect dust bunny. You know you want to! 🐰✨'
+		text: 'At our core, we believe in fun, creativity, and a touch of absurdity. We cherish the idea that joy can be found in the most unexpected places—like the tiny lint balls hidden in pockets or the dust clusters dancing in the sunlight. Whether you´re here to browse or buy, you’re part of something special: a community that embraces the fluffier side of life. So go ahead—find your perfect dust bunny. You know you want to! 🐰✨'
 	}
 ];
