@@ -7,8 +7,8 @@ import {
 
 const CartCard = ({ id, image, name, quantity }) => {
 	const { cart } = useCart();
-
 	const finalPrice = totalPrice(id, cart);
+
 	return (
 		<StyledCartCard>
 			<StyledCartImage src={image} alt='image' />

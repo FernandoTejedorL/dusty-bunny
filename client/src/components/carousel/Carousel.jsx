@@ -10,7 +10,6 @@ import {
 } from './carousel.styles';
 import 'swiper/css';
 import 'swiper/css/navigation';
-//import { useProducts } from '../../hooks/useProducts';
 
 const Carousel = ({ products }) => {
 	const [slidesPerView, setSlidesPerView] = useState(getSlidesPerView());

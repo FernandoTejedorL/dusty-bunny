@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { useCart } from '../../hooks/useCart';
 import { createOrder } from '../../utils/api';
-import CreditCard from '../creditCard/CreditCard';
 import { createPortal } from 'react-dom';
 import {
 	StyledButton,
@@ -15,6 +14,7 @@ import {
 	StyledHeader,
 	StyledInfoContainer
 } from './checkOut.Styles';
+import CreditCard from '../creditCard/CreditCard';
 
 const CheckOut = ({ setShowModal }) => {
 	const { cart, setCart, totalPrice } = useCart();

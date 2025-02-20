@@ -12,12 +12,12 @@ import {
 } from './sideCart.styles';
 
 const SideCart = ({ buttonText, action }) => {
-	const { cart } = useCart();
+	const { cart, totalQuantity } = useCart();
 	const [cartOpen, setCartOpen] = useState(false);
 	return (
 		<StyledCart>
 			<StyledCloserTile onClick={() => setCartOpen(!cartOpen)}>
-				<StyledCartCounter>{cart.length}</StyledCartCounter>
+				<StyledCartCounter>{totalQuantity}</StyledCartCounter>
 				<span>Cart</span>
 				<StyledChevron
 					$cartOpen={cartOpen}

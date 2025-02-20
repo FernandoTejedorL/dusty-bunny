@@ -11,8 +11,8 @@ const ContactForm = ({ topic, setTopValue }) => {
 	const [value, setValue] = useState('');
 	const [concern, setConcern] = useState('');
 	const [submitted, setSubmitted] = useState(false);
-	console.log(submitted);
 	const errorMessage = '*This field is required';
+	console.log(submitted);
 	return (
 		<form
 			onSubmit={handleSubmit(() =>
