@@ -87,7 +87,7 @@ const Shop = () => {
 				</StyledFilters>
 			</StyledAllFilters>
 			<StyledAllComp>
-				{user && (
+				{user && !user.vendor && (
 					<SideCart
 						buttonText={'Go to Cart'}
 						action={() => navigate('/cart')}

@@ -41,7 +41,7 @@ const Product = () => {
 				<StyledImageAndButtons>
 					<StyledImagesContainer>
 						<StyledImage src={product.image} alt='' />
-						{!fav && (
+						{!fav && !user.vendor && (
 							<StyledFavIcon
 								onClick={() => {
 									favProduct(userId, product, setUser);
@@ -50,7 +50,7 @@ const Product = () => {
 								alt=''
 							/>
 						)}
-						{fav && (
+						{fav && !user.vendor && (
 							<StyledFavIcon
 								onClick={() => {
 									favProduct(userId, product, setUser);
@@ -61,7 +61,7 @@ const Product = () => {
 						)}
 					</StyledImagesContainer>
 					<StyledButtonsContainer>
-						{!isInCart && (
+						{!isInCart && !user.vendor && (
 							<StyledButton onClick={() => addToCart(product)}>
 								Add To Cart
 							</StyledButton>
@@ -71,9 +71,11 @@ const Product = () => {
 							Go to Shop
 						</StyledButton>
 
-						<StyledButton onClick={() => navigate(`/user/${user._id}`)}>
-							Go to User Page
-						</StyledButton>
+						{!user.vendor && (
+							<StyledButton onClick={() => navigate(`/user/${user._id}`)}>
+								Go to User Page
+							</StyledButton>
+						)}
 					</StyledButtonsContainer>
 				</StyledImageAndButtons>
 				<StyledInfoContainer>

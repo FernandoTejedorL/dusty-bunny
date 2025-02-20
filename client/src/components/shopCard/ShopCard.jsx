@@ -37,7 +37,7 @@ const ShopCard = ({ item, text, action }) => {
 			</StyledNameAndPrice>
 			{user && (
 				<>
-					{!isInCart && (
+					{!isInCart && !user.vendor && (
 						<StyledCardButton onClick={() => addToCart(item)}>
 							Add to Cart
 						</StyledCardButton>

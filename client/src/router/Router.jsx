@@ -10,8 +10,6 @@ import Register from '../pages/register/Register';
 import SalesPage from '../pages/salesPage/SalesPage';
 import Shop from '../pages/shop/Shop';
 import UserPage from '../pages/userPage/UserPage';
-import VendorPage from '../pages/vendorPage/VendorPage';
-import VendorShop from '../pages/vendorShop/VendorShop';
 import ProtectedVendorRoute from './ProtectedVendorRoutes';
 import ProtectedUserRoute from './ProtectedUserRoutes';
 import ProtectedRoute from './ProtectedRoutes';
@@ -30,9 +28,7 @@ const Router = () => {
 				<Route path='about' element={<AboutUs />} />
 				<Route path='contact' element={<Contact />} />
 				<Route element={<ProtectedVendorRoute />}>
-					<Route path='vendor' element={<VendorPage />} />
 					<Route path='sales' element={<SalesPage />} />
-					<Route path='seller' element={<VendorShop />} />
 				</Route>
 				<Route element={<ProtectedUserRoute />}>
 					<Route path='user/:id' element={<UserPage />} />

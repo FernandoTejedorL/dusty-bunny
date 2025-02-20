@@ -6,27 +6,28 @@ const SUPPORT = [
 		name: 'Product',
 		value: 'product',
 		concern:
-			'Ensuring product quality and customer satisfaction with every purchase.'
+			'Making sure every fluff meets the highest cuddle standards and brings joy to its new home.'
 	},
 	{
 		id: v4(),
 		name: 'Delivery',
 		value: 'delivery',
 		concern:
-			'Minimizing delays and ensuring safe, timely deliveries to customers.'
+			'Ensuring your precious fluff arrives safe, sound, and without getting lost in the wind!'
 	},
 	{
 		id: v4(),
 		name: 'Payment',
 		value: 'payment',
 		concern:
-			'Providing secure and seamless payment options for all transactions.'
+			'Making sure transactions are as smooth as a dust bunny gliding under the sofa.'
 	},
 	{
 		id: v4(),
 		name: 'Guarantee',
 		value: 'guarantee',
-		concern: 'Ensuring fair policies for returns, refunds, and warranty claims.'
+		concern:
+			'Keeping our promise that every fluff is as delightful as expected—or your dust back!'
 	}
 ];
 
@@ -35,28 +36,29 @@ const GENERAL = [
 		id: v4(),
 		name: 'Suggestions',
 		value: 'suggestions',
-		concern: 'Gathering valuable feedback to improve products and services.'
+		concern:
+			'Always looking for ways to make Dusty Bunny fluffier, funnier, and friendlier!'
 	},
 	{
 		id: v4(),
 		name: 'Info Request',
 		value: 'info',
 		concern:
-			'Providing accurate and timely information to customers and partners.'
+			'Got questions? We’ve got answers—straight from the dust bunny archives!'
 	},
 	{
 		id: v4(),
 		name: 'Collaboration',
 		value: 'collab',
 		concern:
-			'Building strong partnerships and mutually beneficial collaborations.'
+			'Partnering up to spread the fluff and bring even more dust-tastic ideas to life!'
 	},
 	{
 		id: v4(),
 		name: 'Jobs',
 		value: 'jobs',
 		concern:
-			'Attracting and retaining top talent to drive innovation and growth.'
+			'Looking for the next great fluff wrangler to join the Dusty Bunny crew!'
 	}
 ];
 

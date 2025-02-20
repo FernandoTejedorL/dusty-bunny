@@ -1,7 +1,16 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import {
+	StyledBottomForm,
+	StyledForm,
+	StyledInput,
+	StyledRequired,
+	StyledSelect,
+	StyledSubmit,
+	StyledTextInput
+} from './contactForm.styles';
 
-const ContactForm = ({ topic, setTopValue }) => {
+const ContactForm = ({ topic, setTopValue, setSubmitted }) => {
 	const {
 		reset,
 		register,
@@ -10,31 +19,34 @@ const ContactForm = ({ topic, setTopValue }) => {
 	} = useForm();
 	const [value, setValue] = useState('');
 	const [concern, setConcern] = useState('');
-	const [submitted, setSubmitted] = useState(false);
+
 	const errorMessage = '*This field is required';
-	console.log(submitted);
 	return (
-		<form
+		<StyledForm
 			onSubmit={handleSubmit(() =>
 				cleanAll(reset, setValue, setConcern, setSubmitted, setTopValue)
 			)}
 		>
 			<label htmlFor='name'>Name & surname:</label>
-			<input
+			<StyledInput
 				type='text'
 				{...register('name', { required: errorMessage })}
 				id='name'
 			/>
-			<span>{errors?.name?.message}</span>
+			<StyledRequired>{errors?.name?.message}</StyledRequired>
 			<label htmlFor='email'>Email:</label>
-			<input {...register('email', { required: errorMessage })} type='email' />
-			<span>{errors?.email?.message}</span>
+			<StyledInput
+				{...register('email', { required: errorMessage })}
+				type='email'
+			/>
+			<StyledRequired>{errors?.email?.message}</StyledRequired>
 			<label htmlFor='type'>Type:</label>
-			<select
+			<StyledSelect
 				onChange={event => querieTypeSelect(event, setValue, topic, setConcern)}
 				value={value}
 				name='querySubType'
 				id='querySubType'
+				$shadow={value}
 			>
 				<option value='' disabled>
 					Select
@@ -44,17 +56,21 @@ const ContactForm = ({ topic, setTopValue }) => {
 						{item.name}
 					</option>
 				))}
-			</select>
-			{concern && <p>{concern}</p>}
-			<label htmlFor='description'>Description:</label>
-			<input
-				type='text'
-				{...register('description', { required: errorMessage })}
-				id='description'
-			/>
-			<span>{errors?.email?.message}</span>
-			<input type='submit' value='Send' />
-		</form>
+			</StyledSelect>
+			{value && (
+				<StyledBottomForm>
+					<p>{concern}</p>
+					<label htmlFor='description'>Description:</label>
+					<StyledTextInput
+						type='text'
+						{...register('description', { required: errorMessage })}
+						id='description'
+					/>
+					<StyledRequired>{errors?.description?.message}</StyledRequired>
+					<StyledSubmit type='submit' value='Send' />
+				</StyledBottomForm>
+			)}
+		</StyledForm>
 	);
 };
 
