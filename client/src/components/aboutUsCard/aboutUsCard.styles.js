@@ -11,6 +11,11 @@ const StyledCard = styled.div`
 	gap: 1rem;
 	border-radius: 1rem;
 	border: 0.0625rem solid ${COLORS.dark};
+
+	@media screen and (width>=1024px) {
+		width: 40%;
+		height: 18.75rem;
+	}
 `;
 
 const StyledPersona = styled.div`
@@ -29,6 +34,7 @@ const StyledRole = styled.span`
 
 const StyledCV = styled.div`
 	display: flex;
+	width: 90%;
 	flex-direction: column;
 	gap: 1rem;
 `;
