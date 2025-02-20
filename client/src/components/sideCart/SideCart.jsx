@@ -39,6 +39,7 @@ const SideCart = ({ buttonText, action }) => {
 						id={item._id}
 						image={item.image}
 						name={item.name}
+						quantity={item.quantity}
 					/>
 				))}
 			</StyledCartContainer>

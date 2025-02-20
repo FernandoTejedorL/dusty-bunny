@@ -35,10 +35,11 @@ const StyledCartCounter = styled.div`
 	justify-content: center;
 	color: ${COLORS.white};
 	background-color: ${COLORS.dark};
-	padding: 0.5rem;
+	padding-top: 0.16rem;
+	line-height: 0rem;
 	border-radius: 50%;
-	height: 1.5rem;
-	width: 1.5rem;
+	height: 2rem;
+	width: 2rem;
 
 	@media screen and (width>=1024px) {
 		display: none;

@@ -5,7 +5,7 @@ import {
 	StyledCartImage
 } from './cartCard.styles';
 
-const CartCard = ({ id, image, name }) => {
+const CartCard = ({ id, image, name, quantity }) => {
 	const { cart } = useCart();
 
 	const finalPrice = totalPrice(id, cart);
@@ -14,6 +14,7 @@ const CartCard = ({ id, image, name }) => {
 			<StyledCartImage src={image} alt='image' />
 			<StyledCartElementInfo>
 				<span>{name}</span>
+				<span>x{quantity}</span>
 				<span>{finalPrice.toFixed(2)}€</span>
 			</StyledCartElementInfo>
 		</StyledCartCard>

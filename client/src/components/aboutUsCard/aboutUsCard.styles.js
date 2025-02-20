@@ -32,6 +32,10 @@ const StyledRole = styled.span`
 	font-size: ${FONT_SIZE.m};
 `;
 
+const StyledQuote = styled.span`
+	font-style: italic;
+`;
+
 const StyledCV = styled.div`
 	display: flex;
 	width: 90%;
@@ -44,4 +48,11 @@ const StyledImage = styled.img`
 	height: 6.25rem;
 	border-radius: 1rem;
 `;
-export { StyledCard, StyledPersona, StyledRole, StyledCV, StyledImage };
+export {
+	StyledCard,
+	StyledPersona,
+	StyledRole,
+	StyledQuote,
+	StyledCV,
+	StyledImage
+};
