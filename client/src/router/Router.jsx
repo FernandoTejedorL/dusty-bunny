@@ -21,22 +21,22 @@ const Router = () => {
 		<Routes>
 			<Route path='/' element={<Layout />}>
 				<Route index element={<Home />} />
-				<Route path='redirect' element={<Redirect />} />
-				<Route path='register' element={<Register />} />
-				<Route path='login' element={<Login />} />
-				<Route path='shop' element={<Shop />} />
-				<Route path='about' element={<AboutUs />} />
-				<Route path='contact' element={<Contact />} />
+				<Route path='/redirect' element={<Redirect />} />
+				<Route path='/register' element={<Register />} />
+				<Route path='/login' element={<Login />} />
+				<Route path='/shop' element={<Shop />} />
+				<Route path='/about' element={<AboutUs />} />
+				<Route path='/contact' element={<Contact />} />
 				<Route element={<ProtectedVendorRoute />}>
-					<Route path='sales' element={<SalesPage />} />
+					<Route path='/sales' element={<SalesPage />} />
 				</Route>
 				<Route element={<ProtectedUserRoute />}>
-					<Route path='user/:id' element={<UserPage />} />
-					<Route path='orders/:id' element={<Orders />} />
-					<Route path='cart' element={<CartPage />} />
+					<Route path='/user/:id' element={<UserPage />} />
+					<Route path='/orders/:id' element={<Orders />} />
+					<Route path='/cart' element={<CartPage />} />
 				</Route>
 				<Route element={<ProtectedRoute />}>
-					<Route path='product/:id' element={<Product />} />
+					<Route path='/product/:id' element={<Product />} />
 				</Route>
 			</Route>
 		</Routes>

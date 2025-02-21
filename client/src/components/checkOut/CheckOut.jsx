@@ -2,11 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { useCart } from '../../hooks/useCart';
 import { createOrder } from '../../utils/api';
-import { createPortal } from 'react-dom';
 import {
 	StyledButton,
 	StyledButtonsContainer,
-	StyledCheckOut,
 	StyledCheckOutContent,
 	StyledCheckOutData,
 	StyledEachInfo,
@@ -20,8 +18,8 @@ const CheckOut = ({ setShowModal }) => {
 	const { cart, setCart, totalPrice } = useCart();
 	const { user } = useAuth();
 	const navigate = useNavigate();
-	return createPortal(
-		<StyledCheckOut>
+	return (
+		<>
 			<StyledCheckOutContent>
 				<StyledHeader>Check Out</StyledHeader>
 				<StyledCheckOutData>
@@ -63,8 +61,7 @@ const CheckOut = ({ setShowModal }) => {
 					</StyledButtonsContainer>
 				</StyledCheckOutData>
 			</StyledCheckOutContent>
-		</StyledCheckOut>,
-		document.getElementById('modal')
+		</>
 	);
 };
 
@@ -86,7 +83,7 @@ const sendOrder = async (
 		console.log('Order Registered');
 		setCart([]);
 		setShowModal(false);
-		navigate('/');
+		navigate('/cart');
 	} catch (error) {
 		console.log('Error registering order', error.code, error.message);
 	}

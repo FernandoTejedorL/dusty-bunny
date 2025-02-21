@@ -14,6 +14,7 @@ import {
 	StyledPrice
 } from './cartPage.styles';
 import PageHeader from '../../components/pageHeader/PageHeader';
+import Modal from '../../components/modal/Modal';
 
 const CartPage = () => {
 	const { cart, deleteFromCart, totalPrice } = useCart();
@@ -46,7 +47,11 @@ const CartPage = () => {
 					))}
 				</StyledCartShop>
 			</StyledAllComp>
-			{showModal && <CheckOut setShowModal={setShowModal} />}
+			{showModal && (
+				<Modal>
+					<CheckOut setShowModal={setShowModal} />
+				</Modal>
+			)}
 		</StyledMain>
 	);
 };
