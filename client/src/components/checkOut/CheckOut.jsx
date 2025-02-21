@@ -80,7 +80,6 @@ const sendOrder = async (
 			orderContent: cart
 		};
 		await createOrder(newOrder);
-		console.log('Order Registered');
 		setCart([]);
 		setShowModal(false);
 		navigate('/cart');
