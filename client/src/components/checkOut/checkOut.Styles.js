@@ -11,6 +11,9 @@ const StyledCheckOut = styled.div`
 	height: 100vh;
 	align-items: center;
 	justify-content: center;
+	background-color: rgb(176 135 233 / 0.4);
+	backdrop-filter: blur(5px);
+	z-index: 100;
 `;
 
 const StyledCheckOutContent = styled.div`
@@ -19,12 +22,11 @@ const StyledCheckOutContent = styled.div`
 	align-items: center;
 	gap: 1rem;
 	width: 80%;
-	height: 60%;
+	height: 70%;
 	background-color: ${COLORS.white};
 	padding: 2rem;
 	border: 3px solid ${COLORS.dark};
 	border-radius: 1rem;
-	box-shadow: 0 0 100px 100px ${COLORS.deepViolet};
 `;
 
 const StyledHeader = styled.h2`
