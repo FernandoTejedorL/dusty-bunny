@@ -454,5 +454,89 @@
     "fav": 0,
     "ordered": 0,
     "vendor": ""
+  },
+  {
+    "image": "/assets/images/products/hobbies/apple.jpg",
+    "name": "AppleFan Fluff",
+    "size": "M",
+    "diet": "Herbivore",
+    "category": "Hobbies",
+    "price": 25,
+    "description": "Loves all things Apple—whether it's tech or fruit! Just don’t let it near Android users.",
+    "fav": 0,
+    "ordered": 0,
+    "vendor": ""
+  },
+  {
+    "image": "/assets/images/products/hobbies/brico.jpg",
+    "name": "Bricolage Fluff",
+    "size": "L",
+    "diet": "Omnivore",
+    "category": "Hobbies",
+    "price": 30,
+    "description": "Always covered in sawdust, glue, and great ideas. Can build a tiny house... but mostly makes a mess.",
+    "fav": 0,
+    "ordered": 0,
+    "vendor": ""
+  },
+  {
+    "image": "/assets/images/products/hobbies/cinema.jpg",
+    "name": "Cinema Fluff",
+    "size": "S",
+    "diet": "Carnivore",
+    "category": "Hobbies",
+    "price": 20,
+    "description": "A true cinephile! Prefers black-and-white films and refuses to watch anything below 90% on Rotten Tomatoes.",
+    "fav": 0,
+    "ordered": 0,
+    "vendor": ""
+  },
+  {
+    "image": "/assets/images/products/hobbies/gamer.jpg",
+    "name": "Gamer Fluff",
+    "size": "M",
+    "diet": "Omnivore",
+    "category": "Hobbies",
+    "price": 35,
+    "description": "Respawns frequently, fueled by energy drinks, and yells ‘GG’ even when losing. Beware of rage-quits!",
+    "fav": 0,
+    "ordered": 0,
+    "vendor": ""
+  },
+  {
+    "image": "/assets/images/products/hobbies/knitter.jpg",
+    "name": "Knitter Fluff",
+    "size": "S",
+    "diet": "Herbivore",
+    "category": "Hobbies",
+    "price": 18,
+    "description": "Always knitting tiny scarves and socks. May get tangled in its own creations!",
+    "fav": 0,
+    "ordered": 0,
+    "vendor": ""
+  },
+  {
+    "image": "/assets/images/products/hobbies/lego.jpg",
+    "name": "Lego Fluff",
+    "size": "L",
+    "diet": "Carnivore",
+    "category": "Hobbies",
+    "price": 28,
+    "description": "Loves building intricate designs, but don’t step on it—seriously, it hurts!",
+    "fav": 0,
+    "ordered": 0,
+    "vendor": ""
+  },
+  {
+    "image": "/assets/images/products/hobbies/levitator.jpg",
+    "name": "Levitator Fluff",
+    "size": "M",
+    "diet": "Omnivore",
+    "category": "Hobbies",
+    "price": 33,
+    "description": "Specializes in floating dramatically in the air. Claims to have mastered the art of anti-gravity fluffiness!",
+    "fav": 0,
+    "ordered": 0,
+    "vendor": ""
   }
 ]
