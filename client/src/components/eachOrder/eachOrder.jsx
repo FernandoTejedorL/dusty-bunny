@@ -20,7 +20,7 @@ const EachOrder = ({ item }) => {
 			</StyledEachInfo>
 			<StyledEachInfo>
 				<StyledEachTitle>Total Price:</StyledEachTitle>
-				<span>{item.totalPrice}€</span>
+				<span>{item.totalPrice.toFixed(2)}€</span>
 			</StyledEachInfo>
 			{showContent && (
 				<StyledOrderContentContainer>
