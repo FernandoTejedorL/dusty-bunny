@@ -13,6 +13,8 @@ const StyledCheckOutContent = styled.div`
 	padding: 2rem;
 	border: 3px solid ${COLORS.dark};
 	border-radius: 1rem;
+	max-height: 80vh;
+	overflow-y: auto;
 `;
 
 const StyledHeader = styled.h2`
