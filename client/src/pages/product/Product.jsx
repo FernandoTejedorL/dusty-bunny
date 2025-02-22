@@ -1,5 +1,11 @@
 import { useEffect, useState } from 'react';
-import { findData, findProduct, updateFavById } from '../../utils/api';
+import {
+	addFavToProduct,
+	findData,
+	findProduct,
+	removeFavToProduct,
+	updateFavById
+} from '../../utils/api';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useCart } from '../../hooks/useCart';
 import {
@@ -45,6 +51,7 @@ const Product = () => {
 							<StyledFavIcon
 								onClick={() => {
 									favProduct(userId, product, setUser);
+									addFavToProduct(id);
 								}}
 								src='/assets/images/common/nofav.svg'
 								alt=''
@@ -54,6 +61,7 @@ const Product = () => {
 							<StyledFavIcon
 								onClick={() => {
 									favProduct(userId, product, setUser);
+									removeFavToProduct(id);
 								}}
 								src='/assets/images/common/fav.svg'
 								alt=''

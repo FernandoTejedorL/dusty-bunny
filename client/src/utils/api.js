@@ -114,6 +114,40 @@ const updateDataById = async (id, newUser) => {
 	}
 };
 
+const addFavToProduct = async id => {
+	try {
+		const productResponse = await fetch(URL + API_PRODUCTS_URL + id);
+		const productFound = await productResponse.json();
+		const favNumber = productFound.fav + 1;
+		const response = await fetch(URL + API_PRODUCTS_URL + id, {
+			method: 'PATCH',
+			body: JSON.stringify({ fav: favNumber }),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+const removeFavToProduct = async id => {
+	try {
+		const productResponse = await fetch(URL + API_PRODUCTS_URL + id);
+		const productFound = await productResponse.json();
+		const favNumber = productFound.fav - 1;
+		const response = await fetch(URL + API_PRODUCTS_URL + id, {
+			method: 'PATCH',
+			body: JSON.stringify({ fav: favNumber }),
+			headers: { 'Content-Type': 'application/json' }
+		});
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 export {
 	getAllData,
 	getAllProducts,
@@ -124,5 +158,7 @@ export {
 	createOrder,
 	findProduct,
 	updateFavById,
-	updateDataById
+	updateDataById,
+	addFavToProduct,
+	removeFavToProduct
 };
