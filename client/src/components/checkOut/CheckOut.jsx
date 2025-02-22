@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { useCart } from '../../hooks/useCart';
-import { createOrder } from '../../utils/api';
+import { addQuantityToProduct, createOrder } from '../../utils/api';
 import {
 	StyledButton,
 	StyledButtonsContainer,
@@ -80,6 +80,7 @@ const sendOrder = async (
 			orderContent: cart
 		};
 		await createOrder(newOrder);
+		await addQuantityToProduct(cart);
 		setCart([]);
 		setShowModal(false);
 		navigate('/cart');
