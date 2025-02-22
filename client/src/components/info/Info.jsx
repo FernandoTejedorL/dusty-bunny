@@ -6,9 +6,21 @@ const names = ['Description', 'Category', 'Size', 'Diet', 'Price'];
 const Info = ({ product }) => {
 	return (
 		<StyledInfoContainer>
-			{names.map(name => (
-				<Detail key={name} name={name} info={product[name.toLowerCase()]} />
-			))}
+			{names.map(name => {
+				if (name === 'Price') {
+					return (
+						<Detail
+							key={name}
+							name={name}
+							info={product[name.toLowerCase()] + '€'}
+						/>
+					);
+				} else {
+					return (
+						<Detail key={name} name={name} info={product[name.toLowerCase()]} />
+					);
+				}
+			})}
 		</StyledInfoContainer>
 	);
 };

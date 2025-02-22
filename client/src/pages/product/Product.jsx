@@ -27,10 +27,12 @@ const Product = () => {
 	const { id } = useParams();
 	const [product, setProduct] = useState({});
 	const [fav, setFav] = useState(false);
+	const [edit, setEdit] = useState(false);
 	const { cart, addToCart } = useCart();
 	const { user, setUser } = useAuth();
 	const userId = user._id;
 	const navigate = useNavigate();
+	console.log(edit);
 
 	useEffect(() => {
 		fetchProductById(setProduct, id);
@@ -45,6 +47,18 @@ const Product = () => {
 			<PageHeader text={product.name} />
 			<StyledProductContainer>
 				<StyledImageAndButtons>
+					<StyledButtonsContainer>
+						{user.vendor && !edit && (
+							<StyledButton onClick={() => setEdit(true)}>
+								Edit Product
+							</StyledButton>
+						)}
+						{user.vendor && edit && (
+							<StyledButton onClick={() => setEdit(false)}>
+								Cancel Editting
+							</StyledButton>
+						)}
+					</StyledButtonsContainer>
 					<StyledImagesContainer>
 						<StyledImage src={product.image} alt='' />
 						{!fav && !user.vendor && (
@@ -75,9 +89,11 @@ const Product = () => {
 							</StyledButton>
 						)}
 
-						<StyledButton onClick={() => navigate('/shop')}>
-							Go to Shop
-						</StyledButton>
+						{!edit && (
+							<StyledButton onClick={() => navigate('/shop')}>
+								Go to Shop
+							</StyledButton>
+						)}
 
 						{!user.vendor && (
 							<StyledButton onClick={() => navigate(`/user/${user._id}`)}>
@@ -86,9 +102,11 @@ const Product = () => {
 						)}
 					</StyledButtonsContainer>
 				</StyledImageAndButtons>
-				<StyledInfoContainer>
-					<Info product={product} />
-				</StyledInfoContainer>
+				{!edit && (
+					<StyledInfoContainer>
+						<Info product={product} />
+					</StyledInfoContainer>
+				)}
 			</StyledProductContainer>
 		</StyledMain>
 	);
