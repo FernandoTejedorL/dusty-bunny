@@ -1,23 +1,40 @@
 import PageHeader from '../../components/pageHeader/PageHeader';
+import SalesPageGraph from '../../components/salesPageGraph/SalesPageGraph';
 import { useProducts } from '../../hooks/useProducts';
+import { StyledGraphsContainer, StyledMain } from './salesPage.styles';
 
 const SalesPage = () => {
 	const { products } = useProducts();
 
-	const soldProducts = products.filter(item => item.ordered !== 0);
-	const totalSold = soldProducts.reduce((acc, item) => acc + item.ordered, 0);
-	const favProducts = products.filter(item => item.fav !== 0);
-	const totalFav = favProducts.reduce((acc, item) => acc + item.fav, 0);
+	const orderedSold = products
+		.filter(item => item.ordered !== 0)
+		.sort((a, b) => b.ordered - a.ordered);
 
-	console.log(soldProducts);
-	console.log(totalSold);
-	console.log(favProducts);
-	console.log(totalFav);
+	const totalSold = orderedSold.reduce((acc, item) => acc + item.ordered, 0);
+
+	const orderedFav = products
+		.filter(item => item.fav !== 0)
+		.sort((a, b) => b.fav - a.fav);
+	const totalFav = orderedFav.reduce((acc, item) => acc + item.fav, 0);
 
 	return (
-		<main>
+		<StyledMain>
 			<PageHeader text={'My Sales'} />
-		</main>
+			<StyledGraphsContainer>
+				<SalesPageGraph
+					text={'Top Sales'}
+					products={orderedSold}
+					type={'ordered'}
+					total={totalSold}
+				/>
+				<SalesPageGraph
+					text={'Top Fav'}
+					products={orderedFav}
+					type={'fav'}
+					total={totalFav}
+				/>
+			</StyledGraphsContainer>
+		</StyledMain>
 	);
 };
 
