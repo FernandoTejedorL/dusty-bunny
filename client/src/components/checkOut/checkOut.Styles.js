@@ -53,40 +53,11 @@ const StyledEachTotalInfo = styled.div`
 	padding-top: 16px;
 `;
 
-const StyledButtonsContainer = styled.div`
-	display: flex;
-	width: 100%;
-	justify-content: space-between;
-	margin-top: 1rem;
-`;
-
-const StyledButton = styled.button`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 40%;
-	background-color: ${COLORS.lightViolet};
-	border: 1px solid ${COLORS.dark};
-	border-radius: 0.5rem;
-	padding: 0.5rem;
-	cursor: pointer;
-
-	@media (hover: hover) {
-		&:hover {
-			background-color: ${COLORS.deepViolet};
-			border: 0.0625rem solid ${COLORS.white};
-			color: ${COLORS.white};
-		}
-	}
-`;
-
 export {
 	StyledCheckOutContent,
 	StyledHeader,
 	StyledCheckOutData,
 	StyledInfoContainer,
 	StyledEachInfo,
-	StyledEachTotalInfo,
-	StyledButtonsContainer,
-	StyledButton
+	StyledEachTotalInfo
 };

@@ -4,14 +4,24 @@ import {
 	StyledEachInputContainer,
 	StyledBottomInputs,
 	StyledLittleInputContainers,
-	StyledInput
+	StyledInput,
+	StyledButtonsContainer,
+	StyledButton
 } from './creditCard.styles';
+import { addQuantityToProduct, createOrder } from '../../utils/api';
+import { useCart } from '../../hooks/useCart';
+import { useAuth } from '../../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
-const CreditCard = () => {
+const CreditCard = ({ setShowModal }) => {
+	const { cart, setCart, totalPrice } = useCart();
+
+	const { user } = useAuth();
+	const navigate = useNavigate();
+
 	const [cardNumber, setCardNumber] = useState('');
 	const [expDate, setExpDate] = useState('');
 	const [cvv, setCvv] = useState('');
-	console.log(expDate);
 	return (
 		<StyledCreditCard>
 			<StyledEachInputContainer>
@@ -25,6 +35,7 @@ const CreditCard = () => {
 					type='text'
 					name='number'
 					id='number'
+					inputMode='numeric'
 					value={cardNumber}
 				/>
 			</StyledEachInputContainer>
@@ -36,6 +47,7 @@ const CreditCard = () => {
 						type='text'
 						name='expDate'
 						id='expDate'
+						inputMode='numeric'
 						value={expDate}
 					/>
 				</StyledLittleInputContainers>
@@ -50,6 +62,18 @@ const CreditCard = () => {
 					/>
 				</StyledLittleInputContainers>
 			</StyledBottomInputs>
+			<StyledButtonsContainer>
+				<StyledButton
+					onClick={() =>
+						sendOrder(user, cart, setCart, totalPrice, setShowModal, navigate)
+					}
+				>
+					Confirm Order
+				</StyledButton>
+				<StyledButton onClick={() => setShowModal(false)}>
+					Back to cart
+				</StyledButton>
+			</StyledButtonsContainer>
 		</StyledCreditCard>
 	);
 };
@@ -81,6 +105,30 @@ const changeCVV = (event, setCvv) => {
 	let formattedValue = event.target.value.replace(/\D/g, '');
 	formattedValue = formattedValue.substring(0, 3);
 	setCvv(formattedValue);
+};
+
+const sendOrder = async (
+	user,
+	cart,
+	setCart,
+	totalPrice,
+	setShowModal,
+	navigate
+) => {
+	try {
+		const newOrder = {
+			userId: user._id,
+			totalPrice: totalPrice,
+			orderContent: cart
+		};
+		await createOrder(newOrder);
+		await addQuantityToProduct(cart);
+		setCart([]);
+		setShowModal(false);
+		navigate('/cart');
+	} catch (error) {
+		console.log('Error registering order', error.code, error.message);
+	}
 };
 
 export default CreditCard;

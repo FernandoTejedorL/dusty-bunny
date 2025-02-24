@@ -1,10 +1,5 @@
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
 import { useCart } from '../../hooks/useCart';
-import { addQuantityToProduct, createOrder } from '../../utils/api';
 import {
-	StyledButton,
-	StyledButtonsContainer,
 	StyledCheckOutContent,
 	StyledCheckOutData,
 	StyledEachInfo,
@@ -15,9 +10,7 @@ import {
 import CreditCard from '../creditCard/CreditCard';
 
 const CheckOut = ({ setShowModal }) => {
-	const { cart, setCart, totalPrice } = useCart();
-	const { user } = useAuth();
-	const navigate = useNavigate();
+	const { totalPrice } = useCart();
 	return (
 		<>
 			<StyledCheckOutContent>
@@ -37,56 +30,37 @@ const CheckOut = ({ setShowModal }) => {
 							<span>{totalPrice.toFixed(2)}€</span>
 						</StyledEachTotalInfo>
 						<div>
-							<CreditCard />
+							<CreditCard setShowModal={setShowModal} />
 						</div>
 					</StyledInfoContainer>
-					<StyledButtonsContainer>
-						<StyledButton
-							onClick={() =>
-								sendOrder(
-									user,
-									cart,
-									setCart,
-									totalPrice,
-									setShowModal,
-									navigate
-								)
-							}
-						>
-							Confirm Order
-						</StyledButton>
-						<StyledButton onClick={() => setShowModal(false)}>
-							Back to cart
-						</StyledButton>
-					</StyledButtonsContainer>
 				</StyledCheckOutData>
 			</StyledCheckOutContent>
 		</>
 	);
 };
 
-const sendOrder = async (
-	user,
-	cart,
-	setCart,
-	totalPrice,
-	setShowModal,
-	navigate
-) => {
-	try {
-		const newOrder = {
-			userId: user._id,
-			totalPrice: totalPrice,
-			orderContent: cart
-		};
-		await createOrder(newOrder);
-		await addQuantityToProduct(cart);
-		setCart([]);
-		setShowModal(false);
-		navigate('/cart');
-	} catch (error) {
-		console.log('Error registering order', error.code, error.message);
-	}
-};
+// const sendOrder = async (
+// 	user,
+// 	cart,
+// 	setCart,
+// 	totalPrice,
+// 	setShowModal,
+// 	navigate
+// ) => {
+// 	try {
+// 		const newOrder = {
+// 			userId: user._id,
+// 			totalPrice: totalPrice,
+// 			orderContent: cart
+// 		};
+// 		await createOrder(newOrder);
+// 		await addQuantityToProduct(cart);
+// 		setCart([]);
+// 		setShowModal(false);
+// 		navigate('/cart');
+// 	} catch (error) {
+// 		console.log('Error registering order', error.code, error.message);
+// 	}
+// };
 
 export default CheckOut;

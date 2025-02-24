@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { COLORS } from '../../styles/colors';
 
-const StyledCreditCard = styled.div`
+const StyledCreditCard = styled.form`
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
@@ -34,10 +34,39 @@ const StyledInput = styled.input`
 	border: 1px solid ${COLORS.dark};
 `;
 
+const StyledButtonsContainer = styled.div`
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+	margin-top: 1rem;
+`;
+
+const StyledButton = styled.button`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40%;
+	background-color: ${COLORS.lightViolet};
+	border: 1px solid ${COLORS.dark};
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	cursor: pointer;
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: ${COLORS.deepViolet};
+			border: 0.0625rem solid ${COLORS.white};
+			color: ${COLORS.white};
+		}
+	}
+`;
+
 export {
 	StyledCreditCard,
 	StyledEachInputContainer,
 	StyledBottomInputs,
 	StyledLittleInputContainers,
-	StyledInput
+	StyledInput,
+	StyledButtonsContainer,
+	StyledButton
 };
