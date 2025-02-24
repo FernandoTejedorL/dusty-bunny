@@ -41,6 +41,26 @@ const StyledButtonsContainer = styled.div`
 	margin-top: 1rem;
 `;
 
+const StyledButtonInput = styled.input`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 40%;
+	background-color: ${COLORS.lightViolet};
+	border: 1px solid ${COLORS.dark};
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	cursor: pointer;
+
+	@media (hover: hover) {
+		&:hover {
+			background-color: ${COLORS.deepViolet};
+			border: 0.0625rem solid ${COLORS.white};
+			color: ${COLORS.white};
+		}
+	}
+`;
+
 const StyledButton = styled.button`
 	display: flex;
 	justify-content: center;
@@ -68,5 +88,6 @@ export {
 	StyledLittleInputContainers,
 	StyledInput,
 	StyledButtonsContainer,
+	StyledButtonInput,
 	StyledButton
 };

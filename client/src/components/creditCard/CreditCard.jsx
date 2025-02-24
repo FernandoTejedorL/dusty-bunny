@@ -6,7 +6,8 @@ import {
 	StyledLittleInputContainers,
 	StyledInput,
 	StyledButtonsContainer,
-	StyledButton
+	StyledButton,
+	StyledButtonInput
 } from './creditCard.styles';
 import { addQuantityToProduct, createOrder } from '../../utils/api';
 import { useCart } from '../../hooks/useCart';
@@ -15,7 +16,6 @@ import { useNavigate } from 'react-router-dom';
 
 const CreditCard = ({ setShowModal }) => {
 	const { cart, setCart, totalPrice } = useCart();
-
 	const { user } = useAuth();
 	const navigate = useNavigate();
 
@@ -23,7 +23,19 @@ const CreditCard = ({ setShowModal }) => {
 	const [expDate, setExpDate] = useState('');
 	const [cvv, setCvv] = useState('');
 	return (
-		<StyledCreditCard>
+		<StyledCreditCard
+			onSubmit={event =>
+				sendOrder(
+					event,
+					user,
+					cart,
+					setCart,
+					totalPrice,
+					setShowModal,
+					navigate
+				)
+			}
+		>
 			<StyledEachInputContainer>
 				<label htmlFor='card-name'>Cardholder Name</label>
 				<StyledInput type='text' name='name' id='card-name' />
@@ -63,13 +75,7 @@ const CreditCard = ({ setShowModal }) => {
 				</StyledLittleInputContainers>
 			</StyledBottomInputs>
 			<StyledButtonsContainer>
-				<StyledButton
-					onClick={() =>
-						sendOrder(user, cart, setCart, totalPrice, setShowModal, navigate)
-					}
-				>
-					Confirm Order
-				</StyledButton>
+				<StyledButtonInput type='submit' value='Confirm Order' />
 				<StyledButton onClick={() => setShowModal(false)}>
 					Back to cart
 				</StyledButton>
@@ -108,6 +114,7 @@ const changeCVV = (event, setCvv) => {
 };
 
 const sendOrder = async (
+	event,
 	user,
 	cart,
 	setCart,
@@ -115,6 +122,7 @@ const sendOrder = async (
 	setShowModal,
 	navigate
 ) => {
+	event.preventDefault();
 	try {
 		const newOrder = {
 			userId: user._id,
