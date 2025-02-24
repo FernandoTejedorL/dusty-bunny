@@ -1,9 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import {
+	StyledDataDiv,
 	StyledGraphCard,
 	StyledGraphImage,
 	StyledGraphProduct,
 	StyledPercentBar,
+	StyledPercentBarContainer,
 	StyledTextInPercent
 } from './graphCard.styles';
 
@@ -16,14 +18,19 @@ const GraphCard = ({ product, type, total }) => {
 				<StyledGraphImage src={product.image} alt='product' />
 				<span>{product.name}</span>
 			</StyledGraphProduct>
-			<StyledPercentBar $percent={productPercent}>
-				<StyledTextInPercent>{productPercent.toFixed(2)}%</StyledTextInPercent>
-				{type === 'ordered' ? (
+			<StyledPercentBarContainer>
+				<StyledPercentBar $percent={productPercent} />
+				<StyledDataDiv>
 					<StyledTextInPercent>
-						{(product.ordered * product.price).toFixed(2)}€
+						{productPercent.toFixed(2)}%
 					</StyledTextInPercent>
-				) : null}
-			</StyledPercentBar>
+					{type === 'ordered' && (
+						<StyledTextInPercent>
+							{(product.ordered * product.price).toFixed(2)}€
+						</StyledTextInPercent>
+					)}
+				</StyledDataDiv>
+			</StyledPercentBarContainer>
 		</StyledGraphCard>
 	);
 };

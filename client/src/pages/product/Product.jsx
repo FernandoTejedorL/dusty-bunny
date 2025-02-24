@@ -22,6 +22,7 @@ import {
 import { useAuth } from '../../hooks/useAuth';
 import Info from '../../components/info/Info';
 import PageHeader from '../../components/pageHeader/PageHeader';
+import EditInfo from '../../components/editInfo/EditInfo';
 
 const Product = () => {
 	const { id } = useParams();
@@ -32,7 +33,6 @@ const Product = () => {
 	const { user, setUser } = useAuth();
 	const userId = user._id;
 	const navigate = useNavigate();
-	console.log(edit);
 
 	useEffect(() => {
 		fetchProductById(setProduct, id);
@@ -101,6 +101,7 @@ const Product = () => {
 							</StyledButton>
 						)}
 					</StyledButtonsContainer>
+					<EditInfo product={product} id={id} />
 				</StyledImageAndButtons>
 				{!edit && (
 					<StyledInfoContainer>

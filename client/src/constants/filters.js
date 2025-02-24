@@ -18,7 +18,7 @@ export const FILTERS = [
 		id: v4(),
 		name: 'Size',
 		type: 'size',
-		values: ['S', 'M', 'L']
+		values: ['S', 'M', 'L', 'XL']
 	},
 	{
 		id: v4(),

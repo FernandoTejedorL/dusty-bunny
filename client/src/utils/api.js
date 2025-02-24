@@ -152,6 +152,21 @@ const addQuantityToProduct = async cart => {
 	}
 };
 
+const updateProductById = async (id, newInfo) => {
+	try {
+		const response = await fetch(URL + API_PRODUCTS_URL + id, {
+			method: 'PATCH',
+			body: JSON.stringify(newInfo),
+			headers: { 'Content-Type': 'application/json' }
+		});
+
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 //orders
 
 const findUserOrders = async id => {
@@ -192,6 +207,7 @@ export {
 	addFavToProduct,
 	removeFavToProduct,
 	addQuantityToProduct,
+	updateProductById,
 	findUserOrders,
 	findOrder,
 	createOrder

@@ -23,21 +23,39 @@ const StyledGraphImage = styled.img`
 	width: 4.6875rem;
 	border-radius: 0.5rem;
 `;
-
-const StyledPercentBar = styled.div`
+const StyledPercentBarContainer = styled.div`
 	display: flex;
-	flex-direction: column;
+	width: 80%;
 	gap: 1rem;
 	align-items: flex-end;
-	justify-content: center;
-	width: 80%;
-	height: 4.6875rem;
+	justify-content: space-between;
+	height: 5rem;
+`;
+
+const StyledPercentBar = styled.div`
+	width: 0;
+	height: 5rem;
 	background: linear-gradient(
 		to right,
 		${COLORS.deepViolet} ${({ $percent }) => $percent / 4}%,
 		${COLORS.lightViolet} ${({ $percent }) => $percent}%,
 		transparent ${({ $percent }) => $percent}%
 	);
+	animation: bar-animation 2s forwards;
+
+	@keyframes bar-animation {
+		to {
+			width: 100%;
+		}
+	}
+`;
+
+const StyledDataDiv = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: fit-content;
+	gap: 1.5rem;
 `;
 
 const StyledTextInPercent = styled.span`
@@ -49,5 +67,7 @@ export {
 	StyledGraphProduct,
 	StyledGraphImage,
 	StyledPercentBar,
+	StyledPercentBarContainer,
+	StyledDataDiv,
 	StyledTextInPercent
 };
