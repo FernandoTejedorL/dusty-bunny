@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import {
 	StyledCreditCard,
 	StyledEachInputContainer,
@@ -7,71 +6,101 @@ import {
 	StyledInput,
 	StyledButtonsContainer,
 	StyledButton,
-	StyledButtonInput
+	StyledButtonInput,
+	StyledErrorMessage
 } from './creditCard.styles';
 import { addQuantityToProduct, createOrder } from '../../utils/api';
 import { useCart } from '../../hooks/useCart';
 import { useAuth } from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 const CreditCard = ({ setShowModal }) => {
 	const { cart, setCart, totalPrice } = useCart();
 	const { user } = useAuth();
 	const navigate = useNavigate();
 
-	const [cardNumber, setCardNumber] = useState('');
-	const [expDate, setExpDate] = useState('');
-	const [cvv, setCvv] = useState('');
+	const {
+		register,
+		handleSubmit,
+		setValue,
+		formState: { errors }
+	} = useForm();
+
+	const errorMessage = '*This field is required';
+
 	return (
 		<StyledCreditCard
-			onSubmit={event =>
-				sendOrder(
-					event,
-					user,
-					cart,
-					setCart,
-					totalPrice,
-					setShowModal,
-					navigate
-				)
-			}
+			onSubmit={handleSubmit(() =>
+				sendOrder(user, cart, setCart, totalPrice, setShowModal, navigate)
+			)}
 		>
 			<StyledEachInputContainer>
 				<label htmlFor='card-name'>Cardholder Name</label>
-				<StyledInput type='text' name='name' id='card-name' />
+				<StyledInput
+					type='text'
+					{...register('name', { required: errorMessage })}
+					id='card-name'
+					placeholder='Fluffy Duster'
+				/>
+				<StyledErrorMessage>{errors.name?.message}</StyledErrorMessage>
 			</StyledEachInputContainer>
 			<StyledEachInputContainer>
 				<label htmlFor='number'>Card Number</label>
 				<StyledInput
-					onChange={event => changeCardNumber(event, setCardNumber)}
+					{...register('number', {
+						required: errorMessage,
+						maxLength: 19,
+						pattern: {
+							value: /^\d{4} \d{4} \d{4} \d{4}$/
+						},
+						onChange: event => changeCardNumber(event, setValue)
+					})}
 					type='text'
-					name='number'
 					id='number'
 					inputMode='numeric'
-					value={cardNumber}
+					placeholder='0000 0000 0000 0000'
+					maxLength='19'
 				/>
+				<StyledErrorMessage>{errors.number?.message}</StyledErrorMessage>
 			</StyledEachInputContainer>
 			<StyledBottomInputs>
 				<StyledLittleInputContainers>
 					<label htmlFor='expDate'>Exp date</label>
 					<StyledInput
-						onChange={event => changeExpDate(event, setExpDate)}
+						{...register('expDate', {
+							required: errorMessage,
+							pattern: {
+								value: /^(0[1-9]|1[0-2])\/\d{2}$/
+							}
+						})}
 						type='text'
-						name='expDate'
 						id='expDate'
 						inputMode='numeric'
-						value={expDate}
+						placeholder='MM/YY'
+						maxLength='5'
+						onChange={event => changeExpDate(event, setValue)}
 					/>
+					<StyledErrorMessage>{errors.expDate?.message}</StyledErrorMessage>
 				</StyledLittleInputContainers>
 				<StyledLittleInputContainers>
 					<label htmlFor='cvv'>CVV</label>
 					<StyledInput
-						onChange={event => changeCVV(event, setCvv)}
-						type='number'
-						name='cvv'
+						{...register('cvv', {
+							required: '*This field is required',
+							pattern: {
+								value: /^\d{3}$/,
+								message: 'CVV must be 3 digits'
+							}
+						})}
+						type='text'
 						id='cvv'
-						value={cvv}
+						inputMode='numeric'
+						placeholder='123'
+						maxLength='3'
+						onChange={event => changeCVV(event, setValue)}
 					/>
+					<StyledErrorMessage>{errors.cvv?.message}</StyledErrorMessage>
 				</StyledLittleInputContainers>
 			</StyledBottomInputs>
 			<StyledButtonsContainer>
@@ -84,14 +113,15 @@ const CreditCard = ({ setShowModal }) => {
 	);
 };
 
-const changeCardNumber = (event, setCardNumber) => {
+const changeCardNumber = (event, setValue) => {
 	let formattedValue = event.target.value.replace(/\D/g, '');
 	formattedValue = formattedValue.substring(0, 16);
-	formattedValue = formattedValue.replace(/(\d{4})/g, '$1 ').trim();
-	setCardNumber(formattedValue);
+	formattedValue = formattedValue.replace(/(\d{4})/g, '$1 ').trim(); //
+
+	setValue('number', formattedValue, { shouldValidate: true });
 };
 
-const changeExpDate = (event, setExpDate) => {
+const changeExpDate = (event, setValue) => {
 	let formattedValue = event.target.value.replace(/\D/g, '').substring(0, 4);
 	let month = formattedValue.substring(0, 2);
 	let year = formattedValue.substring(2, 4);
@@ -104,17 +134,16 @@ const changeExpDate = (event, setExpDate) => {
 	}
 
 	formattedValue = month + (year ? '/' + year : '');
-	setExpDate(formattedValue);
+	setValue('expDate', formattedValue, { shouldValidate: true });
 };
 
-const changeCVV = (event, setCvv) => {
+const changeCVV = (event, setValue) => {
 	let formattedValue = event.target.value.replace(/\D/g, '');
 	formattedValue = formattedValue.substring(0, 3);
-	setCvv(formattedValue);
+	setValue('cvv', formattedValue, { shouldValidate: true });
 };
 
 const sendOrder = async (
-	event,
 	user,
 	cart,
 	setCart,
@@ -122,7 +151,6 @@ const sendOrder = async (
 	setShowModal,
 	navigate
 ) => {
-	event.preventDefault();
 	try {
 		const newOrder = {
 			userId: user._id,

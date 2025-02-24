@@ -34,6 +34,11 @@ const StyledInput = styled.input`
 	border: 1px solid ${COLORS.dark};
 `;
 
+const StyledErrorMessage = styled.span`
+	font-size: 10px;
+	color: ${COLORS.pink};
+`;
+
 const StyledButtonsContainer = styled.div`
 	display: flex;
 	width: 100%;
@@ -87,6 +92,7 @@ export {
 	StyledBottomInputs,
 	StyledLittleInputContainers,
 	StyledInput,
+	StyledErrorMessage,
 	StyledButtonsContainer,
 	StyledButtonInput,
 	StyledButton
