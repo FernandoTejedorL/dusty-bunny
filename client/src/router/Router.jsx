@@ -15,8 +15,11 @@ import ProtectedUserRoute from './ProtectedUserRoutes';
 import ProtectedRoute from './ProtectedRoutes';
 import AboutUs from '../pages/aboutUs/AboutUs';
 import Contact from '../pages/contact/Contact';
+import { useAuth } from '../hooks/useAuth';
 
 const Router = () => {
+	const { loading } = useAuth();
+	if (loading) return <h2>Loading...</h2>;
 	return (
 		<Routes>
 			<Route path='/' element={<Layout />}>
