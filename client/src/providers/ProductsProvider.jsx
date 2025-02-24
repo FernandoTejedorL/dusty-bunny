@@ -1,13 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ProductsContext } from '../contexts/Products.context';
 import { getAllProducts } from '../utils/api';
 
 const ProductsProvider = ({ children }) => {
 	const [products, setProducts] = useState([]);
 
-	useEffect(() => {
-		fetchProducts(setProducts);
-	}, []);
+	fetchProducts(setProducts);
 
 	return (
 		<ProductsContext.Provider value={{ products, setProducts }}>
