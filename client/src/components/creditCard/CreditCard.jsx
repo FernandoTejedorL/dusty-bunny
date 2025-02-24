@@ -24,10 +24,16 @@ const CreditCard = ({ setShowModal }) => {
 		register,
 		handleSubmit,
 		setValue,
+		watch,
 		formState: { errors }
 	} = useForm();
 
 	const errorMessage = '*This field is required';
+	const formValues = watch();
+	console.log(formValues.name);
+	console.log(formValues.number);
+	console.log(formValues.expDate);
+	console.log(formValues.cvv);
 
 	return (
 		<StyledCreditCard
@@ -52,7 +58,8 @@ const CreditCard = ({ setShowModal }) => {
 						required: errorMessage,
 						maxLength: 19,
 						pattern: {
-							value: /^\d{4} \d{4} \d{4} \d{4}$/
+							value: /^\d{4} \d{4} \d{4} \d{4}$/,
+							message: 'Card number must have 16 digits'
 						},
 						onChange: event => changeCardNumber(event, setValue)
 					})}
@@ -71,7 +78,8 @@ const CreditCard = ({ setShowModal }) => {
 						{...register('expDate', {
 							required: errorMessage,
 							pattern: {
-								value: /^(0[1-9]|1[0-2])\/\d{2}$/
+								value: /^(0[1-9]|1[0-2])\/\d{2}$/,
+								message: 'Exp Date must be MM & YY'
 							}
 						})}
 						type='text'
