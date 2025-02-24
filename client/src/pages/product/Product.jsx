@@ -101,8 +101,17 @@ const Product = () => {
 							</StyledButton>
 						)}
 					</StyledButtonsContainer>
-					<EditInfo product={product} id={id} />
 				</StyledImageAndButtons>
+				<StyledInfoContainer>
+					{user.vendor && edit && (
+						<EditInfo
+							product={product}
+							setProduct={setProduct}
+							setEdit={setEdit}
+							id={id}
+						/>
+					)}
+				</StyledInfoContainer>
 				{!edit && (
 					<StyledInfoContainer>
 						<Info product={product} />
