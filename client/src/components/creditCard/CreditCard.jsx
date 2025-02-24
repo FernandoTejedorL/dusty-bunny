@@ -112,7 +112,7 @@ const CreditCard = ({ setShowModal }) => {
 				</StyledLittleInputContainers>
 			</StyledBottomInputs>
 			<StyledButtonsContainer>
-				<StyledButtonInput type='submit' value='Confirm Order' />
+				<StyledButtonInput type='submit' value='Confirm' />
 				<StyledButton onClick={() => setShowModal(false)}>
 					Back to cart
 				</StyledButton>
