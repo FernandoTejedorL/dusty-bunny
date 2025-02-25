@@ -146,7 +146,7 @@ const Register = () => {
 	);
 };
 
-const registerUser = async (data, navigate, setMailOk) => {
+const registerUser = async (data, setUser, navigate, setMailOk) => {
 	const { email, password, name, surname, address, profile } = data;
 	try {
 		const firebaseUser = await createUserWithEmailAndPassword(
@@ -163,7 +163,6 @@ const registerUser = async (data, navigate, setMailOk) => {
 			email,
 			vendor: profile === 'true'
 		};
-		//await createData(newUser, setMailOk);
 
 		const result = await createData(newUser);
 		if (result) {
@@ -173,6 +172,7 @@ const registerUser = async (data, navigate, setMailOk) => {
 		}
 
 		console.log('User Registered');
+
 		navigate('/');
 	} catch (error) {
 		console.log('Error registering user', error.code, error.message);

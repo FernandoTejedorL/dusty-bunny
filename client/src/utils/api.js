@@ -21,12 +21,6 @@ const createData = async newUser => {
 			headers: { 'Content-Type': 'application/json' }
 		});
 
-		// if (!response.ok) {
-		// 	setMailOk(false);
-		// } else {
-		// 	setMailOk(true);
-		// }
-
 		if (!response.ok) {
 			return false;
 		}
