@@ -172,7 +172,6 @@ const registerUser = async (data, navigate, setMailOk) => {
 		}
 
 		console.log('User Registered');
-		console.log(result);
 		navigate('/');
 	} catch (error) {
 		console.log('Error registering user', error.code, error.message);
