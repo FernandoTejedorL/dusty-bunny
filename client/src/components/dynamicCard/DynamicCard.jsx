@@ -1,4 +1,4 @@
-import { StyledBankLogo, StyledDynamicCard } from './dynamicCard';
+import { StyledBankLogo, StyledDynamicCard } from './dynamicCard.styles';
 
 const DynamicCard = ({ nameValues, numberValues, dateValues }) => {
 	return (
