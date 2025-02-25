@@ -9,17 +9,21 @@ import {
 	StyledImg,
 	StyledInput,
 	StyledInputAndTag,
+	StyledLabel,
 	StyledMain,
 	StyledRadioPack,
 	StyledRadiosContainer,
 	StyledRegisterForm,
-	StyledRequired
+	StyledRequired,
+	StyledTandC
 } from './register.styles';
 import { useAuth } from '../../hooks/useAuth';
 import AvatarGrid from '../../components/avatarGrid/AvatarGrid';
 import { useForm } from 'react-hook-form';
 import PageHeader from '../../components/pageHeader/PageHeader';
 import { useState } from 'react';
+import Modal from '../../components/modal/Modal';
+import TAndC from '../../components/tAndC/TAndC';
 
 const Register = () => {
 	const {
@@ -29,11 +33,11 @@ const Register = () => {
 		formState: { errors }
 	} = useForm();
 	const navigate = useNavigate();
-	const { loading } = useAuth();
+	const { loading, setUser } = useAuth();
 	const errorMessage = '*This field is required';
 	const isEmployee = watch('employee') === 'pelusas';
 	const [mailOk, setMailOk] = useState(true);
-	console.log(mailOk);
+	const [showModal, setShowModal] = useState(false);
 	if (loading) return <h2>Loading...</h2>;
 	return (
 		<StyledMain>
@@ -42,7 +46,7 @@ const Register = () => {
 				<StyledImg src='/assets/images/common/register.jpg' alt='' />
 				<StyledRegisterForm
 					onSubmit={handleSubmit(data =>
-						registerUser(data, navigate, setMailOk)
+						registerUser(data, navigate, setMailOk, setUser)
 					)}
 				>
 					<AvatarGrid register={register} error={errors.avatar} />
@@ -81,6 +85,7 @@ const Register = () => {
 							placeholder='Email'
 						/>
 						<StyledRequired>{errors.email?.message}</StyledRequired>
+						{!mailOk && <StyledRequired>Email used</StyledRequired>}
 					</StyledInputAndTag>
 					<StyledInputAndTag>
 						<label htmlFor='pass'>Password:</label>
@@ -105,9 +110,9 @@ const Register = () => {
 					<StyledRadiosContainer>
 						{!isEmployee && (
 							<StyledRadioPack>
-								<label htmlFor='userProfile'>
+								<StyledLabel htmlFor='userProfile'>
 									I confirm all data provided is correct!
-								</label>
+								</StyledLabel>
 								<StyledCheckbox
 									type='radio'
 									{...register('profile', { required: errorMessage })}
@@ -118,7 +123,9 @@ const Register = () => {
 						)}
 						{isEmployee && (
 							<StyledRadioPack>
-								<label htmlFor='vendorProfile'>Vendor</label>
+								<StyledLabel htmlFor='vendorProfile'>
+									Yes! I am staff!
+								</StyledLabel>
 								<StyledCheckbox
 									type='radio'
 									{...register('profile', { required: errorMessage })}
@@ -127,26 +134,36 @@ const Register = () => {
 								/>
 							</StyledRadioPack>
 						)}
-						<StyledRequired>{errors.profile?.message}</StyledRequired>
 					</StyledRadiosContainer>
+					<StyledRequired>{errors.profile?.message}</StyledRequired>
 					<StyledRadioPack>
-						<label htmlFor='terms'>
-							I accept the <span>Terms & Conditions</span>
-						</label>
+						<StyledLabel htmlFor=''>
+							I accept the{' '}
+							<StyledTandC onClick={() => setShowModal(true)}>
+								Terms & Conditions
+							</StyledTandC>
+						</StyledLabel>
+
 						<StyledCheckbox
-							type='radio'
+							type='checkbox'
 							{...register('terms', { required: errorMessage })}
 							id='terms'
 						/>
 					</StyledRadioPack>
+					<StyledRequired>{errors.terms?.message}</StyledRequired>
 					<StyledButton type='submit' value='Register' />
 				</StyledRegisterForm>
 			</StyledContainer>
+			{showModal && (
+				<Modal>
+					<TAndC setShowModal={setShowModal} />
+				</Modal>
+			)}
 		</StyledMain>
 	);
 };
 
-const registerUser = async (data, navigate, setMailOk) => {
+const registerUser = async (data, navigate, setMailOk, setUser) => {
 	const { email, password, name, surname, address, profile } = data;
 	try {
 		const firebaseUser = await createUserWithEmailAndPassword(
@@ -169,6 +186,10 @@ const registerUser = async (data, navigate, setMailOk) => {
 			setMailOk(true);
 		} else {
 			setMailOk(false);
+		}
+
+		if (typeof setUser === 'function') {
+			setUser(newUser);
 		}
 
 		console.log('User Registered');

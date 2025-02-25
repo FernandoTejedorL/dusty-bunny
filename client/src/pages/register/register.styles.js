@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 import { COLORS } from '../../styles/colors';
+import { FONT_WEIGHT } from '../../styles/fonts';
 
 const StyledMain = styled.main`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 2.4375rem;
+	width: 100%;
+	padding: 1rem;
 	gap: 2.4375rem;
 `;
 
@@ -19,6 +21,7 @@ const StyledContainer = styled.div`
 	@media screen and (width>=768px) {
 		width: 80%;
 		flex-direction: row;
+		justify-content: space-between;
 		align-items: flex-start;
 	}
 `;
@@ -34,7 +37,7 @@ const StyledRegisterForm = styled.form`
 	display: flex;
 	flex-direction: column;
 	gap: 1.5rem;
-	width: 90%;
+	width: 100%;
 `;
 
 const StyledInputAndTag = styled.div`
@@ -60,6 +63,8 @@ const StyledRadiosContainer = styled.div`
 
 const StyledRadioPack = styled.div`
 	display: flex;
+	width: 100%;
+	justify-content: flex-start;
 	align-items: center;
 	width: 100%;
 	gap: 1rem;
@@ -89,6 +94,17 @@ const StyledCheckbox = styled.input`
 		top: 0.2rem;
 		color: ${COLORS.white};
 	}
+`;
+
+const StyledLabel = styled.label`
+	width: 70%;
+`;
+
+const StyledTandC = styled.span`
+	font-weight: ${FONT_WEIGHT.bold};
+	color: ${COLORS.deepViolet};
+	text-decoration: underline;
+	cursor: pointer;
 `;
 
 const StyledButton = styled.input`
@@ -126,6 +142,8 @@ export {
 	StyledRadiosContainer,
 	StyledRadioPack,
 	StyledCheckbox,
+	StyledLabel,
+	StyledTandC,
 	StyledButton,
 	StyledRequired
 };
