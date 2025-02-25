@@ -4,6 +4,7 @@ import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
 
 const StyledCheckOutContent = styled.div`
 	display: flex;
+	position: relative;
 	flex-direction: column;
 	align-items: center;
 	gap: 1rem;
@@ -15,6 +16,11 @@ const StyledCheckOutContent = styled.div`
 	border-radius: 1rem;
 	max-height: 80vh;
 	overflow-y: auto;
+
+	@media screen and (width>=1024px) {
+		align-items: flex-end;
+		width: 60%;
+	}
 `;
 
 const StyledHeader = styled.h2`
@@ -22,12 +28,21 @@ const StyledHeader = styled.h2`
 	font-size: ${FONT_SIZE.header};
 	line-height: 120%;
 	text-align: center;
+
+	@media screen and (width>=1024px) {
+		align-self: center;
+	}
 `;
 
 const StyledCheckOutData = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 80%;
+
+	@media screen and (width>=1024px) {
+		align-items: flex-end;
+		width: 50%;
+	}
 `;
 
 const StyledInfoContainer = styled.div`
