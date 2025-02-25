@@ -16,7 +16,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import DynamicCard from '../dynamicCard/DynamicCard';
 
-const CreditCard = ({ setShowModal }) => {
+const CreditCard = ({ setShowModal, setSent }) => {
 	const { cart, setCart, totalPrice } = useCart();
 	const { user } = useAuth();
 	const navigate = useNavigate();
@@ -31,9 +31,6 @@ const CreditCard = ({ setShowModal }) => {
 
 	const errorMessage = '*This field is required';
 	const formValues = watch();
-	console.log(formValues.name);
-	console.log(formValues.number);
-	console.log(formValues.expDate);
 
 	return (
 		<div>
@@ -44,7 +41,15 @@ const CreditCard = ({ setShowModal }) => {
 			/>
 			<StyledCreditCard
 				onSubmit={handleSubmit(() =>
-					sendOrder(user, cart, setCart, totalPrice, setShowModal, navigate)
+					sendOrder(
+						user,
+						cart,
+						setCart,
+						totalPrice,
+						setShowModal,
+						navigate,
+						setSent
+					)
 				)}
 			>
 				<StyledEachInputContainer>
@@ -164,7 +169,8 @@ const sendOrder = async (
 	setCart,
 	totalPrice,
 	setShowModal,
-	navigate
+	navigate,
+	setSent
 ) => {
 	try {
 		const newOrder = {
@@ -177,6 +183,7 @@ const sendOrder = async (
 		setCart([]);
 		setShowModal(false);
 		navigate('/cart');
+		setSent(true);
 	} catch (error) {
 		console.log('Error registering order', error.code, error.message);
 	}

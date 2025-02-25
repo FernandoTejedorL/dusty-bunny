@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { COLORS } from '../../styles/colors';
 
 const StyledMain = styled.main`
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -12,6 +13,28 @@ const StyledMain = styled.main`
 
 const StyledPrice = styled.h3`
 	font-size: ${FONT_SIZE.l};
+`;
+
+const StyledSent = styled.div`
+	position: absolute;
+	top: 2.5rem;
+	width: 80%;
+	border: 0.0625rem solid ${COLORS.dark};
+	text-align: center;
+	border-radius: 1rem;
+	padding: 2rem;
+	background-color: ${COLORS.lightViolet};
+	box-shadow: 0 0 0.625rem 0.25rem ${COLORS.deepViolet};
+	z-index: 20;
+`;
+
+const StyledClose = styled.img`
+	position: absolute;
+	top: 0.5rem;
+	right: 0.5rem;
+	height: 15px;
+	width: 15px;
+	cursor: pointer;
 `;
 
 const StyledAllComp = styled.div`
@@ -98,6 +121,8 @@ const StyledComment = styled.h3`
 export {
 	StyledMain,
 	StyledPrice,
+	StyledSent,
+	StyledClose,
 	StyledAllComp,
 	StyledCartShop,
 	StyledEmptyBig,

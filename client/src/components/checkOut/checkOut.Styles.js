@@ -19,6 +19,11 @@ const StyledCheckOutContent = styled.div`
 
 	@media screen and (width>=1024px) {
 		align-items: flex-end;
+		width: 90%;
+	}
+
+	@media screen and (width>=1440px) {
+		align-items: flex-end;
 		width: 60%;
 	}
 `;

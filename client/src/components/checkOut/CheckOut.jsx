@@ -9,7 +9,7 @@ import {
 } from './checkOut.Styles';
 import CreditCard from '../creditCard/CreditCard';
 
-const CheckOut = ({ setShowModal }) => {
+const CheckOut = ({ setShowModal, setSent }) => {
 	const { totalPrice } = useCart();
 	return (
 		<>
@@ -30,7 +30,7 @@ const CheckOut = ({ setShowModal }) => {
 							<span>{totalPrice.toFixed(2)}€</span>
 						</StyledEachTotalInfo>
 						<div>
-							<CreditCard setShowModal={setShowModal} />
+							<CreditCard setSent={setSent} setShowModal={setShowModal} />
 						</div>
 					</StyledInfoContainer>
 				</StyledCheckOutData>

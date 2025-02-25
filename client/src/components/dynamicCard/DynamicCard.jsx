@@ -1,22 +1,34 @@
-import { StyledBankLogo, StyledDynamicCard } from './dynamicCard.styles';
+import Logo from '../logo/Logo';
+import {
+	StyledDynamicCard,
+	StyledInfoContainer,
+	StyledInput
+} from './dynamicCard.styles';
 
 const DynamicCard = ({ nameValues, numberValues, dateValues }) => {
 	return (
 		<StyledDynamicCard>
-			<StyledBankLogo src='/assets/images/common/creditcard.png' alt='' />
-			<div>
-				<span>Cardholder Name</span>
-				<span>{nameValues}</span>
-			</div>
-			<div>
-				<span>{numberValues}</span>
-			</div>
-			<div>
-				<div>
-					<span>Exp. Date</span>
-					<span>{dateValues}</span>
-				</div>
-			</div>
+			<Logo />
+			<StyledInfoContainer>
+				<span>Name & Surname</span>
+				{!nameValues && <StyledInput>Fluffy Duster</StyledInput>}
+				{nameValues && <StyledInput $on={true}>{nameValues}</StyledInput>}
+			</StyledInfoContainer>
+			<StyledInfoContainer>
+				{!numberValues && (
+					<StyledInput $align={true}>0000 0000 0000 0000</StyledInput>
+				)}
+				{numberValues && (
+					<StyledInput $on={true} $align={true}>
+						{numberValues}
+					</StyledInput>
+				)}
+			</StyledInfoContainer>
+			<StyledInfoContainer>
+				<span>Exp. Date</span>
+				{!dateValues && <StyledInput>MM/YY</StyledInput>}
+				{dateValues && <StyledInput $on={true}>{dateValues}</StyledInput>}
+			</StyledInfoContainer>
 		</StyledDynamicCard>
 	);
 };
