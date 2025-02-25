@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../config/firebase.config';
 import { createData } from '../../utils/api';
+import { useNavigate } from 'react-router-dom';
 import {
 	StyledButton,
 	StyledCheckbox,
@@ -26,7 +27,8 @@ const Register = () => {
 		watch,
 		formState: { errors }
 	} = useForm();
-	const { loading, setUser } = useAuth();
+	const navigate = useNavigate();
+	const { loading } = useAuth();
 	const errorMessage = '*This field is required';
 	const isEmployee = watch('employee') === 'pelusas';
 	if (loading) return <h2>Loading...</h2>;
@@ -36,7 +38,7 @@ const Register = () => {
 			<StyledContainer>
 				<StyledImg src='/assets/images/common/register.jpg' alt='' />
 				<StyledRegisterForm
-					onSubmit={handleSubmit(data => registerUser(data, setUser))}
+					onSubmit={handleSubmit(data => registerUser(data, navigate))}
 				>
 					<AvatarGrid register={register} error={errors.avatar} />
 					<StyledInputAndTag>
@@ -139,7 +141,7 @@ const Register = () => {
 	);
 };
 
-const registerUser = async (data, setUser) => {
+const registerUser = async (data, navigate) => {
 	const { email, password, name, surname, address, profile } = data;
 	try {
 		const firebaseUser = await createUserWithEmailAndPassword(
@@ -156,9 +158,9 @@ const registerUser = async (data, setUser) => {
 			email,
 			vendor: profile === 'true'
 		};
-		const userUpdated = await createData(newUser);
-		setUser(userUpdated);
+		await createData(newUser);
 		console.log('User Registered');
+		navigate('/');
 	} catch (error) {
 		console.log('Error registering user', error.code, error.message);
 	}
