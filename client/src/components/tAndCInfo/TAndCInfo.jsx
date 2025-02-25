@@ -1,9 +1,12 @@
-import { StyledElement, StyledTitle } from './tAndCInfo.styles';
+import {
+	StyledElement,
+	StyledTandCContainer,
+	StyledTitle
+} from './tAndCInfo.styles';
 
 const TAndCInfo = ({ item }) => {
-	console.log(item);
 	return (
-		<div>
+		<StyledTandCContainer>
 			<StyledTitle>{item.title}</StyledTitle>
 			{item.description.map(element => (
 				<StyledElement key={element}>
@@ -11,7 +14,7 @@ const TAndCInfo = ({ item }) => {
 					{element}
 				</StyledElement>
 			))}
-		</div>
+		</StyledTandCContainer>
 	);
 };
 

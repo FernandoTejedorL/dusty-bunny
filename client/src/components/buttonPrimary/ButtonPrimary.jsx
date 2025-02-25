@@ -1,5 +1,7 @@
+import { StyledButton } from './buttonPrimary.styles';
+
 const ButtonPrimary = ({ text, action }) => {
-	return <button onClick={action}>{text}</button>;
+	return <StyledButton onClick={action}>{text}</StyledButton>;
 };
 
 export default ButtonPrimary;

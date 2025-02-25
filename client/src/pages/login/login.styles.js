@@ -51,32 +51,11 @@ const StyledInput = styled.input`
 	padding-inline: 0.5rem;
 `;
 
-const StyledButton = styled.input`
-	display: flex;
-	align-items: center;
-	height: 2.5rem;
-	background-color: ${COLORS.lightViolet};
-	border-radius: 0.5rem;
-	border: 0.0625rem solid ${COLORS.dark};
-	color: ${COLORS.dark};
-	padding-inline: 0.5rem;
-	cursor: pointer;
-
-	@media (hover: hover) {
-		&:hover {
-			background-color: ${COLORS.deepViolet};
-			color: ${COLORS.white};
-			border: 1px solid ${COLORS.white};
-		}
-	}
-`;
-
 export {
 	StyledMain,
 	StyledContainer,
 	StyledImg,
 	StyledForm,
 	StyledInputAndTag,
-	StyledInput,
-	StyledButton
+	StyledInput
 };

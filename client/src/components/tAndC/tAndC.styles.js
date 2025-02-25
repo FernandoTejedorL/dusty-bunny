@@ -4,6 +4,7 @@ import { COLORS } from '../../styles/colors';
 const StyledTandC = styled.div`
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	gap: 2rem;
 	width: 90vw;
 	height: 90vh;

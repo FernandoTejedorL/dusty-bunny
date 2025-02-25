@@ -3,7 +3,6 @@ import { auth } from '../../config/firebase.config';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import {
-	StyledButton,
 	StyledContainer,
 	StyledForm,
 	StyledImg,
@@ -12,6 +11,7 @@ import {
 	StyledMain
 } from './login.styles';
 import PageHeader from '../../components/pageHeader/PageHeader';
+import ButtonInput from '../../components/buttonInputPrimary/ButtonInput';
 
 const Login = () => {
 	const navigate = useNavigate();
@@ -41,7 +41,7 @@ const Login = () => {
 							id='password'
 						/>
 					</StyledInputAndTag>
-					<StyledButton type='submit' value='Sign In' />
+					<ButtonInput value={'Sign In'} />
 				</StyledForm>
 			</StyledContainer>
 		</StyledMain>

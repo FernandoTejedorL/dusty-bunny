@@ -29,7 +29,7 @@ export const OPINIONS = [
 		name: 'Sandy Duster',
 		comment:
 			'“I love to give advice on how to take care of these little jewels.”',
-		type: 'Vendor'
+		type: 'Supplier'
 	},
 	{
 		id: v4(),
@@ -37,13 +37,13 @@ export const OPINIONS = [
 		name: 'Dustin Hairs',
 		comment:
 			'“Thanks to Dusty Bunny, my lint gets to homes where it is valued.”',
-		type: 'Vendor'
+		type: 'Supplier'
 	},
 	{
 		id: v4(),
 		image: '/assets/images/profiles/female/6.jpeg',
 		name: 'Carly Cobwebb',
 		comment: '“Thanks to Dusty Bunny, I can now live from my passion.”',
-		type: 'Vendor'
+		type: 'Supplier'
 	}
 ];
