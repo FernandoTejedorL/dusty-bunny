@@ -19,6 +19,7 @@ import { useAuth } from '../../hooks/useAuth';
 import AvatarGrid from '../../components/avatarGrid/AvatarGrid';
 import { useForm } from 'react-hook-form';
 import PageHeader from '../../components/pageHeader/PageHeader';
+import { useState } from 'react';
 
 const Register = () => {
 	const {
@@ -31,6 +32,8 @@ const Register = () => {
 	const { loading } = useAuth();
 	const errorMessage = '*This field is required';
 	const isEmployee = watch('employee') === 'pelusas';
+	const [mailOk, setMailOk] = useState(true);
+	console.log(mailOk);
 	if (loading) return <h2>Loading...</h2>;
 	return (
 		<StyledMain>
@@ -38,7 +41,9 @@ const Register = () => {
 			<StyledContainer>
 				<StyledImg src='/assets/images/common/register.jpg' alt='' />
 				<StyledRegisterForm
-					onSubmit={handleSubmit(data => registerUser(data, navigate))}
+					onSubmit={handleSubmit(data =>
+						registerUser(data, navigate, setMailOk)
+					)}
 				>
 					<AvatarGrid register={register} error={errors.avatar} />
 					<StyledInputAndTag>
@@ -141,7 +146,7 @@ const Register = () => {
 	);
 };
 
-const registerUser = async (data, navigate) => {
+const registerUser = async (data, navigate, setMailOk) => {
 	const { email, password, name, surname, address, profile } = data;
 	try {
 		const firebaseUser = await createUserWithEmailAndPassword(
@@ -158,7 +163,15 @@ const registerUser = async (data, navigate) => {
 			email,
 			vendor: profile === 'true'
 		};
-		await createData(newUser);
+		//await createData(newUser, setMailOk);
+
+		const result = await createData(newUser);
+		if (result) {
+			setMailOk(true);
+		} else {
+			setMailOk(false);
+		}
+
 		console.log('User Registered');
 		navigate('/');
 	} catch (error) {

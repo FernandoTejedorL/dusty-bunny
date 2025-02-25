@@ -13,7 +13,7 @@ const getAllData = async () => {
 	return data;
 };
 
-const createData = async (newUser, setMailOk) => {
+const createData = async newUser => {
 	try {
 		const response = await fetch(URL + API_URL, {
 			method: 'POST',
@@ -21,10 +21,14 @@ const createData = async (newUser, setMailOk) => {
 			headers: { 'Content-Type': 'application/json' }
 		});
 
+		// if (!response.ok) {
+		// 	setMailOk(false);
+		// } else {
+		// 	setMailOk(true);
+		// }
+
 		if (!response.ok) {
-			setMailOk(false);
-		} else {
-			setMailOk(true);
+			return false;
 		}
 
 		const data = await response.json();
