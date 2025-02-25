@@ -1,7 +1,6 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../config/firebase.config';
 import { createData } from '../../utils/api';
-import { useNavigate } from 'react-router-dom';
 import {
 	StyledButton,
 	StyledCheckbox,
@@ -24,11 +23,12 @@ const Register = () => {
 	const {
 		register,
 		handleSubmit,
+		watch,
 		formState: { errors }
 	} = useForm();
-	const navigate = useNavigate();
-	const { loading } = useAuth();
+	const { loading, setUser } = useAuth();
 	const errorMessage = '*This field is required';
+	const isEmployee = watch('employee') === 'pelusas';
 	if (loading) return <h2>Loading...</h2>;
 	return (
 		<StyledMain>
@@ -36,7 +36,7 @@ const Register = () => {
 			<StyledContainer>
 				<StyledImg src='/assets/images/common/register.jpg' alt='' />
 				<StyledRegisterForm
-					onSubmit={handleSubmit(data => registerUser(data, navigate))}
+					onSubmit={handleSubmit(data => registerUser(data, setUser))}
 				>
 					<AvatarGrid register={register} error={errors.avatar} />
 					<StyledInputAndTag>
@@ -84,27 +84,54 @@ const Register = () => {
 						/>
 						<StyledRequired>{errors.password?.message}</StyledRequired>
 					</StyledInputAndTag>
+					<StyledInputAndTag>
+						<label htmlFor='employee'>
+							If you are an employee, write here the password!
+						</label>
+						<StyledInput
+							type='text'
+							{...register('employee')}
+							placeholder='Employee Password'
+						/>
+						<StyledRequired>{errors.employee?.message}</StyledRequired>
+					</StyledInputAndTag>
 					<StyledRadiosContainer>
-						<StyledRadioPack>
-							<label htmlFor='userProfile'>User</label>
-							<StyledCheckbox
-								type='radio'
-								{...register('profile', { required: errorMessage })}
-								value={false}
-								id='userProfile'
-							/>
-						</StyledRadioPack>
-						<StyledRadioPack>
-							<label htmlFor='vendorProfile'>Vendor</label>
-							<StyledCheckbox
-								type='radio'
-								{...register('profile', { required: errorMessage })}
-								value={true}
-								id='vendorProfile'
-							/>
-						</StyledRadioPack>
+						{!isEmployee && (
+							<StyledRadioPack>
+								<label htmlFor='userProfile'>
+									I confirm all data provided is correct!
+								</label>
+								<StyledCheckbox
+									type='radio'
+									{...register('profile', { required: errorMessage })}
+									value={false}
+									id='userProfile'
+								/>
+							</StyledRadioPack>
+						)}
+						{isEmployee && (
+							<StyledRadioPack>
+								<label htmlFor='vendorProfile'>Vendor</label>
+								<StyledCheckbox
+									type='radio'
+									{...register('profile', { required: errorMessage })}
+									value={true}
+									id='vendorProfile'
+								/>
+							</StyledRadioPack>
+						)}
 						<StyledRequired>{errors.profile?.message}</StyledRequired>
 					</StyledRadiosContainer>
+					<StyledRadioPack>
+						<label htmlFor='terms'>
+							I accept the <span>Terms & Conditions</span>
+						</label>
+						<StyledCheckbox
+							type='radio'
+							{...register('terms', { required: errorMessage })}
+							id='terms'
+						/>
+					</StyledRadioPack>
 					<StyledButton type='submit' value='Register' />
 				</StyledRegisterForm>
 			</StyledContainer>
@@ -112,7 +139,7 @@ const Register = () => {
 	);
 };
 
-const registerUser = async (data, navigate) => {
+const registerUser = async (data, setUser) => {
 	const { email, password, name, surname, address, profile } = data;
 	try {
 		const firebaseUser = await createUserWithEmailAndPassword(
@@ -129,9 +156,9 @@ const registerUser = async (data, navigate) => {
 			email,
 			vendor: profile === 'true'
 		};
-		await createData(newUser);
+		const userUpdated = await createData(newUser);
+		setUser(userUpdated);
 		console.log('User Registered');
-		navigate('/');
 	} catch (error) {
 		console.log('Error registering user', error.code, error.message);
 	}

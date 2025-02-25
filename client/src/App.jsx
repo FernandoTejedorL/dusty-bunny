@@ -9,15 +9,15 @@ const App = () => {
 	return (
 		<>
 			<GlobalStyles />
-			<AuthProvider>
-				<ProductsProvider>
-					<CartProvider>
-						<BrowserRouter>
+			<BrowserRouter>
+				<AuthProvider>
+					<ProductsProvider>
+						<CartProvider>
 							<Router />
-						</BrowserRouter>
-					</CartProvider>
-				</ProductsProvider>
-			</AuthProvider>
+						</CartProvider>
+					</ProductsProvider>
+				</AuthProvider>
+			</BrowserRouter>
 		</>
 	);
 };
