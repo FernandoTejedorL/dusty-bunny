@@ -222,10 +222,12 @@ const updateQueryStatus = async (id, newInfo) => {
 	try {
 		const response = await fetch(URL + API_QUERY_URL);
 		const queries = await response.json();
-		const queryFound = queries.filter(query => query._id === id);
-		const newId = queryFound[0]._id;
+		const queryFound = queries.find(query => query._id === id);
 
-		const secondResponse = await fetch(URL + API_QUERY_URL + newId, {
+		const newId = queryFound._id;
+		const patchUrl = URL + API_QUERY_URL + newId;
+
+		const secondResponse = await fetch(patchUrl, {
 			method: 'PATCH',
 			body: JSON.stringify(newInfo),
 			headers: { 'Content-Type': 'application/json' }

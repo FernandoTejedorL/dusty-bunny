@@ -18,7 +18,7 @@ const Queries = () => {
 			<PageHeader text={'My Messages'} />
 			<StyledAllComp>
 				{queries.map(item => (
-					<EachQuerie key={item._id} item={item} />
+					<EachQuerie setQueries={setQueries} key={item._id} item={item} />
 				))}
 			</StyledAllComp>
 		</StyledMain>

@@ -33,7 +33,7 @@ queriesController.editQuery = async (req, res) => {
     if (!queryToUpdate) {
       return res.status(404).json({ error: 'Query not found' });
     }
-    await QueryModel.updateOne({ _id: queryId }, { $set: { ...newInfo } });
+    await QueryModel.updateOne({ _id: id }, { $set: { ...newInfo } });
     const allQueries = await QueryModel.find();
     return res.status(200).json(allQueries);
   } catch (error) {

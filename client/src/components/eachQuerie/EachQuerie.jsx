@@ -8,9 +8,9 @@ import {
 	StyledSubTile
 } from './eachQuerie.styles';
 import ButtonPrimary from '../buttonPrimary/ButtonPrimary';
-import { updateQueryStatus } from '../../utils/api';
+import { findAllQueries, updateQueryStatus } from '../../utils/api';
 
-const EachQuerie = ({ item }) => {
+const EachQuerie = ({ item, setQueries }) => {
 	const [showDetails, setShowDetails] = useState(false);
 	const read = item.read;
 	const id = item._id;
@@ -20,7 +20,7 @@ const EachQuerie = ({ item }) => {
 			<StyledQueryTile onClick={() => setShowDetails(true)}>
 				<span>{item.date}</span>
 				<StyledSubTile>
-					<span>{item.type.toUpperCase()}</span>
+					<span>{item.type.toUpperCase()} :</span>
 					<span>{item.topic.toUpperCase()}</span>
 				</StyledSubTile>
 			</StyledQueryTile>
@@ -37,11 +37,11 @@ const EachQuerie = ({ item }) => {
 					<StyledButtonsContainer>
 						<ButtonPrimary
 							text={'Mark as unread'}
-							action={() => setShowDetails(false)}
+							action={() => unreadMessage(id, setShowDetails, setQueries)}
 						/>
 						<ButtonPrimary
 							text={'Close as read'}
-							action={() => readMessage(id, setShowDetails)}
+							action={() => readMessage(id, setShowDetails, setQueries)}
 						/>
 					</StyledButtonsContainer>
 				</>
@@ -50,16 +50,41 @@ const EachQuerie = ({ item }) => {
 	);
 };
 
-const readMessage = async (id, setShowDetails) => {
+const readMessage = async (id, setShowDetails, setQueries) => {
 	try {
 		const newInfo = {
 			read: true
 		};
 		await updateQueryStatus(id, newInfo);
-		setShowDetails(true);
+		await findQueries(setQueries);
+		setShowDetails(false);
 	} catch (error) {
 		console.log(error);
 	}
+};
+
+const unreadMessage = async (id, setShowDetails, setQueries) => {
+	try {
+		const newInfo = {
+			read: false
+		};
+		await updateQueryStatus(id, newInfo);
+		await findQueries(setQueries);
+		setShowDetails(false);
+	} catch (error) {
+		console.log(error);
+	}
+};
+
+const findQueries = async setQueries => {
+	const allQueries = await findAllQueries();
+	const orderedQueries = allQueries.sort((a, b) => {
+		const dateA = new Date(a.date.split('/').reverse().join('-'));
+		const dateB = new Date(b.date.split('/').reverse().join('-'));
+		return dateB - dateA;
+	});
+
+	setQueries(orderedQueries);
 };
 
 export default EachQuerie;
