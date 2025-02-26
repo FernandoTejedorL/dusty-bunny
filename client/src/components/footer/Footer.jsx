@@ -38,7 +38,7 @@ const Footer = () => {
 						<StyledLink to='/contact'>Contact</StyledLink>
 						<StyledLink to='/about'>About Us</StyledLink>
 						<StyledTermsSpan onClick={() => setShowModal(true)}>
-							Terms & Conditions
+							T&C
 						</StyledTermsSpan>
 					</div>
 				</StyledFooterBot>

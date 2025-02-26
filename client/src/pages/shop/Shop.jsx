@@ -6,6 +6,7 @@ import { useProducts } from '../../hooks/useProducts';
 import {
 	StyledAllComp,
 	StyledAllFilters,
+	StyledCheckFilters,
 	StyledChevron,
 	StyledEmptyImage,
 	StyledEmptyShop,
@@ -52,21 +53,25 @@ const Shop = () => {
 				</StyledFiltersTile>
 
 				<StyledFilters $filtersOpen={filtersOpen}>
-					{FILTERS.map(item => (
-						<StyledFilterEachContainer key={item.id}>
-							<span>{item.name}</span>
-							<div>
-								{item.values.map(value => (
-									<FilterShop
-										key={value}
-										value={value}
-										item={item}
-										action={event => manageFilters(event, filters, setFilters)}
-									/>
-								))}
-							</div>
-						</StyledFilterEachContainer>
-					))}
+					<StyledCheckFilters>
+						{FILTERS.map(item => (
+							<StyledFilterEachContainer key={item.id}>
+								<span>{item.name}</span>
+								<div>
+									{item.values.map(value => (
+										<FilterShop
+											key={value}
+											value={value}
+											item={item}
+											action={event =>
+												manageFilters(event, filters, setFilters)
+											}
+										/>
+									))}
+								</div>
+							</StyledFilterEachContainer>
+						))}
+					</StyledCheckFilters>
 					<StyledRangeInput>
 						<StyledRangeInputBar
 							onChange={event =>
@@ -86,7 +91,7 @@ const Shop = () => {
 					</StyledRangeInput>
 				</StyledFilters>
 			</StyledAllFilters>
-			<StyledAllComp>
+			<StyledAllComp $userVendor={user?.vendor}>
 				{user && !user.vendor && (
 					<SideCart
 						buttonText={'Go to Cart'}

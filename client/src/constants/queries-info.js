@@ -48,6 +48,12 @@ const GENERAL = [
 	},
 	{
 		id: v4(),
+		name: 'Comments & Feedback',
+		value: 'comments',
+		concern: 'Got any comments? Our dusty team is always open to some talk!'
+	},
+	{
+		id: v4(),
 		name: 'Collaboration',
 		value: 'collab',
 		concern:

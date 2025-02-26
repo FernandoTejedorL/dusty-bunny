@@ -25,6 +25,7 @@ const UserPage = () => {
 	const { user, setUser, loading } = useAuth();
 	const { products } = useProducts();
 	const [edit, setEdit] = useState(false);
+	const [currentAvatar, setCurrentAvatar] = useState(user.avatar);
 	const { id } = useParams();
 	const { register, handleSubmit } = useForm();
 
@@ -37,14 +38,19 @@ const UserPage = () => {
 		<StyledMain>
 			<PageHeader text={user.name + ' ' + user.surname} />
 			<StyledUserContainer>
-				<StyledAvatar src={user.avatar} alt='user-pic' />
+				<StyledAvatar src={currentAvatar} alt='user-pic' />
 
 				<StyledForm
 					onSubmit={handleSubmit(data =>
 						updateUser(data, setUser, id, setEdit)
 					)}
 				>
-					{edit && <AvatarGrid register={register} />}
+					{edit && (
+						<AvatarGrid
+							register={register}
+							action={image => setCurrentAvatar(image)}
+						/>
+					)}
 					<StyledInputContainer>
 						<StyledLabel htmlFor='name'>Name:</StyledLabel>
 						{!edit && <span>{user.name}</span>}

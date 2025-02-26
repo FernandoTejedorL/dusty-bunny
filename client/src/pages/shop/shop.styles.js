@@ -19,6 +19,7 @@ const StyledAllComp = styled.div`
 	@media screen and (width>=1024px) {
 		flex-direction: row-reverse;
 		align-items: flex-start;
+		justify-content: ${({ $userVendor }) => ($userVendor ? 'center' : '')};
 	}
 `;
 
@@ -58,8 +59,24 @@ const StyledFilters = styled.div`
 	padding: 1rem;
 
 	@media screen and (width>=1024px) {
-		flex-direction: row;
 		justify-content: space-between;
+	}
+`;
+
+const StyledCheckFilters = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	width: 100%;
+
+	@media screen and (width>=768px) {
+		width: 60%;
+	}
+
+	@media screen and (width>=1024px) {
+		width: 100%;
+		flex-direction: row;
+		gap: 10rem;
 	}
 `;
 
@@ -86,7 +103,13 @@ const StyledRangeInputBar = styled.input`
 	width: 100%;
 	height: 0.625rem;
 	border-radius: 0.3125rem;
-	background-color: ${COLORS.lightViolet};
+	background: linear-gradient(
+		to right,
+		${COLORS.deepViolet},
+		${COLORS.saumon},
+		${COLORS.lightViolet},
+		${COLORS.turquoise}
+	);
 	margin: 1.25rem 0;
 	cursor: pointer;
 
@@ -157,6 +180,7 @@ export {
 	StyledFiltersTile,
 	StyledChevron,
 	StyledFilters,
+	StyledCheckFilters,
 	StyledFilterEachContainer,
 	StyledRangeInput,
 	StyledRangeInputBar,
