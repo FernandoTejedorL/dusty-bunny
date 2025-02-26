@@ -4,6 +4,7 @@ const API_URL = '/api/users/';
 const API_PRODUCTS_URL = '/api/fluffs/';
 const API_ORDERS_URL = '/api/orders/';
 const API_USER_ORDERS_URL = '/api/orders/user/';
+const API_QUERY_URL = '/api/queries';
 
 //users
 
@@ -194,6 +195,29 @@ const createOrder = async newOrder => {
 	}
 };
 
+// Queries
+
+const findAllQueries = async () => {
+	const response = await fetch(URL + API_QUERY_URL);
+	const queries = await response.json();
+	return queries;
+};
+
+const createQuery = async newQuery => {
+	try {
+		const response = await fetch(URL + API_QUERY_URL, {
+			method: 'POST',
+			body: JSON.stringify(newQuery),
+			headers: { 'Content-Type': 'application/json' }
+		});
+
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 export {
 	getAllData,
 	createData,
@@ -208,5 +232,7 @@ export {
 	updateProductById,
 	findUserOrders,
 	findOrder,
-	createOrder
+	createOrder,
+	findAllQueries,
+	createQuery
 };
