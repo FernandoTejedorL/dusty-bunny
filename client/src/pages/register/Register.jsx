@@ -38,12 +38,15 @@ const Register = () => {
 	const isEmployee = watch('employee') === 'pelusas';
 	const [mailOk, setMailOk] = useState(true);
 	const [showModal, setShowModal] = useState(false);
+	const [currentAvatar, setCurrentAvatar] = useState(
+		'/assets/images/common/register.jpg'
+	);
 	if (loading) return <h2>Loading...</h2>;
 	return (
 		<StyledMain>
 			<PageHeader text={'Register'} />
 			<StyledContainer>
-				<StyledImg src='/assets/images/common/register.jpg' alt='' />
+				<StyledImg src={currentAvatar} alt='' />
 				<StyledRegisterForm
 					onSubmit={handleSubmit(data =>
 						registerUser(data, navigate, setMailOk, setUser)
@@ -53,6 +56,7 @@ const Register = () => {
 						register={register}
 						error={errors.avatar}
 						required={`required: *Please select an avatar*`}
+						action={image => setCurrentAvatar(image)}
 					/>
 					<StyledInputAndTag>
 						<label htmlFor='name'>Name:</label>
