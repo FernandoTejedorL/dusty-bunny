@@ -16,6 +16,7 @@ import ProtectedRoute from './ProtectedRoutes';
 import AboutUs from '../pages/aboutUs/AboutUs';
 import Contact from '../pages/contact/Contact';
 import { useAuth } from '../hooks/useAuth';
+import Queries from '../pages/queries/Queries';
 
 const Router = () => {
 	const { loading } = useAuth();
@@ -32,6 +33,7 @@ const Router = () => {
 				<Route path='/contact' element={<Contact />} />
 				<Route element={<ProtectedVendorRoute />}>
 					<Route path='/sales' element={<SalesPage />} />
+					<Route path='/queries' element={<Queries />} />
 				</Route>
 				<Route element={<ProtectedUserRoute />}>
 					<Route path='/user/:id' element={<UserPage />} />

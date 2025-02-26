@@ -44,6 +44,7 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
 					{user && user?.vendor && (
 						<>
 							<StyledNavLink to={'/sales'}>My Sales</StyledNavLink>
+							<StyledNavLink to={'/queries'}>My Messages</StyledNavLink>
 						</>
 					)}
 					{user && (
