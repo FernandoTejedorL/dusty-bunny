@@ -61,6 +61,20 @@ const StyledLink = styled(Link)`
 	}
 `;
 
+const StyledTermsSpan = styled.span`
+	color: ${COLORS.dark};
+	font-weight: ${FONT_WEIGHT.regular};
+	font-size: ${FONT_SIZE.s};
+	margin: 1rem;
+	cursor: pointer;
+
+	@media (hover: hover) {
+		&:hover {
+			color: ${COLORS.deepViolet};
+		}
+	}
+`;
+
 const StyledCopy = styled.p`
 	font-style: italic;
 	font-size: 0.8rem;
@@ -78,5 +92,6 @@ export {
 	StyledSocial,
 	StyledFooterBot,
 	StyledLink,
+	StyledTermsSpan,
 	StyledCopy
 };

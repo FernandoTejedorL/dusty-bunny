@@ -7,10 +7,15 @@ import {
 	StyledFooterToBig,
 	StyledFooterTop,
 	StyledLink,
-	StyledSocial
+	StyledSocial,
+	StyledTermsSpan
 } from './footer.styles';
+import Modal from '../modal/Modal';
+import TAndC from '../tAndC/TAndC';
+import { useState } from 'react';
 
 const Footer = () => {
+	const [showModal, setShowModal] = useState(false);
 	return (
 		<StyledFooter>
 			<StyledFooterToBig>
@@ -32,6 +37,9 @@ const Footer = () => {
 					<div>
 						<StyledLink to='/contact'>Contact</StyledLink>
 						<StyledLink to='/about'>About Us</StyledLink>
+						<StyledTermsSpan onClick={() => setShowModal(true)}>
+							Terms & Conditions
+						</StyledTermsSpan>
 					</div>
 				</StyledFooterBot>
 			</StyledFooterToBig>
@@ -39,6 +47,11 @@ const Footer = () => {
 				All fluff, no dusting. Stealing our ideas might leave you in a pile of
 				lint! <span>© 2025 Dusty Bunny</span>
 			</StyledCopy>
+			{showModal && (
+				<Modal>
+					<TAndC setShowModal={setShowModal} />
+				</Modal>
+			)}
 		</StyledFooter>
 	);
 };
