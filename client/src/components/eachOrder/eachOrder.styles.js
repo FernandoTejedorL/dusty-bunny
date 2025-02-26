@@ -3,7 +3,7 @@ import { COLORS } from '../../styles/colors';
 import { FONT_WEIGHT } from '../../styles/fonts';
 
 const StyledEachOrder = styled.div`
-	display: inline-flex;
+	display: flex;
 	flex-direction: column;
 	gap: 2rem;
 	padding: 2rem;

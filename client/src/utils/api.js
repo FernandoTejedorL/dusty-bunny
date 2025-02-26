@@ -4,7 +4,7 @@ const API_URL = '/api/users/';
 const API_PRODUCTS_URL = '/api/fluffs/';
 const API_ORDERS_URL = '/api/orders/';
 const API_USER_ORDERS_URL = '/api/orders/user/';
-const API_QUERY_URL = '/api/queries';
+const API_QUERY_URL = '/api/queries/';
 
 //users
 
@@ -218,6 +218,26 @@ const createQuery = async newQuery => {
 	}
 };
 
+const updateQueryStatus = async (id, newInfo) => {
+	try {
+		const response = await fetch(URL + API_QUERY_URL);
+		const queries = await response.json();
+		const queryFound = queries.filter(query => query._id === id);
+		const newId = queryFound[0]._id;
+
+		const secondResponse = await fetch(URL + API_QUERY_URL + newId, {
+			method: 'PATCH',
+			body: JSON.stringify(newInfo),
+			headers: { 'Content-Type': 'application/json' }
+		});
+
+		const data = await secondResponse.json();
+		return data;
+	} catch (error) {
+		console.log(error);
+	}
+};
+
 export {
 	getAllData,
 	createData,
@@ -234,5 +254,6 @@ export {
 	findOrder,
 	createOrder,
 	findAllQueries,
-	createQuery
+	createQuery,
+	updateQueryStatus
 };

@@ -7,6 +7,8 @@ const QueryScheme = mongoose.Schema(
     email: String,
     topic: String,
     description: String,
+    date: String,
+    read: Boolean,
   },
   { collection: 'queries' }
 );

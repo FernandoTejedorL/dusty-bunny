@@ -24,6 +24,14 @@ const ContactForm = ({ topic, topValue, setTopValue, setSubmitted }) => {
 		}
 	});
 
+	const setTwoDigits = number => (number < 10 ? `0${number}` : number);
+	const date = new Date();
+	const day = setTwoDigits(date.getDate());
+	const month = setTwoDigits(date.getMonth() + 1);
+	const year = date.getFullYear();
+
+	const dateToQuery = `${day}/${month}/${year}`;
+
 	const qst = watch('querySubType');
 
 	console.log(qst);
@@ -32,7 +40,7 @@ const ContactForm = ({ topic, topValue, setTopValue, setSubmitted }) => {
 	return (
 		<StyledForm
 			onSubmit={handleSubmit(data =>
-				sendQuery(topValue, setTopValue, data, reset, setSubmitted)
+				sendQuery(topValue, dateToQuery, setTopValue, data, reset, setSubmitted)
 			)}
 		>
 			<label htmlFor='name'>Name & surname:</label>
@@ -87,14 +95,23 @@ const querieTypeSelect = (event, setValue) => {
 	setValue('querySubType', selectedValue);
 };
 
-const sendQuery = async (topValue, setTopValue, data, reset, setSubmitted) => {
+const sendQuery = async (
+	topValue,
+	dateToQuery,
+	setTopValue,
+	data,
+	reset,
+	setSubmitted
+) => {
 	try {
 		const newQuery = {
 			type: topValue,
 			name: data.name,
 			email: data.email,
 			topic: data.querySubType,
-			description: data.description
+			description: data.description,
+			date: dateToQuery,
+			read: false
 		};
 		await createQuery(newQuery);
 
