@@ -61,6 +61,8 @@ const Contact = () => {
 							setTopValue={setTopValue}
 							setSubmitted={setSubmitted}
 							topic={QUERIES[topValue]}
+							type={topValue}
+							topValue={topValue}
 						/>
 					)}
 				</StyledBotForm>

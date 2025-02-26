@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import {
 	StyledBottomForm,
@@ -9,22 +8,24 @@ import {
 	StyledSubmit,
 	StyledTextInput
 } from './contactForm.styles';
+import { createQuery } from '../../utils/api';
 
-const ContactForm = ({ topic, setTopValue, setSubmitted }) => {
+const ContactForm = ({ topic, topValue, setTopValue, setSubmitted }) => {
 	const {
 		reset,
 		register,
 		handleSubmit,
+		setValue,
+		watch,
 		formState: { errors }
 	} = useForm();
-	const [value, setValue] = useState('');
-	const [concern, setConcern] = useState('');
+	const concern = watch('concern');
 
 	const errorMessage = '*This field is required';
 	return (
 		<StyledForm
-			onSubmit={handleSubmit(() =>
-				cleanAll(reset, setValue, setConcern, setSubmitted, setTopValue)
+			onSubmit={handleSubmit(data =>
+				sendQuery(topValue, setTopValue, data, reset, setSubmitted)
 			)}
 		>
 			<label htmlFor='name'>Name & surname:</label>
@@ -42,11 +43,11 @@ const ContactForm = ({ topic, setTopValue, setSubmitted }) => {
 			<StyledRequired>{errors?.email?.message}</StyledRequired>
 			<label htmlFor='type'>Type:</label>
 			<StyledSelect
-				onChange={event => querieTypeSelect(event, setValue, topic, setConcern)}
-				value={value}
+				onChange={event => querieTypeSelect(event, setValue, topic)}
+				value={watch('querySubType')}
 				name='querySubType'
+				{...register('querySubType')}
 				id='querySubType'
-				$shadow={value}
 			>
 				<option value='' disabled>
 					Select
@@ -57,37 +58,53 @@ const ContactForm = ({ topic, setTopValue, setSubmitted }) => {
 					</option>
 				))}
 			</StyledSelect>
-			{value && (
-				<StyledBottomForm>
-					<p>{concern}</p>
-					<label htmlFor='description'>Description:</label>
-					<StyledTextInput
-						type='text'
-						{...register('description', { required: errorMessage })}
-						id='description'
-					/>
-					<StyledRequired>{errors?.description?.message}</StyledRequired>
-					<StyledSubmit type='submit' value='Send' />
-				</StyledBottomForm>
-			)}
+
+			<StyledBottomForm>
+				<p>{concern}</p>
+				<label htmlFor='description'>Description:</label>
+				<StyledTextInput
+					type='text'
+					{...register('description', { required: errorMessage })}
+					id='description'
+				/>
+				<StyledRequired>{errors?.description?.message}</StyledRequired>
+				<StyledSubmit type='submit' value='Send' />
+			</StyledBottomForm>
 		</StyledForm>
 	);
 };
 
-const querieTypeSelect = (event, setValue, topic, setConcern) => {
-	setValue(event.target.value);
-	const selected = topic.find(item => item.value === event.target.value);
+const querieTypeSelect = (event, setValue, topic) => {
+	const selectedValue = event.target.value;
+	setValue('querySubType', selectedValue);
+	const selected = topic.find(item => item.value === selectedValue);
 	if (selected) {
-		setConcern(selected.concern);
+		setValue('concern, selected.concern');
 	}
 };
 
-const cleanAll = (reset, setValue, setConcern, setSubmitted, setTopValue) => {
-	reset();
-	setValue('');
-	setConcern('');
-	setSubmitted(true);
-	setTopValue('');
+const sendQuery = async (topValue, setTopValue, data, reset, setSubmitted) => {
+	try {
+		const newQuery = {
+			type: topValue,
+			name: data.name,
+			email: data.email,
+			topic: data.querySubType,
+			description: data.description
+		};
+		await createQuery(newQuery);
+
+		reset({
+			name: '',
+			email: '',
+			querySubType: '',
+			description: ''
+		});
+		setSubmitted(true);
+		setTopValue('');
+	} catch (error) {
+		console.log('Error registering query', error.code, error.message);
+	}
 };
 
 export default ContactForm;
