@@ -3,10 +3,10 @@ import { useAuth } from '../../hooks/useAuth';
 import { updateDataById } from '../../utils/api';
 import { useParams } from 'react-router-dom';
 import { useProducts } from '../../hooks/useProducts';
+import { useForm } from 'react-hook-form';
 import Carousel from '../../components/carousel/Carousel';
 import {
 	StyledAvatar,
-	StyledButton,
 	StyledConfirmCancel,
 	StyledEditButton,
 	StyledForm,
@@ -17,12 +17,16 @@ import {
 	StyledUserContainer
 } from './userPage.styles';
 import PageHeader from '../../components/pageHeader/PageHeader';
+import AvatarGrid from '../../components/avatarGrid/AvatarGrid';
+import ButtonPrimary from '../../components/buttonPrimary/ButtonPrimary';
+import ButtonInput from '../../components/buttonInputPrimary/ButtonInput';
 
 const UserPage = () => {
 	const { user, setUser, loading } = useAuth();
 	const { products } = useProducts();
 	const [edit, setEdit] = useState(false);
 	const { id } = useParams();
+	const { register, handleSubmit } = useForm();
 
 	if (loading) return <h2>Loading...</h2>;
 
@@ -35,14 +39,19 @@ const UserPage = () => {
 			<StyledUserContainer>
 				<StyledAvatar src={user.avatar} alt='user-pic' />
 
-				<StyledForm onSubmit={event => updateUser(id, event, setUser, setEdit)}>
+				<StyledForm
+					onSubmit={handleSubmit(data =>
+						updateUser(data, setUser, id, setEdit)
+					)}
+				>
+					{edit && <AvatarGrid register={register} />}
 					<StyledInputContainer>
 						<StyledLabel htmlFor='name'>Name:</StyledLabel>
 						{!edit && <span>{user.name}</span>}
 						{edit && (
 							<StyledInput
 								type='text'
-								name='name'
+								{...register('name')}
 								id='name'
 								defaultValue={user.name}
 							/>
@@ -54,7 +63,7 @@ const UserPage = () => {
 						{edit && (
 							<StyledInput
 								type='text'
-								name='surname'
+								{...register('surname')}
 								id='surname'
 								defaultValue={user.surname}
 							/>
@@ -66,7 +75,7 @@ const UserPage = () => {
 						{edit && (
 							<StyledInput
 								type='text'
-								name='address'
+								{...register('address')}
 								id='address'
 								defaultValue={user.address}
 							/>
@@ -74,12 +83,8 @@ const UserPage = () => {
 					</StyledInputContainer>
 					{edit && (
 						<StyledConfirmCancel>
-							<StyledButton type='submit' value='Confirm' />
-							<StyledButton
-								type='button'
-								value='Cancel'
-								onClick={() => setEdit(false)}
-							/>
+							<ButtonInput value={'Confirm'} />
+							<ButtonPrimary text={'Cancel'} action={() => setEdit(false)} />
 						</StyledConfirmCancel>
 					)}
 					{!edit && (
@@ -95,15 +100,16 @@ const UserPage = () => {
 	);
 };
 
-const updateUser = async (id, event, setUser, setEdit) => {
-	event.preventDefault();
+const updateUser = async (data, setUser, id, setEdit) => {
+	const { name, surname, address } = data;
 	const newUser = {
-		name: event.target.name.value,
-		surname: event.target.surname.value,
-		address: event.target.address.value
+		avatar: data.avatar,
+		name,
+		surname,
+		address
 	};
-	const data = await updateDataById(id, newUser);
-	setUser(data);
+	const newData = await updateDataById(id, newUser);
+	setUser(newData);
 	setEdit(false);
 };
 

@@ -49,7 +49,11 @@ const Register = () => {
 						registerUser(data, navigate, setMailOk, setUser)
 					)}
 				>
-					<AvatarGrid register={register} error={errors.avatar} />
+					<AvatarGrid
+						register={register}
+						error={errors.avatar}
+						required={`required: *Please select an avatar*`}
+					/>
 					<StyledInputAndTag>
 						<label htmlFor='name'>Name:</label>
 						<StyledInput

@@ -6,7 +6,7 @@ import {
 	StyledRequired
 } from './AvatarGrid.Styles';
 
-const AvatarGrid = ({ register, error }) => {
+const AvatarGrid = ({ register, error, required }) => {
 	return (
 		<StyledAvatarComponent>
 			<h3>Select an avatar!</h3>
@@ -18,7 +18,7 @@ const AvatarGrid = ({ register, error }) => {
 						type='radio'
 						id={item.image}
 						value={item.image}
-						{...register('avatar', { required: '*Please select an avatar' })}
+						{...register('avatar', { required })}
 					/>
 				))}
 			</StyledAvatarGrid>
