@@ -47,18 +47,20 @@ const Product = () => {
 			<PageHeader text={product.name} />
 			<StyledProductContainer>
 				<StyledImageAndButtons>
-					<StyledButtonsContainer>
-						{user.vendor && !edit && (
-							<StyledButton onClick={() => setEdit(true)}>
-								Edit Product
-							</StyledButton>
-						)}
-						{user.vendor && edit && (
-							<StyledButton onClick={() => setEdit(false)}>
-								Cancel Editting
-							</StyledButton>
-						)}
-					</StyledButtonsContainer>
+					{user.vendor && (
+						<StyledButtonsContainer>
+							{!edit && (
+								<StyledButton onClick={() => setEdit(true)}>
+									Edit Product
+								</StyledButton>
+							)}
+							{edit && (
+								<StyledButton onClick={() => setEdit(false)}>
+									Cancel Editting
+								</StyledButton>
+							)}
+						</StyledButtonsContainer>
+					)}
 					<StyledImagesContainer>
 						<StyledImage src={product.image} alt='' />
 						{!fav && !user.vendor && (
@@ -102,6 +104,7 @@ const Product = () => {
 						)}
 					</StyledButtonsContainer>
 				</StyledImageAndButtons>
+
 				<StyledInfoContainer>
 					{user.vendor && edit && (
 						<EditInfo
@@ -111,12 +114,9 @@ const Product = () => {
 							id={id}
 						/>
 					)}
+
+					{!edit && <Info product={product} />}
 				</StyledInfoContainer>
-				{!edit && (
-					<StyledInfoContainer>
-						<Info product={product} />
-					</StyledInfoContainer>
-				)}
 			</StyledProductContainer>
 		</StyledMain>
 	);
