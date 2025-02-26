@@ -18,8 +18,15 @@ const ContactForm = ({ topic, topValue, setTopValue, setSubmitted }) => {
 		setValue,
 		watch,
 		formState: { errors }
-	} = useForm();
-	const concern = watch('concern');
+	} = useForm({
+		defaultValues: {
+			querySubType: ''
+		}
+	});
+
+	const qst = watch('querySubType');
+
+	console.log(qst);
 
 	const errorMessage = '*This field is required';
 	return (
@@ -43,11 +50,11 @@ const ContactForm = ({ topic, topValue, setTopValue, setSubmitted }) => {
 			<StyledRequired>{errors?.email?.message}</StyledRequired>
 			<label htmlFor='type'>Type:</label>
 			<StyledSelect
-				onChange={event => querieTypeSelect(event, setValue, topic)}
+				onChange={event => querieTypeSelect(event, setValue)}
 				value={watch('querySubType')}
-				name='querySubType'
 				{...register('querySubType')}
 				id='querySubType'
+				$shadow={qst}
 			>
 				<option value='' disabled>
 					Select
@@ -59,28 +66,25 @@ const ContactForm = ({ topic, topValue, setTopValue, setSubmitted }) => {
 				))}
 			</StyledSelect>
 
-			<StyledBottomForm>
-				<p>{concern}</p>
-				<label htmlFor='description'>Description:</label>
-				<StyledTextInput
-					type='text'
-					{...register('description', { required: errorMessage })}
-					id='description'
-				/>
-				<StyledRequired>{errors?.description?.message}</StyledRequired>
-				<StyledSubmit type='submit' value='Send' />
-			</StyledBottomForm>
+			{qst && (
+				<StyledBottomForm>
+					<label htmlFor='description'>Description:</label>
+					<StyledTextInput
+						type='text'
+						{...register('description', { required: errorMessage })}
+						id='description'
+					/>
+					<StyledRequired>{errors?.description?.message}</StyledRequired>
+					<StyledSubmit type='submit' value='Send' />
+				</StyledBottomForm>
+			)}
 		</StyledForm>
 	);
 };
 
-const querieTypeSelect = (event, setValue, topic) => {
+const querieTypeSelect = (event, setValue) => {
 	const selectedValue = event.target.value;
 	setValue('querySubType', selectedValue);
-	const selected = topic.find(item => item.value === selectedValue);
-	if (selected) {
-		setValue('concern, selected.concern');
-	}
 };
 
 const sendQuery = async (topValue, setTopValue, data, reset, setSubmitted) => {
