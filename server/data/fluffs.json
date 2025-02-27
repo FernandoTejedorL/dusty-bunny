@@ -24,6 +24,18 @@
     "vendor": ""
   },
   {
+    "image": "/assets/images/products/animals/panda.jpg",
+    "name": "Panda Fluff",
+    "size": "XL",
+    "diet": "Omnivore",
+    "category": "Animals",
+    "price": 25.49,
+    "description": "The laziest yet most adorable fluff in the world. Warning: may enter hibernation mode at any time.",
+    "fav": 0,
+    "ordered": 0,
+    "vendor": ""
+  },
+  {
     "image": "/assets/images/products/animals/lizard.jpg",
     "name": "Lizard Fluff",
     "size": "S",
@@ -199,6 +211,18 @@
     "category": "Jobs",
     "price": 26.99,
     "description": "Designed with perfect structure, but may knock things over.",
+    "fav": 0,
+    "ordered": 0,
+    "vendor": ""
+  },
+  {
+    "image": "/assets/images/products/jobs/govern.png",
+    "name": "Servant Fluff",
+    "size": "L",
+    "diet": "Omnivore",
+    "category": "Jobs",
+    "price": 28.99,
+    "description": "If you need something done quickly, better grab another coffee!",
     "fav": 0,
     "ordered": 0,
     "vendor": ""
@@ -475,6 +499,18 @@
     "category": "Hobbies",
     "price": 30.15,
     "description": "Always covered in sawdust, glue, and great ideas. Can build a tiny house... but mostly makes a mess.",
+    "fav": 0,
+    "ordered": 0,
+    "vendor": ""
+  },
+  {
+    "image": "/assets/images/products/hobbies/kpop.png",
+    "name": "K-Pop Fluff",
+    "size": "M",
+    "diet": "Omnivore",
+    "category": "Hobbies",
+    "price": 30.99,
+    "description": "This fluff was born to slay the stage! Just don’t challenge it to a dance battle—you’ll lose.",
     "fav": 0,
     "ordered": 0,
     "vendor": ""

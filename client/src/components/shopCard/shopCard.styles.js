@@ -31,8 +31,10 @@ const StyledProductPic = styled.img`
 
 const StyledNameAndPrice = styled.div`
 	display: flex;
-	width: 100%;
+	gap: 1rem;
+	width: 90%;
 	justify-content: space-between;
+	align-items: center;
 	text-align: left;
 `;
 
