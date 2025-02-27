@@ -11,7 +11,7 @@ import Logo from '../logo/Logo';
 const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
 	return (
-		<StyledHeader>
+		<StyledHeader id='header'>
 			<StyledBranding>
 				<Logo />
 				<StyledBrand>Dusty Bunny</StyledBrand>

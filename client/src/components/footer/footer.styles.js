@@ -13,6 +13,26 @@ const StyledFooter = styled.footer`
 	margin-top: auto;
 `;
 
+const StyledToTop = styled.div`
+	position: fixed;
+	bottom: 5vh;
+	right: 3vw;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 0.19rem;
+	height: 2rem;
+	width: 2rem;
+	border-radius: 50%;
+	background-color: ${COLORS.turquoise};
+	color: ${COLORS.white};
+	box-shadow: 0 0 0.625rem 0.25rem ${COLORS.deepViolet};
+
+	@media screen and (width>=1024px) {
+		display: none;
+	}
+`;
+
 const StyledFooterToBig = styled.div`
 	@media screen and (width>=1024px) {
 		display: flex;
@@ -87,6 +107,7 @@ const StyledCopy = styled.p`
 
 export {
 	StyledFooter,
+	StyledToTop,
 	StyledFooterToBig,
 	StyledFooterTop,
 	StyledSocial,

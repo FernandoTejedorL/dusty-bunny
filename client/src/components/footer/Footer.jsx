@@ -8,7 +8,8 @@ import {
 	StyledFooterTop,
 	StyledLink,
 	StyledSocial,
-	StyledTermsSpan
+	StyledTermsSpan,
+	StyledToTop
 } from './footer.styles';
 import Modal from '../modal/Modal';
 import TAndC from '../tAndC/TAndC';
@@ -18,6 +19,11 @@ const Footer = () => {
 	const [showModal, setShowModal] = useState(false);
 	return (
 		<StyledFooter>
+			<StyledToTop
+				onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+			>
+				🔝
+			</StyledToTop>
 			<StyledFooterToBig>
 				<StyledFooterTop>
 					<Logo />
@@ -47,6 +53,7 @@ const Footer = () => {
 				All fluff, no dusting. Stealing our ideas might leave you in a pile of
 				lint! <span>© 2025 Dusty Bunny</span>
 			</StyledCopy>
+
 			{showModal && (
 				<Modal>
 					<TAndC setShowModal={setShowModal} />
