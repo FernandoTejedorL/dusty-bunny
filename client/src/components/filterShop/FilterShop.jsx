@@ -1,11 +1,11 @@
-import { StyledFilterContainer } from './filterShop.styles';
+import { StyledCheckBox, StyledFilterContainer } from './filterShop.styles';
 
 const FilterShop = ({ value, item, action }) => {
 	return (
 		<StyledFilterContainer key={item.name}>
 			<label htmlFor={value}>{value}</label>
 
-			<input
+			<StyledCheckBox
 				type='checkbox'
 				name={item.type}
 				id={value}
