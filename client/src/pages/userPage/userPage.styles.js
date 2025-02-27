@@ -106,6 +106,13 @@ const StyledEditButton = styled.button`
 	}
 `;
 
+const StyledEmptyFavs = styled.div`
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	align-items: center;
+`;
+
 export {
 	StyledMain,
 	StyledUserContainer,
@@ -116,5 +123,6 @@ export {
 	StyledInput,
 	StyledConfirmCancel,
 	StyledButton,
-	StyledEditButton
+	StyledEditButton,
+	StyledEmptyFavs
 };

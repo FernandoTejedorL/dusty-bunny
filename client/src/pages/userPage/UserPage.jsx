@@ -9,6 +9,7 @@ import {
 	StyledAvatar,
 	StyledConfirmCancel,
 	StyledEditButton,
+	//StyledEmptyFavs,
 	StyledForm,
 	StyledInput,
 	StyledInputContainer,
@@ -28,10 +29,10 @@ const UserPage = () => {
 	const [currentAvatar, setCurrentAvatar] = useState(user.avatar);
 	const { id } = useParams();
 	const { register, handleSubmit } = useForm();
+	//const navigate = useNavigate();
 
 	if (loading) return <h2>Loading...</h2>;
-
-	const favourites = user.favs || [];
+	const favourites = user.favs;
 	const favouritesToShow = productsToCarousel(favourites, products);
 
 	return (
@@ -100,7 +101,15 @@ const UserPage = () => {
 					)}
 				</StyledForm>
 			</StyledUserContainer>
-
+			{/* {!favourites && (
+				<StyledEmptyFavs>
+					<span>Your favourites will be here... so check the shop!!</span>
+					<ButtonPrimary
+						text={'Go to shop!'}
+						action={() => navigate('/shop')}
+					/>
+				</StyledEmptyFavs>
+			)} */}
 			<Carousel products={favouritesToShow} />
 		</StyledMain>
 	);
