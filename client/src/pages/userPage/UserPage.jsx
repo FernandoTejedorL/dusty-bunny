@@ -35,7 +35,6 @@ const UserPage = () => {
 	if (loading) return <h2>Loading...</h2>;
 	const favourites = user.favs;
 	const favouritesToShow = productsToCarousel(favourites, products);
-	console.log(favourites);
 	return (
 		<StyledMain>
 			<PageHeader text={user.name + ' ' + user.surname} />
