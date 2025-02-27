@@ -15,6 +15,7 @@ import {
 
 const Home = () => {
 	const { products } = useProducts();
+
 	return (
 		<StyledMain>
 			<StyledBanner>

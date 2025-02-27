@@ -21,6 +21,7 @@ import Queries from '../pages/queries/Queries';
 const Router = () => {
 	const { loading } = useAuth();
 	if (loading) return <h2>Loading...</h2>;
+
 	return (
 		<Routes>
 			<Route path='/' element={<Layout />}>
