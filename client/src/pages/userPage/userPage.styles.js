@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { FONT_WEIGHT } from '../../styles/fonts';
+import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
 import { COLORS } from '../../styles/colors';
 
 const StyledMain = styled.main`
@@ -113,6 +113,14 @@ const StyledEmptyFavs = styled.div`
 	align-items: center;
 `;
 
+const StyledEmptySpan = styled.span`
+	font-family: ${FONT_FAMILY.pacifico};
+	font-size: ${FONT_SIZE.m};
+	line-height: 150%;
+	width: 70%;
+	text-align: center;
+`;
+
 export {
 	StyledMain,
 	StyledUserContainer,
@@ -124,5 +132,6 @@ export {
 	StyledConfirmCancel,
 	StyledButton,
 	StyledEditButton,
-	StyledEmptyFavs
+	StyledEmptyFavs,
+	StyledEmptySpan
 };

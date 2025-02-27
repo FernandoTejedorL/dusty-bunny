@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import { updateDataById } from '../../utils/api';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useProducts } from '../../hooks/useProducts';
 import { useForm } from 'react-hook-form';
 import Carousel from '../../components/carousel/Carousel';
@@ -9,7 +9,8 @@ import {
 	StyledAvatar,
 	StyledConfirmCancel,
 	StyledEditButton,
-	//StyledEmptyFavs,
+	StyledEmptyFavs,
+	StyledEmptySpan,
 	StyledForm,
 	StyledInput,
 	StyledInputContainer,
@@ -29,12 +30,12 @@ const UserPage = () => {
 	const [currentAvatar, setCurrentAvatar] = useState(user.avatar);
 	const { id } = useParams();
 	const { register, handleSubmit } = useForm();
-	//const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	if (loading) return <h2>Loading...</h2>;
 	const favourites = user.favs;
 	const favouritesToShow = productsToCarousel(favourites, products);
-
+	console.log(favourites);
 	return (
 		<StyledMain>
 			<PageHeader text={user.name + ' ' + user.surname} />
@@ -101,15 +102,17 @@ const UserPage = () => {
 					)}
 				</StyledForm>
 			</StyledUserContainer>
-			{/* {!favourites && (
+			{favourites.length === 0 && (
 				<StyledEmptyFavs>
-					<span>Your favourites will be here... so check the shop!!</span>
+					<StyledEmptySpan>
+						Your favourites will be here... so check the shop!!
+					</StyledEmptySpan>
 					<ButtonPrimary
 						text={'Go to shop!'}
 						action={() => navigate('/shop')}
 					/>
 				</StyledEmptyFavs>
-			)} */}
+			)}
 			<Carousel products={favouritesToShow} />
 		</StyledMain>
 	);
