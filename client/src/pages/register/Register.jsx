@@ -104,7 +104,13 @@ const Register = () => {
 						<label htmlFor='pass'>Password:</label>
 						<StyledInput
 							type='password'
-							{...register('password', { required: errorMessage })}
+							{...register('password', {
+								required: errorMessage,
+								minLength: {
+									value: 7,
+									message: 'Pass must have a minimum of 7 characters'
+								}
+							})}
 							placeholder='Password'
 						/>
 						<StyledRequired>{errors.password?.message}</StyledRequired>
