@@ -22,12 +22,14 @@ import PageHeader from '../../components/pageHeader/PageHeader';
 import AvatarGrid from '../../components/avatarGrid/AvatarGrid';
 import ButtonPrimary from '../../components/buttonPrimary/ButtonPrimary';
 import ButtonInput from '../../components/buttonInputPrimary/ButtonInput';
+import Spinner from '../../components/spinner/Spinner';
 
 const UserPage = () => {
 	const { user, setUser, loading } = useAuth();
 	const { products } = useProducts();
 	const [edit, setEdit] = useState(false);
 	const [currentAvatar, setCurrentAvatar] = useState(user.avatar);
+	const [completed, setCompleted] = useState(false);
 	const { id } = useParams();
 	const { register, handleSubmit } = useForm();
 	const navigate = useNavigate();
@@ -37,13 +39,14 @@ const UserPage = () => {
 	const favouritesToShow = productsToCarousel(favourites, products);
 	return (
 		<StyledMain>
+			<Spinner completed={completed} />
 			<PageHeader text={user.name + ' ' + user.surname} />
 			<StyledUserContainer>
 				<StyledAvatar src={currentAvatar} alt='user-pic' />
 
 				<StyledForm
 					onSubmit={handleSubmit(data =>
-						updateUser(data, setUser, id, setEdit)
+						updateUser(data, setCompleted, setUser, id, setEdit)
 					)}
 				>
 					{edit && (
@@ -117,7 +120,7 @@ const UserPage = () => {
 	);
 };
 
-const updateUser = async (data, setUser, id, setEdit) => {
+const updateUser = async (data, setCompleted, setUser, id, setEdit) => {
 	const { name, surname, address } = data;
 	const newUser = {
 		avatar: data.avatar,
@@ -125,8 +128,10 @@ const updateUser = async (data, setUser, id, setEdit) => {
 		surname,
 		address
 	};
+	setCompleted(true);
 	const newData = await updateDataById(id, newUser);
 	setUser(newData);
+	setCompleted(false);
 	setEdit(false);
 };
 

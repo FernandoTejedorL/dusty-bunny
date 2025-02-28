@@ -6,7 +6,7 @@ const StyledEachOrder = styled.div`
 	display: flex;
 	flex-direction: column;
 	gap: 2rem;
-	padding: 2rem;
+	padding: 1rem;
 	margin: 2rem;
 	border-radius: 1rem;
 	border: 0.1875rem solid ${COLORS.dark};

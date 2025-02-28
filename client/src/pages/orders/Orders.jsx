@@ -1,9 +1,16 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { findUserOrders } from '../../utils/api';
 import { useEffect, useState } from 'react';
 import EachOrder from '../../components/eachOrder/eachOrder';
-import { StyledAllComp, StyledMain } from './orders.styles';
+import {
+	StyledAllComp,
+	StyledEmptyImg,
+	StyledEmptyOrders,
+	StyledEmptySpan,
+	StyledMain
+} from './orders.styles';
 import PageHeader from '../../components/pageHeader/PageHeader';
+import ButtonPrimary from '../../components/buttonPrimary/ButtonPrimary';
 
 const Orders = () => {
 	const { id } = useParams();
@@ -14,11 +21,19 @@ const Orders = () => {
 		ordersGot(userId, setOrders);
 	}, [userId]);
 
+	const navigate = useNavigate();
 	const ordersToMap = orders;
 
 	return (
 		<StyledMain>
 			<PageHeader text={'My Orders'} />
+			{orders.length === 0 && (
+				<StyledEmptyOrders>
+					<StyledEmptyImg src='/assets/images/common/empty.jpg' alt='empty' />
+					<StyledEmptySpan>You have nothing ordered yet...</StyledEmptySpan>
+					<ButtonPrimary text={'Go to shop'} action={() => navigate('/shop')} />
+				</StyledEmptyOrders>
+			)}
 			<StyledAllComp>
 				{ordersToMap.map(item => (
 					<EachOrder key={item._id} item={item} />

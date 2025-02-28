@@ -12,17 +12,21 @@ import {
 } from './login.styles';
 import PageHeader from '../../components/pageHeader/PageHeader';
 import ButtonInput from '../../components/buttonInputPrimary/ButtonInput';
+import Spinner from '../../components/spinner/Spinner';
+import { useState } from 'react';
 
 const Login = () => {
 	const navigate = useNavigate();
 	const { loading } = useAuth();
+	const [completed, setComplete] = useState(false);
 	if (loading) return <h2>Loading...</h2>;
 	return (
 		<StyledMain>
+			<Spinner completed={completed} />
 			<PageHeader text={'Sign In'} />
 			<StyledContainer>
 				<StyledImg src='/assets/images/common/login.png' alt='' />
-				<StyledForm onSubmit={event => loginUser(event, navigate)}>
+				<StyledForm onSubmit={event => loginUser(event, setComplete, navigate)}>
 					<StyledInputAndTag>
 						<label htmlFor='email'>Email:</label>
 						<StyledInput
@@ -35,7 +39,7 @@ const Login = () => {
 					<StyledInputAndTag>
 						<label htmlFor='password'>Password:</label>
 						<StyledInput
-							type='text'
+							type='password'
 							name='password'
 							placeholder='password'
 							id='password'
@@ -48,14 +52,16 @@ const Login = () => {
 	);
 };
 
-const loginUser = async (event, navigate) => {
+const loginUser = async (event, setComplete, navigate) => {
 	event.preventDefault();
 	const email = event.target.email.value;
 	const password = event.target.password.value;
+	setComplete(true);
 	try {
 		await signInWithEmailAndPassword(auth, email, password);
 		console.log('User Logged');
 		event.target.reset();
+		setComplete(false);
 		navigate('/');
 	} catch (error) {
 		console.log('Error registering user', error.code, error.message);

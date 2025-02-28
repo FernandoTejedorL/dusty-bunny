@@ -54,7 +54,6 @@ const StyledButtonInput = styled.input`
 	background-color: ${COLORS.lightViolet};
 	border: 1px solid ${COLORS.dark};
 	border-radius: 0.5rem;
-	padding: 0.5rem;
 	cursor: pointer;
 
 	@media (hover: hover) {

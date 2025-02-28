@@ -15,10 +15,13 @@ import { useAuth } from '../../hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import DynamicCard from '../dynamicCard/DynamicCard';
+import { useState } from 'react';
+import Spinner from '../spinner/Spinner';
 
 const CreditCard = ({ setShowModal, setSent }) => {
 	const { cart, setCart, totalPrice } = useCart();
 	const { user } = useAuth();
+	const [completed, setCompleted] = useState(false);
 	const navigate = useNavigate();
 
 	const {
@@ -34,6 +37,7 @@ const CreditCard = ({ setShowModal, setSent }) => {
 
 	return (
 		<div>
+			<Spinner completed={completed} />
 			<DynamicCard
 				nameValues={formValues.name}
 				numberValues={formValues.number}
@@ -46,6 +50,7 @@ const CreditCard = ({ setShowModal, setSent }) => {
 						cart,
 						setCart,
 						totalPrice,
+						setCompleted,
 						setShowModal,
 						navigate,
 						setSent
@@ -168,10 +173,12 @@ const sendOrder = async (
 	cart,
 	setCart,
 	totalPrice,
+	setCompleted,
 	setShowModal,
 	navigate,
 	setSent
 ) => {
+	setCompleted(true);
 	try {
 		const newOrder = {
 			userId: user._id,
@@ -184,6 +191,8 @@ const sendOrder = async (
 		setShowModal(false);
 		navigate('/cart');
 		setSent(true);
+		setCompleted(false);
+		window.scrollTo(0, 0);
 	} catch (error) {
 		console.log('Error registering order', error.code, error.message);
 	}

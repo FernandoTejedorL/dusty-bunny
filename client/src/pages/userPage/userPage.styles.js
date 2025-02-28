@@ -62,8 +62,13 @@ const StyledInput = styled.input`
 
 const StyledConfirmCancel = styled.div`
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column;
+	gap: 1rem;
 	width: 100%;
+
+	@media screen and (width>=1024px) {
+		flex-direction: row;
+	}
 `;
 
 const StyledButton = styled.input`

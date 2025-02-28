@@ -24,6 +24,7 @@ import PageHeader from '../../components/pageHeader/PageHeader';
 import { useState } from 'react';
 import Modal from '../../components/modal/Modal';
 import TAndC from '../../components/tAndC/TAndC';
+import Spinner from '../../components/spinner/Spinner';
 
 const Register = () => {
 	const {
@@ -41,15 +42,17 @@ const Register = () => {
 	const [currentAvatar, setCurrentAvatar] = useState(
 		'/assets/images/common/register.jpg'
 	);
+	const [completed, setCompleted] = useState(false);
 	if (loading) return <h2>Loading...</h2>;
 	return (
 		<StyledMain>
+			<Spinner completed={completed} />
 			<PageHeader text={'Register'} />
 			<StyledContainer>
 				<StyledImg src={currentAvatar} alt='' />
 				<StyledRegisterForm
 					onSubmit={handleSubmit(data =>
-						registerUser(data, navigate, setMailOk, setUser)
+						registerUser(data, setCompleted, navigate, setMailOk, setUser)
 					)}
 				>
 					<AvatarGrid
@@ -98,7 +101,7 @@ const Register = () => {
 					<StyledInputAndTag>
 						<label htmlFor='pass'>Password:</label>
 						<StyledInput
-							type='text'
+							type='password'
 							{...register('password', { required: errorMessage })}
 							placeholder='Password'
 						/>
@@ -171,8 +174,15 @@ const Register = () => {
 	);
 };
 
-const registerUser = async (data, navigate, setMailOk, setUser) => {
+const registerUser = async (
+	data,
+	setCompleted,
+	navigate,
+	setMailOk,
+	setUser
+) => {
 	const { email, password, name, surname, address, profile } = data;
+	setCompleted(true);
 	try {
 		const firebaseUser = await createUserWithEmailAndPassword(
 			auth,
@@ -201,6 +211,7 @@ const registerUser = async (data, navigate, setMailOk, setUser) => {
 		}
 
 		console.log('User Registered');
+		setCompleted(false);
 		navigate('/');
 	} catch (error) {
 		console.log('Error registering user', error.code, error.message);

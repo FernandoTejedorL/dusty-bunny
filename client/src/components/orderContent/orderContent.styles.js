@@ -24,6 +24,7 @@ const StyledOrderCOntentInfo = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
+	text-align: right;
 	gap: 2rem;
 	height: 100%;
 	width: 100%;

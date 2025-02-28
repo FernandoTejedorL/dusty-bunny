@@ -9,6 +9,8 @@ import {
 	StyledTextInput
 } from './contactForm.styles';
 import { createQuery } from '../../utils/api';
+import Spinner from '../spinner/Spinner';
+import { useState } from 'react';
 
 const ContactForm = ({ topic, topValue, setTopValue, setSubmitted }) => {
 	const {
@@ -24,6 +26,8 @@ const ContactForm = ({ topic, topValue, setTopValue, setSubmitted }) => {
 		}
 	});
 
+	const [completed, setCompleted] = useState(false);
+
 	const setTwoDigits = number => (number < 10 ? `0${number}` : number);
 	const date = new Date();
 	const day = setTwoDigits(date.getDate());
@@ -34,15 +38,22 @@ const ContactForm = ({ topic, topValue, setTopValue, setSubmitted }) => {
 
 	const qst = watch('querySubType');
 
-	console.log(qst);
-
 	const errorMessage = '*This field is required';
 	return (
 		<StyledForm
 			onSubmit={handleSubmit(data =>
-				sendQuery(topValue, dateToQuery, setTopValue, data, reset, setSubmitted)
+				sendQuery(
+					topValue,
+					setCompleted,
+					dateToQuery,
+					setTopValue,
+					data,
+					reset,
+					setSubmitted
+				)
 			)}
 		>
+			<Spinner completed={completed} />
 			<label htmlFor='name'>Name & surname:</label>
 			<StyledInput
 				type='text'
@@ -97,12 +108,14 @@ const querieTypeSelect = (event, setValue) => {
 
 const sendQuery = async (
 	topValue,
+	setCompleted,
 	dateToQuery,
 	setTopValue,
 	data,
 	reset,
 	setSubmitted
 ) => {
+	setCompleted(true);
 	try {
 		const newQuery = {
 			type: topValue,
@@ -123,6 +136,8 @@ const sendQuery = async (
 		});
 		setSubmitted(true);
 		setTopValue('');
+		setCompleted(false);
+		window.scrollTo(0, 0);
 	} catch (error) {
 		console.log('Error registering query', error.code, error.message);
 	}
