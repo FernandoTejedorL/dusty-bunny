@@ -25,6 +25,7 @@ import { useState } from 'react';
 import Modal from '../../components/modal/Modal';
 import TAndC from '../../components/tAndC/TAndC';
 import Spinner from '../../components/spinner/Spinner';
+import WrongSpinner from '../../components/wrongSpinner/WrongSpinner';
 
 const Register = () => {
 	const {
@@ -47,6 +48,7 @@ const Register = () => {
 	return (
 		<StyledMain>
 			<Spinner completed={completed} />
+			<WrongSpinner mailOk={mailOk} setMailOk={setMailOk} />
 			<PageHeader text={'Register'} />
 			<StyledContainer>
 				<StyledImg src={currentAvatar} alt='' />
