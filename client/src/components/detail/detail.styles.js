@@ -12,4 +12,5 @@ const StyledDetailTag = styled.span`
 	font-size: ${FONT_SIZE.m};
 `;
 
+
 export { StyledEachDetail, StyledDetailTag };
