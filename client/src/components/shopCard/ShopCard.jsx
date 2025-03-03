@@ -1,4 +1,10 @@
 import { Link } from 'react-router-dom';
+import {
+	actionAddToCart,
+	actionDecrementQuantity,
+	actionIncrementQuantity
+} from '../../actions/cart-actions';
+import { useAuth } from '../../hooks/useAuth';
 import { useCart } from '../../hooks/useCart';
 import {
 	StyledCardButton,
@@ -10,20 +16,13 @@ import {
 	StyledQuantityEditors,
 	StyledShopCard
 } from './shopCard.styles';
-import { useAuth } from '../../hooks/useAuth';
 
 const ShopCard = ({ item, text, action }) => {
-	const {
-		cart,
-		incrementQuantity,
-		decrementQuantity,
-		addToCart,
-		quantityToCard
-	} = useCart();
+	const { cartState, dispatch, quantityToCard } = useCart();
 	const { user } = useAuth();
 
-	const isInCart = cart.some(product => product._id === item._id);
-	const quantity = quantityToCard(item, cart);
+	const isInCart = cartState.some(product => product._id === item._id);
+	const quantity = quantityToCard(item, cartState);
 	const where = user ? '' : '/redirect';
 
 	return (
@@ -38,13 +37,17 @@ const ShopCard = ({ item, text, action }) => {
 			{user && (
 				<>
 					{!isInCart && !user.vendor && (
-						<StyledCardButton onClick={() => addToCart(item)}>
+						<StyledCardButton onClick={() => dispatch(actionAddToCart(item))}>
 							Add to Cart
 						</StyledCardButton>
 					)}
 					{isInCart && (
 						<StyledQuantityEditors>
-							<StyledQuantityButtons onClick={() => decrementQuantity(item)}>
+							<StyledQuantityButtons
+								onClick={() =>
+									dispatch(actionDecrementQuantity(item, quantity))
+								}
+							>
 								{quantity === 1 && (
 									<img src='/assets/images/common/delete.svg' alt='delete' />
 								)}
@@ -53,7 +56,9 @@ const ShopCard = ({ item, text, action }) => {
 								)}
 							</StyledQuantityButtons>
 							<StyledQuantity>{quantity}</StyledQuantity>
-							<StyledQuantityButtons onClick={() => incrementQuantity(item)}>
+							<StyledQuantityButtons
+								onClick={() => dispatch(actionIncrementQuantity(item))}
+							>
 								<img src='/assets/images/common/add.svg' alt='increment' />
 							</StyledQuantityButtons>
 						</StyledQuantityEditors>

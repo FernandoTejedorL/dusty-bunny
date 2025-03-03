@@ -17,9 +17,10 @@ import { useForm } from 'react-hook-form';
 import DynamicCard from '../dynamicCard/DynamicCard';
 import { useState } from 'react';
 import Spinner from '../spinner/Spinner';
+import { emptyCart } from '../../actions/cart-actions';
 
 const CreditCard = ({ setShowModal, setSent }) => {
-	const { cart, setCart, totalPrice } = useCart();
+	const { cartState, dispatch, totalPrice } = useCart();
 	const { user } = useAuth();
 	const [completed, setCompleted] = useState(false);
 	const navigate = useNavigate();
@@ -47,8 +48,8 @@ const CreditCard = ({ setShowModal, setSent }) => {
 				onSubmit={handleSubmit(() =>
 					sendOrder(
 						user,
-						cart,
-						setCart,
+						cartState,
+						dispatch,
 						totalPrice,
 						setCompleted,
 						setShowModal,
@@ -170,8 +171,8 @@ const changeCVV = (event, setValue) => {
 
 const sendOrder = async (
 	user,
-	cart,
-	setCart,
+	cartState,
+	dispatch,
 	totalPrice,
 	setCompleted,
 	setShowModal,
@@ -183,11 +184,11 @@ const sendOrder = async (
 		const newOrder = {
 			userId: user._id,
 			totalPrice: totalPrice,
-			orderContent: cart
+			orderContent: cartState
 		};
 		await createOrder(newOrder);
-		await addQuantityToProduct(cart);
-		setCart([]);
+		await addQuantityToProduct(cartState);
+		dispatch(emptyCart());
 		setShowModal(false);
 		navigate('/cart');
 		setSent(true);

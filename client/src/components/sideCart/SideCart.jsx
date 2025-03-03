@@ -12,7 +12,7 @@ import {
 } from './sideCart.styles';
 
 const SideCart = ({ buttonText, action }) => {
-	const { cart, totalQuantity } = useCart();
+	const { cartState, totalQuantity } = useCart();
 	const [cartOpen, setCartOpen] = useState(false);
 	return (
 		<StyledCart>
@@ -26,14 +26,14 @@ const SideCart = ({ buttonText, action }) => {
 				/>
 			</StyledCloserTile>
 			<StyledCartContainer $cartOpen={cartOpen}>
-				{cart.length === 0 && (
+				{cartState.length === 0 && (
 					<StyledEmptyImg src='/assets/images/common/empty.jpg' alt='' />
 				)}
-				{cart.length !== 0 && (
+				{cartState.length !== 0 && (
 					<StyledCartButton onClick={action}>{buttonText}</StyledCartButton>
 				)}
 
-				{cart.map(item => (
+				{cartState.map(item => (
 					<CartCard
 						key={item._id}
 						id={item._id}

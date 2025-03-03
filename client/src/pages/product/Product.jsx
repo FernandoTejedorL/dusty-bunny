@@ -23,13 +23,14 @@ import { useAuth } from '../../hooks/useAuth';
 import Info from '../../components/info/Info';
 import PageHeader from '../../components/pageHeader/PageHeader';
 import EditInfo from '../../components/editInfo/EditInfo';
+import { actionAddToCart } from '../../actions/cart-actions';
 
 const Product = () => {
 	const { id } = useParams();
 	const [product, setProduct] = useState({});
 	const [fav, setFav] = useState(false);
 	const [edit, setEdit] = useState(false);
-	const { cart, addToCart } = useCart();
+	const { cartState, dispatch } = useCart();
 	const { user, setUser } = useAuth();
 	const userId = user._id;
 	const navigate = useNavigate();
@@ -38,7 +39,7 @@ const Product = () => {
 		fetchProductById(setProduct, id);
 	}, [id]);
 
-	const isInCart = cart.some(item => item._id === product._id);
+	const isInCart = cartState.some(item => item._id === product._id);
 
 	checkFav(userId, product, setFav);
 
@@ -86,7 +87,7 @@ const Product = () => {
 					</StyledImagesContainer>
 					<StyledButtonsContainer>
 						{!isInCart && !user.vendor && (
-							<StyledButton onClick={() => addToCart(product)}>
+							<StyledButton onClick={() => dispatch(actionAddToCart(product))}>
 								Add To Cart
 							</StyledButton>
 						)}

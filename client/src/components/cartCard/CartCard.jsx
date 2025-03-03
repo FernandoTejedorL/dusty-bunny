@@ -6,8 +6,8 @@ import {
 } from './cartCard.styles';
 
 const CartCard = ({ id, image, name, quantity }) => {
-	const { cart } = useCart();
-	const finalPrice = totalPrice(id, cart);
+	const { cartState } = useCart();
+	const finalPrice = totalPrice(id, cartState);
 
 	return (
 		<StyledCartCard>
@@ -21,8 +21,8 @@ const CartCard = ({ id, image, name, quantity }) => {
 	);
 };
 
-const totalPrice = (id, cart) => {
-	const toCheck = cart.find(item => item._id === id);
+const totalPrice = (id, cartState) => {
+	const toCheck = cartState.find(item => item._id === id);
 	const price = toCheck.quantity * toCheck.price;
 	return price;
 };
