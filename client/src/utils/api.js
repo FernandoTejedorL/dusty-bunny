@@ -1,5 +1,5 @@
-const URL = 'http://localhost:3000';
-//const URL = 'https://dusty-bunny-server.onrender.com';
+//const URL = 'http://localhost:3000';
+const URL = 'https://dusty-bunny-server.onrender.com';
 const API_URL = '/api/users/';
 const API_PRODUCTS_URL = '/api/fluffs/';
 const API_ORDERS_URL = '/api/orders/';
@@ -241,21 +241,21 @@ const updateQueryStatus = async (id, newInfo) => {
 };
 
 export {
-	getAllData,
-	createData,
-	findData,
-	updateFavById,
-	updateDataById,
-	getAllProducts,
-	findProduct,
 	addFavToProduct,
-	removeFavToProduct,
 	addQuantityToProduct,
-	updateProductById,
-	findUserOrders,
-	findOrder,
+	createData,
 	createOrder,
-	findAllQueries,
 	createQuery,
+	findAllQueries,
+	findData,
+	findOrder,
+	findProduct,
+	findUserOrders,
+	getAllData,
+	getAllProducts,
+	removeFavToProduct,
+	updateDataById,
+	updateFavById,
+	updateProductById,
 	updateQueryStatus
 };
