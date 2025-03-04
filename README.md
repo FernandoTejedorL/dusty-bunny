@@ -37,7 +37,7 @@ During the development process, I worked with:
         JavaScript, HTML5, and CSS as the core technologies.
     </li>
     <li>
-        React for the frontend, styled with Styled Components to keep designs modular and dynamic.
+        React for the frontend, styled with Styled Components to keep designs modular and dynamic, always based on a mobile-first philosophy while ensuring a fully responsive build.
     </li>
     <li>
         Node.js for the backend, ensuring smooth API interactions.
@@ -108,9 +108,11 @@ From concept to deployment, Dusty Bunny has been an incredible learning journey,
 ## Capturas del proyecto
 
 <p>
-   <img src="" alt="Captura del proyecto">
-   <img src="" alt="Captura del proyecto">
-   <img src="" alt="Captura del proyecto">
+   <img src="https://raw.githubusercontent.com/FernandoTejedorL/dusty-bunny/refs/heads/main/client/design/home.jpg" alt="home">
+   <img src="https://raw.githubusercontent.com/FernandoTejedorL/dusty-bunny/refs/heads/main/client/design/shop.jpg" alt="shop">
+   <img src="https://raw.githubusercontent.com/FernandoTejedorL/dusty-bunny/refs/heads/main/client/design/profile.jpg" alt="user">
+   <img src="https://raw.githubusercontent.com/FernandoTejedorL/dusty-bunny/refs/heads/main/client/design/orders.jpg" alt="orders">
+   <img src="https://raw.githubusercontent.com/FernandoTejedorL/dusty-bunny/refs/heads/main/client/design/menu.jpg" alt="menu">
 </p>
 
 ## Author ✒️
