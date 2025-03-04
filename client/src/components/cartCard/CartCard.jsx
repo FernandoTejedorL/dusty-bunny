@@ -1,9 +1,10 @@
-import { useCart } from '../../hooks/useCart';
 import {
 	StyledCartCard,
 	StyledCartElementInfo,
 	StyledCartImage
 } from './cartCard.styles';
+
+import { useCart } from '../../hooks/useCart';
 
 const CartCard = ({ id, image, name, quantity }) => {
 	const { cartState } = useCart();

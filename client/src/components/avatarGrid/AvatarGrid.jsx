@@ -1,10 +1,11 @@
-import { AVATARS_INFO } from '../../constants/avatars-info';
 import {
 	StyledAvatar,
 	StyledAvatarComponent,
 	StyledAvatarGrid,
 	StyledRequired
 } from './AvatarGrid.Styles';
+
+import { AVATARS_INFO } from '../../constants/avatars-info';
 
 const AvatarGrid = ({ register, error, required, action }) => {
 	return (

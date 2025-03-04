@@ -1,21 +1,23 @@
+import { useEffect, useRef, useState } from 'react';
 import { Navigation } from 'swiper/modules';
 import { SwiperSlide } from 'swiper/react';
-import { useEffect, useRef, useState } from 'react';
-import ProductCard from '../productCard/ProductCard';
+import 'swiper/css';
+import 'swiper/css/navigation';
+
 import {
 	NavigationButton,
 	StyledCarousel,
 	StyledChevron,
 	StyledSwiper
 } from './carousel.styles';
-import 'swiper/css';
-import 'swiper/css/navigation';
+
+import ProductCard from '../productCard/ProductCard';
 
 const Carousel = ({ products }) => {
-	const [slidesPerView, setSlidesPerView] = useState(getSlidesPerView());
+	const [swiperInstance, setSwiperInstance] = useState(null);
+
 	const prevRef = useRef(null);
 	const nextRef = useRef(null);
-	const [swiperInstance, setSwiperInstance] = useState(null);
 
 	useEffect(() => {
 		if (
@@ -31,15 +33,6 @@ const Carousel = ({ products }) => {
 		}
 	}, [swiperInstance, prevRef, nextRef]);
 
-	useEffect(() => {
-		const handleResize = () => {
-			setSlidesPerView(getSlidesPerView());
-		};
-
-		window.addEventListener('resize', handleResize);
-		return () => window.removeEventListener('resize', handleResize);
-	}, []);
-
 	return (
 		<StyledCarousel>
 			<NavigationButton ref={prevRef} $position='left'>
@@ -52,7 +45,12 @@ const Carousel = ({ products }) => {
 				modules={[Navigation]}
 				loop={true}
 				spaceBetween={10}
-				slidesPerView={slidesPerView}
+				breakpoints={{
+					320: { slidesPerView: 1 },
+					768: { slidesPerView: 2 },
+					1024: { slidesPerView: 3 },
+					1440: { slidesPerView: 4 }
+				}}
 				navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
 				onSwiper={setSwiperInstance}
 			>
@@ -75,14 +73,6 @@ const Carousel = ({ products }) => {
 			</NavigationButton>
 		</StyledCarousel>
 	);
-};
-
-const getSlidesPerView = () => {
-	const width = window.innerWidth;
-	if (width < 768) return 1;
-	if (width < 1024) return 2;
-	if (width < 1440) return 3;
-	if (width >= 1440) return 4;
 };
 
 export default Carousel;

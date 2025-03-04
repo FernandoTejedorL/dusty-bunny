@@ -1,4 +1,3 @@
-import { useCart } from '../../hooks/useCart';
 import {
 	StyledCheckOutContent,
 	StyledCheckOutData,
@@ -7,6 +6,8 @@ import {
 	StyledHeader,
 	StyledInfoContainer
 } from './checkOut.Styles';
+
+import { useCart } from '../../hooks/useCart';
 import CreditCard from '../creditCard/CreditCard';
 
 const CheckOut = ({ setShowModal, setSent }) => {
@@ -38,29 +39,5 @@ const CheckOut = ({ setShowModal, setSent }) => {
 		</>
 	);
 };
-
-// const sendOrder = async (
-// 	user,
-// 	cart,
-// 	setCart,
-// 	totalPrice,
-// 	setShowModal,
-// 	navigate
-// ) => {
-// 	try {
-// 		const newOrder = {
-// 			userId: user._id,
-// 			totalPrice: totalPrice,
-// 			orderContent: cart
-// 		};
-// 		await createOrder(newOrder);
-// 		await addQuantityToProduct(cart);
-// 		setCart([]);
-// 		setShowModal(false);
-// 		navigate('/cart');
-// 	} catch (error) {
-// 		console.log('Error registering order', error.code, error.message);
-// 	}
-// };
 
 export default CheckOut;
