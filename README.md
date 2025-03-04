@@ -2,6 +2,8 @@
 
 <p>
     <img src="https://raw.githubusercontent.com/FernandoTejedorL/dusty-bunny/refs/heads/main/client/design/home.jpg" alt="home">
+</p>
+<p>
     <img src="https://raw.githubusercontent.com/FernandoTejedorL/dusty-bunny/refs/heads/main/client/design/shop.jpg" alt="home">
 </p>
 
