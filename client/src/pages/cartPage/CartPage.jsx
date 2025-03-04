@@ -8,13 +8,14 @@ import ShopCard from '../../components/shopCard/ShopCard';
 import SideCart from '../../components/sideCart/SideCart';
 import { useCart } from '../../hooks/useCart';
 
+import { useNavigate } from 'react-router-dom';
+import ButtonPrimary from '../../components/buttonPrimary/ButtonPrimary';
 import {
 	StyledAllComp,
 	StyledCartShop,
 	StyledClose,
 	StyledComment,
 	StyledEmptyBig,
-	StyledGoTo,
 	StyledJulio,
 	StyledMain,
 	StyledPrice,
@@ -23,6 +24,7 @@ import {
 
 const CartPage = () => {
 	const { cartState, dispatch, totalPrice } = useCart();
+	const navigate = useNavigate();
 
 	const [showModal, setShowModal] = useState(false);
 	const [sent, setSent] = useState(false);
@@ -55,7 +57,10 @@ const CartPage = () => {
 							<StyledComment>
 								You want to buy some fluff... and you know it!
 							</StyledComment>
-							<StyledGoTo to={'/shop'}>Go to shop</StyledGoTo>
+							<ButtonPrimary
+								text={'Go to shop'}
+								action={() => navigate('/shop')}
+							/>
 						</StyledEmptyBig>
 					)}
 					{cartState.map(item => (

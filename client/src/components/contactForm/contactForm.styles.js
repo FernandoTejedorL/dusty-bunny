@@ -45,41 +45,16 @@ const StyledTextInput = styled.textarea`
 	border: 0.0625rem solid ${COLORS.deepViolet};
 `;
 
-const StyledSubmit = styled.input`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 70%;
-	background-color: ${COLORS.lightViolet};
-	border: 0.0625rem solid ${COLORS.dark};
-	border-radius: 0.5rem;
-	padding: 0.5rem;
-	cursor: pointer;
-
-	@media screen and (width>=1024px) {
-		width: 80%;
-	}
-
-	@media (hover: hover) {
-		&:hover {
-			background-color: ${COLORS.deepViolet};
-			border: 0.0625rem solid ${COLORS.white};
-			color: ${COLORS.white};
-		}
-	}
-`;
-
 const StyledRequired = styled.span`
 	color: red;
 	font-size: 0.8rem;
 `;
 
 export {
-	StyledForm,
-	StyledSelect,
-	StyledInput,
 	StyledBottomForm,
-	StyledTextInput,
-	StyledSubmit,
-	StyledRequired
+	StyledForm,
+	StyledInput,
+	StyledRequired,
+	StyledSelect,
+	StyledTextInput
 };

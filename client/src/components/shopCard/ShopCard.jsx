@@ -8,8 +8,8 @@ import {
 import { useAuth } from '../../hooks/useAuth';
 import { useCart } from '../../hooks/useCart';
 
+import ButtonPrimary from '../buttonPrimary/ButtonPrimary';
 import {
-	StyledCardButton,
 	StyledMoreInfo,
 	StyledNameAndPrice,
 	StyledProductPic,
@@ -39,9 +39,10 @@ const ShopCard = ({ item, text, action }) => {
 			{user && (
 				<>
 					{!isInCart && !user.vendor && (
-						<StyledCardButton onClick={() => dispatch(actionAddToCart(item))}>
-							Add to Cart
-						</StyledCardButton>
+						<ButtonPrimary
+							text={'Add to Cart'}
+							action={() => dispatch(actionAddToCart(item))}
+						/>
 					)}
 					{isInCart && (
 						<StyledQuantityEditors>

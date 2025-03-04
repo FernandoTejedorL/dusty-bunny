@@ -15,8 +15,8 @@ import {
 	updateFavById
 } from '../../utils/api';
 
+import ButtonPrimary from '../../components/buttonPrimary/ButtonPrimary';
 import {
-	StyledButton,
 	StyledButtonsContainer,
 	StyledFavIcon,
 	StyledImage,
@@ -54,14 +54,16 @@ const Product = () => {
 					{user.vendor && (
 						<StyledButtonsContainer>
 							{!edit && (
-								<StyledButton onClick={() => setEdit(true)}>
-									Edit Product
-								</StyledButton>
+								<ButtonPrimary
+									text={'Edit Product'}
+									action={() => setEdit(true)}
+								/>
 							)}
 							{edit && (
-								<StyledButton onClick={() => setEdit(false)}>
-									Cancel Editting
-								</StyledButton>
+								<ButtonPrimary
+									text={'Cancel Editting'}
+									action={() => setEdit(false)}
+								/>
 							)}
 						</StyledButtonsContainer>
 					)}
@@ -90,21 +92,22 @@ const Product = () => {
 					</StyledImagesContainer>
 					<StyledButtonsContainer>
 						{!isInCart && !user.vendor && (
-							<StyledButton onClick={() => dispatch(actionAddToCart(product))}>
-								Add To Cart
-							</StyledButton>
+							<ButtonPrimary
+								text={'Add To Cart'}
+								action={() => dispatch(actionAddToCart(product))}
+							/>
 						)}
-
 						{!edit && (
-							<StyledButton onClick={() => navigate('/shop')}>
-								Go to Shop
-							</StyledButton>
+							<ButtonPrimary
+								text={'Go to Shop'}
+								action={() => navigate('/shop')}
+							/>
 						)}
-
 						{!user.vendor && (
-							<StyledButton onClick={() => navigate(`/user/${user._id}`)}>
-								Go to User Page
-							</StyledButton>
+							<ButtonPrimary
+								text={'Go to User Page'}
+								action={() => navigate(`/user/${user._id}`)}
+							/>
 						)}
 					</StyledButtonsContainer>
 				</StyledImageAndButtons>

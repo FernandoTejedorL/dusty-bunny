@@ -13,8 +13,8 @@ import { auth } from '../../config/firebase.config';
 import { useAuth } from '../../hooks/useAuth';
 import { createData } from '../../utils/api';
 
+import ButtonInput from '../../components/buttonInputPrimary/ButtonInput';
 import {
-	StyledButton,
 	StyledCheckbox,
 	StyledContainer,
 	StyledImg,
@@ -175,7 +175,7 @@ const Register = () => {
 						/>
 					</StyledRadioPack>
 					<StyledRequired>{errors.terms?.message}</StyledRequired>
-					<StyledButton type='submit' value='Register' />
+					<ButtonInput value={'Register'} />
 				</StyledRegisterForm>
 			</StyledContainer>
 			{showModal && (

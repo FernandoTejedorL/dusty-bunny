@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { COLORS } from '../../styles/colors';
 
 const StyledMain = styled.main`
 	display: flex;
@@ -70,32 +69,6 @@ const StyledButtonsContainer = styled.div`
 	}
 `;
 
-const StyledButton = styled.button`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 70%;
-	height: 2.5rem;
-	background-color: ${COLORS.lightViolet};
-	border-radius: 0.5rem;
-	border: 1px solid ${COLORS.dark};
-	color: ${COLORS.dark};
-	padding-inline: 0.5rem;
-	cursor: pointer;
-
-	@media (hover: hover) {
-		&:hover {
-			background-color: ${COLORS.deepViolet};
-			color: ${COLORS.white};
-			border: 0.0625rem solid ${COLORS.white};
-		}
-	}
-
-	@media screen and (width>=1024px) {
-		width: 90%;
-	}
-`;
-
 const StyledInfoContainer = styled.div`
 	display: flex;
 	flex-direction: column;
@@ -106,13 +79,12 @@ const StyledInfoContainer = styled.div`
 `;
 
 export {
-	StyledMain,
-	StyledProductContainer,
-	StyledImagesContainer,
-	StyledImage,
-	StyledFavIcon,
-	StyledImageAndButtons,
 	StyledButtonsContainer,
-	StyledButton,
-	StyledInfoContainer
+	StyledFavIcon,
+	StyledImage,
+	StyledImageAndButtons,
+	StyledImagesContainer,
+	StyledInfoContainer,
+	StyledMain,
+	StyledProductContainer
 };

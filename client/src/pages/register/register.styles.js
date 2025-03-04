@@ -107,43 +107,22 @@ const StyledTandC = styled.span`
 	cursor: pointer;
 `;
 
-const StyledButton = styled.input`
-	display: flex;
-	align-items: center;
-	height: 2.5rem;
-	background-color: ${COLORS.lightViolet};
-	border-radius: 0.5rem;
-	border: 1px solid ${COLORS.dark};
-	color: ${COLORS.dark};
-	padding-inline: 0.5rem;
-	cursor: pointer;
-
-	@media (hover: hover) {
-		&:hover {
-			background-color: ${COLORS.deepViolet};
-			color: ${COLORS.white};
-			border: 1px solid ${COLORS.white};
-		}
-	}
-`;
-
 const StyledRequired = styled.span`
 	color: red;
 	font-size: 0.8rem;
 `;
 
 export {
-	StyledMain,
+	StyledCheckbox,
 	StyledContainer,
 	StyledImg,
-	StyledRegisterForm,
-	StyledInputAndTag,
 	StyledInput,
-	StyledRadiosContainer,
-	StyledRadioPack,
-	StyledCheckbox,
+	StyledInputAndTag,
 	StyledLabel,
-	StyledTandC,
-	StyledButton,
-	StyledRequired
+	StyledMain,
+	StyledRadioPack,
+	StyledRadiosContainer,
+	StyledRegisterForm,
+	StyledRequired,
+	StyledTandC
 };

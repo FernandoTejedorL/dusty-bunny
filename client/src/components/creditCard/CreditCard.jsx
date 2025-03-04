@@ -9,10 +9,10 @@ import { addQuantityToProduct, createOrder } from '../../utils/api';
 import DynamicCard from '../dynamicCard/DynamicCard';
 import Spinner from '../spinner/Spinner';
 
+import ButtonInput from '../buttonInputPrimary/ButtonInput';
+import ButtonPrimary from '../buttonPrimary/ButtonPrimary';
 import {
 	StyledBottomInputs,
-	StyledButton,
-	StyledButtonInput,
 	StyledButtonsContainer,
 	StyledCreditCard,
 	StyledEachInputContainer,
@@ -132,10 +132,11 @@ const CreditCard = ({ setShowModal, setSent }) => {
 					</StyledLittleInputContainers>
 				</StyledBottomInputs>
 				<StyledButtonsContainer>
-					<StyledButtonInput type='submit' value='Confirm' />
-					<StyledButton onClick={() => setShowModal(false)}>
-						Back to cart
-					</StyledButton>
+					<ButtonInput value={'Confirm'} />
+					<ButtonPrimary
+						text={'Back to cart'}
+						action={() => setShowModal(false)}
+					/>
 				</StyledButtonsContainer>
 			</StyledCreditCard>
 		</div>

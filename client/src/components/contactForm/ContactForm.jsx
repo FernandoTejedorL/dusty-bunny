@@ -4,13 +4,13 @@ import { useForm } from 'react-hook-form';
 import { createQuery } from '../../utils/api';
 import Spinner from '../spinner/Spinner';
 
+import ButtonInput from '../buttonInputPrimary/ButtonInput';
 import {
 	StyledBottomForm,
 	StyledForm,
 	StyledInput,
 	StyledRequired,
 	StyledSelect,
-	StyledSubmit,
 	StyledTextInput
 } from './contactForm.styles';
 
@@ -94,7 +94,7 @@ const ContactForm = ({ topic, topValue, setTopValue, setSubmitted }) => {
 						id='description'
 					/>
 					<StyledRequired>{errors?.description?.message}</StyledRequired>
-					<StyledSubmit type='submit' value='Send' />
+					<ButtonInput value={'Send'} />
 				</StyledBottomForm>
 			)}
 		</StyledForm>

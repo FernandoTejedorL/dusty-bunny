@@ -1,12 +1,12 @@
 import { FILTERS } from '../../constants/filters';
 import { findProduct, updateProductById } from '../../utils/api';
+import ButtonInput from '../buttonInputPrimary/ButtonInput';
 
 import {
 	StyledDetailTag,
 	StyledEachDetail,
 	StyledEditInfo,
 	StyledSelect,
-	StyledSubmit,
 	StyledTextArea
 } from './editInfo.styles';
 
@@ -63,7 +63,7 @@ const EditInfo = ({ product, setProduct, setEdit, id }) => {
 					defaultValue={parseFloat(product.price)}
 				/>
 			</StyledEachDetail>
-			<StyledSubmit type='submit' value='Confirm Changes' />
+			<ButtonInput value={'Confirm Changes'} />
 		</StyledEditInfo>
 	);
 };

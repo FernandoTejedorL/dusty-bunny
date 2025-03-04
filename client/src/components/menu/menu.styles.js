@@ -20,11 +20,13 @@ const StyledMenu = styled.div`
 	@media screen and (width>=1024px) {
 		position: relative;
 		background-color: transparent;
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
 		translate: 0;
 		top: 0;
 		border-bottom: none;
 		height: 80px;
-
 		max-width: 70%;
 	}
 `;
@@ -83,64 +85,10 @@ const StyledNavLink = styled(NavLink)`
 
 const StyledButtonsContainer = styled.div`
 	display: flex;
+	align-items: center;
 	max-width: 100%;
 	padding: 1.5625rem;
 	gap: 1.5625rem;
 `;
 
-const StyledButton = styled.button`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 2.125rem;
-	border: 0.0625rem solid ${COLORS.dark};
-	background-color: ${COLORS.white};
-	border-radius: 0.5rem;
-	color: ${COLORS.dark};
-	font-weight: ${FONT_WEIGHT.bold};
-	letter-spacing: 0;
-	padding: 1.5625rem;
-	cursor: pointer;
-
-	@media (hover: hover) {
-		&:hover {
-			color: ${COLORS.white};
-			background-color: ${COLORS.deepViolet};
-			border: 0.0625rem solid ${COLORS.white};
-		}
-	}
-`;
-
-const StyledLogOutButton = styled.button`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	max-width: 11.25rem;
-	height: 2.125rem;
-	border: 0.0625rem solid ${COLORS.dark};
-	background-color: ${COLORS.white};
-	border-radius: 0.5rem;
-	color: ${COLORS.dark};
-	font-weight: ${FONT_WEIGHT.bold};
-	letter-spacing: 0;
-	padding: 1.5625rem;
-	margin: 1.5625rem;
-	cursor: pointer;
-
-	@media (hover: hover) {
-		&:hover {
-			color: ${COLORS.white};
-			background-color: ${COLORS.deepViolet};
-			border: 0.0625rem solid ${COLORS.white};
-		}
-	}
-`;
-
-export {
-	StyledButton,
-	StyledButtonsContainer,
-	StyledLogOutButton,
-	StyledMenu,
-	StyledNavLink,
-	StyledUl
-};
+export { StyledButtonsContainer, StyledMenu, StyledNavLink, StyledUl };

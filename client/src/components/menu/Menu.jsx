@@ -1,13 +1,12 @@
 import { signOut } from 'firebase/auth';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { auth } from '../../config/firebase.config';
 import { useAuth } from '../../hooks/useAuth';
+import ButtonSecondary from '../buttonSecondary/ButtonSecondary';
 
 import {
-	StyledButton,
 	StyledButtonsContainer,
-	StyledLogOutButton,
 	StyledMenu,
 	StyledNavLink,
 	StyledUl
@@ -15,6 +14,7 @@ import {
 
 const Menu = ({ menuOpen, setMenuOpen }) => {
 	const { user, loading } = useAuth();
+	const navigate = useNavigate();
 
 	if (loading) return <h2>LOADING...</h2>;
 
@@ -26,12 +26,14 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
 					<StyledNavLink to={'/shop'}>Shop</StyledNavLink>
 					{!user && (
 						<StyledButtonsContainer>
-							<Link to={'/login'}>
-								<StyledButton>Sign In</StyledButton>
-							</Link>
-							<Link to={'/register'}>
-								<StyledButton>Register</StyledButton>
-							</Link>
+							<ButtonSecondary
+								text={'Sign In'}
+								action={() => navigate('/login')}
+							/>
+							<ButtonSecondary
+								text={'Register'}
+								action={() => navigate('/register')}
+							/>
 						</StyledButtonsContainer>
 					)}
 
@@ -52,9 +54,9 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
 						</>
 					)}
 					{user && (
-						<Link to={'/'}>
-							<StyledLogOutButton onClick={logout}>Log Out</StyledLogOutButton>
-						</Link>
+						<StyledButtonsContainer>
+							<ButtonSecondary text={'Log Out'} action={() => logout()} />
+						</StyledButtonsContainer>
 					)}
 				</StyledUl>
 			</nav>

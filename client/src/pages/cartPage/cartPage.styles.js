@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
-import { Link } from 'react-router-dom';
 import { COLORS } from '../../styles/colors';
+import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
 
 const StyledMain = styled.main`
 	position: relative;
@@ -88,25 +87,6 @@ const StyledJulio = styled.img`
 	border-radius: 1rem;
 `;
 
-const StyledGoTo = styled(Link)`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: ${COLORS.lightViolet};
-	border: 0.0625rem solid ${COLORS.dark};
-	border-radius: 0.5rem;
-	padding: 0.5rem;
-	cursor: pointer;
-
-	@media (hover: hover) {
-		&:hover {
-			background-color: ${COLORS.deepViolet};
-			border: 1px solid ${COLORS.white};
-			color: ${COLORS.white};
-		}
-	}
-`;
-
 const StyledComment = styled.h3`
 	font-family: ${FONT_FAMILY.pacifico};
 	font-size: ${FONT_SIZE.m};
@@ -119,14 +99,13 @@ const StyledComment = styled.h3`
 `;
 
 export {
-	StyledMain,
-	StyledPrice,
-	StyledSent,
-	StyledClose,
 	StyledAllComp,
 	StyledCartShop,
+	StyledClose,
+	StyledComment,
 	StyledEmptyBig,
 	StyledJulio,
-	StyledGoTo,
-	StyledComment
+	StyledMain,
+	StyledPrice,
+	StyledSent
 };
