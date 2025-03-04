@@ -113,30 +113,19 @@ From concept to deployment, Dusty Bunny has been an incredible learning journey,
    <img src="" alt="Captura del proyecto">
 </p>
 
-## Autor ✒️
+## Author ✒️
 
-**TU NOMBRE**
+**Fernando Tejedor**
 
 <ul>
     <li>
-        <a href="micorreo@midominio.com">micorreo@midominio.com</a>
+        <a href="fernandotejedorlopez@gmail.com">✉️fernandotejedorlopez@gmail.com</a>
     </li>
     <li>
-        <a href="https://www.linkedin.com/in/tu-url-de-linkedin/">LinkedIn</a>
-    </li>
-    <li>
-        <a href="https://tu-dominio.com/">Porfolio web</a>
+        <a href="https://www.linkedin.com/in/fernando-tejedor-65483b6b/">LinkedIn</a>
     </li>
 </ul>
 
-## Link del reto (si es público)
+## Comments
 
-<a href="">Página de frontendmentor</a>
-
-## Instalación
-
-Este proyecto está construido con Vite.
-
-- Para editarlo ejecuta el comando <b>npm run dev</b>
-- Para construir la versión de producción ejecuta el comando <b>npm run build</b>
-- Para previsualizar la versión final ejecuta el comando <b>npm run preview</b>
+This project is built with Vite
