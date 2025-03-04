@@ -20,9 +20,13 @@
 Dusty Bunny is a unique and whimsical online marketplace where users can buy, sell, and desire premium dust bunnies. Whether you're a fluff enthusiast, a collector of rare dust specimens, or just looking for a fun way to engage with a quirky community, Dusty Bunny has something for you!
 
 ✨ <b>Features</b>
+</br>
 🛍 Buy & Sell Fluffs – Find and trade a variety of dust bunnies, from the common couch fluff to rare and mythical specimens.
+</br>
 🔍 Advanced Search – Filter fluffs by size, diet, and personality.
+</br>
 🏪 Vendor Accounts – Become a verified fluff seller and start your own fluffy business.
+</br>
 🏢 Fluff Corporate HQ – A structured and professional (but still fluffy) executive team manages the platform.
 
 ## ¿Qué he aprendido en este proyecto? 🙇🏻
