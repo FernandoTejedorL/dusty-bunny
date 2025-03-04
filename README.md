@@ -35,6 +35,7 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, 
 <!-- Iconos sacados de: https://github.com/alexandresanlim/Badges4-README.md-Profile?tab=readme-ov-file#-languages- -->
 
 <p>
+    <span>Programming and Markup Languages</span></br>
     <a href="https://es.wikipedia.org/wiki/CSS">
         <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS logo">
     </a>
@@ -46,6 +47,7 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, 
     </a>    
 </p>
 <p>
+    <span>Frameworks and Libraries</span></br>
     <a href="https://es.wikipedia.org/wiki/React">
         <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React logo">
     </a>
@@ -54,6 +56,7 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, 
     </a>
 </p>
 <p>
+    <span>Tools and Platforms</span></br>
     <a href="https://https://render.com/">
         <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="Render logo">
     </a>
@@ -62,11 +65,13 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, 
     </a>
 </p>
 <p>
+    <span>Databases</span></br>
     <a href="https://https://www.mongodb.com/">
         <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="Mongo logo">
     </a>
 </p>
 <p>
+    <span>Back-end and Cloud Services</span></br>
     <a href="https://firebase.google.com/">
         <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase logo">
     </a>
