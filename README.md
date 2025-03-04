@@ -1,7 +1,7 @@
-# Título del proyecto
+# Dusty Bunny
 
 <p>
-    <img src="" alt="Imagen del proyecto">
+    <img src="https://raw.githubusercontent.com/FernandoTejedorL/dusty-bunny/refs/heads/main/client/design/home.jpg" alt="home">
 </p>
 
 ## Vista en vivo
