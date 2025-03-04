@@ -2,6 +2,7 @@
 
 <p>
     <img src="https://raw.githubusercontent.com/FernandoTejedorL/dusty-bunny/refs/heads/main/client/design/home.jpg" alt="home">
+    <img src="https://raw.githubusercontent.com/FernandoTejedorL/dusty-bunny/refs/heads/main/client/design/shop.jpg" alt="home">
 </p>
 
 ## Vista en vivo
