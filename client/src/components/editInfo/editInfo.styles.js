@@ -63,10 +63,10 @@ const StyledSubmit = styled.input`
 `;
 
 export {
-	StyledEditInfo,
-	StyledEachDetail,
 	StyledDetailTag,
-	StyledTextArea,
+	StyledEachDetail,
+	StyledEditInfo,
 	StyledSelect,
-	StyledSubmit
+	StyledSubmit,
+	StyledTextArea
 };

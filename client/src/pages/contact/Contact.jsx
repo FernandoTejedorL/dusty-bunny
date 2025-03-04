@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { QUERIES } from '../../constants/queries-info';
 import ContactForm from '../../components/contactForm/ContactForm';
 import PageHeader from '../../components/pageHeader/PageHeader';
+import { QUERIES } from '../../constants/queries-info';
 import {
 	StyledBotForm,
 	StyledCatchphrase,

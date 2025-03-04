@@ -1,10 +1,15 @@
 import { useState } from 'react';
-import { useAuth } from '../../hooks/useAuth';
-import { updateDataById } from '../../utils/api';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useProducts } from '../../hooks/useProducts';
 import { useForm } from 'react-hook-form';
+import { useNavigate, useParams } from 'react-router-dom';
+import AvatarGrid from '../../components/avatarGrid/AvatarGrid';
+import ButtonInput from '../../components/buttonInputPrimary/ButtonInput';
+import ButtonPrimary from '../../components/buttonPrimary/ButtonPrimary';
 import Carousel from '../../components/carousel/Carousel';
+import PageHeader from '../../components/pageHeader/PageHeader';
+import Spinner from '../../components/spinner/Spinner';
+import { useAuth } from '../../hooks/useAuth';
+import { useProducts } from '../../hooks/useProducts';
+import { updateDataById } from '../../utils/api';
 import {
 	StyledAvatar,
 	StyledConfirmCancel,
@@ -18,11 +23,6 @@ import {
 	StyledMain,
 	StyledUserContainer
 } from './userPage.styles';
-import PageHeader from '../../components/pageHeader/PageHeader';
-import AvatarGrid from '../../components/avatarGrid/AvatarGrid';
-import ButtonPrimary from '../../components/buttonPrimary/ButtonPrimary';
-import ButtonInput from '../../components/buttonInputPrimary/ButtonInput';
-import Spinner from '../../components/spinner/Spinner';
 
 const UserPage = () => {
 	const { user, setUser, loading } = useAuth();

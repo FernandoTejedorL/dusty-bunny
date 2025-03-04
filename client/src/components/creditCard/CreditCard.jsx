@@ -1,23 +1,23 @@
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import { emptyCart } from '../../actions/cart-actions';
+import { useAuth } from '../../hooks/useAuth';
+import { useCart } from '../../hooks/useCart';
+import { addQuantityToProduct, createOrder } from '../../utils/api';
+import DynamicCard from '../dynamicCard/DynamicCard';
+import Spinner from '../spinner/Spinner';
 import {
-	StyledCreditCard,
-	StyledEachInputContainer,
 	StyledBottomInputs,
-	StyledLittleInputContainers,
-	StyledInput,
-	StyledButtonsContainer,
 	StyledButton,
 	StyledButtonInput,
-	StyledErrorMessage
+	StyledButtonsContainer,
+	StyledCreditCard,
+	StyledEachInputContainer,
+	StyledErrorMessage,
+	StyledInput,
+	StyledLittleInputContainers
 } from './creditCard.styles';
-import { addQuantityToProduct, createOrder } from '../../utils/api';
-import { useCart } from '../../hooks/useCart';
-import { useAuth } from '../../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import DynamicCard from '../dynamicCard/DynamicCard';
-import { useState } from 'react';
-import Spinner from '../spinner/Spinner';
-import { emptyCart } from '../../actions/cart-actions';
 
 const CreditCard = ({ setShowModal, setSent }) => {
 	const { cartState, dispatch, totalPrice } = useCart();

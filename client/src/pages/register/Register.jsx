@@ -1,7 +1,16 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../config/firebase.config';
-import { createData } from '../../utils/api';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+import AvatarGrid from '../../components/avatarGrid/AvatarGrid';
+import Modal from '../../components/modal/Modal';
+import PageHeader from '../../components/pageHeader/PageHeader';
+import Spinner from '../../components/spinner/Spinner';
+import TAndC from '../../components/tAndC/TAndC';
+import WrongSpinner from '../../components/wrongSpinner/WrongSpinner';
+import { auth } from '../../config/firebase.config';
+import { useAuth } from '../../hooks/useAuth';
+import { createData } from '../../utils/api';
 import {
 	StyledButton,
 	StyledCheckbox,
@@ -17,15 +26,6 @@ import {
 	StyledRequired,
 	StyledTandC
 } from './register.styles';
-import { useAuth } from '../../hooks/useAuth';
-import AvatarGrid from '../../components/avatarGrid/AvatarGrid';
-import { useForm } from 'react-hook-form';
-import PageHeader from '../../components/pageHeader/PageHeader';
-import { useState } from 'react';
-import Modal from '../../components/modal/Modal';
-import TAndC from '../../components/tAndC/TAndC';
-import Spinner from '../../components/spinner/Spinner';
-import WrongSpinner from '../../components/wrongSpinner/WrongSpinner';
 
 const Register = () => {
 	const {

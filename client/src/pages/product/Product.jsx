@@ -1,4 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { actionAddToCart } from '../../actions/cart-actions';
+import EditInfo from '../../components/editInfo/EditInfo';
+import Info from '../../components/info/Info';
+import PageHeader from '../../components/pageHeader/PageHeader';
+import { useAuth } from '../../hooks/useAuth';
+import { useCart } from '../../hooks/useCart';
 import {
 	addFavToProduct,
 	findData,
@@ -6,8 +13,6 @@ import {
 	removeFavToProduct,
 	updateFavById
 } from '../../utils/api';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useCart } from '../../hooks/useCart';
 import {
 	StyledButton,
 	StyledButtonsContainer,
@@ -19,11 +24,6 @@ import {
 	StyledMain,
 	StyledProductContainer
 } from './product.styles';
-import { useAuth } from '../../hooks/useAuth';
-import Info from '../../components/info/Info';
-import PageHeader from '../../components/pageHeader/PageHeader';
-import EditInfo from '../../components/editInfo/EditInfo';
-import { actionAddToCart } from '../../actions/cart-actions';
 
 const Product = () => {
 	const { id } = useParams();

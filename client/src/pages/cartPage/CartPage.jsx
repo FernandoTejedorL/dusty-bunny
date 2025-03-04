@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { actionDeleteFromCart } from '../../actions/cart-actions';
 import CheckOut from '../../components/checkOut/CheckOut';
 import Modal from '../../components/modal/Modal';
 import PageHeader from '../../components/pageHeader/PageHeader';
@@ -17,7 +18,6 @@ import {
 	StyledPrice,
 	StyledSent
 } from './cartPage.styles';
-import { actionDeleteFromCart } from '../../actions/cart-actions';
 
 const CartPage = () => {
 	const { cartState, dispatch, totalPrice } = useCart();

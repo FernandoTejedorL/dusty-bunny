@@ -1,11 +1,11 @@
+import { Link } from 'react-router-dom';
 import 'swiper/css';
+import { useAuth } from '../../hooks/useAuth';
 import {
 	StyledCardImage,
 	StyledPrice,
 	StyledSlide
 } from './productCard.styles';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../../hooks/useAuth';
 
 const ProductCard = ({ id, image, name, price }) => {
 	const { user } = useAuth();

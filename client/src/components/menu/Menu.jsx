@@ -1,3 +1,7 @@
+import { signOut } from 'firebase/auth';
+import { Link } from 'react-router-dom';
+import { auth } from '../../config/firebase.config';
+import { useAuth } from '../../hooks/useAuth';
 import {
 	StyledButton,
 	StyledButtonsContainer,
@@ -6,10 +10,6 @@ import {
 	StyledNavLink,
 	StyledUl
 } from './menu.styles';
-import { useAuth } from '../../hooks/useAuth';
-import { Link } from 'react-router-dom';
-import { signOut } from 'firebase/auth';
-import { auth } from '../../config/firebase.config';
 
 const Menu = ({ menuOpen, setMenuOpen }) => {
 	const { user, loading } = useAuth();

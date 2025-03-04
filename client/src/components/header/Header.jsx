@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Logo from '../logo/Logo';
 import Menu from '../menu/Menu';
 import {
 	StyledBrand,
@@ -6,7 +7,6 @@ import {
 	StyledHeader,
 	StyledIcon
 } from './header.styles';
-import Logo from '../logo/Logo';
 
 const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false);

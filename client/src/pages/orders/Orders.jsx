@@ -1,7 +1,9 @@
-import { useNavigate, useParams } from 'react-router-dom';
-import { findUserOrders } from '../../utils/api';
 import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import ButtonPrimary from '../../components/buttonPrimary/ButtonPrimary';
 import EachOrder from '../../components/eachOrder/eachOrder';
+import PageHeader from '../../components/pageHeader/PageHeader';
+import { findUserOrders } from '../../utils/api';
 import {
 	StyledAllComp,
 	StyledEmptyImg,
@@ -9,8 +11,6 @@ import {
 	StyledEmptySpan,
 	StyledMain
 } from './orders.styles';
-import PageHeader from '../../components/pageHeader/PageHeader';
-import ButtonPrimary from '../../components/buttonPrimary/ButtonPrimary';
 
 const Orders = () => {
 	const { id } = useParams();

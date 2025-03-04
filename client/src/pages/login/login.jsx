@@ -1,6 +1,10 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../config/firebase.config';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import ButtonInput from '../../components/buttonInputPrimary/ButtonInput';
+import PageHeader from '../../components/pageHeader/PageHeader';
+import Spinner from '../../components/spinner/Spinner';
+import { auth } from '../../config/firebase.config';
 import { useAuth } from '../../hooks/useAuth';
 import {
 	StyledContainer,
@@ -10,10 +14,6 @@ import {
 	StyledInputAndTag,
 	StyledMain
 } from './login.styles';
-import PageHeader from '../../components/pageHeader/PageHeader';
-import ButtonInput from '../../components/buttonInputPrimary/ButtonInput';
-import Spinner from '../../components/spinner/Spinner';
-import { useState } from 'react';
 
 const Login = () => {
 	const navigate = useNavigate();

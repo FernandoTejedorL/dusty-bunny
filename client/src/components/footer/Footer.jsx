@@ -1,5 +1,8 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from '../logo/Logo';
+import Modal from '../modal/Modal';
+import TAndC from '../tAndC/TAndC';
 import {
 	StyledCopy,
 	StyledFooter,
@@ -11,9 +14,6 @@ import {
 	StyledTermsSpan,
 	StyledToTop
 } from './footer.styles';
-import Modal from '../modal/Modal';
-import TAndC from '../tAndC/TAndC';
-import { useState } from 'react';
 
 const Footer = () => {
 	const [showModal, setShowModal] = useState(false);

@@ -1,4 +1,7 @@
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { createQuery } from '../../utils/api';
+import Spinner from '../spinner/Spinner';
 import {
 	StyledBottomForm,
 	StyledForm,
@@ -8,9 +11,6 @@ import {
 	StyledSubmit,
 	StyledTextInput
 } from './contactForm.styles';
-import { createQuery } from '../../utils/api';
-import Spinner from '../spinner/Spinner';
-import { useState } from 'react';
 
 const ContactForm = ({ topic, topValue, setTopValue, setSubmitted }) => {
 	const {
