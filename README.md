@@ -7,7 +7,7 @@
     <img src="https://raw.githubusercontent.com/FernandoTejedorL/dusty-bunny/refs/heads/main/client/design/shop.jpg" alt="home">
 </p>
 
-## Vista en vivo
+## Live view
 
 <ul>
     <li>
@@ -15,9 +15,15 @@
     </li>
 </ul>
 
-## Descripción 📑
+## Description 📑
 
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, ipsum ipsam debitis ducimus dolorum placeat? Consectetur, soluta vero. Accusamus iure est pariatur, doloremque nam cumque natus unde adipisci laborum ut. At id sapiente consequatur earum. Magnam doloribus, voluptate zumito doloremque obcaecati vel excepturi numquam cupiditate ipsam quisquam!
+Dusty Bunny is a unique and whimsical online marketplace where users can buy, sell, and desire premium dust bunnies. Whether you're a fluff enthusiast, a collector of rare dust specimens, or just looking for a fun way to engage with a quirky community, Dusty Bunny has something for you!
+
+✨ <b>Features</b>
+🛍 Buy & Sell Fluffs – Find and trade a variety of dust bunnies, from the common couch fluff to rare and mythical specimens.
+🔍 Advanced Search – Filter fluffs by size, diet, and personality.
+🏪 Vendor Accounts – Become a verified fluff seller and start your own fluffy business.
+🏢 Fluff Corporate HQ – A structured and professional (but still fluffy) executive team manages the platform.
 
 ## ¿Qué he aprendido en este proyecto? 🙇🏻
 
