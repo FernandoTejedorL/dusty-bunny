@@ -3,9 +3,6 @@
 <p>
     <img src="https://raw.githubusercontent.com/FernandoTejedorL/dusty-bunny/refs/heads/main/client/design/home.jpg" alt="home">
 </p>
-<p>
-    <img src="https://raw.githubusercontent.com/FernandoTejedorL/dusty-bunny/refs/heads/main/client/design/shop.jpg" alt="home">
-</p>
 
 ## Live view
 
@@ -29,11 +26,11 @@ Dusty Bunny is a unique and whimsical online marketplace where users can buy, se
 </br>
 🏢 Fluff Corporate HQ – A structured and professional (but still fluffy) executive team manages the platform.
 
-## ¿Qué he aprendido en este proyecto? 🙇🏻
+## What have I learnt from this project? 🙇🏻
 
 Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, ipsum ipsam debitis ducimus dolorum placeat? Consectetur, soluta vero. Accusamus iure est pariatur, doloremque nam cumque natus unde adipisci laborum ut. At id sapiente consequatur earum. Magnam doloribus, voluptate zumito doloremque obcaecati vel excepturi numquam cupiditate ipsam quisquam!
 
-## Tecnologías 🛠
+## Technologies 🛠
 
 <!-- Iconos sacados de: https://github.com/alexandresanlim/Badges4-README.md-Profile?tab=readme-ov-file#-languages- -->
 
