@@ -26,16 +26,41 @@ Dusty Bunny is a unique and whimsical online marketplace where users can buy and
 </br>
 🏢 Fluff Corporate HQ – A structured and professional (but still fluffy) executive team manages the platform.
 
-## What have I learnt from this project? 🙇🏻
+## 🚀 What I Learned from Building Dusty Bunny
 
-Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, ipsum ipsam debitis ducimus dolorum placeat? Consectetur, soluta vero. Accusamus iure est pariatur, doloremque nam cumque natus unde adipisci laborum ut. At id sapiente consequatur earum. Magnam doloribus, voluptate zumito doloremque obcaecati vel excepturi numquam cupiditate ipsam quisquam!
+Throughout this project, I’ve gained hands-on experience in everything from UI design in Figma to full production deployment on Render.
+
+During the development process, I worked with:
+
+<ul>
+    <li>
+        JavaScript, HTML5, and CSS as the core technologies.
+    </li>
+    <li>
+        React for the frontend, styled with Styled Components to keep designs modular and dynamic.
+    </li>
+    <li>
+        Node.js for the backend, ensuring smooth API interactions.
+    </li>
+    <li>
+        Libraries like Swiper and React Hook Form to enhance UI interactivity and form handling.     
+    </li>
+    <li>
+        MongoDB with four different databases, optimizing data storage and management.
+    </li>
+    <li>
+        Firebase for user authentication, enabling secure sign-ups and logins.
+    </li>
+</ul>
+
+From concept to deployment, Dusty Bunny has been an incredible learning journey, helping me develop my skills in full-stack development, UI/UX design, and cloud deployment. 🚀✨
 
 ## Technologies 🛠
 
 <!-- Iconos sacados de: https://github.com/alexandresanlim/Badges4-README.md-Profile?tab=readme-ov-file#-languages- -->
 
 <p>
-    <span>Programming and Markup Languages</span></br>
+    <span>Programming and Markup Languages:</span></br>
     <a href="https://es.wikipedia.org/wiki/CSS">
         <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS logo">
     </a>
@@ -47,7 +72,7 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, 
     </a>    
 </p>
 <p>
-    <span>Frameworks and Libraries</span></br>
+    <span>Frameworks and Libraries:</span></br>
     <a href="https://es.wikipedia.org/wiki/React">
         <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React logo">
     </a>
@@ -56,7 +81,7 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, 
     </a>
 </p>
 <p>
-    <span>Tools and Platforms</span></br>
+    <span>Tools and Platforms:</span></br>
     <a href="https://https://render.com/">
         <img src="https://img.shields.io/badge/Render-46E3B7?style=for-the-badge&logo=render&logoColor=white" alt="Render logo">
     </a>
@@ -65,13 +90,13 @@ Lorem ipsum dolor, sit amet consectetur adipisicing elit. A voluptatum et esse, 
     </a>
 </p>
 <p>
-    <span>Databases</span></br>
+    <span>Databases:</span></br>
     <a href="https://https://www.mongodb.com/">
         <img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" alt="Mongo logo">
     </a>
 </p>
 <p>
-    <span>Back-end and Cloud Services</span></br>
+    <span>Back-end and Cloud Services:</span></br>
     <a href="https://firebase.google.com/">
         <img src="https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black" alt="Firebase logo">
     </a>
