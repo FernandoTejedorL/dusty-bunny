@@ -14,7 +14,7 @@ const StyledMenu = styled.div`
 	border-bottom: 0.3125rem solid ${COLORS.dark};
 	border-radius: 0 0 0.5rem 0.5rem;
 	z-index: 10;
-	max-height: 80vh;
+	height: 100vh;
 	overflow-y: auto;
 
 	@media screen and (width>=1024px) {
@@ -23,6 +23,8 @@ const StyledMenu = styled.div`
 		translate: 0;
 		top: 0;
 		border-bottom: none;
+		height: 80px;
+
 		max-width: 70%;
 	}
 `;
@@ -135,10 +137,10 @@ const StyledLogOutButton = styled.button`
 `;
 
 export {
-	StyledMenu,
-	StyledUl,
-	StyledNavLink,
-	StyledButtonsContainer,
 	StyledButton,
-	StyledLogOutButton
+	StyledButtonsContainer,
+	StyledLogOutButton,
+	StyledMenu,
+	StyledNavLink,
+	StyledUl
 };

@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
-import './normalize.css';
-import { FONT_FAMILY } from './fonts';
 import { COLORS } from './colors';
+import { FONT_FAMILY } from './fonts';
+import './normalize.css';
 export const GlobalStyles = createGlobalStyle`
     *,
     *::after,
@@ -30,7 +30,10 @@ export const GlobalStyles = createGlobalStyle`
         font-family: ${FONT_FAMILY.grandstander};
         margin: 0;
         color: ${COLORS.dark};
-
+        
+        &.overflow{
+            overflow: hidden;
+        }
     }
 
     #root{
