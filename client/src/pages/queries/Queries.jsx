@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+
 import EachQuerie from '../../components/eachQuerie/EachQuerie';
 import PageHeader from '../../components/pageHeader/PageHeader';
 import { findAllQueries } from '../../utils/api';
+
 import { StyledAllComp, StyledMain } from './queries.styles';
 
 const Queries = () => {

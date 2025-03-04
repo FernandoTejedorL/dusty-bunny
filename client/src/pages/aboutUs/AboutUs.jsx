@@ -3,6 +3,7 @@ import PageHeader from '../../components/pageHeader/PageHeader';
 import Paragraph from '../../components/paragraph/Paragraph';
 import { ABOUT_INFO } from '../../constants/aboutUs-info';
 import { STAFF_INFO } from '../../constants/staff-info';
+
 import { StyledCardsContainer, StyledMain } from './aboutUs.styles';
 
 const AboutUs = () => {

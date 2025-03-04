@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 import {
 	actionAddToCart,
 	actionDecrementQuantity,
@@ -6,6 +7,7 @@ import {
 } from '../../actions/cart-actions';
 import { useAuth } from '../../hooks/useAuth';
 import { useCart } from '../../hooks/useCart';
+
 import {
 	StyledCardButton,
 	StyledMoreInfo,

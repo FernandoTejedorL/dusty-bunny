@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
+
 import { useProducts } from '../../hooks/useProducts';
+
 import {
 	StyledContentImage,
 	StyledOrderContent,

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import { actionDeleteFromCart } from '../../actions/cart-actions';
 import CheckOut from '../../components/checkOut/CheckOut';
 import Modal from '../../components/modal/Modal';
@@ -6,6 +7,7 @@ import PageHeader from '../../components/pageHeader/PageHeader';
 import ShopCard from '../../components/shopCard/ShopCard';
 import SideCart from '../../components/sideCart/SideCart';
 import { useCart } from '../../hooks/useCart';
+
 import {
 	StyledAllComp,
 	StyledCartShop,
@@ -21,8 +23,10 @@ import {
 
 const CartPage = () => {
 	const { cartState, dispatch, totalPrice } = useCart();
+
 	const [showModal, setShowModal] = useState(false);
 	const [sent, setSent] = useState(false);
+
 	return (
 		<StyledMain>
 			<PageHeader text={'Cart'} />

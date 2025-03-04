@@ -1,11 +1,13 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import ButtonInput from '../../components/buttonInputPrimary/ButtonInput';
 import PageHeader from '../../components/pageHeader/PageHeader';
 import Spinner from '../../components/spinner/Spinner';
 import { auth } from '../../config/firebase.config';
 import { useAuth } from '../../hooks/useAuth';
+
 import {
 	StyledContainer,
 	StyledForm,
@@ -19,7 +21,9 @@ const Login = () => {
 	const navigate = useNavigate();
 	const { loading } = useAuth();
 	const [completed, setComplete] = useState(false);
+
 	if (loading) return <h2>Loading...</h2>;
+
 	return (
 		<StyledMain>
 			<Spinner completed={completed} />

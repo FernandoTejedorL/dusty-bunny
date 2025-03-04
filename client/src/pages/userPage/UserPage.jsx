@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
+
 import AvatarGrid from '../../components/avatarGrid/AvatarGrid';
 import ButtonInput from '../../components/buttonInputPrimary/ButtonInput';
 import ButtonPrimary from '../../components/buttonPrimary/ButtonPrimary';
@@ -10,6 +11,7 @@ import Spinner from '../../components/spinner/Spinner';
 import { useAuth } from '../../hooks/useAuth';
 import { useProducts } from '../../hooks/useProducts';
 import { updateDataById } from '../../utils/api';
+
 import {
 	StyledAvatar,
 	StyledConfirmCancel,
@@ -25,18 +27,21 @@ import {
 } from './userPage.styles';
 
 const UserPage = () => {
+	const { id } = useParams();
+
+	const { register, handleSubmit } = useForm();
 	const { user, setUser, loading } = useAuth();
 	const { products } = useProducts();
 	const [edit, setEdit] = useState(false);
 	const [currentAvatar, setCurrentAvatar] = useState(user.avatar);
 	const [completed, setCompleted] = useState(false);
-	const { id } = useParams();
-	const { register, handleSubmit } = useForm();
 	const navigate = useNavigate();
 
 	if (loading) return <h2>Loading...</h2>;
+
 	const favourites = user.favs;
 	const favouritesToShow = productsToCarousel(favourites, products);
+
 	return (
 		<StyledMain>
 			<Spinner completed={completed} />

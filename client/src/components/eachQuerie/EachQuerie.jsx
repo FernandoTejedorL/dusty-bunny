@@ -1,6 +1,8 @@
 import { useState } from 'react';
+
 import { findAllQueries, updateQueryStatus } from '../../utils/api';
 import ButtonPrimary from '../buttonPrimary/ButtonPrimary';
+
 import {
 	StyledButtonsContainer,
 	StyledEachQuery,
@@ -12,6 +14,7 @@ import {
 
 const EachQuerie = ({ item, setQueries }) => {
 	const [showDetails, setShowDetails] = useState(false);
+
 	const read = item.read;
 	const id = item._id;
 

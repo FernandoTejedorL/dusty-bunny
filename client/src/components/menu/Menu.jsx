@@ -1,7 +1,9 @@
 import { signOut } from 'firebase/auth';
 import { Link } from 'react-router-dom';
+
 import { auth } from '../../config/firebase.config';
 import { useAuth } from '../../hooks/useAuth';
+
 import {
 	StyledButton,
 	StyledButtonsContainer,
@@ -13,7 +15,9 @@ import {
 
 const Menu = ({ menuOpen, setMenuOpen }) => {
 	const { user, loading } = useAuth();
+
 	if (loading) return <h2>LOADING...</h2>;
+
 	return (
 		<StyledMenu $showMenu={menuOpen} onClick={() => setMenuOpen(false)}>
 			<nav>

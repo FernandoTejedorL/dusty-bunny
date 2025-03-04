@@ -1,6 +1,8 @@
 import { useState } from 'react';
+
 import Logo from '../logo/Logo';
 import Menu from '../menu/Menu';
+
 import {
 	StyledBrand,
 	StyledBranding,
@@ -10,6 +12,7 @@ import {
 
 const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
+
 	return (
 		<StyledHeader id='header'>
 			<StyledBranding>

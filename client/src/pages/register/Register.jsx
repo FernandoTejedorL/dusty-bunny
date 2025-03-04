@@ -2,6 +2,7 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+
 import AvatarGrid from '../../components/avatarGrid/AvatarGrid';
 import Modal from '../../components/modal/Modal';
 import PageHeader from '../../components/pageHeader/PageHeader';
@@ -11,6 +12,7 @@ import WrongSpinner from '../../components/wrongSpinner/WrongSpinner';
 import { auth } from '../../config/firebase.config';
 import { useAuth } from '../../hooks/useAuth';
 import { createData } from '../../utils/api';
+
 import {
 	StyledButton,
 	StyledCheckbox,
@@ -34,17 +36,20 @@ const Register = () => {
 		watch,
 		formState: { errors }
 	} = useForm();
-	const navigate = useNavigate();
 	const { loading, setUser } = useAuth();
-	const errorMessage = '*This field is required';
-	const isEmployee = watch('employee') === 'pelusas';
 	const [mailOk, setMailOk] = useState(true);
 	const [showModal, setShowModal] = useState(false);
 	const [currentAvatar, setCurrentAvatar] = useState(
 		'/assets/images/common/register.jpg'
 	);
 	const [completed, setCompleted] = useState(false);
+	const navigate = useNavigate();
+
+	const errorMessage = '*This field is required';
+	const isEmployee = watch('employee') === 'pelusas';
+
 	if (loading) return <h2>Loading...</h2>;
+
 	return (
 		<StyledMain>
 			<Spinner completed={completed} />

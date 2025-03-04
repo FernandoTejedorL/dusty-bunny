@@ -1,5 +1,7 @@
 import { useState } from 'react';
+
 import OrderContent from '../orderContent/OrderContent';
+
 import {
 	StyledEachInfo,
 	StyledEachOrder,
@@ -9,6 +11,7 @@ import {
 
 const EachOrder = ({ item }) => {
 	const [showContent, setShowContent] = useState(false);
+
 	return (
 		<StyledEachOrder
 			onClick={() => setShowContent(!showContent)}

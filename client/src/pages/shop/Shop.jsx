@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+
 import FilterShop from '../../components/filterShop/FilterShop';
 import PageHeader from '../../components/pageHeader/PageHeader';
 import ShopCard from '../../components/shopCard/ShopCard';
@@ -7,6 +8,7 @@ import SideCart from '../../components/sideCart/SideCart';
 import { FILTERS } from '../../constants/filters';
 import { useAuth } from '../../hooks/useAuth';
 import { useProducts } from '../../hooks/useProducts';
+
 import {
 	StyledAllComp,
 	StyledAllFilters,
@@ -25,10 +27,10 @@ import {
 } from './shop.styles';
 
 const Shop = () => {
-	const [filtersOpen, SetFiltersOpen] = useState(false);
 	const { products } = useProducts();
 	const { user } = useAuth();
 	const navigate = useNavigate();
+	const [filtersOpen, SetFiltersOpen] = useState(false);
 
 	const [filters, setFilters] = useState({
 		category: [],

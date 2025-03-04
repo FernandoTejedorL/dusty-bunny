@@ -1,4 +1,5 @@
 import GraphCard from '../graphCard/GraphCard';
+
 import {
 	StyledGraphCard,
 	StyledGraphsContainer

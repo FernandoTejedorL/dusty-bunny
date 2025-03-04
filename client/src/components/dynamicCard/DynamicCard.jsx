@@ -1,4 +1,5 @@
 import Logo from '../logo/Logo';
+
 import {
 	StyledDynamicCard,
 	StyledInfoContainer,

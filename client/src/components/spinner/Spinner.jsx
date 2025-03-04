@@ -6,6 +6,7 @@ import {
 
 const Spinner = ({ completed }) => {
 	if (!completed) return;
+
 	return (
 		<StyledSpinner>
 			<StyledSpinnerImage

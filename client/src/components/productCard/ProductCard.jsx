@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import 'swiper/css';
+
 import { useAuth } from '../../hooks/useAuth';
+
 import {
 	StyledCardImage,
 	StyledPrice,
@@ -9,7 +11,9 @@ import {
 
 const ProductCard = ({ id, image, name, price }) => {
 	const { user } = useAuth();
+
 	const direction = user ? `/product/${id}` : '/redirect';
+
 	return (
 		<Link to={direction}>
 			<StyledSlide>

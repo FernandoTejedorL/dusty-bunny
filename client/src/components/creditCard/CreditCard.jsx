@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
+
 import { emptyCart } from '../../actions/cart-actions';
 import { useAuth } from '../../hooks/useAuth';
 import { useCart } from '../../hooks/useCart';
 import { addQuantityToProduct, createOrder } from '../../utils/api';
 import DynamicCard from '../dynamicCard/DynamicCard';
 import Spinner from '../spinner/Spinner';
+
 import {
 	StyledBottomInputs,
 	StyledButton,
@@ -22,8 +24,9 @@ import {
 const CreditCard = ({ setShowModal, setSent }) => {
 	const { cartState, dispatch, totalPrice } = useCart();
 	const { user } = useAuth();
-	const [completed, setCompleted] = useState(false);
 	const navigate = useNavigate();
+
+	const [completed, setCompleted] = useState(false);
 
 	const {
 		register,

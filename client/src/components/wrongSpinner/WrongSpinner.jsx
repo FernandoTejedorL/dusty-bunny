@@ -7,6 +7,7 @@ import {
 
 const WrongSpinner = ({ mailOK, setMailOk }) => {
 	if (!mailOK) return;
+
 	return (
 		<StyledSpinner>
 			<StyledSpinnerImage

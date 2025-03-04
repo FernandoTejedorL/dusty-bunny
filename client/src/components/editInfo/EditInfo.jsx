@@ -1,5 +1,6 @@
 import { FILTERS } from '../../constants/filters';
 import { findProduct, updateProductById } from '../../utils/api';
+
 import {
 	StyledDetailTag,
 	StyledEachDetail,
@@ -18,6 +19,7 @@ const EditInfo = ({ product, setProduct, setEdit, id }) => {
 	const isProduct = !Object.keys(product).length;
 
 	if (isProduct) return <h2>Loading...</h2>;
+
 	return (
 		<StyledEditInfo
 			onSubmit={event => updateProductInfo(event, id, setProduct, setEdit)}

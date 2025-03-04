@@ -1,7 +1,9 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+
 import { createQuery } from '../../utils/api';
 import Spinner from '../spinner/Spinner';
+
 import {
 	StyledBottomForm,
 	StyledForm,
@@ -33,12 +35,10 @@ const ContactForm = ({ topic, topValue, setTopValue, setSubmitted }) => {
 	const day = setTwoDigits(date.getDate());
 	const month = setTwoDigits(date.getMonth() + 1);
 	const year = date.getFullYear();
-
 	const dateToQuery = `${day}/${month}/${year}`;
-
 	const qst = watch('querySubType');
-
 	const errorMessage = '*This field is required';
+
 	return (
 		<StyledForm
 			onSubmit={handleSubmit(data =>

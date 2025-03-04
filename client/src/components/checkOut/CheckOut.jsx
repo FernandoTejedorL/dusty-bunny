@@ -12,6 +12,7 @@ import CreditCard from '../creditCard/CreditCard';
 
 const CheckOut = ({ setShowModal, setSent }) => {
 	const { totalPrice } = useCart();
+
 	return (
 		<>
 			<StyledCheckOutContent>

@@ -2,6 +2,7 @@ import Carousel from '../../components/carousel/Carousel';
 import CommentCard from '../../components/commentCard/CommentCard';
 import { OPINIONS } from '../../constants/opinions-info';
 import { useProducts } from '../../hooks/useProducts';
+
 import {
 	StyledBanner,
 	StyledBrand,

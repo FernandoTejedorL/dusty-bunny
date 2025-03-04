@@ -1,6 +1,8 @@
 import { useState } from 'react';
+
 import { useCart } from '../../hooks/useCart';
 import CartCard from '../cartCard/CartCard';
+
 import {
 	StyledCart,
 	StyledCartButton,
@@ -13,7 +15,9 @@ import {
 
 const SideCart = ({ buttonText, action }) => {
 	const { cartState, totalQuantity } = useCart();
+
 	const [cartOpen, setCartOpen] = useState(false);
+
 	return (
 		<StyledCart>
 			<StyledCloserTile onClick={() => setCartOpen(!cartOpen)}>

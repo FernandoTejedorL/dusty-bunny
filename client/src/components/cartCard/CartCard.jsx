@@ -8,6 +8,7 @@ import { useCart } from '../../hooks/useCart';
 
 const CartCard = ({ id, image, name, quantity }) => {
 	const { cartState } = useCart();
+
 	const finalPrice = totalPrice(id, cartState);
 
 	return (

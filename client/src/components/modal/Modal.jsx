@@ -1,4 +1,5 @@
 import { createPortal } from 'react-dom';
+
 import { StyledCheckOut } from './modal.styles';
 
 const Modal = ({ children }) => {

@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+
 import {
 	StyledDataDiv,
 	StyledGraphCard,
@@ -10,8 +11,10 @@ import {
 } from './graphCard.styles';
 
 const GraphCard = ({ product, type, total }) => {
-	const productPercent = (product[type] * 100) / total;
 	const navigate = useNavigate();
+
+	const productPercent = (product[type] * 100) / total;
+
 	return (
 		<StyledGraphCard>
 			<StyledGraphProduct onClick={() => navigate(`/product/${product._id}`)}>

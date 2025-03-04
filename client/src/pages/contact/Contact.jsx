@@ -1,7 +1,9 @@
 import { useState } from 'react';
+
 import ContactForm from '../../components/contactForm/ContactForm';
 import PageHeader from '../../components/pageHeader/PageHeader';
 import { QUERIES } from '../../constants/queries-info';
+
 import {
 	StyledBotForm,
 	StyledCatchphrase,
@@ -17,6 +19,7 @@ import {
 const Contact = () => {
 	const [topValue, setTopValue] = useState('');
 	const [submitted, setSubmitted] = useState(false);
+
 	return (
 		<StyledMain>
 			{submitted && (

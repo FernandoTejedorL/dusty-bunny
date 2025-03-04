@@ -1,6 +1,7 @@
 import PageHeader from '../../components/pageHeader/PageHeader';
 import SalesPageGraph from '../../components/salesPageGraph/SalesPageGraph';
 import { useProducts } from '../../hooks/useProducts';
+
 import { StyledGraphsContainer, StyledMain } from './salesPage.styles';
 
 const SalesPage = () => {

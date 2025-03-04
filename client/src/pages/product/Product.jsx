@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+
 import { actionAddToCart } from '../../actions/cart-actions';
 import EditInfo from '../../components/editInfo/EditInfo';
 import Info from '../../components/info/Info';
@@ -13,6 +14,7 @@ import {
 	removeFavToProduct,
 	updateFavById
 } from '../../utils/api';
+
 import {
 	StyledButton,
 	StyledButtonsContainer,
@@ -27,13 +29,14 @@ import {
 
 const Product = () => {
 	const { id } = useParams();
+	const { user, setUser } = useAuth();
+	const navigate = useNavigate();
 	const [product, setProduct] = useState({});
+	const { cartState, dispatch } = useCart();
 	const [fav, setFav] = useState(false);
 	const [edit, setEdit] = useState(false);
-	const { cartState, dispatch } = useCart();
-	const { user, setUser } = useAuth();
+
 	const userId = user._id;
-	const navigate = useNavigate();
 
 	useEffect(() => {
 		fetchProductById(setProduct, id);
