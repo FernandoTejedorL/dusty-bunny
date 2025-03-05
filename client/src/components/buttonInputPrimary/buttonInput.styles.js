@@ -5,7 +5,7 @@ const StyledButtonInput = styled.input`
 	display: flex;
 	align-items: center;
 	height: 2.5rem;
-	min-width: 150px;
+	min-width: 9.375rem;
 	background-color: ${COLORS.lightViolet};
 	border-radius: 0.5rem;
 	border: 0.0625rem solid ${COLORS.dark};
@@ -17,7 +17,7 @@ const StyledButtonInput = styled.input`
 		&:hover {
 			background-color: ${COLORS.deepViolet};
 			color: ${COLORS.white};
-			border: 1px solid ${COLORS.white};
+			border: 0.0625rem solid ${COLORS.white};
 		}
 	}
 `;

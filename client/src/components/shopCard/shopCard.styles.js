@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { FONT_SIZE } from '../../styles/fonts';
 import { COLORS } from '../../styles/colors';
+import { FONT_SIZE } from '../../styles/fonts';
 
 const StyledShopCard = styled.div`
 	display: flex;
@@ -8,25 +8,25 @@ const StyledShopCard = styled.div`
 	align-items: center;
 	gap: 1rem;
 	padding: 0.5rem;
-	width: 240px;
+	width: 15rem;
 	font-size: ${FONT_SIZE.s};
 	text-align: center;
 	padding: 1.5rem;
 	background-color: ${COLORS.card};
 	border-radius: 1rem;
-	box-shadow: 0 4px 4px;
+	box-shadow: 0 0.25rem 0.25rem;
 
 	@media screen and (width>=1024px) {
 		justify-content: space-between;
-		width: 200px;
-		height: ${({ $user }) => ($user ? '370px' : '240px')};
+		width: 12.5rem;
+		height: ${({ $user }) => ($user ? '23.125rem' : '15rem')};
 	}
 `;
 
 const StyledProductPic = styled.img`
 	border-radius: 1rem;
 
-	box-shadow: 0 4px 4px ${COLORS.deepViolet};
+	box-shadow: 0 0.25rem 0.25rem ${COLORS.deepViolet};
 `;
 
 const StyledNameAndPrice = styled.div`
@@ -111,12 +111,12 @@ const StyledQuantity = styled.span`
 `;
 
 export {
-	StyledShopCard,
-	StyledProductPic,
-	StyledNameAndPrice,
 	StyledCardButton,
-	StyledQuantityEditors,
-	StyledQuantityButtons,
+	StyledMoreInfo,
+	StyledNameAndPrice,
+	StyledProductPic,
 	StyledQuantity,
-	StyledMoreInfo
+	StyledQuantityButtons,
+	StyledQuantityEditors,
+	StyledShopCard
 };

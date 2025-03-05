@@ -15,7 +15,7 @@ const StyledEachQuery = styled.div`
 		$read ? `${COLORS.white}` : `${COLORS.turquoise}`};
 	width: 80%;
 	box-shadow: ${({ $showDetails }) =>
-		$showDetails ? `0 0 10px 4px ${COLORS.deepViolet};` : 'none'};
+		$showDetails ? `0 0 0.625rem 0.25rem ${COLORS.deepViolet};` : 'none'};
 
 	@media screen and (width>=1024px) {
 		width: 40%;
@@ -67,10 +67,10 @@ const StyledButtonsContainer = styled.div`
 `;
 
 export {
+	StyledButtonsContainer,
 	StyledEachQuery,
-	StyledQueryTile,
-	StyledSubTile,
 	StyledQueryDetails,
 	StyledQueryTag,
-	StyledButtonsContainer
+	StyledQueryTile,
+	StyledSubTile
 };

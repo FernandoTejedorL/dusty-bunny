@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
 import { COLORS } from '../../styles/colors';
+import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
 
 const StyledMain = styled.main`
 	display: flex;
@@ -11,8 +11,8 @@ const StyledMain = styled.main`
 `;
 
 const StyledContactImage = styled.img`
-	width: 250px;
-	height: 250px;
+	width: 15.625rem;
+	height: 15.625rem;
 	border-radius: 1rem;
 `;
 
@@ -76,21 +76,21 @@ const StyledSuccessful = styled.div`
 
 const StyledSuccessfullClose = styled.img`
 	position: absolute;
-	top: 15px;
-	right: 15px;
+	top: 0.9375rem;
+	right: 0.9375rem;
 	height: 1rem;
 	width: 1rem;
 	cursor: pointer;
 `;
 
 export {
-	StyledMain,
-	StyledContactImage,
-	StylefFormContainer,
-	StyledTopForm,
 	StyledBotForm,
 	StyledCatchphrase,
+	StyledContactImage,
+	StyledMain,
 	StyledSelect,
 	StyledSuccessful,
-	StyledSuccessfullClose
+	StyledSuccessfullClose,
+	StyledTopForm,
+	StylefFormContainer
 };

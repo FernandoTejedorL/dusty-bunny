@@ -7,10 +7,10 @@ const StyledButton = styled.button`
 	align-items: center;
 	justify-content: center;
 	height: 2.5rem;
-	min-width: 150px;
+	min-width: 9.375rem;
 	background-color: ${COLORS.white};
 	border-radius: 0.5rem;
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 	color: ${COLORS.dark};
 	font-weight: ${FONT_WEIGHT.bold};
 	padding: 0.5rem;
@@ -20,7 +20,7 @@ const StyledButton = styled.button`
 		&:hover {
 			background-color: ${COLORS.deepViolet};
 			color: ${COLORS.white};
-			border: 1px solid ${COLORS.white};
+			border: 0.0625rem solid ${COLORS.white};
 		}
 	}
 `;

@@ -19,8 +19,8 @@ const StyledAvatar = styled.input`
 	appearance: none;
 	-webkit-appearance: none;
 	-moz-appearance: none;
-	width: 55px;
-	height: 55px;
+	width: 3.4375rem;
+	height: 3.4375rem;
 	background-image: url(${props => props.$image});
 	background-size: cover;
 	background-position: center;
@@ -34,13 +34,13 @@ const StyledAvatar = styled.input`
 	}
 
 	@media screen and (width>=768px) {
-		width: 80px;
-		height: 80px;
+		width: 5rem;
+		height: 5rem;
 	}
 
 	@media screen and (width>=768px) {
-		width: 100px;
-		height: 100px;
+		width: 6.25rem;
+		height: 6.25rem;
 	}
 `;
 
@@ -50,8 +50,8 @@ const StyledRequired = styled.span`
 `;
 
 export {
+	StyledAvatar,
 	StyledAvatarComponent,
 	StyledAvatarGrid,
-	StyledAvatar,
 	StyledRequired
 };

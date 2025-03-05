@@ -31,11 +31,11 @@ const StyledLittleInputContainers = styled.div`
 const StyledInput = styled.input`
 	padding: 0.2rem;
 	border-radius: 0.5rem;
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 `;
 
 const StyledErrorMessage = styled.span`
-	font-size: 10px;
+	font-size: 0.625rem;
 	color: ${COLORS.pink};
 `;
 

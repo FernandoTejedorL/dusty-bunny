@@ -31,8 +31,8 @@ const StyledClose = styled.img`
 	position: absolute;
 	top: 0.5rem;
 	right: 0.5rem;
-	height: 15px;
-	width: 15px;
+	height: 0.9375rem;
+	width: 0.9375rem;
 	cursor: pointer;
 `;
 

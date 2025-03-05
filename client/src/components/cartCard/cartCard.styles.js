@@ -11,7 +11,7 @@ const StyledCartCard = styled.div`
 	margin: 0.5rem;
 	width: 90%;
 	height: 5.625rem;
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 	border-radius: 1rem;
 `;
 
@@ -46,4 +46,4 @@ const StyledCartElementInfo = styled.div`
 	}
 `;
 
-export { StyledCartCard, StyledCartImage, StyledCartElementInfo };
+export { StyledCartCard, StyledCartElementInfo, StyledCartImage };

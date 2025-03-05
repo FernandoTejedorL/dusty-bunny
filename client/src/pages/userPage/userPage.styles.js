@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
 import { COLORS } from '../../styles/colors';
+import { FONT_FAMILY, FONT_SIZE, FONT_WEIGHT } from '../../styles/fonts';
 
 const StyledMain = styled.main`
 	display: flex;
@@ -54,7 +54,7 @@ const StyledLabel = styled.label`
 `;
 
 const StyledInput = styled.input`
-	border: 1px solid ${COLORS.lightViolet};
+	border: 0.0625rem solid ${COLORS.lightViolet};
 	color: ${COLORS.pink};
 	border-radius: 0.5rem;
 	width: 100%;
@@ -97,7 +97,7 @@ const StyledEditButton = styled.button`
 	height: 2.5rem;
 	background-color: ${COLORS.lightViolet};
 	border-radius: 0.5rem;
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 	color: ${COLORS.dark};
 	padding-inline: 0.5rem;
 	cursor: pointer;
@@ -106,7 +106,7 @@ const StyledEditButton = styled.button`
 		&:hover {
 			background-color: ${COLORS.deepViolet};
 			color: ${COLORS.white};
-			border: 1px solid ${COLORS.white};
+			border: 0.0625rem solid ${COLORS.white};
 		}
 	}
 `;
@@ -127,16 +127,16 @@ const StyledEmptySpan = styled.span`
 `;
 
 export {
-	StyledMain,
-	StyledUserContainer,
 	StyledAvatar,
-	StyledForm,
-	StyledInputContainer,
-	StyledLabel,
-	StyledInput,
-	StyledConfirmCancel,
 	StyledButton,
+	StyledConfirmCancel,
 	StyledEditButton,
 	StyledEmptyFavs,
-	StyledEmptySpan
+	StyledEmptySpan,
+	StyledForm,
+	StyledInput,
+	StyledInputContainer,
+	StyledLabel,
+	StyledMain,
+	StyledUserContainer
 };

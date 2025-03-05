@@ -12,7 +12,7 @@ const StyledCheckOutContent = styled.div`
 	height: 70%;
 	background-color: ${COLORS.white};
 	padding: 2rem;
-	border: 3px solid ${COLORS.dark};
+	border: 0.1875rem solid ${COLORS.dark};
 	border-radius: 1rem;
 	max-height: 80vh;
 	overflow-y: auto;
@@ -70,14 +70,14 @@ const StyledEachTotalInfo = styled.div`
 	border-top: 0.0625rem solid ${COLORS.dark};
 	font-weight: ${FONT_WEIGHT.bold};
 	font-size: ${FONT_SIZE.m};
-	padding-top: 16px;
+	padding-top: 1rem;
 `;
 
 export {
 	StyledCheckOutContent,
-	StyledHeader,
 	StyledCheckOutData,
-	StyledInfoContainer,
 	StyledEachInfo,
-	StyledEachTotalInfo
+	StyledEachTotalInfo,
+	StyledHeader,
+	StyledInfoContainer
 };

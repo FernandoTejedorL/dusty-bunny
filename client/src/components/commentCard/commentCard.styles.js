@@ -7,7 +7,7 @@ const StyledCard = styled.div`
 	gap: 1.5rem;
 	padding: 1.5rem;
 	width: 80%;
-	box-shadow: 0px 0.25rem 0.25rem 0.25rem;
+	box-shadow: 0 0.25rem 0.25rem 0.25rem;
 	border-radius: 0.5rem;
 
 	@media screen and (width>=1024px) {
@@ -57,9 +57,9 @@ const StyledRole = styled.span`
 export {
 	StyledCard,
 	StyledComment,
+	StyledName,
+	StyledNameAndRole,
 	StyledProfile,
 	StyledProfilePic,
-	StyledNameAndRole,
-	StyledName,
 	StyledRole
 };

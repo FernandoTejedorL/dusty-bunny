@@ -13,7 +13,7 @@ const StyledEachOrder = styled.div`
 	background-color: ${COLORS.white};
 	width: 80%;
 	box-shadow: ${({ $showContent }) =>
-		$showContent ? `0 0 10px 4px ${COLORS.deepViolet};` : 'none'};
+		$showContent ? `0 0 0.625rem 0.25rem ${COLORS.deepViolet};` : 'none'};
 
 	@media screen and (width>=1024px) {
 		width: 40%;
@@ -44,8 +44,8 @@ const StyledOrderContentContainer = styled.div`
 `;
 
 export {
-	StyledEachOrder,
 	StyledEachInfo,
+	StyledEachOrder,
 	StyledEachTitle,
 	StyledOrderContentContainer
 };

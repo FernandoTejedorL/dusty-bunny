@@ -10,7 +10,7 @@ const StyledCheckOut = styled.div`
 	align-items: center;
 	justify-content: center;
 	background-color: rgb(176 135 233 / 0.4);
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(0.3125rem);
 	z-index: 100;
 `;
 

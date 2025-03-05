@@ -11,8 +11,8 @@ const StyledDynamicCard = styled.div`
 		position: absolute;
 		left: 5vw;
 		top: 30%;
-		width: 350px;
-		height: 250px;
+		width: 21.875rem;
+		height: 15.625rem;
 		border: 0.0625rem solid ${COLORS.dark};
 		border-radius: 1rem;
 		padding: 1rem;

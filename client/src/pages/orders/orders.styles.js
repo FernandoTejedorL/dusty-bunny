@@ -30,8 +30,8 @@ const StyledEmptyOrders = styled.div`
 `;
 
 const StyledEmptyImg = styled.img`
-	height: 200px;
-	width: 200px;
+	height: 12.5rem;
+	width: 12.5rem;
 	border-radius: 1rem;
 `;
 
@@ -41,9 +41,9 @@ const StyledEmptySpan = styled.span`
 `;
 
 export {
-	StyledMain,
 	StyledAllComp,
-	StyledEmptyOrders,
 	StyledEmptyImg,
-	StyledEmptySpan
+	StyledEmptyOrders,
+	StyledEmptySpan,
+	StyledMain
 };

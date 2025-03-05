@@ -25,7 +25,7 @@ const StyledDetailTag = styled.label`
 
 const StyledTextArea = styled.textarea`
 	width: 100%;
-	height: 100px;
+	height: 6.25rem;
 	padding: 0.8rem;
 	color: ${COLORS.deepViolet};
 	border-radius: 1rem;

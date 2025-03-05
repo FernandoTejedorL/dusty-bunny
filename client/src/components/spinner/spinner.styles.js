@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
 import { COLORS } from '../../styles/colors';
+import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
 
 const StyledSpinner = styled.div`
 	position: fixed;
@@ -15,8 +15,8 @@ const StyledSpinner = styled.div`
 `;
 
 const StyledSpinnerImage = styled.img`
-	height: 100px;
-	width: 100px;
+	height: 6.25rem;
+	width: 6.25rem;
 `;
 
 const StyledSpinnerText = styled.span`

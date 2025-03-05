@@ -92,7 +92,7 @@ const StyledCartButton = styled.button`
 	@media (hover: hover) {
 		&:hover {
 			background-color: ${COLORS.deepViolet};
-			border: 1px solid ${COLORS.white};
+			border: 0.0625rem solid ${COLORS.white};
 			color: ${COLORS.white};
 		}
 	}
@@ -100,10 +100,10 @@ const StyledCartButton = styled.button`
 
 export {
 	StyledCart,
-	StyledCloserTile,
+	StyledCartButton,
+	StyledCartContainer,
 	StyledCartCounter,
 	StyledChevron,
-	StyledCartContainer,
-	StyledEmptyImg,
-	StyledCartButton
+	StyledCloserTile,
+	StyledEmptyImg
 };

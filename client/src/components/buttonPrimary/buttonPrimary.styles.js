@@ -6,10 +6,10 @@ const StyledButton = styled.button`
 	align-items: center;
 	justify-content: center;
 	height: 2.5rem;
-	min-width: 150px;
+	min-width: 9.375rem;
 	background-color: ${COLORS.lightViolet};
 	border-radius: 0.5rem;
-	border: 1px solid ${COLORS.dark};
+	border: 0.0625rem solid ${COLORS.dark};
 	color: ${COLORS.dark};
 	padding: 0.5rem;
 	cursor: pointer;
@@ -18,10 +18,9 @@ const StyledButton = styled.button`
 		&:hover {
 			background-color: ${COLORS.deepViolet};
 			color: ${COLORS.white};
-			border: 1px solid ${COLORS.white};
+			border: 0.0625rem solid ${COLORS.white};
 		}
 	}
 `;
-
 
 export { StyledButton };
