@@ -18,6 +18,7 @@ const StyledWIP = styled.div`
 	border-radius: 1rem;
 `;
 
+
 const StyledWipImage = styled.img`
 	border-radius: 1rem;
 `;
