@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
 import { COLORS } from '../../styles/colors';
+import { FONT_FAMILY, FONT_SIZE } from '../../styles/fonts';
 
 const StyledHeader = styled.header`
 	position: relative;
@@ -13,6 +13,7 @@ const StyledHeader = styled.header`
 
 	@media screen and (width>=1024px) {
 		padding-inline: 1rem;
+		height: 8.4375rem;
 	}
 `;
 
@@ -42,4 +43,4 @@ const StyledIcon = styled.img`
 		display: none;
 	}
 `;
-export { StyledHeader, StyledBranding, StyledBrand, StyledIcon };
+export { StyledBrand, StyledBranding, StyledHeader, StyledIcon };
