@@ -26,7 +26,7 @@ const StyledMenu = styled.div`
 		translate: 0;
 		top: 0;
 		border-bottom: none;
-		height: 4rem;
+		//height: 4rem;
 		max-width: 70%;
 	}
 `;
