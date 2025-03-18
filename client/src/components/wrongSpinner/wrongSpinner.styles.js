@@ -14,6 +14,7 @@ const StyledSpinner = styled.div`
 	gap: 0.5rem;
 `;
 
+
 const StyledSpinnerImage = styled.img`
 	height: 6.25rem;
 	width: 6.25rem;
