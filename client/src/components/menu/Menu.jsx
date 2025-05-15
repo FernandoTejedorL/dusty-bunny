@@ -55,7 +55,10 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
 					)}
 					{user && (
 						<StyledButtonsContainer>
-							<ButtonSecondary text={'Log Out'} action={() => logout()} />
+							<ButtonSecondary
+								text={'Log Out'}
+								action={() => logout(navigate)}
+							/>
 						</StyledButtonsContainer>
 					)}
 				</StyledUl>
@@ -64,8 +67,9 @@ const Menu = ({ menuOpen, setMenuOpen }) => {
 	);
 };
 
-const logout = async () => {
+const logout = async navigate => {
 	await signOut(auth);
+	navigate('/');
 };
 
 export default Menu;
