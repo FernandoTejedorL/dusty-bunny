@@ -19,7 +19,7 @@ const AvatarGrid = ({ register, error, required, action }) => {
 						type='radio'
 						id={item.image}
 						value={item.image}
-						onClick={() => action(item.image)}
+						onChange={() => action(item.image)}
 						{...register('avatar', { required })}
 					/>
 				))}

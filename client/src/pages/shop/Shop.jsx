@@ -41,11 +41,18 @@ const Shop = () => {
 
 	const filteredProducts = filterProducts(products, filters);
 
+	console.log(filtersOpen);
+
 	return (
 		<StyledMain>
 			<PageHeader text={'Shop'} />
 			<StyledAllFilters>
-				<StyledFiltersTile onClick={() => SetFiltersOpen(!filtersOpen)}>
+				<StyledFiltersTile
+					onClick={() => {
+						console.log('clicked!');
+						SetFiltersOpen(!filtersOpen);
+					}}
+				>
 					<span>Filters</span>
 					<StyledChevron
 						$filtersOpen={filtersOpen}
